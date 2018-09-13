@@ -79,10 +79,11 @@ Alternatively, the exact pre-formatted data used in this analysis are available 
 | Introduction          |        988 |      | Tables     |   2 |
 | Materials and methods |       2056 |      | References | ??? |
 | Results               |       1094 |      |            |     |
-| Discussion            |       1933 |      |            |     |
+| Discussion            |       1524 |      |            |     |
+| Conclusions           |        132 |      |            |     |
 |-----------------------+------------+------+------------+-----|
-| Total                 |       6217 | 5000 |            |     |
-#+TBLFM: @7$2=vsum(@I..II)
+| Total                 |       5940 | 5000 |            |     |
+#+TBLFM: @8$2=vsum(@I..II)
 
 \linenumbers
 
@@ -458,9 +459,9 @@ Similarly, reexamining the relationships defining wood cite:chave_2009_towards,f
 We emphasize that the difficulty of measuring hydraulic and other non-foliar traits [[cite:jansen_2015_current][e.g.]] further increases the value of any technique that can fully leverage the information they provide. 
 Ultimately, multivariate and hierarchical modeling may reveal functional trade-offs that are mutually confounding at different scales, thereby enhancing our understanding of processes driving functional diversity.
 
-** Conclusions
+* Conclusions
 
-The tremendous functional diversity of plants continues to be a major challenge for functional ecology and ecosystem modeling.
+The vast diversity of plants is a major challenge for functional ecology and ecosystem modeling.
 Functional diversity research fundamentally depends on dimensionality reduction through a search for meaningful pattern that can be exploited to take reasonable guesses at average behavior. 
 The trait trade-offs comprising the leaf economic spectrum are one such pattern. 
 In this paper, we reaffirm the existence of the leaf economic spectrum both globally and, with some caveats, within plant functional types typically used in the current generation of Earth System Models.
