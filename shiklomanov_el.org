@@ -1,27 +1,99 @@
 #+TITLE: Does the leaf economic spectrum hold within plant functional types? A Bayesian multivariate trait meta-analysis
 #+AUTHOR:
 #+DATE:
+
 #+OPTIONS: toc:nil
+#+CSL_STYLE: ecology-letters.csl
+
+#+LATEX_HEADER: \usepackage[left=1in,right=1in,top=1in,bottom=1in]{geometry}
+#+LATEX_HEADER: \usepackage{lineno}
+
 #+LATEX_HEADER: \usepackage[noblocks]{authblk}
-#+LATEX_HEADER: \author[1]{Alexey N. Shiklomanov}
-#+LATEX_HEADER: \author[2]{Elizabeth M. Cowdery}
-#+LATEX_HEADER: \author[2]{Michael C. Dietze}
+
+#+LATEX_HEADER: \author[1,*]{Alexey N. Shiklomanov <alexey.shiklomanov@pnnl.gov>}
 #+LATEX_HEADER: \affil[1]{Joint Global Change Research Institute, Pacific Northwest National Laboratory, College Park, MD}
+#+LATEX_HEADER: \author[2]{Elizabeth M. Cowdery <ecowdery@bu.edu>}
 #+LATEX_HEADER: \affil[2]{Department of Earth \& Environment, Boston University, Boston, MA}
-#+CSL_STYLE: /Users/shik544/Projects/tools/styles/ecology-letters.csl 
+#+LATEX_HEADER: \author[3]{Michael Bahn <Michael.Bahn@uibk.ac.at>}
+#+LATEX_HEADER: \affil[3]{Institute of Ecology, University of Innsbruck, 6020 Innsbruck, Austria}
+#+LATEX_HEADER: \author[4]{Chaeho Byun <chaeho.byun@mail.mcgill.ca>} %%% Emailed %%%
+#+LATEX_HEADER: \affil[4]{School of Civil and Environmental Engineering, Yonsei University, Seoul, Korea}
+#+LATEX_HEADER: \author[5]{Joseph Craine <josephmcraine@gmail.com>} %%% Emailed %%%
+#+LATEX_HEADER: \affil[5]{Jonah Ventures, LLC, Manhattan, KS 66502, USA}
+#+LATEX_HEADER: \author[6]{Andr\'es Gonzalez-Melo <geagonzalezme@unal.edu.co>} %%% Emailed %%%
+#+LATEX_HEADER: \affil[6]{Universidad del Rosario. Facultad de Ciencias Naturales y Matematic\'as. Carrera 26 63B-48. Bogot\'a, Colombia}
+#+LATEX_HEADER: \author[7]{Steven Jansen <steven.jansen@uni-ulm.de>}
+#+LATEX_HEADER: \affil[7]{Institute of Systematic Botany and Ecology, Ulm University, Ulm, Germany}
+#+LATEX_HEADER: \author[8]{Nathan Kraft <nkraft@ucla.edu>}
+#+LATEX_HEADER: \affil[8]{Department of Ecology and Evolutionary Biology, University of California Los Angeles, Los Angeles, CA 90095, USA}
+#+LATEX_HEADER: \author[9]{Koen Kramer <koen.kramer@wur.nl>}
+#+LATEX_HEADER: \affil[9]{Vegetation, Forest, and Landscape Ecology, Wageningen Environmental Research and Wageningen University, Wageningen, Gelderland, The Netherlands}
+#+LATEX_HEADER: \author[10,11]{Vanessa Minden <vanessa.minden@uni-oldenburg.de>}
+#+LATEX_HEADER: \affil[10]{Institute for Biology and Environmental Sciences, Carl von Ossietzky-University of Oldenburg, Carl von Ossietzky Str. 9-11, 26129 Oldenburg, Germany}
+#+LATEX_HEADER: \affil[11]{Department of Biology, Ecology and Evolution, Vrije Universiteit Brussel, Pleinlaan 2, 1050 Brussels}
+#+LATEX_HEADER: \author[12]{\"Ulo Niinemets <ylo.niinemets@emu.ee>}
+#+LATEX_HEADER: \affil[12]{Institute of Agricultural and Environmental Sciences, Estonian University of Life Sciences, Kreutzwaldi 1, 51014 Tartu, Estonia}
+#+LATEX_HEADER: \author[13]{Yusuke Onoda <yusuke.onoda@gmail.com>}
+#+LATEX_HEADER: \affil[13]{Graduate School of Agriculture, Kyoto University, Kyoto, 606-8502, Japan}
+#+LATEX_HEADER: \author[14]{Enio Egon Sosinski <sosinski@gmail.com>} %%%
+#+LATEX_HEADER: \affil[14]{Embrapa Temperate Agriculture, Rodovia BR 392, Km 78, CEP 96010-971 Pelotas, RS, Brazil}
+#+LATEX_HEADER: \author[15]{Nadejda A. Soudzilovskaia <n.a.soudzilovskaia@cml.leidenuniv.nl>}
+#+LATEX_HEADER: \affil[15]{Conservation Biology Department, Institute of Environmental Sciences, Leiden University, Leiden, The Netherlands}
+#+LATEX_HEADER: \author[2]{Michael C. Dietze <dietze@bu.edu>}
 
-| Section               | Word count |
-|-----------------------+------------|
-| Abstract              |        191 |
-| Introduction          |       1124 |
-| Materials and methods |       2161 |
-| Results               |       1266 |
-| Discussion            |       1933 |
-|-----------------------+------------|
-| Total                 |       6675 |
-#+TBLFM: @7$2=vsum(@I..II)
+#+LATEX_HEADER: \affil[*]{Corresponding author; Phone: (301) 314-6713; Fax: (301) 314-6719; Email: alexey.shiklomanov@pnnl.gov; Mail: 5825 University Research Ct., Office 3533, College Park, MD 20740}
 
-We investigated whether global leaf economic relationships across plant functional types (PFTs) are also present within-PFTs, and the extent to which this hierarchical structure can be used to constrain trait estimates.
+#+LATEX_HEADER: \renewcommand\Authfont{\footnotesize}
+#+LATEX_HEADER: \renewcommand\Affilfont{\scriptsize}
+
+\begin{footnotesize}
+
+\noindent
+\textbf{Article type:} Methods
+
+\noindent
+\textbf{Author contributions:}
+ANS wrote the manuscript and implemented the analysis.
+ANS and EMC designed the analysis and figures.
+MCD conceived the original idea for the manuscript, guided its development, and provided financial support.
+MB, SJ, KK, ÜN, and NAS provided extensive feedback on multiple drafts of the manuscript, and contributed data.
+All other authors contributed data.
+
+\noindent
+\textbf{Data accessibility:}
+The R code and ancillary data for running these analyses is publicly available online via the Open Science Framework at https://osf.io/w8y73/.
+The TRY data request used for this analysis has been archived at http://try-db.org,
+and can be retrieved by providing the TRY data request ID (\#1584).
+Alternatively, the exact pre-formatted data used in this analysis are available on request to Alexey Shiklomanov (alexey.shiklomanov@pnnl.gov).
+
+\noindent
+\textbf{Running title:} Leaf economic spectrum within vs. across PFTs (45 characters)
+
+\noindent
+\textbf{Keywords:} Functional trade-off; hierarchical modeling; trait variation; ecological modeling; leaf morphology; leaf biochemistry
+
+\end{footnotesize}
+
+#+ATTR_LATEX: :font \footnotesize
+| Section               | Word count |   |            |     |
+|-----------------------+------------+---+------------+-----|
+| Abstract              |        191 |   | Figures    |   6 |
+| Introduction          |       1124 |   | Tables     |   2 |
+| Materials and methods |       2161 |   | References | ??? |
+| Results               |       1266 |   |            |     |
+| Discussion            |       1933 |   |            |     |
+|-----------------------+------------+---+------------+-----|
+| Total                 |       6675 |   |            |     |
+#+TBLFM: @10$2=vsum(@I..II)
+
+\linenumbers
+
+* Abstract
+  :PROPERTIES:
+  :UNNUMBERED: true
+  :END:
+  
+We investigated whether global leaf economic relationships across plant functional types (PFTs) are also present within PFTs, and the extent to which this hierarchical structure can be used to constrain trait estimates.
 We developed a hierarchical multivariate Bayesian model that assumes separate means and covariance structures within and across PFTs and fit this model to seven leaf traits from the TRY database: longevity, specific leaf area, nitrogen content, phosphorus content, dark respiration rate, maximum photosynthetic carboxylation rate ($V_{c,max}$), and maximum photosynthetic electron transport rate ($J_{max}$). 
 We evaluated the ability of this model to estimate trait means and reproduce leaf economic trade-offs.
 Trait correlations were generally consistent in direction within and across PFTs, and consistent with predictions of the leaf economic spectrum.
@@ -216,7 +288,7 @@ This approach is therefore distinct from single imputation, where data are imput
 A demonstration of this multiple imputation approach and how it is used to estimate trait covariance is provided Supporting Information Method S1.
 
 For each model fit, we ran five parallel MCMC chains, continuing the sampling until the final result achieved convergence as determined by a Gelman-Rubin potential scale reduction statistic less than 1.1 cite:gelman_1992_inference.
-We implemented this sampling algorithm in an open source, publicly available R cite:rstats package (<http://github.com/ashiklom/mvtraits>).
+We implemented this sampling algorithm in an open source, publicly available R cite:team_2018_r package (<http://github.com/ashiklom/mvtraits>).
 
 
 *** Analysis of results
@@ -407,6 +479,16 @@ We also highlight how the strength of leaf economic relationships can be influen
 Finally, we show how patterns of trait covariance like the leaf economic spectrum can be leveraged to inform trait estimates, particularly at small sample sizes.
 
 * COMMENT Local variables and settings
+  
+Missing references:
+- Adriaenssens S. 2012. Dry deposition and canopy exchange for temperate tree species under high nitrogen deposition.
+- Araujo A de, Ometto JPHB, Dolman AJ, Kruijt B, Waterloo MJ, Ehleringer JR. 2011. LBA-eco cd-02 c and n isotopes in leaves and atmospheric co2, amazonas, brazil.
+- Gelman A, Carlin JB, Stern HS, Rubin DB. 2003. Bayesian data analysis. Chapman & Hall/CRC Texts in Statistical Science.
+- Hickler T. 1999. Plant functional types and community characteristics along environmental gradients on oland’s great alvar (sweden)
+- Schweingruber F, Landolt W. 2005. The xylem database
+- Vergutz L, Manzoni S, Porporato A, Novais R, Jackson R. 2012. A global database of carbon and nutrient concentrations of green and senesced leaves
+- Vile D. 2005. Significations fonctionnelle et ecologique des traits de s especes vegetales: Exemple dans une succession post-cultural mediterraneenne et generalisations.
+- Williams M, Shimabokuro Y, Rastetter E. 2012. LBA-ECO CD-09 soil and vegetation characteristics, tapajos national forest, brazil.
   
 #+STARTUP: showall
 #+STARTUP: noindent
