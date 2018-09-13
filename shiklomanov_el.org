@@ -79,11 +79,11 @@ Alternatively, the exact pre-formatted data used in this analysis are available 
 |-----------------------+------------+------+------------+-----|
 | Abstract              |        146 |      | Figures    |   6 |
 | Introduction          |        988 |      | Tables     |   2 |
-| Materials and methods |       2161 |      | References | ??? |
+| Materials and methods |       2056 |      | References | ??? |
 | Results               |       1266 |      |            |     |
 | Discussion            |       1933 |      |            |     |
 |-----------------------+------------+------+------------+-----|
-| Total                 |       6494 | 5000 |            |     |
+| Total                 |       6389 | 5000 |            |     |
 #+TBLFM: @7$2=vsum(@I..II)
 
 \linenumbers
@@ -201,25 +201,25 @@ and then binned these species based on the following cutoffs: boreal/arctic ($AM
 
 *** Basic model description
 
-In this study, we compared three different models representing different levels of complexity.
+In this study, we compared three models representing different levels of complexity.
 
-The simplest model was the ‘univariate’ model, in which each trait was modeled independently.
+The simplest model was the "univariate" model, in which each trait is independent.
 For an observation $x_{i,t}$ of trait $t$ and sample $i$:
 
 $$x_{i,t} \sim N(\mu_t, \sigma_t)$$
 
-where $N$ is the univariate normal (Gaussian) distribution with mean $\mu_t$ and standard deviation $\sigma_t$ for trait $t$.
+where $N$ is the univariate Gaussian distribution with mean $\mu_t$ and standard deviation $\sigma_t$ for trait $t$.
 
-The second-simplest model was the ‘multivariate’ model, in which traits were modeled as samples from a multivariate distribution with a single mean vector and covariance matrix.
-For the observed vector of traits ${\mathbf{x_i}}$ for sample $i$:
+The second-simplest model was the "multivariate" model, in which traits are drawn from a single, common multivariate distribution.
+For observed trait vector ${\mathbf{x_i}}$ for sample $i$:
 
 $$\mathbf{x_i} \sim mvN(\mathbf{\mu}, \mathbf{\Sigma})$$
 
-where $mvN$ is the multivariate normal (Gaussian) distribution with mean vector $\mathbf{\mu}$ and variance-covariance matrix $\mathbf{\Sigma}$.
-We ran both of these models independently for each PFT as well as for the entire dataset (as if every observation belonged to the same PFT).
+where $mvN$ is the multivariate Gaussian distribution with mean vector $\mathbf{\mu}$ and variance-covariance matrix $\mathbf{\Sigma}$.
+We ran both of these models independently for each PFT and once for the entire dataset (i.e. one global PFT).
 
-The most complex model was the ‘hierarchical’ model, in which observed trait values were drawn from a PFT-specific multivariate normal distribution describing within-PFT variation and whose parameters were themselves sampled from a global multivariate distribution describing the variation across PFTs.
-For the observed vector of traits $\mathbf{x}_{i,p}$ for sample $i$ belonging to PFT $p$:
+The most complex model was the "hierarchical" model, where traits are drawn from a PFT-specific multivariate distribution describing within-PFT variation, and whose parameters in turn are sampled from a global multivariate distribution describing variation across PFTs.
+For observed trait vector $\mathbf{x}_{i,p}$ for sample $i$ belonging to PFT $p$:
 
 $$\mathbf{x}_{i,p} \sim mvN(\mathbf{\mu}_p, \mathbf{\Sigma}_p)$$
 $$\mathbf{\mu}_p \sim mvN(\mathbf{\mu}_g, \mathbf{\Sigma}_g)$$
@@ -230,7 +230,7 @@ where $\mathbf{\mu}_p$ and $\mathbf{\Sigma}_p$ are the mean vector and variance-
 *** Model implementation
 
 We fit the above models using a Gibbs sampling algorithm that leveraged known conjugate prior relationships for efficient exploration of the sampling space.
-For priors on all multivariate mean vectors ($\mathbf{\mu}$), we used normal distributions:
+For priors on all multivariate mean vectors ($\mathbf{\mu}$), we use normal distributions:
 
 $$P(\mathbf{\mu}) \sim mvN(\mathbf{\mu}_0, {\mathbf{\Sigma}}_0)$$
 
@@ -264,12 +264,12 @@ $$\mathbf{x^*} = \mathbf{x} - \bar{\mu}$$
 $$\mathbf{SS} = \mathbf{x^*}^{T} \mathbf{x^*}$$
 $$\mathbf{S^*} = (\mathbf{S}_0 + \mathbf{SS})^{-1}$$
 
-where $n$ is the number of rows and $m$ is the number of columns in data matrix $x$. For further details on this derivation, see @gelman_bayesian.
+where $n$ is the number of rows and $m$ is the number of columns in data matrix $x$. For further details on this derivation, see citet:gelman_2003_bayesian.
 
-The fundamentally multivariate nature of the sampling procedure described above makes it incapable of accommodating partially missing observations.
-Therefore, our algorithm also included multiple imputation of partially missing data, which proceeded as follows:
+The multivariate nature of the sampling procedure described above makes it incapable of accommodating partially missing observations.
+Therefore, our algorithm included multiple imputation of partially missing data, which proceeded as follows:
 For a block of data $\mathbf{x\prime}$ containing missing observations in columns $\mathbf{m}$ and present observations in columns $\mathbf{p}$,
-the missing values $\mathbf{x\prime}[m]$ are drawn randomly from a conditional multivariate normal distribution at each iteration of the sampling algorithm:
+missing values $\mathbf{x\prime}[m]$ are drawn randomly from a conditional multivariate normal distribution at each iteration of the sampling algorithm:
 
 $$\mathbf{x^\prime}[m|p] \sim mvN(\mathbf{\mu}^\prime, \mathbf{\Sigma}^\prime)$$
 
@@ -280,8 +280,8 @@ $$\mathbf{\Sigma\prime} = \mathbf{\Sigma}[m,m] -
   \mathbf{\Sigma}[m,p]
   (\mathbf{\Sigma}[p,p]^{-1} \mathbf{\Sigma}[p,m])$$
   
-We emphasize that the imputation of missing data is performed iteratively as parameters are being estimated, such that each set of imputed values is conditioned on the current sampled state of the parameters.
-This approach is therefore distinct from single imputation, where data are imputed first in a separate step prior to parameter estimation.
+We emphasize that imputation of missing data is performed iteratively as parameters are being estimated, such that each set of imputed values is conditioned on the current sampled state of the parameters.
+This approach is distinct from single imputation, where data are imputed first in a separate step prior to parameter estimation cite:white_2010_multiple,graham_2009_missing_data_analysis.
 A demonstration of this multiple imputation approach and how it is used to estimate trait covariance is provided Supporting Information Method S1.
 
 For each model fit, we ran five parallel MCMC chains, continuing the sampling until the final result achieved convergence as determined by a Gelman-Rubin potential scale reduction statistic less than 1.1 cite:gelman_1992_inference.
@@ -297,31 +297,32 @@ To convert CLM's reported C:N ratio to $N_{mass}$, we assumed a uniform leaf C f
 We then divided this calculated $N_{mass}$ by the reported SLA to obtain $N_{area}$.
 We calculated $V_{c,max,mass}$ by multiplying the reported $V_{c,max,area}$ by the reported SLA.
 
-To test the hypothesis that the multivariate and hierarchical models offer more value in terms of uncertainty constraint at smaller sample sizes, we calculated the relative uncertainty ($\alpha$) as a function of the mean ($\mu$) and upper ($q_{0.975}$) and lower ($q_{0.025}$) confidence limits of trait estimates.
+To test whether the multivariate and hierarchical models offer more value in terms of uncertainty constraint at smaller sample sizes, we calculated the relative uncertainty ($\alpha$) as a function of the mean ($\mu$) and upper ($q_{0.975}$) and lower ($q_{0.025}$) confidence limits of trait estimates.
 
 $$ \alpha = \frac{q_{0.975} - q_{0.025}}{\mu} $$
 
-We then fit a generalized linear model relating relative uncertainty to sample size ($n$) for each of the model types (univariate, multivariate, and hierarchical; Fig. 3).
+We then fit a log-linear least-squares regression relating relative uncertainty to sample size ($n$) for each model (univariate, multivariate, and hierarchical; Fig. 3).
 
 $$ \log{\alpha} = b_0 + b_1 \log{n} $$
 
 If all three models performed equally well at all sample sizes, their respective slope and intercept coefficients would be statistically indistinguishable.
 On the other hand, models that perform better should have
-lower intercept ($b_0$) coefficients, indicating generally lower uncertainty,
+lower intercept ($b_0$) coefficients, indicating lower overall uncertainty,
 and
 lower slope ($b_1$) coefficients, indicating a reduced sensitivity of uncertainty ($\alpha$) to sample size ($n$).
 
 To assess the consistency of within- and across-PFT trait trade-offs, we looked at covariance estimates for each trait pair and, where these values were significantly different from zero ($p < 0.05$),
-we calculated the eigenvalues from the pairwise variance-covariance matrix for that trait pair and plotted the corresponding dominant eigenvectors centered on the mean estimates (Fig.\ 4).
-This figure provides a visual representation of relative positions of PFTs in trait space and both the direction and extent of within-PFT trait covariance, and is directly analogous to conceptual figures describing hierarchical trait variability across environmental gradients as presented in, for instance, citet:cornwell_2009_community and citet:albert_2010_intraspecific_functional_variability.
+we calculated the eigenvalues from the variance-covariance matrix for just that trait pair and plotted the corresponding dominant eigenvectors centered on the mean estimates (Fig.\ 4).
+This figure provides a visual representation of relative positions of PFTs in trait space and both the direction and extent of within-PFT trait covariance.
+It is analogous to conceptual figures describing hierarchical trait variability across environmental gradients as presented in citet:cornwell_2009_community and citet:albert_2010_intraspecific_functional_variability.
 Due to the small number of points used to estimate across-PFT covariance in the hierarchical model, none of the across-PFT covariances estimated in the hierarchical model were significantly different from zero ($p < 0.05$).
-For this reason, we compared within-PFT covariances as estimated by the hierarchical model with the covariances estimated by fitting a multivariate model to all of the data.
+Therefore, we compared within-PFT covariances as estimated by the hierarchical model against covariances estimated by a single global multivariate model.
 
-Besides the consistency in the direction of trait covariance globally and between different PFTs, we also investigated the strength and predictive power of these covariances, which is represented by correlation coefficients (i.e. the pairwise covariance normalized to the variances of the component variables).
-To do this, we plotted the mean and 95% confidence interval of the pairwise trait correlation coefficients for the global estimate from the pooled multivariate model and PFT-level estimates from the hierarchical model (Fig.\ 5).
+Besides the consistency in the direction of trait covariance within vs. across PFTs, we also investigated the strength and predictive power of these covariances, represented by correlation coefficients (i.e. pairwise covariance normalized by each trait's variance).
+We plotted the mean and 95% confidence interval of the pairwise trait correlation coefficients from the global multivariate model and PFT-specific estimates from the hierarchical model (Fig.\ 5).
 
-The magnitude of correlation coefficients can be strongly influenced by data sampling, particularly sample size and range (correlations are likely to be stronger when data have more samples and a larger range).
-To evaluate the contribution of uneven data sampling to our correlation predictions, we plotted the square of each pairwise correlation coefficient against pairwise sample size and normalized data range (Fig.\ S1 and S2).
+Correlation coefficients can be strongly influenced by data sampling, particularly sample size and range (correlations are typically stronger when data have more samples and a larger range).
+To evaluate the contribution of data sampling to our correlation predictions, we plotted the square of each pairwise correlation coefficient against pairwise sample size and normalized data range (Fig.\ S1 and S2).
 
 The R code and ancillary data for running these analyses is publicly available online via the Open Science Framework at https://osf.io/w8y73/.
 The TRY data request used for this analysis has been archived at http://try-db.org,
@@ -480,7 +481,6 @@ Finally, we show how patterns of trait covariance like the leaf economic spectru
 Missing references:
 - Adriaenssens S. 2012. Dry deposition and canopy exchange for temperate tree species under high nitrogen deposition.
 - Araujo A de, Ometto JPHB, Dolman AJ, Kruijt B, Waterloo MJ, Ehleringer JR. 2011. LBA-eco cd-02 c and n isotopes in leaves and atmospheric co2, amazonas, brazil.
-- Gelman A, Carlin JB, Stern HS, Rubin DB. 2003. Bayesian data analysis. Chapman & Hall/CRC Texts in Statistical Science.
 - Hickler T. 1999. Plant functional types and community characteristics along environmental gradients on oland’s great alvar (sweden)
 - Schweingruber F, Landolt W. 2005. The xylem database
 - Vergutz L, Manzoni S, Porporato A, Novais R, Jackson R. 2012. A global database of carbon and nutrient concentrations of green and senesced leaves
