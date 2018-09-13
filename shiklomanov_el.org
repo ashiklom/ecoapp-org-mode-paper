@@ -394,45 +394,44 @@ Based on these results, we conclude that the variation in our correlation result
 
 ** Scale dependence of the leaf economic spectrum
 
-The canonical leaf economic spectrum is defined by a negative correlation of between SLA and leaf lifespan, and a positive correlation of SLA with $N_{mass}$, $P_{mass}$, and photosynthesis and respiration rates cite:wright_2004_worldwide.
-The first objective of this paper was to investigate the extent to which these relationships hold within and across PFTs.
+The leaf economic spectrum is defined by a negative correlation between SLA and leaf lifespan, and a positive correlation of SLA with $N_{mass}$, $P_{mass}$, and photosynthesis and respiration rates cite:wright_2004_worldwide.
+Our first objective was to investigate the extent to which these relationships hold within and across PFTs.
 Our results indicate that the leaf economic spectrum generally still holds within PFTs, at least at the functional and phylogenetic scale of the current generation of Earth System Models.
 Within PFTs, correlations between SLA, $N_{mass}$, and $P_{mass}$ were consistently positive, and correlations of these traits with leaf lifespan were generally negative (though, for many PFTs, correlations were not significantly different from zero).
-Although we did not include maximum photosynthesis rate ($A_{max}$), $V_{c,max,mass}$ and $J_{max,mass}$ generally exhibited the expected positive correlations with SLA and negative correlations with leaf lifespan, as did $R_{d,mass}$, though many correlations were not significant, primarily due to sample size.
+Although we did not include maximum photosynthesis rate ($A_{max}$), $V_{c,max,mass}$ and $J_{max,mass}$ generally exhibited the expected positive correlations with SLA and negative correlations with leaf lifespan, as did $R_{d,mass}$, though many correlations were not significant.
 
-While the direction of relationships we observed was largely consistent across different PFTs, the strength of these correlations was more variable.
-For example, the correlations of SLA with $N_{mass}$ and $P_{mass}$ were generally weaker in needleleaved PFTs than in broadleaved PFTs.
-On the other hand, relationships of SLA and $N_{area}$ were strongly negative for all PFTs (except the data-limited needleleaved deciduous trees), and temperate needleleaved species in particular had among the strongest SLA-$N_{area}$ and SLA-$P_{area}$ correlations of any PFT.
-Taken together with the finding that evergreen conifers are relatively unique in their consistently proportional allocation of N to cell walls and Rubisco cite:onoda_2017_physiological, our results support the idea that needleleaved species primarily adapt to environmental changes through structural changes (i.e. increasing or decreasing SLA) rather than through modulating foliar biochemistry cite:robakowski_2004_growth.
+While the relationships we observed were consistent in direction across different PFTs, correlation strength was more variable.
+For example, correlations of SLA with $N_{mass}$ and $P_{mass}$ were weaker in needleleaved PFTs compared to broadleaved PFTs.
+Meanwhile, correlations of SLA with $N_{area}$ were strongly negative for all PFTs (except the data-limited needleleaved deciduous trees), and temperate needleleaved species in particular had relatively strong SLA-$N_{area}$ and SLA-$P_{area}$ correlations.
+Given that evergreen conifers are relatively unique in their consistently proportional allocation of N to cell walls and Rubisco cite:onoda_2017_physiological, our results support the idea that needleleaved species primarily adapt to their environment through leaf morphological changes (i.e. changing SLA) rather than through adjusting foliar biochemistry cite:robakowski_2004_growth.
 
-We also found that the strength of correlations between leaf nutrient concentrations and traits related to photosynthetic metabolism ($V_{c,max}$ and $J_{max}$)---which are often used in ecosystem modeling to parameterize photosynthesis cite:clm45_note,rogers_2016_roadmap ---were highly variable between PFTs.
-Although trait correlations are not necessarily indicative of allocation strategies, this result generally supports the findings of @ghimire_2017_Nallocation that N allocation strategies to photosynthesis vary widely by plant functional type.
-In particular, the correlations of $N_{mass}$ with traits related to photosynthesis and respiration ($R_{d,mass}$, $V_{c,max,mass}$, and $J_{max,mass}$) were weaker for tropical evergreen broadleaved trees than for most other PFTs, but the correlation of these traits with $P_{mass}$ was comparable or even slightly higher.
-This suggests that the productivity of tropical species is generally P-limited cite:reich_2004_global,ghimire_2017_global, that N allocation strategies are more variable under N-poor than N-rich conditions cite:ghimire_2017_global, or more generally that photosynthetic parameters are affected more strongly by environmental covariates than leaf nitrogen contents cite:ali_2015_global.
-Meanwhile, our result that the $N_{area}$ - $V_{c,max,area}$ correlation is generally weaker for needleleaved than broadleaved species was also found by @kattge_2009_vcmax, and supports the lower allocation of N to photosynthesis found by citet:ghimire_2017_global.
-In light of this fact and considering that boreal forests, largely populated by needleleaf species, have the largest influence on global climate of any biome cite:snyder_2004_evaluating,bonan_2008_forests_climate_change, we suggest that parameterization of needleleaf tree productivity based on foliar nitrogen content in Earth System Models be treated with caution.
+Correlations between leaf nutrient concentrations and traits related to photosynthetic metabolism ($V_{c,max}$ and $J_{max}$) are often used to parameterize photosynthesis in ecosystem models cite:clm45_note,rogers_2016_roadmap.
+We found that these correlations were highly variable between PFTs.
+Although trait correlations are not necessarily indicative of allocation strategies, this result generally supports the findings of citet:ghimire_2017_global that N allocation to photosynthesis varies widely by PFT.
+In tropical evergreen broadleaved trees, for example, photosynthetic metabolism traits were relatively weakly correlated with $N_{mass}$ and relatively strongly correlated with $P_{mass}$.
+This suggests that the productivity of tropical species is P-limited cite:reich_2004_global,ghimire_2017_global, that N allocation strategies are more variable under N-poor conditions cite:ghimire_2017_global, or more generally that photosynthetic parameters are more sensitive to environmental covariates than leaf nitrogen contents cite:ali_2015_global.
+Meanwhile, our result that the relatively weak $N_{area}$ - $V_{c,max,area}$ correlation in needleleaved (compared to broadleaved) species echoes earlier results by citet:kattge_2009_quantifying and suggests lower allocation of N to photosynthesis cite:ghimire_2017_global.
+Considering that needleleaf-dominated boreal forests have the largest influence on global climate of any biome cite:snyder_2004_evaluating,bonan_2008_forests_climate_change, we suggest that parameterization of needleleaf tree productivity based on foliar nitrogen content in Earth System Models be treated with caution.
 
-Correlations of all traits with leaf lifespan were weaker (often to the point of becoming insignificant) within most PFTs than globally.
-This suggests that leaf economic relationships related to leaf lifespan are dominated by the fundamental differences between deciduous and evergreen PFTs, while the factors driving variability in leaf lifespan within PFTs are more complex and idiosyncratic cite:reich_2014_biogeographic,wu_2016_leaf.
-That being said, much of this within-PFT variability is known to be driven by variations in shade responses, and a key limitation of our study is that we have no information about the relative canopy positions at which traits were collected cite:lusk_2008_why,keenan_2016_global.
+Correlations of all traits with leaf lifespan were weaker (and often insignificant) within most PFTs than globally.
+This suggests that leaf economic relationships related to leaf lifespan are dominated by fundamental differences between deciduous and evergreen PFTs, while factors driving variability in leaf lifespan within PFTs are more complex and idiosyncratic cite:reich_2014_biogeographic,wu_2016_leaf.
+However, much of this within-PFT variability is driven by variations in shade responses, and a key limitation of our study is the absence of any information about the relative canopy positions at which traits were collected cite:lusk_2008_why,keenan_2016_global.
 
-Across PFTs, the interaction between growth form and biome in PFT definitions (Table 1) confounds the interpretation of our results with respect to well established ecological and biogeographic patterns.
-For example, citet:poorter_2009_causes found variation in SLA by growth form was, from highest to lowest, grasses, deciduous woody plants, evergreen woody plants, and succulents, while the pattern by biome was, again from highest to lowest, grassland, tundra, tropical forest, temperate forest, woodland, shrubland, and desert.
-We observed as expected that arctic grasses had lower mean SLA than temperate grasses, and that evergreen trees had lower SLA than their deciduous counterparts.
-However, we observed by far the highest mean SLA values in temperate deciduous broadleaf trees, rather than in grass PFTs as expected.
+Across PFTs, the interaction between growth form and biome in PFT definitions (Table 1) confounds the interpretation of our results with respect to well established biogeographic patterns.
+We observed as expected that arctic grasses had lower mean SLA than temperate grasses, and that evergreen trees had lower SLA than their deciduous counterparts cite:poorter_2009_causes.
+However, by far our highest SLA values were for temperate deciduous broadleaf trees, rather than in grass PFTs as expected cite:poorter_2009_causes.
 Similarly to citet:onoda_2011_global, we found no consistent patterns in SLA with temperature:
 Among broadleaved evergreen PFTs, temperate species had lower SLA than tropical, but among broadleaved deciduous PFTs, temperate species had higher SLA than both tropical and boreal species.
-With respect to the expected decline in foliar N:P ratios with latitude cite:reich_2004_global, we found that $N_{mass}$ was generally higher in PFTs associated with colder biomes compared to warmer ones, but observed biome-related differences in $P_{mass}$ only among deciduous broadleaved and needleleaved evergreen PFTs.
+Unlike citet:reich_2004_global, who found that foliar N:P ratios decline with latitude, our $N_{mass}$ estimates were higher in PFTs from colder biomes compared to warmer ones while $P_{mass}$ was mostly constant between biomes.
 Contrary to citet:atkin_2015_global, our results for both $R_{d,mass}$ and $R_{d,area}$ failed to show a trend with respect to biome.
 However, this comparison may not be entirely fair because our study design inherently averages over the extensive climatic variability within PFTs.
 
-Finally, there has been some debate in the trait ecology community about the use of mass- or area-normalized traits in analyses of the leaf economic spectrum.
+Finally, there has been some debate about the use of mass- or area-normalized traits in analyses of the leaf economic spectrum.
 Two studies cite:osnas_2013_global,lloyd_2013_photosynthetically independently concluded that leaf economic relationships among mass-based traits emerge inevitably out of variation in SLA and are therefore not ecologically meaningful.
-Responses to these criticisms have suggested that both mass- and area-based normalization have merit, as mass-based traits have a natural interpretation in terms of investment costs and allocation while area-based traits are important due to the fundamentally area-based nature of energy and gas fluxes through leaf surfaces cite:westoby_2013_understanding,poorter_2013_trait_correlation_networks.
-Our study suggests the latter, that investigation of trait correlations on both a mass- and area-basis can yield biologically and ecologically meaningful conclusions.
+Responses to these criticisms have suggested that both mass- and area-based normalization have merit, as mass-based traits have a natural interpretation in terms of resource allocation while area-based traits are tied to the area-based nature of energy and gas fluxes through leaf surfaces cite:westoby_2013_understanding,poorter_2013_trait_correlation_networks.
+Our study suggests that investigation of trait correlations on both a mass- and area-basis can yield biologically and ecologically meaningful conclusions.
 For one, our discussion of differences in ecological strategies between broadleaved and needleaved species fundamentally depends on comparative analysis of mass- and area-normalized nutrient contents.
-Meanwhile, our discussion of tropical tree productivity with respect to foliar nutrient contents is generally supported by both mass- and area-normalized traits (i.e. the correlation between $P$ and $V_{c,max}$ is stronger than the correlation of $N$ and $V_{c,max}$ for tropical species whether we use the mass- or area-normalized versions of these traits).
-
+Meanwhile, our discussion of tropical tree productivity with respect to foliar nutrient contents is supported regardless of how traits are normalized.
 
 ** Covariance as constraint
 
