@@ -163,8 +163,9 @@ Finally, we assess the generality and scale dependence of trait trade-offs by co
 
 ** Trait data
 
+   # TODO - Table reference
 Foliar trait data for this analysis comes from the TRY global traits database cite:kattge_2011_try (Tab.\ =\@ref(tab:trydata)=).
-We focused our research on seven foliar traits:
+We focused on seven foliar traits:
 Leaf longevity (months),
 specific leaf area (SLA, m$^2$ kg$^{-1}$),
 leaf nitrogen content ($N_{mass}$, mg N g$^{-1}$ or $N_{area}$, g m$^{-2}$),
@@ -178,23 +179,23 @@ For $J_{max}$, we normalized the values to 25°C based on reported leaf temperat
 To avoid potential artifacts caused by different trait normalization, we performed analyses separately for both mass- and area-normalized traits cite:osnas_2013_global,lloyd_2013_photosynthetically.
 We restricted our analysis to TRY data that have been quality-controlled, where at least one of the above traits was observed, and for which adequate species information was provided for functional type classification [[cite:kattge_2011_try][see]].
 
-Although the light- and CO2-saturated photosynthetic rate ($A_{max}$) was an important trait in previous studies, we did not include it in our study for two reasons.
-First of all, data on raw photosynthetic rates are highly sensitive to measurement methodology and environmental conditions, which were generally inconsistent or unavailable in TRY.
-Second, $A_{max}$ is not a good measure of photosynthetic capacity because it integrates over variability in many physiologically independent traits such as $V_{c,max}$, $J_{max}$, and stomatal conductance, and is therefore not used in vegetation models as a photosynthetic parameter cite:ali_2015_global.
+Although the maximum photosynthetic rate ($A_{max}$) was an important trait in previous studies, we did not include it for two reasons.
+First, data on raw photosynthetic rates are highly sensitive to measurement methodology and environmental conditions, which were generally inconsistent or unavailable in TRY.
+Second, $A_{max}$ is rarely used in vegetation models as a photosynthetic parameter because it integrates over variability in many physiologically independent traits, such as $V_{c,max}$, $J_{max}$, and stomatal conductance cite:ali_2015_global.
 
 Following past studies [[cite:wright_2004_worldwide,onoda_2011_global,diaz_2015_global][e.g.]], we log-transformed all trait values to correct for their strong right-skewness.
 
 ** Plant functional types
 
-We assigned each species to a unique plant functional type (PFT) following the scheme in the Community Land Model (CLM4.5, citealt:clm45_note) [Tab.\ \@ref(tab:pfts), Fig.\ 1].
+   # TODO - Table reference
+We assigned each species a unique plant functional type (PFT) following the scheme in the Community Land Model (CLM4.5, citealt:clm45_note) [Tab.\ \@ref(tab:pfts), Fig.\ 1].
 We obtained categorical data on growth form, leaf type, phenology, and photosynthetic pathway from the TRY database.
-Where species attributes disagreed between datasets (e.g., categorized as a shrub in one dataset but a tree in another), we assigned the attribute that was observed most frequently between the datasets (e.g., if five datasets say "shrub" but only one says "tree", we would classify it as a shrub).
-Where species lacked data on certain attributes, we assigned those attributes based on higher order phylogeny where appropriate (e.g., *Poaceae* family are usually grasses, *Larix spp.* are deciduous needleleaved trees) or otherwise omitted the species from our analyses.
+Where species attributes disagreed between datasets, we assigned the most frequently observed attribute (e.g., if five datasets say "shrub" but only one says "tree", we would use "shrub").
+Where species attributes were missing entirely, we assigned attributes based on higher order phylogeny if this was reasonably unambiguous (e.g., /Poaceae/ family are grasses, /Larix/ genus are deciduous needleleaved trees) and omitted the species if otherwise.
 For biome specification, we collected all latitude and longitude data for each species,
-matched these data to 30 second ($\sim1$ km$^{2}$) mean annual temperature ($AMT$, averaged 1970-2000) data from WorldClim-2 cite:fick_2017_worldclim,
+matched these data to mean annual temperature ($AMT$, averaged 1970-2000) data from WorldClim-2 cite:fick_2017_worldclim,
 calculated the mean AMT for all sites at which that species was observed,
 and then binned these species based on the following cutoffs: boreal/arctic ($AMT \leq 5^\circ C$), temperate ($AMT \leq 20^\circ C$), and tropical ($AMT > 20^\circ C$).
-
 
 ** Multivariate analysis
 
