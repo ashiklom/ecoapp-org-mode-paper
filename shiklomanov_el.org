@@ -77,7 +77,7 @@ Alternatively, the exact pre-formatted data used in this analysis are available 
 #+ATTR_LATEX: :font \footnotesize
 | Section               | Word count |   |            |     |
 |-----------------------+------------+---+------------+-----|
-| Abstract              |        191 |   | Figures    |   6 |
+| Abstract              |        146 |   | Figures    |   6 |
 | Introduction          |       1124 |   | Tables     |   2 |
 | Materials and methods |       2161 |   | References | ??? |
 | Results               |       1266 |   |            |     |
@@ -93,13 +93,12 @@ Alternatively, the exact pre-formatted data used in this analysis are available 
   :UNNUMBERED: true
   :END:
   
-We investigated whether global leaf economic relationships across plant functional types (PFTs) are also present within PFTs, and the extent to which this hierarchical structure can be used to constrain trait estimates.
-We developed a hierarchical multivariate Bayesian model that assumes separate means and covariance structures within and across PFTs and fit this model to seven leaf traits from the TRY database: longevity, specific leaf area, nitrogen content, phosphorus content, dark respiration rate, maximum photosynthetic carboxylation rate ($V_{c,max}$), and maximum photosynthetic electron transport rate ($J_{max}$). 
-We evaluated the ability of this model to estimate trait means and reproduce leaf economic trade-offs.
+We investigated whether global leaf economic relationships are also present within plant functional types (PFTs), and the extent to which this hierarchical structure can be used to constrain trait estimates.
+We developed a hierarchical multivariate Bayesian model that assumes separate means and covariance structures within and across PFTs and fit this model to seven leaf traits from the TRY database related to leaf morphology, biochemistry, and photosynthetic metabolism.
 Trait correlations were generally consistent in direction within and across PFTs, and consistent with predictions of the leaf economic spectrum.
 However, correlation strength varied substantially across PFTs indicating that leaf economic relationships within PFTs are often confounded by the unique physiology of certain plant types or environmental conditions in certain biomes.
 Leveraging covariance in multivariate models reduced uncertainties in mean trait estimates, particularly for undersampled trait-PFT combinations.
-However, additional constraint from the across-PFT hierarchy was limited compared to the simple multivariate models.
+However, additional constraint from the across-PFT hierarchy was limited.
 
 * Introduction
 
