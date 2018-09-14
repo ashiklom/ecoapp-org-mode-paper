@@ -78,12 +78,12 @@ Alternatively, the exact pre-formatted data used in this analysis are available 
 |-----------------------+------------+------+------------+-----|
 | Abstract              |        146 |      | Figures    |   6 |
 | Introduction          |        988 |      | Tables     |   2 |
-| Materials and methods |       1807 | 2056 | References | ??? |
+| Materials and methods |       1686 | 1935 | References | ??? |
 | Results               |       1094 |      |            |     |
 | Discussion            |       1524 |      |            |     |
 | Conclusions           |        132 |      |            |     |
 |-----------------------+------------+------+------------+-----|
-| Total                 |       5691 | 5000 |            |     |
+| Total                 |       5570 | 5000 |            |     |
 #+TBLFM: @4$2=$+1 - 249::@8$2=vsum(@I..II)
 
 #+BEGIN_EXPORT latex
@@ -166,22 +166,22 @@ Finally, we assess the generality and scale dependence of trait trade-offs by co
 ** Trait data
 
    # TODO - Table reference
-Foliar trait data for this analysis comes from the TRY global traits database cite:kattge_2011_try (Tab.\ =\@ref(tab:trydata)=).
+Trait data for this analysis comes from the TRY global traits database cite:kattge_2011_try (Tab.\ =\@ref(tab:trydata)=).
 We focused on seven foliar traits:
-Leaf longevity (months),
+longevity (months),
 specific leaf area (SLA, m$^2$ kg$^{-1}$),
-leaf nitrogen content ($N_{mass}$, mg N g$^{-1}$ or $N_{area}$, g m$^{-2}$),
-leaf phosphorus content ($P_{mass}$, mg P g$^{-1}$ or $P_{area}$, g m$^{-2}$),
-leaf dark respiration at 25°C ($R_{d,mass}$, µmol g$^{-1}$ s$^{-1}$, or $R_{d,area}$, µmol m$^{-2}$ s$^{-1}$),
+nitrogen content ($N_{mass}$, mg N g$^{-1}$ or $N_{area}$, g m$^{-2}$),
+phosphorus content ($P_{mass}$, mg P g$^{-1}$ or $P_{area}$, g m$^{-2}$),
+dark respiration at 25°C ($R_{d,mass}$, µmol g$^{-1}$ s$^{-1}$, or $R_{d,area}$, µmol m$^{-2}$ s$^{-1}$),
 maximum Rubisco carboxylation rate at 25°C ($V_{c,max,mass}$, µmol g$^{-1}$ s$^{-1}$, or $V_{c,max,area}$, µmol m$^{-2}$ s$^{-1}$),
 and maximum electron transport rate at 25°C ($J_{max,mass}$, µmol g$^{-1}$ s$^{-1}$, or $J_{max,area}$, µmol m$^{-2}$ s$^{-1}$).
 For $V_{c,max}$, we only used values already reported in TRY as being at 25°C.
 For $R_{d}$, we normalized the values to 25°C based on reported leaf temperature values following the same methods as citet:atkin_2015_global.
 For $J_{max}$, we normalized the values to 25°C based on reported leaf temperature values using the temperature response function described in citet:kattge_2007_temperature (Equation 1 therein).
 To avoid potential artifacts caused by different trait normalization, we performed analyses separately for both mass- and area-normalized traits cite:osnas_2013_global,lloyd_2013_photosynthetically.
-We restricted our analysis to TRY data that have been quality-controlled, where at least one of the above traits was observed, and for which adequate species information was provided for functional type classification [[cite:kattge_2011_try][see]].
+We restricted our analysis to TRY data that have been quality-controlled and for which adequate species information was provided for functional type classification [[cite:kattge_2011_try][see]].
 
-Although the maximum photosynthetic rate ($A_{max}$) was an important trait in previous studies, we did not include it for two reasons.
+Although maximum photosynthetic rate ($A_{max}$) was an important trait in previous studies, we did not include it for two reasons.
 First, data on raw photosynthetic rates are highly sensitive to measurement methodology and environmental conditions, which were generally inconsistent or unavailable in TRY.
 Second, $A_{max}$ is rarely used in vegetation models as a photosynthetic parameter because it integrates over variability in many physiologically independent traits, such as $V_{c,max}$, $J_{max}$, and stomatal conductance cite:ali_2015_global.
 
@@ -193,9 +193,9 @@ Following past studies [[cite:wright_2004_worldwide,onoda_2011_global,diaz_2015_
 We assigned each species a unique plant functional type (PFT) following the scheme in the Community Land Model (CLM4.5, citealt:clm45_note) [Tab.\ \@ref(tab:pfts), Fig.\ 1].
 We obtained categorical data on growth form, leaf type, phenology, and photosynthetic pathway from the TRY database.
 Where species attributes disagreed between datasets, we assigned the most frequently observed attribute (e.g., if five datasets say "shrub" but only one says "tree", we would use "shrub").
-Where species attributes were missing entirely, we assigned attributes based on higher order phylogeny if this was reasonably unambiguous (e.g., /Poaceae/ family are grasses, /Larix/ genus are deciduous needleleaved trees) and omitted the species if otherwise.
+Where species attributes were missing, we assigned attributes based on higher order phylogeny if this was reasonably unambiguous (e.g., /Poaceae/ family are grasses, /Larix/ genus are deciduous needleleaved trees) and omitted the species if otherwise.
 For biome specification, we collected all latitude and longitude data for each species,
-matched these data to mean annual temperature ($AMT$, averaged 1970-2000) data from WorldClim-2 cite:fick_2017_worldclim,
+matched these data to annual mean temperature ($AMT$, averaged 1970-2000) data from WorldClim-2 cite:fick_2017_worldclim,
 calculated the mean AMT for all sites at which that species was observed,
 and then binned these species based on the following cutoffs: boreal/arctic ($AMT \leq 5^\circ C$), temperate ($AMT \leq 20^\circ C$), and tropical ($AMT > 20^\circ C$).
 
@@ -203,24 +203,23 @@ and then binned these species based on the following cutoffs: boreal/arctic ($AM
 
 *** Basic model description
 
-In this study, we compared three models representing different levels of complexity.
-
-The simplest model was the "univariate" model, in which each trait is independent.
+We compared three models representing different levels of complexity.
+The simplest was the "univariate" model, in which each trait is independent.
 For an observation $x_{i,t}$ of trait $t$ and sample $i$:
 
 $$x_{i,t} \sim N(\mu_t, \sigma_t)$$
 
 where $N$ is the univariate Gaussian distribution with mean $\mu_t$ and standard deviation $\sigma_t$ for trait $t$.
 
-The second-simplest model was the "multivariate" model, in which traits are drawn from a single, common multivariate distribution.
+The second-simplest model was the "multivariate" model, in which traits are drawn from a single multivariate distribution.
 For observed trait vector ${\mathbf{x_i}}$ for sample $i$:
 
 $$\mathbf{x_i} \sim mvN(\mathbf{\mu}, \mathbf{\Sigma})$$
 
 where $mvN$ is the multivariate Gaussian distribution with mean vector $\mathbf{\mu}$ and variance-covariance matrix $\mathbf{\Sigma}$.
-We ran both of these models independently for each PFT and once for the entire dataset (i.e. one global PFT).
+We fit both of these models independently for each PFT and once for the entire dataset (i.e. one global PFT).
 
-The most complex model was the "hierarchical" model, where traits are drawn from a PFT-specific multivariate distribution describing within-PFT variation, and whose parameters in turn are sampled from a global multivariate distribution describing variation across PFTs.
+The most complex model was the "hierarchical" model, where traits are drawn from a PFT-specific multivariate distribution describing within-PFT variation, and whose mean vector is sampled from a global multivariate distribution describing variation across PFTs.
 For observed trait vector $\mathbf{x}_{i,p}$ for sample $i$ belonging to PFT $p$:
 
 $$\mathbf{x}_{i,p} \sim mvN(\mathbf{\mu}_p, \mathbf{\Sigma}_p)$$
@@ -231,12 +230,12 @@ where $\mathbf{\mu}_p$ and $\mathbf{\Sigma}_p$ are the mean vector and variance-
 
 *** Model implementation
 
-We fit the above models using a Gibbs sampling algorithm that leveraged known conjugate prior relationships for efficient exploration of the sampling space.
+We fit the above models using Gibbs sampling, which leverages conjugate prior relationships for efficient exploration of the sampling space.
 For priors on all multivariate mean vectors ($\mathbf{\mu}$), we use normal distributions:
 
 $$P(\mathbf{\mu}) \sim mvN(\mathbf{\mu}_0, {\mathbf{\Sigma}}_0)$$
 
-This gives rise to the following expression for the posterior:
+This leads to the following posterior distribution:
 
 $$P(\mathbf{\mu} \mid 
     \mathbf{x}, \mathbf{\Sigma}, 
@@ -253,7 +252,7 @@ For priors on all multivariate variance-covariance matrices, we used the Wishart
 
 $$P(\mathbf{\Sigma}) \sim W(\nu_0, \mathbf{S}_0)$$
 
-This gives rise to the following expression for the posterior:
+This leads to the following posterior distribution:
 
 $$P(\mathbf{\Sigma} \mid
   \mathbf{x}, \mathbf{\mu},
@@ -266,10 +265,10 @@ $$\mathbf{x^*} = \mathbf{x} - \bar{\mu}$$
 $$\mathbf{SS} = \mathbf{x^*}^{T} \mathbf{x^*}$$
 $$\mathbf{S^*} = (\mathbf{S}_0 + \mathbf{SS})^{-1}$$
 
-where $n$ is the number of rows and $m$ is the number of columns in data matrix $x$. For further details on this derivation, see citet:gelman_2003_bayesian.
+where $n$ is the number of observations and $m$ is the number of traits in data matrix $x$. For further details on this derivation, see citet:gelman_2003_bayesian.
 
-The multivariate nature of the sampling procedure described above makes it incapable of accommodating partially missing observations.
-Therefore, our algorithm included multiple imputation of partially missing data, which proceeded as follows:
+The multivariate nature of this sampling procedure makes it incapable of accommodating partially missing observations.
+Therefore, our algorithm included multiple imputation of partially missing data cite:white_2010_multiple,graham_2009_missing_data_analysis, which proceeded as follows:
 For a block of data $\mathbf{x\prime}$ containing missing observations in columns $\mathbf{m}$ and present observations in columns $\mathbf{p}$,
 missing values $\mathbf{x\prime}[m]$ are drawn randomly from a conditional multivariate normal distribution at each iteration of the sampling algorithm:
 
@@ -286,20 +285,20 @@ We emphasize that imputation of missing data is performed iteratively as paramet
 This approach is distinct from single imputation, where data are imputed first in a separate step prior to parameter estimation cite:white_2010_multiple,graham_2009_missing_data_analysis.
 A demonstration of this multiple imputation approach and how it is used to estimate trait covariance is provided Supporting Information Method S1.
 
-For each model fit, we ran five parallel MCMC chains, continuing the sampling until the final result achieved convergence as determined by a Gelman-Rubin potential scale reduction statistic less than 1.1 cite:gelman_1992_inference.
+For each model fit, we ran five sampling sequences, continuing sampling until the final result achieved convergence as determined by a Gelman-Rubin potential scale reduction statistic less than 1.1 cite:gelman_1992_inference.
 We implemented this sampling algorithm in an open source, publicly available R cite:team_2018_r package (<http://github.com/ashiklom/mvtraits>).
 
 
 *** Analysis of results
 
-To assess the impact of multivariate and hierarchical constraint on trait estimates,
+To assess multivariate and hierarchical constraint on trait estimates,
 we compared the mean and 95% confidence intervals of trait estimates for each PFT from each model (Fig.\ 2, Tab.\ S1 and S2).
-For reference, we also added the default parameter values of CLM 4.5 [[cite:clm45_note][Table 8.1 in]] for SLA, $N_{mass}$, $N_{area}$, $V_{c,max,mass}$, and $V_{c,max,area}$ to Fig.\ 2.
+For reference, we included the default parameter values of CLM 4.5 [[cite:clm45_note][Table 8.1 in]] for SLA, $N_{mass}$, $N_{area}$, $V_{c,max,mass}$, and $V_{c,max,area}$ to Fig.\ 2.
 To convert CLM's reported C:N ratio to $N_{mass}$, we assumed a uniform leaf C fraction of 0.46.
 We then divided this calculated $N_{mass}$ by the reported SLA to obtain $N_{area}$.
 We calculated $V_{c,max,mass}$ by multiplying the reported $V_{c,max,area}$ by the reported SLA.
 
-To test whether the multivariate and hierarchical models offer more value in terms of uncertainty constraint at smaller sample sizes, we calculated the relative uncertainty ($\alpha$) as a function of the mean ($\mu$) and upper ($q_{0.975}$) and lower ($q_{0.025}$) confidence limits of trait estimates.
+To test whether multivariate and hierarchical models offer relatively more utility at smaller sample sizes, we calculated the relative uncertainty ($\alpha$) as a function of the mean ($\mu$) and upper ($q_{0.975}$) and lower ($q_{0.025}$) confidence limits of trait estimates.
 
 $$ \alpha = \frac{q_{0.975} - q_{0.025}}{\mu} $$
 
@@ -308,28 +307,23 @@ We then fit a log-linear least-squares regression relating relative uncertainty 
 $$ \log{\alpha} = b_0 + b_1 \log{n} $$
 
 If all three models performed equally well at all sample sizes, their respective slope and intercept coefficients would be statistically indistinguishable.
-On the other hand, models that perform better should have
-lower intercept ($b_0$) coefficients, indicating lower overall uncertainty,
+Meanwhile, models that perform better should have
+a lower intercept ($b_0$), indicating lower overall uncertainty,
 and
-lower slope ($b_1$) coefficients, indicating a reduced sensitivity of uncertainty ($\alpha$) to sample size ($n$).
+a lower slope ($b_1$), indicating reduced sensitivity of uncertainty ($\alpha$) to sample size ($n$).
 
-To assess the consistency of within- and across-PFT trait trade-offs, we looked at covariance estimates for each trait pair and, where these values were significantly different from zero ($p < 0.05$),
+To assess the consistency of within- and across-PFT trait trade-offs, we examined covariance estimates for each trait pair and, where these values were significantly different from zero ($p < 0.05$),
 we calculated the eigenvalues from the variance-covariance matrix for just that trait pair and plotted the corresponding dominant eigenvectors centered on the mean estimates (Fig.\ 4).
 This figure provides a visual representation of relative positions of PFTs in trait space and both the direction and extent of within-PFT trait covariance.
 It is analogous to conceptual figures describing hierarchical trait variability across environmental gradients as presented in citet:cornwell_2009_community and citet:albert_2010_intraspecific_functional_variability.
-Due to the small number of points used to estimate across-PFT covariance in the hierarchical model, none of the across-PFT covariances estimated in the hierarchical model were significantly different from zero ($p < 0.05$).
-Therefore, we compared within-PFT covariances as estimated by the hierarchical model against covariances estimated by a single global multivariate model.
+Due to the small number of points used to estimate across-PFT covariance in the hierarchical model, none of its across-PFT covariances were significantly different from zero ($p < 0.05$).
+Therefore, we compared within-PFT covariances from the hierarchical model against covariances from a single global multivariate model.
 
 Besides the consistency in the direction of trait covariance within vs. across PFTs, we also investigated the strength and predictive power of these covariances, represented by correlation coefficients (i.e. pairwise covariance normalized by each trait's variance).
 We plotted the mean and 95% confidence interval of the pairwise trait correlation coefficients from the global multivariate model and PFT-specific estimates from the hierarchical model (Fig.\ 5).
 
-Correlation coefficients can be strongly influenced by data sampling, particularly sample size and range (correlations are typically stronger when data have more samples and a larger range).
-To evaluate the contribution of data sampling to our correlation predictions, we plotted the square of each pairwise correlation coefficient against pairwise sample size and normalized data range (Fig.\ S1 and S2).
-
-The R code and ancillary data for running these analyses is publicly available online via the Open Science Framework at https://osf.io/w8y73/.
-The TRY data request used for this analysis has been archived at http://try-db.org,
-and can be retrieved by providing the TRY data request ID (#1584).
-Alternatively, the exact pre-formatted data used in this analysis are available on request to Alexey Shiklomanov (alexey.shiklomanov@pnnl.gov).
+Correlation coefficients are sensitive to data sampling, particularly sample size and range (stronger correlations when data have more samples and larger range).
+To evaluate the contribution of data sampling to our correlation estimates, we plotted the each pairwise correlation coefficient squared against pairwise sample size and normalized data range (Fig.\ S1 and S2).
 
 * Results
 
