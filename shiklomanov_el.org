@@ -16,8 +16,8 @@
 #+LATEX_HEADER: \affil[2]{Department of Earth \& Environment, Boston University, Boston, MA}
 #+LATEX_HEADER: \author[3]{Michael Bahn <Michael.Bahn@uibk.ac.at>}
 #+LATEX_HEADER: \affil[3]{Institute of Ecology, University of Innsbruck, 6020 Innsbruck, Austria}
-#+LATEX_HEADER: \author[4]{Chaeho Byun <chaeho.byun@mail.mcgill.ca>} %%% Emailed %%%
-#+LATEX_HEADER: \affil[4]{School of Civil and Environmental Engineering, Yonsei University, Seoul, Korea}
+#+LATEX_HEADER: \author[4]{Chaeho Byun <chaeho.byun@mail.mcgill.ca>}
+#+LATEX_HEADER: \affil[4]{School of Civil and Environmental Engineering, Yonsei University, Seoul 03722, Korea}
 #+LATEX_HEADER: \author[5]{Joseph Craine <josephmcraine@gmail.com>} %%% Emailed %%%
 #+LATEX_HEADER: \affil[5]{Jonah Ventures, LLC, Manhattan, KS 66502, USA}
 #+LATEX_HEADER: \author[6]{Andr\'es Gonzalez-Melo <geagonzalezme@unal.edu.co>} %%% Emailed %%%
@@ -33,7 +33,7 @@
 #+LATEX_HEADER: \affil[11]{Institute of Agricultural and Environmental Sciences, Estonian University of Life Sciences, Kreutzwaldi 1, 51014 Tartu, Estonia}
 #+LATEX_HEADER: \author[12]{Yusuke Onoda <yusuke.onoda@gmail.com>}
 #+LATEX_HEADER: \affil[12]{Graduate School of Agriculture, Kyoto University, Kyoto, 605-8503, Japan}
-#+LATEX_HEADER: \author[13]{Enio Egon Sosinski <sosinski@gmail.com>} %%%
+#+LATEX_HEADER: \author[13]{Enio Egon Sosinski <sosinski@gmail.com>} %%% Emailed %%%
 #+LATEX_HEADER: \affil[13]{Embrapa Temperate Agriculture, Rodovia BR 391, Km 77, CEP 96009-972 Pelotas, RS, Brazil}
 #+LATEX_HEADER: \author[14]{Nadejda A. Soudzilovskaia <n.a.soudzilovskaia@cml.leidenuniv.nl>}
 #+LATEX_HEADER: \affil[14]{Conservation Biology Department, Institute of Environmental Sciences, Leiden University, Leiden, The Netherlands}
@@ -44,8 +44,8 @@
 #+LATEX_HEADER: \renewcommand\Authfont{\footnotesize}
 #+LATEX_HEADER: \renewcommand\Affilfont{\scriptsize}
 
+#+BEGIN_EXPORT latex
 \begin{footnotesize}
-
 \noindent
 \textbf{Article type:} Methods
 
@@ -71,6 +71,7 @@ Alternatively, the exact pre-formatted data used in this analysis are available 
 \textbf{Keywords:} Functional trade-off; hierarchical modeling; trait variation; ecological modeling; leaf morphology; leaf biochemistry
 
 \end{footnotesize}
+#+END_EXPORT
 
 #+ATTR_LATEX: :font \footnotesize
 | Section               | Word count |      |            |     |
@@ -85,7 +86,9 @@ Alternatively, the exact pre-formatted data used in this analysis are available 
 | Total                 |       5940 | 5000 |            |     |
 #+TBLFM: @8$2=vsum(@I..II)
 
+#+BEGIN_EXPORT latex
 \linenumbers
+#+END_EXPORT
 
 * Abstract
   :PROPERTIES:
