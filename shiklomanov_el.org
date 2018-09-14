@@ -78,13 +78,13 @@ Alternatively, the exact pre-formatted data used in this analysis are available 
 |-----------------------+------------+------+------------+-----|
 | Abstract              |        146 |      | Figures    |   6 |
 | Introduction          |        988 |      | Tables     |   2 |
-| Materials and methods |       2056 |      | References | ??? |
+| Materials and methods |       1807 | 2056 | References | ??? |
 | Results               |       1094 |      |            |     |
 | Discussion            |       1524 |      |            |     |
 | Conclusions           |        132 |      |            |     |
 |-----------------------+------------+------+------------+-----|
-| Total                 |       5940 | 5000 |            |     |
-#+TBLFM: @8$2=vsum(@I..II)
+| Total                 |       5691 | 5000 |            |     |
+#+TBLFM: @4$2=$+1 - 249::@8$2=vsum(@I..II)
 
 #+BEGIN_EXPORT latex
 \linenumbers
