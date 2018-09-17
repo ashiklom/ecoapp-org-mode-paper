@@ -2,13 +2,17 @@
 #+AUTHOR:
 #+DATE:
 
-#+OPTIONS: toc:nil
+#+OPTIONS: toc:nil tags:nil
 #+CSL_STYLE: ecology-letters.csl
 
 #+LATEX_HEADER: \usepackage[left=1in,right=1in,top=1in,bottom=1in]{geometry}
 #+LATEX_HEADER: \usepackage{lineno}
 
 #+LATEX_HEADER: \usepackage[noblocks]{authblk}
+
+#+LATEX_HEADER: \usepackage{setspace}
+
+#+LATEX_HEADER: \usepackage{booktabs}
 
 #+LATEX_HEADER: \author[1,*]{Alexey N. Shiklomanov <alexey.shiklomanov@pnnl.gov>}
 #+LATEX_HEADER: \affil[1]{Joint Global Change Research Institute, Pacific Northwest National Laboratory, College Park, MD}
@@ -76,18 +80,18 @@ Alternatively, the exact pre-formatted data used in this analysis are available 
 #+ATTR_LATEX: :font \footnotesize
 | Section               | Word count |      |            |     |
 |-----------------------+------------+------+------------+-----|
-| Abstract              |        146 |      | Figures    |   6 |
-| Introduction          |        988 |      | Tables     |   2 |
-| Materials and methods |       1686 | 1935 | References | ??? |
-| Results               |       1094 |      |            |     |
-| Discussion            |       1524 |      |            |     |
-| Conclusions           |        132 |      |            |     |
+| Abstract              |        146 |      | Figures    |   5 |
+| Introduction          |        873 |      | Tables     |   1 |
+| Materials and methods |       1543 | 1792 | References | 100 |
+| Results               |        821 |      |            |     |
+| Discussion            |       1599 |      |            |     |
 |-----------------------+------------+------+------------+-----|
-| Total                 |       5570 | 5000 |            |     |
-#+TBLFM: @4$2=$+1 - 249::@8$2=vsum(@I..II)
+| Total                 |       4982 | 5000 |            |     |
+#+TBLFM: @4$2=$+1 - 249::@7$2=vsum(@I..II)
 
 #+BEGIN_EXPORT latex
 \linenumbers
+\doublespacing
 #+END_EXPORT
 
 * Abstract
@@ -456,7 +460,7 @@ Similarly, reexamining the relationships defining wood cite:chave_2009_towards,f
 We emphasize that the difficulty of measuring hydraulic and other non-foliar traits [[cite:jansen_2015_current][e.g.]] further increases the value of any technique that can fully leverage the information they provide. 
 Ultimately, multivariate and hierarchical modeling may reveal functional trade-offs that are mutually confounding at different scales, thereby enhancing our understanding of processes driving functional diversity.
 
-* Conclusions
+** Conclusions
 
 The vast diversity of plants is a major challenge for functional ecology and ecosystem modeling.
 Functional diversity research fundamentally depends on dimensionality reduction through a search for meaningful pattern that can be exploited to take reasonable guesses at average behavior. 
@@ -464,6 +468,74 @@ The trait trade-offs comprising the leaf economic spectrum are one such pattern.
 In this paper, we reaffirm the existence of the leaf economic spectrum both globally and, with some caveats, within plant functional types typically used in the current generation of Earth System Models.
 We also highlight how the strength of leaf economic relationships can be influenced by biotic and abiotic factors specific to certain PFTs.
 Finally, we show how patterns of trait covariance like the leaf economic spectrum can be leveraged to inform trait estimates, particularly at small sample sizes.
+
+* Tables                                                           :no_title:
+
+#+BEGIN_EXPORT latex
+\pagebreak
+#+END_EXPORT
+
+#+NAME: pfts
+#+BEGIN_SRC R :exports results :results output latex
+library(shiklomanov2017np)
+traits_file <- "~/laptop_folders/Projects/new-phytologist-traits/np-trait-analysis/extdata/traits_analysis.rds"
+try_data <- readRDS(traits_file)
+n_species <- try_data %>%
+  distinct(clm45, AccSpeciesID) %>%
+  select(pft = clm45, species = AccSpeciesID) %>%
+  count(pft) %>%
+  mutate(
+    pft = as.character(pft),
+    label = pft2abbr[pft],
+    pft = tools::toTitleCase(gsub("_", " ", pft))
+  ) %>%
+  select(`Label` = label, `PFT` = pft, `Number of species` = n)
+species_caption <- paste(
+  "\\label{tab:pfts}Names, labels, and species counts for plant functional types (PFTs)",
+  "used in this analysis."
+)
+kable(
+  n_species,
+  caption = species_caption,
+  align = rep("c", ncol(n_species)),
+  format = "latex",
+  booktabs = TRUE
+) %>%
+  kableExtra::kable_styling(latex_options = "hold_position")
+#+END_SRC
+
+#+RESULTS: pfts
+#+BEGIN_EXPORT latex
+\begin{table}[!h]
+
+\caption{\label{tab:}\label{tab:pfts}Names, labels, and species counts for plant functional types (PFTs) used in this analysis.}
+\centering
+\begin{tabular}[t]{ccc}
+\toprule
+Label & PFT & Number of species\\
+\midrule
+BlETr & Broadleaf Evergreen Tropical & 1229\\
+BlETe & Broadleaf Evergreen Temperate & 363\\
+BlDTr & Broadleaf Deciduous Tropical & 286\\
+BlDTe & Broadleaf Deciduous Temperate & 345\\
+BlDBo & Broadleaf Deciduous Boreal & 62\\
+\addlinespace
+NlETe & Needleleaf Evergreen Temperate & 130\\
+NlEBo & Needleleaf Evergreen Boreal & 30\\
+NlD & Needleleaf Deciduous & 19\\
+ShE & Shrub Evergreen & 1120\\
+ShDTe & Shrub Deciduous Temperate & 330\\
+\addlinespace
+ShDBo & Shrub Deciduous Boreal & 94\\
+C3GAr & C3 Grass Arctic & 157\\
+C3GTe & C3 Grass Temperate & 624\\
+C4G & C4 Grass & 255\\
+\bottomrule
+\end{tabular}
+\end{table}
+#+END_EXPORT
+
+* Figures                                                          :no_title:
 
 #+BEGIN_EXPORT latex
 \pagebreak
@@ -490,8 +562,6 @@ Finally, we show how patterns of trait covariance like the leaf economic spectru
 #+BEGIN_EXPORT latex
 \pagebreak
 #+END_EXPORT
-  
-#+BIBLIOGRAPHY: here
 
 * COMMENT Local variables and settings
   
