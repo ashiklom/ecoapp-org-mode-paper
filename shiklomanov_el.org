@@ -108,99 +108,91 @@ However, additional constraint from the across-PFT hierarchy was limited.
 
 * Introduction
 
-The use of functional groups with common characteristics has been widely applied in ecological studies cite:naeem_2003_disentangling and is essential to the structure of many ecosystem models cite:lavorel_1997_plant_functional_classifications,wullschleger_2014_plant.
+The use of functional groups with common characteristics is widespread in ecological studies cite:naeem_2003_disentangling and is essential to many ecosystem models cite:lavorel_1997_plant_functional_classifications,wullschleger_2014_plant.
 However, ecologists have long recognized the importance of individual variability and stochasticity in shaping ecosystems
 cite:gleason_1939_individualistic,rosindell_2011_unified,bolnick_2011_why,clark_2016_why
 and the benefits of more finely-resolved representation of functional diversity are supported by an increasing body of ecological literature
 cite:mayfield_2006_diversity,mcmahon_2011_improving,van_2011_going,reichstein_2014_linking,violle_2014_emergence,medlyn_2015_using,moran_2015_intraspecific.
-Plant functional traits can be used to link directly measurable features of individuals to their fitness within an ecosystem as well as to whole-ecosystem function cite:violle_2007_let.
-Recent syntheses of global trait databases have revealed that although the functional diversity across plant species is immense, this diversity is constrained by allometries and trade-offs between plant strategies cite:kattge_2011_try,wright_2004_worldwide,kleyer_2015_why,diaz_2015_global.
-One important axis of trait covariation is the "leaf economic spectrum", which defines an ecological trade-off between productive but short-lived leaves versus less productive but recalcitrant and long-lived leaves cite:wright_2004_worldwide,shipley_2006_fundamental,reich_2014_world,diaz_2015_global. 
+Plant functional traits can be used to link directly measurable features of individuals to their fitness within an ecosystem, and to whole-ecosystem function cite:violle_2007_let.
+Recent trait syntheses have revealed that plant functional diversity is constrained by allometries and trade-offs between ecological strategies cite:kattge_2011_try,wright_2004_worldwide,kleyer_2015_why,diaz_2015_global.
+One such constraint is the "leaf economic spectrum", which defines a trade-off between productive but short-lived leaves versus less productive but recalcitrant and long-lived leaves cite:wright_2004_worldwide,shipley_2006_fundamental,reich_2014_world,diaz_2015_global. 
 Leaf economic traits are well-correlated with
-individual plant productivity cite:shipley_2005_functional,niinemets_2016_within,wu_2016_convergence,
+plant productivity cite:shipley_2005_functional,niinemets_2016_within,wu_2016_convergence,
 litter decomposition rates cite:bakker_2010_leaf,hobbie_2015_plant,
 community composition cite:burns_2004_patterns,cavender-bares_2004_multiple,
 and ecosystem function cite:diaz_2004_plant,musavi_2015_imprint.
-The relative position of plant species along the leaf economic spectrum has been shown to be influenced by climate and soil conditions
+The position of species along the leaf economic spectrum is influenced by climate and soil conditions
 cite:wright_2004_worldwide,wright_2005_modulation,cornwell_2009_community,ordonez_2009_global,wigley_2016_leaf.
-As a result, relationships between leaf economic traits and climate have been incorporated into ecosystem models to allow for more finely-resolved variation in plant function cite:sakschewski_2015_leaf,verheijen_2015_inclusion.
+As a result, relationships between leaf economic traits and climate have been used in ecosystem models for more finely-resolved variation in plant function cite:sakschewski_2015_leaf,verheijen_2015_inclusion.
 
-However, the use of among-trait and trait-environment correlations at the global scale, for both ecological inference and land surface modeling, has several important caveats.
-First, observed correlations at the global scale may not hold at smaller scales, such as sites, species, and individuals.
+However, the use of global among-trait and trait-environment correlations, for both ecological inference and predictive modeling, has several important caveats.
+First, observed global correlations may not hold at smaller scales, such as sites, species, and individuals.
 Some studies suggest consistent correlations across scales cite:wright_2004_worldwide,albert_2010_multi,asner_2014_amazonian,
 whereas others show no or even opposite correlations cite:albert_2010_intraspecific_functional_variability,messier_2010_how,wright_2012_does,feng_2013_scale,grubb_2015_relationships,wigley_2016_leaf,messier_2017_interspecific,kichenin_2013_contrasting.
 Many mechanisms have been suggested for scale-dependence of trait relationships.
-Trade-offs may only be applicable when multiple competing strategies co-occur, and where strong environmental filters severely limit the range of feasible strategies, alternative processes can drive community assembly cite:rosado_2017_relative,grime_2012_evolutionary.
+Trade-offs may only apply when multiple competing strategies co-occur, and alternative processes can drive community assembly where strong environmental filters severely limit the range of feasible strategies cite:rosado_2017_relative,grime_2012_evolutionary.
 Different selective pressures dominate at different scales, particularly within versus across species cite:albert_2010_intraspecific_functional_variability,messier_2010_how,kichenin_2013_contrasting,
-and different traits have contrasting sensitivity to these different pressures cite:messier_2016_trait.
-Experimental evidence shows that species can alter different aspects of their leaf economy more-or-less independently cite:wright_2012_does.
-Meanwhile, across different plant functional types, resource allocation patterns differ substantially, which implies different investment strategies and therefore varying relationships among traits cite:ghimire_2017_global.
-Second, among-trait correlations at any scale do not provide causal evidence for functional trade-offs or similarity in environmental responses cite:messier_2016_trait.
-Therefore, ascribing too much leverage to trait correlations can lead to an underestimation of functional diversity cite:grubb_2015_trade.
+and different traits have different sensitivities to such pressures cite:messier_2016_trait.
+Experimental evidence shows that species can alter different aspects of their leaf economy independently cite:wright_2012_does.
+Meanwhile, allocation patterns (and therefore investment strategies and trait relationships) vary across plant functional types cite:ghimire_2017_global.
+Second, among-trait correlations at any scale do not provide causal evidence for functional trade-offs cite:messier_2016_trait,
+and ascribing excessive leverage to trait correlations can result in underestimation of functional diversity cite:grubb_2015_trade.
 Third, plants maintain their fitness through multiple independent strategies, corresponding to multiple mutually orthogonal axes of trait variability.
-For instance, changes in leaf economic traits, such as nitrogen content and specific leaf area, can fail to predict changes in other aspects of plant function, such as
+For instance, changes in leaf economic traits can fail to predict changes in other aspects of plant function, such as
 hydraulics cite:li_2015_leaf,
 dispersal cite:westoby_2002_plant_ecological_strategies,
 and overall plant carbon budget cite:edwards_2014_leaf.
 Finally, modeling ecosystem function based on trait correlations is sampling from the hypothetical space of potential species and communities that could have evolved,
-failing to account for the timescales required for adaptation and community assembly, physiological limitations of different species, spatial separation, and constraints on convergent evolution.
+failing to account for real constraints such as the timescales required for adaptation and community assembly.
 
-An alternative approach is to preserve existing PFT classifications
-(though potentially with finer taxonomic, functional, or spatial resolution, e.g. cite:boulangeat_2012_improving)
+An alternative approach is to preserve existing PFT classifications (potentially with finer resolution, e.g. cite:boulangeat_2012_improving)
 while using statistical analyses to account for uncertainty and variability in the aggregated trait values.
-For example, the Predictive Ecosystem Analyzer (PEcAn, pecanproject.org), an ecosystem model-data informatics system, parameterizes PFTs using trait probability distributions from a Bayesian meta-analysis of plant trait data across many studies
-cite:dietze_2013_improving,lebauer_2013_facilitating. 
-This approach explicitly separates the processes driving PFT-level differentiation from processes that drive finer-scale functional variability,
+For example, the Predictive Ecosystem Analyzer (PEcAn, pecanproject.org), an ecosystem model-data informatics system, parameterizes PFTs using trait probability distributions from a Bayesian meta-analysis of trait data cite:dietze_2013_improving,lebauer_2013_facilitating. 
+This approach explicitly separates the processes driving PFT-level differentiation from those driving finer-scale functional variability,
 and is useful for guiding future data collection and model refinement cite:dietze_2014_quantitative.
-However, a univariate meta-analysis, like the one currently in PEcAn, fails to account for trait correlations and therefore neglects useful knowledge about relationships across PFTs and between traits.
-At the other extreme, existing regional and global scale analyses (e.g. cite:van_2011_going,sakschewski_2015_leaf) ignore variability within PFTs, often resulting in macroecological, evolutionary, and competitive trade-offs across PFTs being used to drive both acclimation and instantaneous responses within PFTs.
+However, a univariate meta-analysis like PEcAn's fails to account for trait correlations and therefore neglects useful knowledge about relationships across PFTs and between traits.
+At the other extreme, existing regional and global analyses (e.g. cite:van_2011_going,sakschewski_2015_leaf) ignore variability within PFTs, often resulting in macroecological, evolutionary, and competitive trade-offs across PFTs being used to drive acclimation and instantaneous responses within PFTs.
 
-While the leaf economic spectrum has been investigated at the global scale, where it is robust, and at the site or plot scale, where deviations from it are common, it has received less attention at the intermediate scale of PFTs.
+While the leaf economic spectrum has been investigated at the global scale, where it is robust, and at local scales, where deviations from it are common, it has received less attention at the intermediate scale of PFTs.
 Thus, this paper seeks to answer the following questions:
-First, to what extent does the leaf economic spectrum hold within vs. across PFTs?
-Second, to what extent can the leaf economic spectrum and other patterns of trait covariance be leveraged to constrain trait estimates, particularly under data limitation?
-The answer to these question has implications for both functional ecology and ecosystem modeling.
-To evaluate these questions, we develop a hierarchical multivariate Bayesian model that explicitly accounts for across- and within-PFT variability in trait correlations.
-We then fit this model to a global database of foliar traits to estimate mean trait values and variance-covariance matrices for PFTs as defined in a major earth system model (Community Land Model, CLM, citealt:clm45_note).
-We evaluate the ability of this model to reduce uncertainties in trait estimates and reproduce observed patterns of global trait variation compared to non-hierarchical multivariate and univariate models.
-Finally, we assess the generality and scale dependence of trait trade-offs by comparing covariance estimates globally and within each PFT.
+First, does the leaf economic spectrum hold within vs. across PFTs?
+Second, can the leaf economic spectrum and similar covariance patterns be leveraged to constrain trait estimates, particularly under data limitation?
+The answers to these question have implications for both functional ecology and ecosystem modeling.
+To address these questions, we developed a hierarchical multivariate Bayesian model that explicitly accounts for across- and within-PFT variability in trait correlations.
+We then fit this model to a global trait database to estimate mean trait values and variance-covariance matrices for PFTs as defined in a major earth system model (Community Land Model, CLM, citealt:clm45_note).
+We evaluate the ability of this model to reduce uncertainties in trait estimates and reproduce observed patterns of global trait variation compared to univariate models.
+Finally, we assess the scale dependence and generality of estimated trait covariances.
 
 * Materials and methods
 
 ** Trait data
 
    # TODO - Table reference
-Trait data for this analysis comes from the TRY global traits database cite:kattge_2011_try (Tab.\ =\@ref(tab:trydata)=).
+We obtained trait data from the TRY global database cite:kattge_2011_try (see Appendix S1 in Supporting Information).
 We focused on seven foliar traits:
 longevity (months),
 specific leaf area (SLA, m$^2$ kg$^{-1}$),
 nitrogen content ($N_{mass}$, mg N g$^{-1}$ or $N_{area}$, g m$^{-2}$),
 phosphorus content ($P_{mass}$, mg P g$^{-1}$ or $P_{area}$, g m$^{-2}$),
 dark respiration at 25°C ($R_{d,mass}$, µmol g$^{-1}$ s$^{-1}$, or $R_{d,area}$, µmol m$^{-2}$ s$^{-1}$),
-maximum Rubisco carboxylation rate at 25°C ($V_{c,max,mass}$, µmol g$^{-1}$ s$^{-1}$, or $V_{c,max,area}$, µmol m$^{-2}$ s$^{-1}$),
+maximum RuBisCO carboxylation rate at 25°C ($V_{c,max,mass}$, µmol g$^{-1}$ s$^{-1}$, or $V_{c,max,area}$, µmol m$^{-2}$ s$^{-1}$),
 and maximum electron transport rate at 25°C ($J_{max,mass}$, µmol g$^{-1}$ s$^{-1}$, or $J_{max,area}$, µmol m$^{-2}$ s$^{-1}$).
-For $V_{c,max}$, we only used values already reported in TRY as being at 25°C.
-For $R_{d}$, we normalized the values to 25°C based on reported leaf temperature values following the same methods as citet:atkin_2015_global.
-For $J_{max}$, we normalized the values to 25°C based on reported leaf temperature values using the temperature response function described in citet:kattge_2007_temperature (Equation 1 therein).
-To avoid potential artifacts caused by different trait normalization, we performed analyses separately for both mass- and area-normalized traits cite:osnas_2013_global,lloyd_2013_photosynthetically.
-We restricted our analysis to TRY data that have been quality-controlled and for which adequate species information was provided for functional type classification [[cite:kattge_2011_try][see]].
-
-Although maximum photosynthetic rate ($A_{max}$) was an important trait in previous studies, we did not include it for two reasons.
-First, data on raw photosynthetic rates are highly sensitive to measurement methodology and environmental conditions, which were generally inconsistent or unavailable in TRY.
-Second, $A_{max}$ is rarely used in vegetation models as a photosynthetic parameter because it integrates over variability in many physiologically independent traits, such as $V_{c,max}$, $J_{max}$, and stomatal conductance cite:ali_2015_global.
-
+For $V_{c,max}$, we only used values reported at 25°C.
+For $R_{d}$, we normalized the values to 25°C using reported leaf temperature values following citet:atkin_2015_global.
+For $J_{max}$, we normalized the values to 25°C using reported leaf temperature values using the temperature response function described in citet:kattge_2007_temperature (Equation 1 therein).
+To avoid issues with trait normalization, we performed analyses separately for both mass- and area-normalized traits cite:osnas_2013_global,lloyd_2013_photosynthetically.
+We restricted our analysis to quality-controlled values from species with sufficient information for functional type classification [[cite:kattge_2011_try][see]].
 Following past studies [[cite:wright_2004_worldwide,onoda_2011_global,diaz_2015_global][e.g.]], we log-transformed all trait values to correct for their strong right-skewness.
 
 ** Plant functional types
 
    # TODO - Table reference
-We assigned each species a unique plant functional type (PFT) following the scheme in the Community Land Model (CLM4.5, citealt:clm45_note) [Tab.\ \@ref(tab:pfts), Fig.\ 1].
-We obtained categorical data on growth form, leaf type, phenology, and photosynthetic pathway from the TRY database.
+We assigned each species a PFT following the scheme in the Community Land Model (CLM4.5, citealt:clm45_note) (Tab. 1, Fig.\ 1).
+We obtained categorical data on growth form, leaf type, phenology, and photosynthetic pathway from TRY.
 Where species attributes disagreed between datasets, we assigned the most frequently observed attribute (e.g., if five datasets say "shrub" but only one says "tree", we would use "shrub").
-Where species attributes were missing, we assigned attributes based on higher order phylogeny if this was reasonably unambiguous (e.g., /Poaceae/ family are grasses, /Larix/ genus are deciduous needleleaved trees) and omitted the species if otherwise.
-For biome specification, we collected all latitude and longitude data for each species,
-matched these data to annual mean temperature ($AMT$, averaged 1970-2000) data from WorldClim-2 cite:fick_2017_worldclim,
-calculated the mean AMT for all sites at which that species was observed,
+Where species attributes were missing, we assigned attributes based on higher order phylogeny if possible (e.g., /Poaceae/ family are grasses, /Larix/ genus are deciduous needleleaved trees) or omitted the species if not.
+For biome specification, we matched geographic coordinates for each species to annual mean temperature ($AMT$, averaged 1970-2000) data from WorldClim-2 cite:fick_2017_worldclim,
+calculated the mean AMT for all sites where each species was observed,
 and then binned these species based on the following cutoffs: boreal/arctic ($AMT \leq 5^\circ C$), temperate ($AMT \leq 20^\circ C$), and tropical ($AMT > 20^\circ C$).
 
 ** Multivariate analysis
@@ -223,7 +215,7 @@ $$\mathbf{x_i} \sim mvN(\mathbf{\mu}, \mathbf{\Sigma})$$
 where $mvN$ is the multivariate Gaussian distribution with mean vector $\mathbf{\mu}$ and variance-covariance matrix $\mathbf{\Sigma}$.
 We fit both of these models independently for each PFT and once for the entire dataset (i.e. one global PFT).
 
-The most complex model was the "hierarchical" model, where traits are drawn from a PFT-specific multivariate distribution describing within-PFT variation, and whose mean vector is sampled from a global multivariate distribution describing variation across PFTs.
+The most complex model was the "hierarchical" model, where traits are drawn from a PFT-specific multivariate distribution describing within-PFT variation, and whose mean vector is itself sampled from a global multivariate distribution describing variation across PFTs.
 For observed trait vector $\mathbf{x}_{i,p}$ for sample $i$ belonging to PFT $p$:
 
 $$\mathbf{x}_{i,p} \sim mvN(\mathbf{\mu}_p, \mathbf{\Sigma}_p)$$
@@ -235,7 +227,7 @@ where $\mathbf{\mu}_p$ and $\mathbf{\Sigma}_p$ are the mean vector and variance-
 *** Model implementation
 
 We fit the above models using Gibbs sampling, which leverages conjugate prior relationships for efficient exploration of the sampling space.
-For priors on all multivariate mean vectors ($\mathbf{\mu}$), we use normal distributions:
+For priors on all multivariate mean vectors ($\mathbf{\mu}$), we used normal distributions:
 
 $$P(\mathbf{\mu}) \sim mvN(\mathbf{\mu}_0, {\mathbf{\Sigma}}_0)$$
 
@@ -272,7 +264,7 @@ $$\mathbf{S^*} = (\mathbf{S}_0 + \mathbf{SS})^{-1}$$
 where $n$ is the number of observations and $m$ is the number of traits in data matrix $x$. For further details on this derivation, see citet:gelman_2003_bayesian.
 
 The multivariate nature of this sampling procedure makes it incapable of accommodating partially missing observations.
-Therefore, our algorithm included multiple imputation of partially missing data cite:white_2010_multiple,graham_2009_missing_data_analysis, which proceeded as follows:
+Therefore, our algorithm included multiple imputation of partially missing data cite:white_2010_multiple,graham_2009_missing_data_analysis.
 For a block of data $\mathbf{x\prime}$ containing missing observations in columns $\mathbf{m}$ and present observations in columns $\mathbf{p}$,
 missing values $\mathbf{x\prime}[m]$ are drawn randomly from a conditional multivariate normal distribution at each iteration of the sampling algorithm:
 
@@ -290,8 +282,7 @@ This approach is distinct from single imputation, where data are imputed first i
 A demonstration of this multiple imputation approach and how it is used to estimate trait covariance is provided Supporting Information Method S1.
 
 For each model fit, we ran five sampling sequences, continuing sampling until the final result achieved convergence as determined by a Gelman-Rubin potential scale reduction statistic less than 1.1 cite:gelman_1992_inference.
-We implemented this sampling algorithm in an open source, publicly available R cite:team_2018_r package (<http://github.com/ashiklom/mvtraits>).
-
+We implemented this sampling algorithm in a publicly available R cite:team_2018_r package (<http://github.com/ashiklom/mvtraits>).
 
 *** Analysis of results
 
