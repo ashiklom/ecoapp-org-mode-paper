@@ -328,9 +328,6 @@ In general, leaf trait estimates from the univariate, multivariate, and hierarch
 Where estimates differed between models, the largest differences were between the univariate and multivariate models, and additional constraint from the hierarchical model relative to PFT-specific multivariate models had a minimal effect on trait estimates.
 Significant differences in trait estimates between univariate and multivariate models occurred even for well-sampled traits, such as leaf nitrogen content.
 
-Evergreen PFTs, particularly temperate and boreal needleleaf trees, had the longest leaf lifespan.
-Meanwhile, all deciduous PFTs had lifespans shorter than 7 months, with generally longer lifespan in warmer biomes than colder ones.
-
 Across-PFT patterns in SLA and $N_{mass}$, $P_{mass}$, and $R_{d,mass}$ were similar,
 with the highest values in temperate broadleaved deciduous PFTs and the lowest values in temperate evergreen PFTs.
 However, none of these patterns was universal to all four traits.
@@ -339,36 +336,24 @@ Similarly, compared to grass PFTs, temperate and boreal shrubs had similar SLA b
 Patterns were different when these traits were normalized by area instead of mass.
 For example, tropical broadleaved evergreen and needleleaf evergreen trees had relatively low $N_{mass}$ and $P_{mass}$ but relatively high $N_{area}$ and $P_{area}$, while the opposite was true of deciduous temperate trees and shrubs.
 
-C3 grasses had the highest $V_{c,max,mass}$ and $V_{c,max,area}$.
-Compared to broadleaved trees, temperate needleleaved evergreen trees had lower $V_{c,max,mass}$ but higher $V_{c,max,area}$.
-Among broadleaved trees, deciduous trees had higher $V_{c,max,mass}$ and slightly higher $V_{c,max,area}$ than evergreen trees.
-Between the deciduous and evergreen tree PFTs, we observed no significant trend by climate zone.
-
-C3 grasses and temperate needleleaved evergreen trees had the highest $J_{max,area}$, but temperate broadleaved deciduous trees had the highest $J_{max,mass}$.
-All of the shrub PFTs had the lowest $J_{max,mass}$ but average or above-average $J_{max,area}$, while the opposite was true of broadleaved tropical PFTs.
-Of the tree PFTs, needleleaved evergreen trees had the highest $J_{max,area}$ but the lowest $J_{max,mass}$.
-
 A key application of this study was to provide data-driven parameter estimates for Earth System Models.
 To this end, we compared our mean parameter estimates with corresponding default parameters in CLM 4.5 cite:clm45_note (Fig.\ 2).
 Our SLA estimates were significantly lower than CLM parameters for all PFTs except tropical broadleaved evergreen trees.
-For $N_{mass}$, our estimates showed a lot more across-PFT variability than CLM parameters, and only agreed with CLM parameters for evergreen temperate trees, needleleaved trees, and C3 arctic grasses.
-Our estimates of $V_{c,max}$ (both by mass and area) were generally lower than CLM's parameters.
-citet:kattge_2009_quantifying also found that $V_{c,max,area}$ was overestimated by Earth System models,
-but their estimates of $V_{c,max,area}$ and $N_{area}$ are generally slightly higher than ours.
+Our $N_{mass}$ estimates showed more across-PFT variability than CLM parameters, and only agreed with CLM for evergreen temperate trees, needleleaved trees, and C3 arctic grasses.
+Similarly to citet:kattge_2009_quantifying, we found that CLM overestimates $V_{c,max}$, both by mass and area. 
 
-We observed clear differences in the relative uncertainties of mean estimates with respect to sample size.
-All high-latitude PFTs consistently had large uncertainties relative to other PFTs, while the traits with the largest uncertainties were dark respiration, $V_{c,max}$, and $J_{max}$.
-For many of these trait-PFT combinations, the additional constraint from trait covariance provided by the multivariate and hierarchical models substantially reduced error bars, making it possible to compare estimates against those of other PFTs.
-Our analysis of the relationship between sample size and trait uncertainty found that covariance-based constraint from the multivariate model both reduced uncertainty overall (lower intercept) and reduced the sensitivity of uncertainty to sample size (lower slope) compared to the univariate model (Fig.\ 3).
+We observed differences in the uncertainties of mean estimates with respect to sample size.
+High-latitude PFTs had large uncertainties relative to other PFTs, and the traits with the largest uncertainties were dark respiration, $V_{c,max}$, and $J_{max}$.
+For many of these trait-PFT combinations, the additional constraint from trait covariance provided by the multivariate and hierarchical models reduced error bars, making it possible to compare estimates against those of other PFTs.
+Our analysis of the relationship between sample size and trait uncertainty found that, compared to the univariate model, the multivariate model both reduced uncertainty overall (lower intercept) and reduced the sensitivity of uncertainty to sample size (lower slope) (Fig.\ 3).
 However, the additional benefit from the hierarchical model was small.
-
 
 ** Trait correlation patterns across- and within-PFTs
 
 For all traits except leaf lifespan, pairwise trait correlations were generally consistent in direction both globally and within each PFT (Fig.\ 4).
 Mass- and area-normalized traits were all positively correlated with each other and, respectively, positively and negatively correlated with SLA, both globally and within each PFT.
-Mass-based traits were also generally positively correlated with leaf lifespan, but correlations of area-based traits with leaf lifespan were more variable.
-The correlation between $N_{area}$ and leaf lifespan was positive globally and for evergreen shrubs, tropical broadleaved deciduous trees, temperate needleleaved evergreen trees but negative for temperate and boreal broadleaved deciduous trees and not significant for any other PFTs.
+Mass-based traits were generally positively correlated with leaf lifespan, but correlations of area-based traits with leaf lifespan were more variable.
+The $N_{area}$-leaf lifespan relationship was positive globally and for evergreen shrubs, tropical broadleaved deciduous trees, temperate needleleaved evergreen trees, but negative for temperate and boreal broadleaved deciduous trees and not significant for any other PFTs.
 Similarly, the correlation between $P_{area}$ and leaf lifespan was positive globally but negative for evergreen shrubs and not significant for any other PFTs.
 The correlation between leaf lifespan and $R_{d,area}$ was significant and negative globally, but was not significant within any PFTs.
 The only significant correlations of leaf lifespan with $V_{c,max,area}$ and $J_{max,area}$ were negative for temperate broadleaved deciduous trees.
@@ -377,11 +362,10 @@ Pairwise trait correlation strength varied depending on scale, PFT, and trait (F
 In some cases, this variability was driven by low sample sizes (Fig.\ 1, S1; Tab.\ S3, S4).
 For instance, needleleaved deciduous trees, the most undersampled PFT in our analysis, were often the only PFT for which a correlation was not statistically significant.
 Similarly, we had no observations of dark respirations for deciduous boreal shrubs, which explains why we found no significant correlations of dark respiration with any other trait for that PFT.
-That being said, the relationship between correlations strength and sample size was inconsistent (Fig.\ S1; Tab.\ S4).
-For example, temperate needleleaf evergreen trees and C3 arctic grasses showed the strongest $N_{area}$-$P_{area}$ correlations despite having relatively average sample sizes for both traits.
-In fact, every trait pair had at least one case (and often several cases) where a better-sampled PFT showed weaker correlations than PFTs with lower sample sizes, or where correlation strength varied significantly among PFTs with similar sample sizes (Fig.\ S1).
+However, the relationship between correlations strength and sample size was inconsistent (Fig.\ S1; Tab.\ S4).
+Every trait pair had at least one case (and often several cases) where a better-sampled PFT showed weaker correlations than PFTs with lower sample sizes, or where correlation strength varied significantly among PFTs with similar sample sizes (Fig.\ S1).
 Relationships between correlation strength and data range were even less consistent (Fig.\ S2).
-Based on these results, we conclude that the variation in our correlation results is not driven primarily by sampling and at least partially captures underlying ecophysiological differences between PFTs.
+Therefore, we conclude that the variation in our correlation results can not be explained by sampling alone and captures some underlying ecophysiological differences between PFTs.
 
 * Discussion
 
@@ -389,21 +373,21 @@ Based on these results, we conclude that the variation in our correlation result
 
 The leaf economic spectrum is defined by a negative correlation between SLA and leaf lifespan, and a positive correlation of SLA with $N_{mass}$, $P_{mass}$, and photosynthesis and respiration rates cite:wright_2004_worldwide.
 Our first objective was to investigate the extent to which these relationships hold within and across PFTs.
-Our results indicate that the leaf economic spectrum generally still holds within PFTs, at least at the functional and phylogenetic scale of the current generation of Earth System Models.
+Our results indicate that the leaf economic spectrum generally holds within PFTs, at least at the functional and phylogenetic resolution of current Earth System Models.
 Within PFTs, correlations between SLA, $N_{mass}$, and $P_{mass}$ were consistently positive, and correlations of these traits with leaf lifespan were generally negative (though, for many PFTs, correlations were not significantly different from zero).
 Although we did not include maximum photosynthesis rate ($A_{max}$), $V_{c,max,mass}$ and $J_{max,mass}$ generally exhibited the expected positive correlations with SLA and negative correlations with leaf lifespan, as did $R_{d,mass}$, though many correlations were not significant.
 
-While the relationships we observed were consistent in direction across different PFTs, correlation strength was more variable.
+While trait relationships within PFTs were consistent in direction, their strength was more variable.
 For example, correlations of SLA with $N_{mass}$ and $P_{mass}$ were weaker in needleleaved PFTs compared to broadleaved PFTs.
-Meanwhile, correlations of SLA with $N_{area}$ were strongly negative for all PFTs (except the data-limited needleleaved deciduous trees), and temperate needleleaved species in particular had relatively strong SLA-$N_{area}$ and SLA-$P_{area}$ correlations.
-Given that evergreen conifers are relatively unique in their consistently proportional allocation of N to cell walls and Rubisco cite:onoda_2017_physiological, our results support the idea that needleleaved species primarily adapt to their environment through leaf morphological changes (i.e. changing SLA) rather than through adjusting foliar biochemistry cite:robakowski_2004_growth.
+Meanwhile, correlations of SLA with $N_{area}$ were strongly negative for all PFTs (except the data-limited needleleaved deciduous trees), and especially so in temperate needleleaved species.
+Given that evergreen conifers have a relatively constant allocation of N to cell walls and RuBisCO cite:onoda_2017_physiological, our results support the idea that needleleaved species primarily adapt to their environment by changing leaf morphology (i.e. SLA) rather than foliar biochemistry cite:robakowski_2004_growth.
 
 Correlations between leaf nutrient concentrations and traits related to photosynthetic metabolism ($V_{c,max}$ and $J_{max}$) are often used to parameterize photosynthesis in ecosystem models cite:clm45_note,rogers_2016_roadmap.
 We found that these correlations were highly variable between PFTs.
-Although trait correlations are not necessarily indicative of allocation strategies, this result generally supports the findings of citet:ghimire_2017_global that N allocation to photosynthesis varies widely by PFT.
-In tropical evergreen broadleaved trees, for example, photosynthetic metabolism traits were relatively weakly correlated with $N_{mass}$ and relatively strongly correlated with $P_{mass}$.
-This suggests that the productivity of tropical species is P-limited cite:reich_2004_global,ghimire_2017_global, that N allocation strategies are more variable under N-poor conditions cite:ghimire_2017_global, or more generally that photosynthetic parameters are more sensitive to environmental covariates than leaf nitrogen contents cite:ali_2015_global.
-Meanwhile, our result that the relatively weak $N_{area}$ - $V_{c,max,area}$ correlation in needleleaved (compared to broadleaved) species echoes earlier results by citet:kattge_2009_quantifying and suggests lower allocation of N to photosynthesis cite:ghimire_2017_global.
+Although trait correlations are not necessarily indicative of allocation strategies, this result supports the findings of citet:ghimire_2017_global that N allocation to photosynthesis varies widely by PFT.
+In tropical evergreen broadleaved trees, for example, photosynthetic metabolism traits were better correlated with $P_{mass}$ than $N_{mass}$.
+This suggests that productivity of tropical species is P-limited cite:reich_2004_global,ghimire_2017_global, that N allocation strategies are more variable under N-poor conditions cite:ghimire_2017_global, or more generally that photosynthetic metabolism is more sensitive to environmental covariates than leaf nitrogen contents cite:ali_2015_global.
+Meanwhile, the relatively weak $N_{area}$ - $V_{c,max,area}$ correlation in needleleaved (compared to broadleaved) species echoes earlier results by citet:kattge_2009_quantifying and suggests lower allocation of N to photosynthesis cite:ghimire_2017_global.
 Considering that needleleaf-dominated boreal forests have the largest influence on global climate of any biome cite:snyder_2004_evaluating,bonan_2008_forests_climate_change, we suggest that parameterization of needleleaf tree productivity based on foliar nitrogen content in Earth System Models be treated with caution.
 
 Correlations of all traits with leaf lifespan were weaker (and often insignificant) within most PFTs than globally.
@@ -421,27 +405,27 @@ However, this comparison may not be entirely fair because our study design inher
 
 Finally, there has been some debate about the use of mass- or area-normalized traits in analyses of the leaf economic spectrum.
 Two studies cite:osnas_2013_global,lloyd_2013_photosynthetically independently concluded that leaf economic relationships among mass-based traits emerge inevitably out of variation in SLA and are therefore not ecologically meaningful.
-Responses to these criticisms have suggested that both mass- and area-based normalization have merit, as mass-based traits have a natural interpretation in terms of resource allocation while area-based traits are tied to the area-based nature of energy and gas fluxes through leaf surfaces cite:westoby_2013_understanding,poorter_2013_trait_correlation_networks.
-Our study suggests that investigation of trait correlations on both a mass- and area-basis can yield biologically and ecologically meaningful conclusions.
+Responses to these criticisms have suggested that both mass- and area-based normalization have merit: mass-based traits have a natural interpretation in terms of resource allocation, while area-based traits are tied to the area-based nature of energy and gas fluxes through leaf surfaces cite:westoby_2013_understanding,poorter_2013_trait_correlation_networks.
+We argue that investigation of trait correlations on both a mass- and area-basis can yield biologically meaningful conclusions.
 For one, our discussion of differences in ecological strategies between broadleaved and needleaved species fundamentally depends on comparative analysis of mass- and area-normalized nutrient contents.
 Meanwhile, our discussion of tropical tree productivity with respect to foliar nutrient contents is supported regardless of how traits are normalized.
 
 ** Covariance as constraint
 
 The second objective of this paper was to investigate the ability of trait covariance to reduce uncertainties in trait estimates.
-Our results show that accounting for trait covariance reduced uncertainty around PFT-level trait means, particularly for trait-PFT combinations with low sample sizes (Fig.\ 2 and 3).
-Moreover, accounting for trait covariance occasionally changed the /position/ of trait mean estimates, even for PFT-trait combinations with large sample sizes (e.g. $N_{mass}$ for temperate broadleaved deciduous trees, Fig.\ 2).
+We show that accounting for covariance reduced uncertainty around PFT-level trait means, particularly for undersampled trait-PFT combinations (Fig.\ 2 and 3).
+Moreover, accounting for covariance occasionally changed the /position/ of trait mean estimates, even for well-sampled PFT-trait combinations (e.g. $N_{mass}$ for temperate broadleaved deciduous trees, Fig.\ 2).
 This result echoes citet:diaz_2015_global in demonstrating the importance of studying the multivariate trait space rather than individual traits. 
-Such shifts suggest that the sampling of these traits in the TRY database is not representative (Fig.\ 1; see also citealt:kattge_2011_try). 
+Such shifts suggest that sampling of these traits in TRY is not representative (Fig.\ 1; see also citealt:kattge_2011_try). 
 These shifts also indicate that parameter estimates based on univariate trait data [[cite:lebauer_2013_facilitating,dietze_2014_quantitative,butler_2017_mapping][e.g.]] may not only overestimate uncertainty, but may also be systematically biased.
 Although some traits in our analysis ($R_{d}$, $V_{c,max}$, and $J_{max}$) still had insufficient observations necessary to reliably estimate covariance patterns for some PFTs, 
-our results show that the effective sample size of all traits is enhanced when covariance is taken into account.
-This means that field and remote sensing studies that estimate only certain traits (like SLA and $N_{mass}$)  may be able to leverage trait correlations to provide constraint on traits they do not directly observe (such as $P_{mass}$ and $R_{d,mass}$) cite:singh_2015_imaging,musavi_2015_imprint,lepine_2016_examining,serbin_2014_spectroscopic.
-We therefore suggest that future observational campaigns consider trait covariance when deciding which traits to measure.
+we show that leveraging covariance increases the effective sample size of all traits.
+This means that field and remote sensing studies that estimate only certain traits (like SLA and $N_{mass}$)  may be able to use trait correlations to provide constraint on traits they do not directly observe (such as $P_{mass}$ and $R_{d,mass}$) cite:singh_2015_imaging,musavi_2015_imprint,lepine_2016_examining,serbin_2014_spectroscopic.
+As such, future observational campaigns should consider trait covariance when deciding which traits to measure.
 
 The additional benefit of hierarchical multivariate modeling in our study was limited, largely due to the low number of points used to estimate across-PFT covariance.
 Therefore, for parameterizing the current generation of ecosystem models using well-sampled traits, simple multivariate models fit independently to each PFT may be sufficient and the additional conceptual challenges and computational overhead of hierarchical modeling are not required.
-However, for modeling larger numbers of PFTs cite:boulangeat_2012_improving or even individual species [[cite:post_1996_linkages][e.g. Linkages, ]], the benefits of hierarchical modeling may accumulate cite:dietze_2008_capturing,cressie_2009_accounting,webb_2010_structured,clark_2004_why.
+However, for modeling larger numbers of PFTs cite:boulangeat_2012_improving and especially individual species [[cite:post_1996_linkages][e.g. Linkages, ]], the benefits of hierarchical modeling may accumulate cite:dietze_2008_capturing,cressie_2009_accounting,webb_2010_structured,clark_2004_why.
 
 More generally, we foresee tremendous potential for multivariate and hierarchical modeling to elucidate the relationship between traits and organismal and ecosystem function. 
 A natural next step to this study would be to apply the same approach to traits whose relationship to the leaf economic spectrum is less clear. 
@@ -572,3 +556,28 @@ Missing references:
 (setq org-latex-pdf-process (list "latexmk -shell-escape -bibtex -f -pdf %f"))
 (setq citeproc-org-ignore-backends nil)
 #+END_SRC
+
+#+RESULTS:
+  
+** Old statement about A_max from Methods/Trait data:
+
+Although maximum photosynthetic rate ($A_{max}$) was an important trait in previous studies, we omitted it for two reasons.
+First, data on raw photosynthetic rates are highly sensitive to measurement methodology and environmental conditions, which were generally inconsistent or unavailable in TRY.
+Second, $A_{max}$ is rarely used in vegetation models as a photosynthetic parameter because it integrates over variability in many physiologically independent traits, such as $V_{c,max}$, $J_{max}$, and stomatal conductance cite:ali_2015_global.
+
+** Old results text on PFT-level means:
+   
+Evergreen PFTs, particularly temperate and boreal needleleaf trees, had the longest leaf lifespan.
+Meanwhile, all deciduous PFTs had lifespans shorter than 7 months, with generally longer lifespan in warmer biomes than colder ones.
+
+# Across-PFT patterns in SLA...
+
+C3 grasses had the highest $V_{c,max,mass}$ and $V_{c,max,area}$.
+Compared to broadleaved trees, temperate needleleaved evergreen trees had lower $V_{c,max,mass}$ but higher $V_{c,max,area}$.
+Among broadleaved trees, deciduous trees had higher $V_{c,max,mass}$ and slightly higher $V_{c,max,area}$ than evergreen trees.
+Between the deciduous and evergreen tree PFTs, we observed no significant trend by climate zone.
+
+C3 grasses and temperate needleleaved evergreen trees had the highest $J_{max,area}$, but temperate broadleaved deciduous trees had the highest $J_{max,mass}$.
+All of the shrub PFTs had the lowest $J_{max,mass}$ but average or above-average $J_{max,area}$, while the opposite was true of broadleaved tropical PFTs.
+Of the tree PFTs, needleleaved evergreen trees had the highest $J_{max,area}$ but the lowest $J_{max,mass}$.
+
