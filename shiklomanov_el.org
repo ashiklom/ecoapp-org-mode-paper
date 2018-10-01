@@ -22,23 +22,19 @@
 #+LATEX_HEADER: \affil[3]{Institute of Ecology, University of Innsbruck, 6020 Innsbruck, Austria}
 #+LATEX_HEADER: \author[4]{Chaeho Byun <chaeho.byun@mail.mcgill.ca>}
 #+LATEX_HEADER: \affil[4]{School of Civil and Environmental Engineering, Yonsei University, Seoul 03722, Korea}
-#+LATEX_HEADER: \author[5]{Andr\'es Gonzalez-Melo <geagonzalezme@unal.edu.co>} %%% Emailed %%%
-#+LATEX_HEADER: \affil[5]{Universidad del Rosario. Facultad de Ciencias Naturales y Matematic\'as. Carrera 26 63B-48. Bogot\'a, Colombia}
-#+LATEX_HEADER: \author[6]{Steven Jansen <steven.jansen@uni-ulm.de>}
-#+LATEX_HEADER: \affil[6]{Institute of Systematic Botany and Ecology, Ulm University, Ulm, Germany}
-#+LATEX_HEADER: \author[7]{Koen Kramer <koen.kramer@wur.nl>}
-#+LATEX_HEADER: \affil[7]{Vegetation, Forest, and Landscape Ecology, Wageningen Environmental Research and Wageningen University, Wageningen, Gelderland, The Netherlands}
-#+LATEX_HEADER: \author[08,09]{Vanessa Minden <vanessa.minden@uni-oldenburg.de>}
-#+LATEX_HEADER: \affil[08]{Institute for Biology and Environmental Sciences, Carl von Ossietzky-University of Oldenburg, Carl von Ossietzky Str. 9-11, 26129 Oldenburg, Germany}
-#+LATEX_HEADER: \affil[09]{Department of Biology, Ecology and Evolution, Vrije Universiteit Brussel, Pleinlaan 2, 1050 Brussels}
-#+LATEX_HEADER: \author[10]{\"Ulo Niinemets <ylo.niinemets@emu.ee>}
-#+LATEX_HEADER: \affil[10]{Institute of Agricultural and Environmental Sciences, Estonian University of Life Sciences, Kreutzwaldi 1, 51014 Tartu, Estonia}
-#+LATEX_HEADER: \author[11]{Yusuke Onoda <yusuke.onoda@gmail.com>}
-#+LATEX_HEADER: \affil[11]{Graduate School of Agriculture, Kyoto University, Kyoto, 605-8503, Japan}
-#+LATEX_HEADER: \author[12]{Enio Egon Sosinski <sosinski@gmail.com>} %%% Emailed %%%
-#+LATEX_HEADER: \affil[12]{Embrapa Temperate Agriculture, Rodovia BR 391, Km 77, CEP 96009-972 Pelotas, RS, Brazil}
-#+LATEX_HEADER: \author[13]{Nadejda A. Soudzilovskaia <n.a.soudzilovskaia@cml.leidenuniv.nl>}
-#+LATEX_HEADER: \affil[13]{Conservation Biology Department, Institute of Environmental Sciences, Leiden University, Leiden, The Netherlands}
+#+LATEX_HEADER: \author[5]{Steven Jansen <steven.jansen@uni-ulm.de>}
+#+LATEX_HEADER: \affil[5]{Institute of Systematic Botany and Ecology, Ulm University, Ulm, Germany}
+#+LATEX_HEADER: \author[6]{Koen Kramer <koen.kramer@wur.nl>}
+#+LATEX_HEADER: \affil[6]{Vegetation, Forest, and Landscape Ecology, Wageningen Environmental Research and Wageningen University, Wageningen, Gelderland, The Netherlands}
+#+LATEX_HEADER: \author[7,8]{Vanessa Minden <vanessa.minden@uni-oldenburg.de>}
+#+LATEX_HEADER: \affil[7]{Institute for Biology and Environmental Sciences, Carl von Ossietzky-University of Oldenburg, Carl von Ossietzky Str. 9-11, 26129 Oldenburg, Germany}
+#+LATEX_HEADER: \affil[8]{Department of Biology, Ecology and Evolution, Vrije Universiteit Brussel, Pleinlaan 2, 1050 Brussels}
+#+LATEX_HEADER: \author[9]{\"Ulo Niinemets <ylo.niinemets@emu.ee>}
+#+LATEX_HEADER: \affil[9]{Institute of Agricultural and Environmental Sciences, Estonian University of Life Sciences, Kreutzwaldi 1, 51014 Tartu, Estonia}
+#+LATEX_HEADER: \author[10]{Yusuke Onoda <yusuke.onoda@gmail.com>}
+#+LATEX_HEADER: \affil[10]{Graduate School of Agriculture, Kyoto University, Kyoto, 605-8503, Japan}
+#+LATEX_HEADER: \author[11]{Nadejda A. Soudzilovskaia <n.a.soudzilovskaia@cml.leidenuniv.nl>}
+#+LATEX_HEADER: \affil[11]{Conservation Biology Department, Institute of Environmental Sciences, Leiden University, Leiden, The Netherlands}
 #+LATEX_HEADER: \author[2]{Michael C. Dietze <dietze@bu.edu>}
 
 #+LATEX_HEADER: \affil[*]{Corresponding author; Phone: (301) 314-6713; Fax: (301) 314-6719; Email: alexey.shiklomanov@pnnl.gov; Mail: 5825 University Research Ct., Office 3533, College Park, MD 20740}
@@ -57,7 +53,7 @@ ANS wrote the manuscript and implemented the analysis.
 ANS and EMC designed the analysis and figures.
 MCD conceived the original idea for the manuscript, guided its development, and provided financial support.
 MB, SJ, KK, ÜN, and NAS provided extensive feedback on multiple drafts of the manuscript, and contributed data.
-All other authors contributed data.
+CB and YO contributed data.
 
 \noindent
 \textbf{Data accessibility:}
