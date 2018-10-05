@@ -1,0 +1,6 @@
+*.bbl
+*.pdf
+*.tex
+
+auto/
+try_references.csv
