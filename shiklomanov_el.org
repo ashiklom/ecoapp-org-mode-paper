@@ -80,8 +80,13 @@ Alternatively, the exact pre-formatted data used in this analysis are available 
 | Results               |        821 |   |            |     |
 | Discussion            |       1742 |   |            |     |
 |-----------------------+------------+---+------------+-----|
-| Total                 |       5275 |   |            |     |
-#+TBLFM: @7$2=vsum(@I..II)
+| Total                 |       4998 |   |            |     |
+#+TBLFM: @7$2=vsum(@I..II)-197-80
+
+# Subtract methods equations:
+# 8 + 10 + 28 + 12 + 10 + 51 + 59 + 11 + 8 = 197
+# Subtract extra counted symbols: (count-words \$\(N\|P\|R\|V\|J\)_{.*\(mass\|area\)}\$)
+# >80 words
 
 #+BEGIN_EXPORT latex
 \linenumbers
@@ -161,7 +166,6 @@ Finally, we assess the scale dependence and generality of estimated trait covari
 
 ** Trait data
 
-# TODO - Table reference
 We focused on seven foliar traits obtained from the TRY global database cite:kattge_2011_try (see Appendix S1 in Supporting Information):
 longevity (months),
 specific leaf area (SLA, m$^2$ kg$^{-1}$),
@@ -178,7 +182,6 @@ Following past studies [[cite:wright_2004_worldwide,onoda_2011_global,diaz_2015_
 
 ** Plant functional types
 
-   # TODO - Table reference
 We assigned each species a PFT following the scheme in the Community Land Model (CLM4.5, citealt:clm45_note) (Tab. 1, Fig. 1).
 We obtained categorical data on growth form, leaf type, phenology, and photosynthetic pathway from TRY.
 Where species attributes disagreed between datasets, we assigned the most frequently observed attribute (e.g., if five datasets say "shrub" but only one says "tree", we would use "shrub").
@@ -214,7 +217,6 @@ $$\mathbf{x}_{i,p} \sim mvN(\mathbf{\mu}_p, \mathbf{\Sigma}_p)$$
 $$\mathbf{\mu}_p \sim mvN(\mathbf{\mu}_g, \mathbf{\Sigma}_g)$$
 
 where $\mathbf{\mu}_p$ and $\mathbf{\Sigma}_p$ are the mean vector and covariance matrix describing variation within PFT $p$, and $\mathbf{\mu}_g$ and $\mathbf{\Sigma}_g$ are the mean vector and covariance matrix describing across-PFT (global) variation.
-
 
 *** Model implementation
 
