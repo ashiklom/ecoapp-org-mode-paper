@@ -25,7 +25,7 @@
 #+LATEX_HEADER: \author[5]{Steven Jansen <steven.jansen@uni-ulm.de>}
 #+LATEX_HEADER: \affil[5]{Institute of Systematic Botany and Ecology, Ulm University, Ulm, Germany}
 #+LATEX_HEADER: \author[6]{Koen Kramer <koen.kramer@wur.nl>}
-#+LATEX_HEADER: \affil[6]{Vegetation, Forest, and Landscape Ecology, Wageningen Environmental Research and Wageningen University, Wageningen, Gelderland, The Netherlands}
+#+LATEX_HEADER: \affil[6]{Department of Vegetation, Forest, and Landscape Ecology, Wageningen Environmental Research and Wageningen University, Wageningen, Gelderland, The Netherlands}
 #+LATEX_HEADER: \author[7,8]{Vanessa Minden <vanessa.minden@uni-oldenburg.de>}
 #+LATEX_HEADER: \affil[7]{Institute for Biology and Environmental Sciences, Carl von Ossietzky-University of Oldenburg, Carl von Ossietzky Str. 9-11, 26129 Oldenburg, Germany}
 #+LATEX_HEADER: \affil[8]{Department of Biology, Ecology and Evolution, Vrije Universiteit Brussel, Pleinlaan 2, 1050 Brussels}
