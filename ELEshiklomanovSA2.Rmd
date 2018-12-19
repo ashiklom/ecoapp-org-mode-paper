@@ -1,0 +1,353 @@
+---
+title: Supporting information
+author:
+  - >
+    Alexey N. Shiklomanov,
+    Elizabeth M. Cowdery,
+    Michael Bahn,
+    Chaeho Byun,
+    Joseph Craine,
+    Andrés Gonzalez-Melo,
+    Steven Jansen,
+    Koen Kramer,
+    Vanessa Minden,
+    Ülo Niinemets,
+    Yusuke Onoda,
+    Enio Egon Sosinski,
+    Nadejda A. Soudzilovskaia,
+    Michael C. Dietze
+output: pdf_document
+header-includes:
+  - \usepackage{booktabs}
+  - \usepackage{longtable}
+  - \usepackage{array}
+  - \usepackage{multirow}
+  - \usepackage[table]{xcolor}
+  - \usepackage{wrapfig}
+  - \usepackage{float}
+  - \usepackage{colortbl}
+  - \usepackage{pdflscape}
+  - \usepackage{tabu}
+  - \usepackage{threeparttable}
+  - \usepackage{threeparttablex}
+  - \usepackage[normalem]{ulem}
+  - \usepackage{makecell}
+  - \renewcommand{\thetable}{S\arabic{table}}
+  - \renewcommand{\thefigure}{S\arabic{figure}}
+---
+
+```{r libraries, include = FALSE}
+library(knitr)
+library(kableExtra)
+library(drake)
+library(ggplot2)
+
+correlation_scatter_cap <- paste(
+  "Relationship between squared pairwise correlation and sample size of pairwise observations for each PFT.",
+  "Grey shading is the 95% confidence interval around a local regression (LOESS).",
+  "Upper triangle is area-normalized values, and lower triangle is mass-normalized values.",
+  "Note that the x-axis uses a $\\log_{10}$ scale."
+)
+
+correlation_fig_cap <- paste(
+  "Fraction of statistically significant ($p < 0.05$) pairwise trait correlation estimates",
+  "as a function of sample size for each plant functional type."
+)
+
+correlation_range_cap <- paste(
+  "Relationship between pairwise correlation strength and data range for each PFT.",
+  "In each pair of sub-panels, the left panel is relationship between pairwise correlation",
+  "and the range of the variable on the x axis",
+  "while the right panel is the relationship between pairwise correlation",
+  "and the y variable",
+  "(For instance, in the two-panel figure in row 1 column 2,",
+  "the left panel is the SLA-leaf lifespan correlation as a function of the range of SLA",
+  "and the right panel is the same correlation as a function of the range of leaf lifespan).",
+  "Data range is expressed as the difference between the 2.5% and 97.5% quantiles of each normalized trait (i.e. $\\frac{X}{E[X]}$).",
+  "Grey shading is the 95% confidence interval around a local regression (LOESS).",
+  "Upper triangle is area-normalized values, and lower triangle is mass-normalized values."
+)
+```
+
+```{r mean_value_table, echo = FALSE, results = "asis"}
+table_cap_mass <- paste(
+  "Mean and 95\\% confidence interval of trait estimates",
+  "for mass-normalized traits from the hierarchical model.",
+  "Note that some traits for some PFTs have effectively no constraint relative to the mostly uninformative prior (as evidenced by their very large confidence intervals),",
+  "so their values should be used with caution."
+)
+table_cap_area <- gsub("mass", "area", table_cap_mass)
+
+readd(table_dat) %>%
+  select(-matches("area")) %>%
+  kable(
+    caption = table_cap_mass,
+    format = "latex",
+    col.names = linebreak(c(
+      "PFT",
+      "Leaf lifespan\n(months)",
+      "SLA\n(kg m$^{-2}$)",
+      "$N_\\textrm{mass}$\n(mg g$^{-1}$)",
+      "$P_\\textrm{mass}$\n(mg g$^{-1}$)",
+      "$R_\\textrm{d, mass}$\n($\\mu$mol g$^{-1}$ s$^{-1}$)",
+      "$V_\\textrm{c, max, mass}$\n($\\mu$mol g$^{-1}$ s$^{-1}$)",
+      "$J_\\textrm{max, mass}$\n($\\mu$mol g$^{-1}$ s$^{-1}$)"
+    )),
+    escape = FALSE,
+    booktabs = TRUE
+  ) %>%
+  kableExtra::kable_styling(latex_options = c("scale_down", "hold_position"))
+
+readd(table_dat) %>%
+  select(-matches("mass")) %>%
+  kable(
+	caption = table_cap_area,
+	format = "latex",
+    col.names = linebreak(c(
+      "PFT",
+      "Leaf lifespan\n(months)",
+      "SLA\n(kg m$^{-2}$)",
+      "$N_\\textrm{area}$\n(g m$^{-2}$)",
+      "$P_\\textrm{area}$\n(g m$^{-2}$)",
+      "$R_\\textrm{d, area}$\n($\\mu$mol m$^{-2}$ s$^{-1}$)",
+      "$V_\\textrm{c, max, area}$\n($\\mu$mol m$^{-2}$ s$^{-1}$)",
+      "$J_\\textrm{max, area}$\n($\\mu$mol m$^{-2}$ s$^{-1}$)"
+    )),
+	escape = FALSE,
+	booktabs = TRUE
+) %>%
+  kableExtra::kable_styling(latex_options = c("scale_down", "hold_position"))
+```
+
+```{r sample_size_table, echo = FALSE, results = "asis"}
+ssw <- readd(sample_size_wide)
+kable(
+  ssw %>%
+    dplyr::select(pft, leaf_lifespan, SLA,
+                  Nmass, Narea, Pmass, Parea, Rdmass, Rdarea,
+                  Vcmax_mass, Vcmax_area, Jmax_mass, Jmax_area),
+  col.names = c(
+    "PFT", "Leaf lifespan", "SLA",
+    "$N_\\textrm{mass}$", "$N_\\textrm{area}$",
+    "$P_\\textrm{mass}$", "$P_\\textrm{area}$",
+    "$R_\\textrm{d, mass}$", "$R_\\textrm{d, area}$",
+    "$V_\\textrm{c, max, mass}$", "$V_\\textrm{c, max, area}$",
+    "$J_\\textrm{max, mass}$", "$J_\\textrm{max, area}$"
+  ),
+  format = "latex",
+  booktabs = TRUE,
+  escape = FALSE,
+  caption = "The number of non-missing (outside parentheses) and imputed (inside parentheses) observations of each trait for each plant functional type used in this analysis."
+) %>%
+  kable_styling(latex_options = c("scale_down", "hold_position")) %>%
+  group_rows("Broadleaf", 2, 6) %>%
+  group_rows("Needleleaf", 7, 9) %>%
+  group_rows("Shrub", 10, 12) %>%
+  group_rows("Grass", 13, 15) %>%
+  landscape()
+```
+
+```{r pairwise_correlation_table, echo = FALSE, results = "asis"}
+corr_results <- readd(corr_processed)
+kable(
+  corr_results %>%
+    dplyr::select(pft, yvar, xvar, corr_value, present, missing),
+  "latex",
+  booktabs = TRUE, longtable = TRUE, escape = TRUE,
+  col.names = c("PFT", "Trait 1", "Trait 2", "Correlation (95% CI)", "present", "missing"),
+  caption = "Pairwise trait correlation values for each plant functional type. Values with asterisks indicate correlations significantly different from zero ($p < 0.05$)."
+)
+```
+
+```{r correlation_sample_size_pairs, echo = FALSE, results = "hide", warning = FALSE, fig.cap = correlation_scatter_cap, fig.dim = c(12, 12)}
+readd(corr_ss_plot_gg)
+```
+
+```{r correlation_range_analysis, echo = FALSE, results = "hide", warning = FALSE, fig.cap = correlation_range_cap, fig.dim = c(12, 12)}
+readd(corr_range_plot_gg)
+```
+
+\clearpage
+
+# Method S1: Estimating trait means and covariances through multiple imputation {-}
+
+## Introduction {-}
+
+Under _single_ imputation, the imputation step occurs once outside of the MCMC loop.
+In _multiple_ imputation, as implemented in this paper, the imputation step is part of the MCMC loop,
+such that imputed data values are conditioned on the current state of the parameters and vice-versa.
+In the figure below,
+$Y$ is the original data (with missing values),
+$Y^*$ is the original data with missing values imputed,
+$\mu_p$ and $\Sigma_p$ are values of the mean vector and covariance matrix (respectively) calculated only from the original data,
+and $\mu^*_t$ and $\Sigma^*_t$ are the draws of the mean vector and covariance matrix (respectively) at MCMC iteration $t$.
+
+```{tikz diagram, echo = FALSE}
+\usetikzlibrary{positioning, calc, fit}
+\begin{tikzpicture}[
+	every node/.style = {shape = rectangle, draw = black},
+	scale = 1.1
+]
+\node (Y) at (-1, 3) {Data $Y$};
+\node (data params) at (-1, 2) {Calculate $\mu_p, \Sigma_p$};
+\node (Ystar) at (-1, 1) {Impute $Y^* \mid \mu_p, \Sigma_p$};
+\node (guess params) [align = center, right = of Ystar] {Initial guess\\$\mu^*_0$ $\Sigma^*_0$};
+\node (mu star) at (0, 0) {Draw $\mu^*_t \mid Y^*, \Sigma^*_{t-1}$};
+\node (sigma star) at (0, -1) {Draw $\Sigma^*_t \mid Y^*, \mu^*_t$};
+\path [->] (Y) edge (data params);
+\path [->] (data params) edge (Ystar);
+\path [->] (Ystar) edge (mu star);
+\path [->] (guess params) edge (mu star);
+\path [->] (mu star) edge (sigma star);
+\path [->, out = 0, in = 0] (sigma star.east) edge
+	node (t plus one) [right, draw = none, font = {\footnotesize}] {$t = t + 1$}
+	(mu star.east);
+\node (mcmc loop) [fit = (mu star)(sigma star)(t plus one), shape = rectangle, draw = black!50] {};
+\node (mcmc loop text) [align = center, anchor = west, draw = none] at (mcmc loop.east) {MCMC\\loop};
+\node (title) [anchor = north, draw = none] at (mcmc loop.south) {Single imputation};
+\end{tikzpicture}
+\hspace{1cm}
+\begin{tikzpicture}[
+	every node/.style = {shape = rectangle, draw = black},
+	scale = 1.1
+]
+\node (Y) at (-1, 1) {Data $Y$};
+\node (guess params) [align = center] at (1, 1) {Initial guess\\$\mu^*_0$ $\Sigma^*_0$};
+\node (Ystar) at (0, 0) {Impute $Y^*_t \mid Y, \mu^*_{t-1}, \Sigma^*_{t-1}$};
+\node (mu star) at (0, -1) {Draw $\mu^*_t \mid Y^*_t, \Sigma^*_{t-1}$};
+\node (sigma star) at (0, -2) {Draw $\Sigma^*_t \mid Y^*_t, \mu^*_t$};
+\path [->] (Y) edge (Ystar);
+\path [->] (guess params) edge (Ystar);
+\path [->] (Ystar) edge (mu star);
+\path [->] (mu star) edge (sigma star);
+\path [->, out = 0, in = 0] (sigma star.east) edge
+	node (t plus one) [right, draw = none, font = {\footnotesize}] {$t = t + 1$}
+	(Ystar.east);
+\node (mcmc loop) [fit = (Ystar)(mu star)(sigma star)(t plus one), shape = rectangle, draw = black!50] {};
+\node (mcmc loop text) [align = center, anchor = west, draw = none] at (mcmc loop.east) {MCMC\\loop};
+\node (title) [anchor = north, draw = none] at (mcmc loop.south) {Multiple imputation};
+\end{tikzpicture}
+```
+
+## Demonstration {-}
+
+Consider two positively correlated traits, A and B.
+
+```{r create_traits}
+set.seed(12345) # For reproducibility
+library(mvtraits)
+
+true_mu <- c(0, 0)
+true_cov <- matrix(c(1, 0.8, 0.8, 1), nrow = 2)
+Y_all <- random_mvnorm(1000, true_mu, true_cov)
+colnames(Y_all) <- c("A", "B")
+plot(Y_all, pch = 19)
+```
+
+Simulate missingness by randomly removing half of the data.
+
+```{r remove_na}
+Y <- Y_all
+Y[sample.int(2000, 1000)] <- NA
+plot(Y_all, pch = 19, col = "grey")
+points(Y, pch = 19, col = "black")
+legend(
+  "topleft",
+  legend = c("True missing", "Present"),
+  col = c("grey", "black"),
+  pch = 19,
+  bg = "white"
+)
+```
+
+Set an uninformative multivariate normal prior on $\mu$...
+```{r prior_mu}
+mu_0 <- c(0, 0)
+Sigma_0 <- diag(10, 2)
+```
+
+...and an uninformative Wishart prior on $\Sigma$.
+```{r prior_sigma}
+v0 <- 2
+S0 <- diag(10, 2)
+```
+
+Take an initial guess at the mean and covariance by drawing from their priors.
+
+```{r initial}
+mu_star <- random_mvnorm(1, mu_0, Sigma_0)[1,]
+mu_star
+Sigma_star <- rWishart(1, v0, S0)[,,1]
+Sigma_star
+```
+
+Impute values based on this initial guess.
+
+```{r impute}
+Ystar <- mvnorm_fill_missing(Y, mu_star, Sigma_star)
+
+mylegend <- function() {
+  legend(
+    "topleft",
+    legend = c("True missing", "Present", "Imputed"),
+    col = c("grey", "black", "red"),
+    pch = 19,
+	bg = "white"
+  )
+}
+plot(Y_all, pch = 19, col = "grey")
+points(Ystar, pch = 19, col = "red")
+points(Y, pch = 19, col = "black")
+mylegend()
+```
+
+Clearly, these initial values are a bad fit to the data.
+Nevertheless, draw $\mu$ and $\Sigma$ conditioned on this set of imputed values.
+
+```{r draw}
+mu_star <- draw_mu(Ystar, Sigma_star, mu_0, Sigma_0)
+mu_star
+Sigma_star <- draw_Sigma(Ystar, mu_star, v0, S0)
+Sigma_star
+```
+
+Draw a new set of imputed values, conditioned on the current $\mu^*$ and $\Sigma^*$.
+
+```{r impute_2}
+Ystar <- mvnorm_fill_missing(Y, mu_star, Sigma_star)
+plot(Y_all, pch = 19, col = "grey")
+points(Ystar, pch = 19, col = "red")
+points(Y, pch = 19, col = "black")
+mylegend()
+```
+
+This is still a bad fit to the data, but, though it is hard to tell, it has improved slightly.
+Doing this repeatedly (in a loop) gradually improves the estimates of the covariance.
+
+```{r loop}
+par(mfrow = c(5, 4), mar = c(3, 3, 2, 0.1), cex = 0.4)
+for (i in 1:20) {
+  mu_star <- draw_mu(Ystar, Sigma_star, mu_0, Sigma_0)[1,]
+  Sigma_star <- draw_Sigma(Ystar, mu_star, v0, S0)
+  Ystar <- mvnorm_fill_missing(Y, mu_star, Sigma_star)
+  title <- sprintf("iteration: %d, covariance: %.2f", i, Sigma_star[2, 1])
+  plot(Y_all, pch = 19, col = "grey", xlab = "", ylab = "", main = title)
+  points(Ystar, pch = 19, col = "red")
+  points(Y, pch = 19, col = "black")
+}
+```
+
+After a lot of MCMC samples, we can generate a distribution of covariance values, which provides an uncertainty estimate on the covariance.
+
+```{r cov_estimate}
+cov_ab <- numeric(1000)
+for (i in seq_along(cov_ab)) {
+  mu_star <- draw_mu(Ystar, Sigma_star, mu_0, Sigma_0)[1,]
+  Sigma_star <- draw_Sigma(Ystar, mu_star, v0, S0)
+  Ystar <- mvnorm_fill_missing(Y, mu_star, Sigma_star)
+  cov_ab[i] <- Sigma_star[2, 1]
+}
+hist(cov_ab, xlab = "Covariance estimate", ylab = "Count", main = "Covariance estimate")
+abline(v = true_cov[2, 1], col = "red", lwd = 2)
+legend("topright", legend = "True cov.", lty = "solid", lwd = 2, col = "red")
+```
