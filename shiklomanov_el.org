@@ -75,12 +75,12 @@ Alternatively, the exact pre-formatted data used in this analysis are available 
 | Section               | Word count |   |            |     |
 |-----------------------+------------+---+------------+-----|
 | Abstract              |        146 |   | Figures    |   5 |
-| Introduction          |        873 |   | Tables     |   1 |
-| Materials and methods |       1543 |   | References | 100 |
+| Introduction          |        886 |   | Tables     |   1 |
+| Materials and methods |       1680 |   | References | 100 |
 | Results               |        821 |   |            |     |
-| Discussion            |       1599 |   |            |     |
+| Discussion            |       1742 |   |            |     |
 |-----------------------+------------+---+------------+-----|
-| Total                 |       4982 |   |            |     |
+| Total                 |       5275 |   |            |     |
 #+TBLFM: @7$2=vsum(@I..II)
 
 #+BEGIN_EXPORT latex
@@ -420,9 +420,13 @@ Ultimately, multivariate and hierarchical modeling may reveal functional trade-o
 The vast diversity of plants is a major challenge for functional ecology and ecosystem modeling.
 Functional diversity research fundamentally depends on dimensionality reduction through a search for meaningful pattern that can be exploited to take reasonable guesses at average behavior. 
 The trait trade-offs comprising the leaf economic spectrum are one such pattern. 
-In this paper, we reaffirm the existence of the leaf economic spectrum both globally and, with some caveats, within plant functional types typically used in the current generation of Earth System Models.
-We also highlight how the strength of leaf economic relationships can be influenced by biotic and abiotic factors specific to certain PFTs.
-Finally, we show how patterns of trait covariance like the leaf economic spectrum can be leveraged to inform trait estimates, particularly at small sample sizes.
+Our first objective in this study was to investigate the extent to which leaf economic relationships often observed at the global scale are also present within functional groups typically used in the current generation of Earth System Models.
+In general, we found that trait covariation within PFTs was generally similar to covariation observed globally, but that some within-PFT covariance patterns varied depending on trait and PFT.
+Some relationships, such as the relationship between leaf N and P or between $V_{c,max}$ and $J_{max}$, varied relatively little across different PFTs and functional scales, suggesting these patterns are driven by universal constraints on leaf composition and function.
+However, others, such as the relationships between foliar nutrient content (N and P) and photosynthetic metabolism ($V_{c,max}$ and $J_{max}$), are PFT-dependent and therefore more representative of biome-specific environmental constraints or long-term evolutionary processes.
+Our second objective was to evaluate the utility of using trait covariance to constrain trait estimates.
+Our results indicate that accounting for covariance not only reduces estimate uncertainties--especially under data limitation--but can even significantly alter estimates for well-sampled traits.  
+Collectively, our study highlight the importance of careful consideration of plant trait covariance across scales, both for understanding ecological processes and improving their representation in models.
 
 * References                                                       :no_title:
   
