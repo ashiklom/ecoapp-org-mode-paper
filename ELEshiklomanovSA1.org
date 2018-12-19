@@ -13,7 +13,23 @@
 #+END_EXPORT
 *Appendix S1:* References for the original sources of the TRY trait data used in our analysis.
 
-nocite:kleyer_2008_leda_traitbase,wirth_2009_imprint,baraloto_2010_decoupled,craine_2009_global,veihmeyer_1956_soil_moisture,cerabolini_2010_can,wright_2010_functional,wright_2004_worldwide,ogaya_2003_comparative
+nocite:kleyer_2008_leda_traitbase
+
+nocite:wirth_2009_imprint
+
+nocite:baraloto_2010_decoupled
+
+nocite:craine_2009_global
+
+nocite:veihmeyer_1956_soil_moisture
+
+nocite:cerabolini_2010_can
+
+nocite:wright_2010_functional
+
+nocite:wright_2004_worldwide
+
+nocite:ogaya_2003_comparative
 
 nocite:akhmetzhanova_2012_rediscovered_treasure
 
@@ -274,6 +290,7 @@ nocite:demey_2013_nutrient
 #+BEGIN_SRC emacs-lisp :result no :eval no
 (setq org-latex-pdf-process (list "latexmk -shell-escape -bibtex -f -pdf %f"))
 (setq nociteproc-org-ignore-backends '(latex beamer))
+(setq org-export-before-parsing-hook nil)
 #+END_SRC
 
 #+RESULTS:
