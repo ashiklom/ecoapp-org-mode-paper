@@ -117,7 +117,7 @@ community composition cite:burns_2004_patterns,cavender-bares_2004_multiple,
 and ecosystem function cite:diaz_2004_plant,musavi_2015_imprint.
 The position of species along the leaf economic spectrum is influenced by climate and soil conditions
 cite:wright_2004_worldwide,wright_2005_modulation,cornwell_2009_community,ordonez_2009_global,wigley_2016_leaf.
-As a result, relationships between leaf economic traits and climate have been used in ecosystem models for more finely-resolved variation in plant function cite:sakschewski_2015_leaf,verheijen_2015_inclusion.
+As a result, relationships between leaf economic traits and climate have been used in ecosystem models to more finely resolve variation in plant function cite:sakschewski_2015_leaf,verheijen_2015_inclusion.
 
 However, the use of global among-trait and trait-environment correlations, for both ecological inference and predictive modeling, has several important caveats.
 First, observed global correlations may not hold at smaller scales, such as sites, species, and individuals.
@@ -139,7 +139,7 @@ and overall plant carbon budget cite:edwards_2014_leaf.
 Finally, modeling ecosystem function based on trait correlations is sampling from the hypothetical space of potential species and communities that could have evolved,
 failing to account for real constraints such as the timescales required for adaptation and community assembly.
 
-An alternative approach is to preserve existing PFT classifications (potentially with finer resolution, e.g. cite:boulangeat_2012_improving)
+An alternative to using a single global set of trait trade-offs is to allow trait correlations to vary among PFTs (potentially with finer resolution, e.g. cite:boulangeat_2012_improving)
 while using statistical analyses to account for uncertainty and variability in the aggregated trait values.
 For example, the Predictive Ecosystem Analyzer (PEcAn, pecanproject.org), an ecosystem model-data informatics system, parameterizes PFTs using trait probability distributions from a Bayesian meta-analysis of trait data cite:dietze_2013_improving,lebauer_2013_facilitating. 
 This approach explicitly separates the processes driving PFT-level differentiation from those driving finer-scale functional variability,
@@ -161,9 +161,8 @@ Finally, we assess the scale dependence and generality of estimated trait covari
 
 ** Trait data
 
-   # TODO - Table reference
-We obtained trait data from the TRY global database cite:kattge_2011_try (see Appendix S1 in Supporting Information).
-We focused on seven foliar traits:
+# TODO - Table reference
+We focused on seven foliar traits obtained from the TRY global database cite:kattge_2011_try (see Appendix S1 in Supporting Information):
 longevity (months),
 specific leaf area (SLA, m$^2$ kg$^{-1}$),
 nitrogen content ($N_{mass}$, mg N g$^{-1}$ or $N_{area}$, g m$^{-2}$),
@@ -172,8 +171,7 @@ dark respiration at 25°C ($R_{d,mass}$, µmol g$^{-1}$ s$^{-1}$, or $R_{d,area}
 maximum RuBisCO carboxylation rate at 25°C ($V_{c,max,mass}$, µmol g$^{-1}$ s$^{-1}$, or $V_{c,max,area}$, µmol m$^{-2}$ s$^{-1}$),
 and maximum electron transport rate at 25°C ($J_{max,mass}$, µmol g$^{-1}$ s$^{-1}$, or $J_{max,area}$, µmol m$^{-2}$ s$^{-1}$).
 For $V_{c,max}$, we only used values reported at 25°C.
-For $R_{d}$, we normalized the values to 25°C using reported leaf temperature values following citet:atkin_2015_global.
-For $J_{max}$, we normalized the values to 25°C using reported leaf temperature values using the temperature response function described in citet:kattge_2007_temperature (Equation 1 therein).
+For $R_{d}$ and $J_{max}$, we normalized the values to 25°C using reported leaf temperature values following citet:atkin_2015_global and citet:kattge_2007_temperature (equation 1 therein), respectively.
 To avoid issues with trait normalization, we performed analyses separately for both mass- and area-normalized traits cite:osnas_2013_global,lloyd_2013_photosynthetically.
 We restricted our analysis to quality-controlled values from species with sufficient information for functional type classification [[cite:kattge_2011_try][see]].
 Following past studies [[cite:wright_2004_worldwide,onoda_2011_global,diaz_2015_global][e.g.]], we log-transformed all trait values to correct for their strong right-skewness.
@@ -206,7 +204,7 @@ For observed trait vector ${\mathbf{x_i}}$ for sample $i$:
 
 $$\mathbf{x_i} \sim mvN(\mathbf{\mu}, \mathbf{\Sigma})$$
 
-where $mvN$ is the multivariate Gaussian distribution with mean vector $\mathbf{\mu}$ and variance-covariance matrix $\mathbf{\Sigma}$.
+where $mvN$ is the multivariate Gaussian distribution with mean vector $\mathbf{\mu}$ and covariance matrix $\mathbf{\Sigma}$.
 We fit both of these models independently for each PFT and once for the entire dataset (i.e. one global PFT).
 
 The most complex model was the "hierarchical" model, where traits are drawn from a PFT-specific multivariate distribution describing within-PFT variation, and whose mean vector is itself sampled from a global multivariate distribution describing variation across PFTs.
@@ -215,7 +213,7 @@ For observed trait vector $\mathbf{x}_{i,p}$ for sample $i$ belonging to PFT $p$
 $$\mathbf{x}_{i,p} \sim mvN(\mathbf{\mu}_p, \mathbf{\Sigma}_p)$$
 $$\mathbf{\mu}_p \sim mvN(\mathbf{\mu}_g, \mathbf{\Sigma}_g)$$
 
-where $\mathbf{\mu}_p$ and $\mathbf{\Sigma}_p$ are the mean vector and variance-covariance matrix describing variation within PFT $p$, and $\mathbf{\mu}_g$ and $\mathbf{\Sigma}_g$ are the mean vector and variance-covariance matrix describing across-PFT (global) variation.
+where $\mathbf{\mu}_p$ and $\mathbf{\Sigma}_p$ are the mean vector and covariance matrix describing variation within PFT $p$, and $\mathbf{\mu}_g$ and $\mathbf{\Sigma}_g$ are the mean vector and covariance matrix describing across-PFT (global) variation.
 
 
 *** Model implementation
@@ -224,19 +222,6 @@ We fit the above models using Gibbs sampling, which leverages conjugate prior re
 For priors on all multivariate mean vectors ($\mathbf{\mu}$), we used normal distributions:
 
 $$P(\mathbf{\mu}) \sim mvN(\mathbf{\mu}_0, {\mathbf{\Sigma}}_0)$$
-
-This leads to the following posterior distribution:
-
-$$P(\mathbf{\mu} \mid 
-    \mathbf{x}, \mathbf{\Sigma}, 
-    \mathbf{\mu}_0, \mathbf{\Sigma}_0)
-  \sim
-  mvN(\mathbf{\mu^*}, \mathbf{\Sigma^*})$$
-
-$$\mathbf{\Sigma^*} = (\mathbf{\Sigma}_0^{-1} + n \mathbf{\Sigma}^{-1})^{-1}$$
-$$\mathbf{\mu^*} = \mathbf{\mu}_0 \mathbf{\Sigma}_0^{-1} + \bar{\mathbf{x}} n \mathbf{\Sigma}^{-1}$$
-
-where ${\bar{{\mathbf{x}}}}$ are the sample means of the data and $n$ is the number of rows in the data.
 
 For priors on all multivariate variance-covariance matrices, we used the Wishart distribution ($W$):
 
@@ -255,7 +240,7 @@ $$\mathbf{x^*} = \mathbf{x} - \bar{\mu}$$
 $$\mathbf{SS} = \mathbf{x^*}^{T} \mathbf{x^*}$$
 $$\mathbf{S^*} = (\mathbf{S}_0 + \mathbf{SS})^{-1}$$
 
-where $n$ is the number of observations and $m$ is the number of traits in data matrix $x$. For further details on this derivation, see citet:gelman_2003_bayesian.
+where $n$ is the number of observations and $m$ is the number of traits in data matrix $x$. For further details, see citet:gelman_2003_bayesian.
 
 The multivariate nature of this sampling procedure makes it incapable of accommodating partially missing observations.
 Therefore, our algorithm included multiple imputation of partially missing data cite:white_2010_multiple,graham_2009_missing_data_analysis.
@@ -271,11 +256,11 @@ $$\mathbf{\Sigma\prime} = \mathbf{\Sigma}[m,m] -
   \mathbf{\Sigma}[m,p]
   (\mathbf{\Sigma}[p,p]^{-1} \mathbf{\Sigma}[p,m])$$
   
-We emphasize that imputation of missing data is performed iteratively as parameters are being estimated, such that each set of imputed values is conditioned on the current sampled state of the parameters.
-This approach is distinct from single imputation, where data are imputed first in a separate step prior to parameter estimation cite:white_2010_multiple,graham_2009_missing_data_analysis.
+We emphasize that imputation of missing data is performed repeatedly as parameters are being estimated, in order to integrate over the uncertainty in the missing data.
+This approach is distinct from single imputation, where data are imputed once in a separate step prior to parameter estimation cite:white_2010_multiple,graham_2009_missing_data_analysis.
 A demonstration of this multiple imputation approach and how it is used to estimate trait covariance is provided Supporting Information Method S1.
 
-For each model fit, we ran five sampling sequences, continuing sampling until the final result achieved convergence as determined by a Gelman-Rubin potential scale reduction statistic less than 1.1 cite:gelman_1992_inference.
+For each model fit, we ran five chains, continuing sampling until the final result achieved convergence as determined by a Gelman-Rubin potential scale reduction statistic less than 1.1 cite:gelman_1992_inference.
 We implemented this sampling algorithm in a publicly available R cite:team_2018_r package (<http://github.com/ashiklom/mvtraits>).
 
 *** Analysis of results
@@ -295,7 +280,7 @@ To evaluate the contribution of data sampling to our correlation estimates, we p
 
 To assess multivariate and hierarchical constraint on trait estimates,
 we compared the mean and 95% confidence intervals of trait estimates for each PFT from each model (Fig. 4, Tab. S1 and S2).
-For reference, we included the default parameter values of CLM 4.5 [[cite:clm45_note][Table 8.1 in]] for SLA, $N_{mass}$, $N_{area}$, $V_{c,max,mass}$, and $V_{c,max,area}$ to Fig. 4.
+For reference, we included the default parameter values of CLM 4.5 [[cite:clm45_note][Table 8.1 in]] for SLA, $N_{mass}$, $N_{area}$, $V_{c,max,mass}$, and $V_{c,max,area}$ in Fig. 4.
 To convert CLM's reported C:N ratio to $N_{mass}$, we assumed a uniform leaf C fraction of 0.46.
 We then divided this calculated $N_{mass}$ by the reported SLA to obtain $N_{area}$.
 We calculated $V_{c,max,mass}$ by multiplying the reported $V_{c,max,area}$ by the reported SLA.
@@ -378,7 +363,7 @@ Meanwhile, correlations of SLA with $N_{area}$ were strongly negative for all PF
 Given that evergreen conifers have a relatively constant allocation of N to cell walls and RuBisCO cite:onoda_2017_physiological, our results support the idea that needleleaved species primarily adapt to their environment by changing leaf morphology (i.e. SLA) rather than foliar biochemistry cite:robakowski_2004_growth.
 
 Correlations between leaf nutrient concentrations and traits related to photosynthetic metabolism ($V_{c,max}$ and $J_{max}$) are often used to parameterize photosynthesis in ecosystem models cite:clm45_note,rogers_2016_roadmap.
-We found that these correlations were highly variable between PFTs.
+We found that the strength of these correlations was PFT-dependent.
 Although trait correlations are not necessarily indicative of allocation strategies, this result supports the findings of citet:ghimire_2017_global that N allocation to photosynthesis varies widely by PFT.
 In tropical evergreen broadleaved trees, for example, photosynthetic metabolism traits were better correlated with $P_{mass}$ than $N_{mass}$.
 This suggests that productivity of tropical species is P-limited cite:reich_2004_global,ghimire_2017_global, that N allocation strategies are more variable under N-poor conditions cite:ghimire_2017_global, or more generally that photosynthetic metabolism is more sensitive to environmental covariates than leaf nitrogen contents cite:ali_2015_global.
