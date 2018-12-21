@@ -45,7 +45,7 @@
 #+BEGIN_EXPORT latex
 \begin{footnotesize}
 \noindent
-\textbf{Article type:} Methods
+\textbf{Article type:} Letters
 
 \noindent
 \textbf{Author contributions:}
