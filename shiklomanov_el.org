@@ -430,6 +430,13 @@ Our second objective was to evaluate the utility of using trait covariance to co
 Our results indicate that accounting for covariance not only reduces estimate uncertainties--especially under data limitation--but can even significantly alter estimates for well-sampled traits.  
 Collectively, our study highlight the importance of careful consideration of plant trait covariance across scales, both for understanding ecological processes and improving their representation in models.
 
+* Acknowledgments
+  
+This project was supported by NASA grant NNX14AH65G and NSF grants 1261582, 1458021, and 1655095, as well as the TRY initiative on plant traits (http://www.try-db.org).
+The TRY initiative and database is hosted, developed, and maintained by J. Kattge and G. Boenisch (Max Planck Institute for Biogeochemistry, Jena, Germany).
+TRY is currently supported by DIVERSITAS/Future Earth and the German Centre for Integrative Biodiversity Research (iDiv) Halle-Jena-Leipzig.
+The authors would also like to thank Christine Rollinson, Istem Fer, and Colin Averill for their valuable feedback on early drafts of this manuscript.
+
 * References                                                       :no_title:
   
 bibliography:~/Dropbox/references/library.bib
