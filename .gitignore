@@ -4,3 +4,6 @@
 
 auto/
 try_references.csv
+
+# Raw TRY data
+analysis/try-data/
