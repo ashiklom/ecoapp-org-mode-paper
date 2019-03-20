@@ -117,9 +117,11 @@ Yet, these are very different issues: whether there is consistency among PFTs, w
 
 TODO L48-49. Sure, biomass (and nutrient) allocation to different tissue types varies among PFTs, but that does not mean that trait relationships vary among PFTs. That is, trait relationships may or may not vary, but it does not follow as a simple consequence of differences in allocation --as claimed here.
 
-TODO L58 I do not understand this statement of ‘the timescale for adaption’, please clarify it more.
+DONE L58 I do not understand this statement of ‘the timescale for adaption’, please clarify it more.
+{I personally think this is clear. I'll try my luck elsewhere.}
 
-TODO L197. Figure 2 shows that mass-based traits were generally *negatively* correlated with leaf lifespan whereas your statement says positive!
+DONE L197. Figure 2 shows that mass-based traits were generally *negatively* correlated with leaf lifespan whereas your statement says positive!
+{Addressed}
 
 TODO L227-228. Here the authors state that the lowest SLA, Nmass, Pmass and Rdmass values were observed in temperate evergreen PFTs. But referring to Figure 4, this isn’t clearly that case at all. E.g. boreal groups have equally low values for several traits.
 
