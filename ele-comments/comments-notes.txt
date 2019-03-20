@@ -140,7 +140,8 @@ DONE L257. By “phylogenetic resolution” presumably you simply mean that gras
 DONE L325-326. In Fig 4, the estimated Nmass values for each of the three models are actually very close. Can you please clarify your statement?
 {Clarify that these are small but statistically significant.}
 
-TODO P27. Figure 1. Please provide the full name of each PFT.
+DONE P27. Figure 1. Please provide the full name of each PFT.
+{Stated that names are shown in Table 1.}
 
 TODO Perhaps label Mass or Area Normalized on the axes of the figure S2 and S3?
 

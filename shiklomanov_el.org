@@ -512,7 +512,7 @@ C4G & C4 Grass & 255\\
 \pagebreak
 #+END_EXPORT
 
-#+CAPTION: Sample sizes for each trait-PFT pair. $y$ axis is scaled logarithmically.
+#+CAPTION: Sample sizes for each trait-PFT pair. $y$ axis is scaled logarithmically. Full PFT names are given in Table 1.
 #+NAME: fig:samplesize
 #+ATTR_LATEX: :width \textwidth
 [[/Users/shik544/laptop_folders/Projects/new-phytologist-traits/np-trait-analysis/figures/manuscript/sample_size.pdf]]
