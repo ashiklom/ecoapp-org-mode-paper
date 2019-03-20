@@ -126,7 +126,8 @@ DONE L197. Figure 2 shows that mass-based traits were generally *negatively* cor
 DONE L227-228. Here the authors state that the lowest SLA, Nmass, Pmass and Rdmass values were observed in temperate evergreen PFTs. But referring to Figure 4, this isn’t clearly that case at all. E.g. boreal groups have equally low values for several traits.
 {Removed "temperate", so it implicitly includes boreals and shrubs.}
 
-TODO L232-234. This statement is incorrect. Figure 4 in fact shows tropical broadleaved evergreen trees to have low leaf P (per mass or per area), and high leaf N (per mass or per area).
+DONE L232-234. This statement is incorrect. Figure 4 in fact shows tropical broadleaved evergreen trees to have low leaf P (per mass or per area), and high leaf N (per mass or per area).
+{Removed "tropical broadleaved evergreen", so this is now correct.}
 
 TODO L237. Please clarify how the reader should identify which trait values assumed in CLM are significantly different top those observed.
  

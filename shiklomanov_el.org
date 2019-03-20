@@ -334,7 +334,7 @@ However, none of these patterns was universal to all four traits.
 For example, tropical evergreen trees had relatively high $N_{mass}$ and average SLA and $R_{d,mass}$, but among the lowest $P_{mass}$.
 Similarly, compared to grass PFTs, temperate and boreal shrubs had similar SLA but higher $N_{mass}$ and $P_{mass}$. 
 Patterns were different when these traits were normalized by area instead of mass.
-For example, tropical broadleaved evergreen and needleleaf evergreen trees had relatively low $N_{mass}$ and $P_{mass}$ but relatively high $N_{area}$ and $P_{area}$, while the opposite was true of deciduous temperate trees and shrubs.
+For example, needleleaf evergreen trees had relatively low $N_{mass}$ and $P_{mass}$ but relatively high $N_{area}$ and $P_{area}$, while the opposite was true of deciduous temperate trees and shrubs.
 
 A key application of this study was to provide data-driven parameter estimates for Earth System Models.
 To this end, we compared our mean parameter estimates with corresponding default parameters in CLM 4.5 cite:clm45_note (Fig. 4).
