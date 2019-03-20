@@ -22,7 +22,6 @@ header-includes:
   - \usepackage{longtable}
   - \usepackage{array}
   - \usepackage{multirow}
-  - \usepackage[table]{xcolor}
   - \usepackage{wrapfig}
   - \usepackage{float}
   - \usepackage{colortbl}
@@ -41,6 +40,7 @@ library(knitr)
 library(kableExtra)
 library(drake)
 library(ggplot2)
+library(GGally)
 
 correlation_scatter_cap <- paste(
   "Relationship between squared pairwise correlation and sample size of pairwise observations for each PFT.",
@@ -79,7 +79,7 @@ table_cap_mass <- paste(
 table_cap_area <- gsub("mass", "area", table_cap_mass)
 
 readd(table_dat) %>%
-  select(-matches("area")) %>%
+  dplyr::select(-dplyr::matches("area")) %>%
   kable(
     caption = table_cap_mass,
     format = "latex",
@@ -99,7 +99,7 @@ readd(table_dat) %>%
   kableExtra::kable_styling(latex_options = c("scale_down", "hold_position"))
 
 readd(table_dat) %>%
-  select(-matches("mass")) %>%
+  dplyr::select(-dplyr::matches("mass")) %>%
   kable(
 	caption = table_cap_area,
 	format = "latex",
