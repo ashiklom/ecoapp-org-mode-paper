@@ -49,7 +49,7 @@ TODO 111 How was MAT? R? GIS? Please add more details.
 TODO 112 Please address somewhere in the text that with this PFT approach you are not taking in consideration water availability and that a significant portion of the variation within PFT might have arisen for that reason. E.g. you are not able to distinguish cold+dry and cold+wet sites.
 
 DONE 117 Sample = species?
-{No, but maybe clarify.}
+{No.}
 
 TODO 154 [Last sentence before "Analysis of results"; around L266] This is exciting! Please add a description of the package on GitHub.
 {Need to document package.}
@@ -135,7 +135,7 @@ DONE L237. Please clarify how the reader should identify which trait values assu
  
 TODO L246. If it is possible to compare the estimations, can you please provide some details or examples?
 
-DONE L257. By “phylogenetic resolution” presumably you simply mean that grasses are treated differently from other angiosperms, and gymnosperms are treated separately too?
+TODO L257. By “phylogenetic resolution” presumably you simply mean that grasses are treated differently from other angiosperms, and gymnosperms are treated separately too?
 {More or less. I like this phrase, so I'm keeping it.}
 
 DONE L325-326. In Fig 4, the estimated Nmass values for each of the three models are actually very close. Can you please clarify your statement?
@@ -145,6 +145,7 @@ DONE P27. Figure 1. Please provide the full name of each PFT.
 {Stated that names are shown in Table 1.}
 
 TODO Perhaps label Mass or Area Normalized on the axes of the figure S2 and S3?
+{Too hard to do with `ggmatrix`. Leaving it alone.}
 
 ******************************************
 
