@@ -475,14 +475,13 @@ kable(
 ) %>%
   kableExtra::kable_styling(latex_options = "hold_position")
 #+END_SRC
-
 #+RESULTS: pfts
 #+BEGIN_EXPORT latex
 \begin{table}[!h]
 
 \caption{\label{tab:}\label{tab:pfts}Names, labels, and species counts for plant functional types (PFTs) used in this analysis.}
 \centering
-\begin{tabular}[t]{ccc}
+\begin{tabular}{ccc}
 \toprule
 Label & PFT & Number of species\\
 \midrule
