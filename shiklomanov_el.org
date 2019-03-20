@@ -281,7 +281,7 @@ Correlation coefficients are sensitive to data sampling, particularly sample siz
 To evaluate the contribution of data sampling to our correlation estimates, we plotted the each pairwise correlation coefficient squared against pairwise sample size and normalized data range (Fig. S1 and S2).
 
 To assess multivariate and hierarchical constraint on trait estimates,
-we compared the mean and 95% confidence intervals of trait estimates for each PFT from each model (Fig. 4, Tab. S1 and S2).
+we compared the mean and 95% confidence intervals of trait estimates for each PFT from each model (Fig. 4).
 For reference, we included the default parameter values of CLM 4.5 [[cite:clm45_note][Table 8.1 in]] for SLA, $N_{mass}$, $N_{area}$, $V_{c,max,mass}$, and $V_{c,max,area}$ in Fig. 4.
 To convert CLM's reported C:N ratio to $N_{mass}$, we assumed a uniform leaf C fraction of 0.46.
 We then divided this calculated $N_{mass}$ by the reported SLA to obtain $N_{area}$.
@@ -523,7 +523,7 @@ C4G & C4 Grass & 255\\
 #+CAPTION: Mean and 95% CI on estimates of pairwise correlation coefficients for all data pooled globally (dark grey) and for each PFT (colored). For most PFT-trait pairs, correlations are mutually consistent in magnitude but vary in strength.
 [[/Users/shik544/laptop_folders/Projects/new-phytologist-traits/np-trait-analysis/figures/manuscript/correlation_boxplot.pdf]]
 
-#+CAPTION: Mean and 95% confidence interval on best estimates of traits for each plant functional type from the univariate, multivariate, and hierarchical models. For leaf lifespan and SLA, results were not significantly different between the mass- and area-based models, so only results from the mass-based model are shown. For some PFT-trait combinations, where large error bars resulting from the relatively uninformative priors are substantially larger than the variability among means, the $y$ axes are constrained to facilitate comparison.
+#+CAPTION: Mean and 95% confidence interval on best estimates of traits for each plant functional type from the univariate, multivariate, and hierarchical models. For leaf lifespan and SLA, results were not significantly different between the mass- and area-based models, so only results from the mass-based model are shown. For some PFT-trait combinations, where large error bars resulting from the relatively uninformative priors are substantially larger than the variability among means, the $y$ axes are constrained to facilitate comparison. Values and uncertainties for estimates from the hierarchical model are reported in tables S1 and S2.
 #+NAME: fig:traitmeans
 [[/Users/shik544/laptop_folders/Projects/new-phytologist-traits/np-trait-analysis/figures/manuscript/mean_comparison.pdf]]
 

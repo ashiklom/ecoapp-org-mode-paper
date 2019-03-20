@@ -54,7 +54,8 @@ DONE 117 Sample = species?
 TODO 154 [Last sentence before "Analysis of results"; around L266] This is exciting! Please add a description of the package on GitHub.
 {Need to document package.}
 
-TODO 177 Tables S1 and S2 are not model parameter estimate comparisons.
+DONE 177 Tables S1 and S2 are not model parameter estimate comparisons.
+{Removed this reference, and mention tables in Fig 4 caption}
 
 TODO 264-271 I think the authors should be more careful with conclusions about the comparative strength of the correlations within PFTs due to the huge differences in sample size across PTFs. With your approach, how can you make sure that the stronger relationship between SLA and Nmass in the broadleaved than in the needleleaved PFTs happened due to different resource allocation strategies if the sample size for the former is almost 3-fold the sample size of the latter?
 
