@@ -1,0 +1,146 @@
+******************************************
+Referee: 1
+
+Comments for the Authors
+The study of Shiklomanov et al. has two objectives: examine the generality of leaf economic trait correlations across Plant Functional Types (PFT) and compare the performance of models that account and do not account for trait covariance to reduce estimate uncertainties of traits.
+They found that for global-scale data, trait correlations were generally consistent across PTFs and with the leaf economic spectrum.
+Also, they found that accounting for trait covariance reduces the uncertainty of trait estimates.
+The manuscript is well written and clear, the objectives are well presented and the analyses are robust, but what is less clear for me is the novelty of the paper, in particular in regards to the first objective.
+
+The first objective is framed under the more general concern of whether LES depends on the ecological and spatial scales.
+There are already a handful of studies that have shown that the generality of LES is flawed for small scales.
+Then, the generality of their finding on LES being consistent across PTFs is largely dependent on the scale of the study.
+This limits the implications of the findings of this study and its generality.
+Secondly, since there is not a strong theoretical or mechanistic justification for the consistency or lack of consistency in trait correlations across PTFs, this section becomes largely descriptive.
+
+The second objective represents a clear methodological advance and has important implications for trait-ecology.
+TODO However, I would like to see a more thorough discussion of the implications for this result and the study of PFTs.
+TODO For example, what are the implications for finding that multivariate and hierarchical models were largely indistinguishable?
+
+Other comments:
+DONE I could not find table 1 in the text.
+
+******************************************
+Referee: 2
+
+Comments for the Authors
+In “Does the leaf economic spectrum hold within plant functional types? A Bayesian multivariate trait meta-analysis” the authors developed a Bayesian hierarchical model that introduces trait covariance to reduce the uncertainty in mean trait estimates for PFTs. The authors compiled trait data from the TRY database to test their hierarchical multivariate Bayesian model against a univariate model and a multivariate model with no trait covariance. The authors found that (i) pairwise trait covariances are consistent in direction but vary in magnitude between PFTs for most of the traits investigated; (ii) pairwise trait correlation coefficients were similar in magnitude across PFTs; (iii) accounting for covariance in the hierarchical model helped reduce uncertainty in parameter estimates.
+
+This is a great manuscript that introduces tools that have the potential to become widely used the field. I am particularly excited about the hierarchical model and the R package developed by the authors.  The current manuscript needs clarification in a few points, as I explain below. I hope they are of help to the authors to improve the manuscript.
+
+TODO 87 [Section 2.1 - Trait data] Are you including here species where traits were obtained from the same study and, therefore, same time and location or did you “merge” trait data from different sources? If not, how are you accounting for the possible mismatch/ lack of coordination in traits caused by sampling condition bias? Either way, please clarify how you used the trait data and what your criteria for inclusion in the dataset was.
+
+TODO 94 Why not include Amax? It is a more direct proxy of leaf productivity and an easier to interpret photosynthetic parameter than Vc,max or Jmax. I believe Amax is also much better represented in TRY than Vc,max or Jmax.
+
+DONE 104 There is no table 1. I am assuming it should have the description of what each functional type acronym means? If not, please add this information somewhere.
+{Fixed. Minor bug in org mode.}
+{GIT: c02c9a602}
+
+TODO Fig. 1- I see some functional types are very poorly represented for Rd, Vc,max and Jmax (specially the latter two).
+
+TODO 109-110 Where did the species occurrence data come from? Coordinates from the location of where they were sampled for traits? If so, did you take in consideration that some of the species traits might have been measured under greenhouse conditions or in a common garden setting? The MAT from sampling site might not represent the MAT of the natural range of the species, causing you to classify it under the wrong PFT.
+
+TODO 110 Why not Mean Annual Temperature, MAT?
+
+DONE No need to address.
+
+TODO 111 How was MAT? R? GIS? Please add more details.
+
+TODO 112 Please address somewhere in the text that with this PFT approach you are not taking in consideration water availability and that a significant portion of the variation within PFT might have arisen for that reason. E.g. you are not able to distinguish cold+dry and cold+wet sites.
+
+DONE 117 Sample = species?
+{No, but maybe clarify.}
+
+TODO 154 [Last sentence before "Analysis of results"; around L266] This is exciting! Please add a description of the package on GitHub.
+{Need to document package.}
+
+TODO 177 Tables S1 and S2 are not model parameter estimate comparisons.
+
+TODO 264-271 I think the authors should be more careful with conclusions about the comparative strength of the correlations within PFTs due to the huge differences in sample size across PTFs. With your approach, how can you make sure that the stronger relationship between SLA and Nmass in the broadleaved than in the needleleaved PFTs happened due to different resource allocation strategies if the sample size for the former is almost 3-fold the sample size of the latter?
+
+TODO 282-284 I think this is a good example of the point I made in my previous comment: the uncertainty in the Vc,max,area estimates for needleleaved PFTs was very large, so for me it sounds more likely that the “weak” correlation you found happened because of the large uncertainty introduced by the low sample size than an underlying ecological meaning.
+
+DONE SA2- Please add some information on why the authors of the “Supporting Information 2” are different from the authors of the manuscript.
+
+******************************************
+Referee: 3
+
+General comments
+In this work the authors explore the question of generality in relationships among leaf “economic” traits, focusing on generality among plant functional types (PFTs).
+The underlying dataset is large for most traits, and drawn from the TRY database.
+To a fair extent the work repeats work from the mid-2000s by Wright et al (though the authors appear unaware of this), but here the questions are tackled using a substantially larger dataset and also more sophisticated methods.
+For example, the authors use Hierarchical Multivariate models to quantify trait covariances and to reduce uncertainties in estimation of trait means for each PFT.
+It was especially good to see the photosynthetic traits Vcmax25 and Jmax appearing in the analyses; this will help make the results relevant to vegetation/earth system models, which generally have at their core the Farquhar et al biochemical model for photosynthesis.
+
+The manuscript is generally well written, and the results clearly presented (especially the figures).
+The Methods seem sensible and generally well described.
+The Results are straightforward enough.
+Overall, the Discussion perhaps lacks inspiration.
+Overall the conclusion seems to be “the results are more or less consistent across PFTs, except when they’re not” – which is what one would likely predict to be the answer without having read the manuscript.
+TODO Also, it seems a wasted opportunity not to clearly identify what traits and trait-PFT combinations are most poorly represented in global datasets.
+Perhaps this might stimulate further trait collection for these groups?
+
+Major comments:
+1. Surprising omissions.
+TODO It was odd to find no reference to the analyses from Wright et al 2004 Nature (e.g. Table 2 in that paper) that reported multivariate trait correlation structures among LES traits in the GLOPNET dataset, split by growth form, by photosynthetic system, and by PFT.
+The conclusion there was that the same multivariate correlation structure was seen within every species-group – indeed, this was the chief argument for the ‘universality’ of the leaf economic spectrum.
+TODO Similarly, there was no reference to Wright et al 2005 New Phytologist “Assessing the generality of global leaf trait relationships”.
+As the title of that paper suggests, the focus was pretty much exactly the same as that of this manuscript now under review.
+For example, LES trait relationships were reported for each PFT (and other species groups); and variation among within-site relationships was explored in relation to sample size, using funnel plots (which is very similar to an analysis presented in this paper).
+
+TODO 2. Generality of the approach.
+Overall this paper lacks a convincing case made for the importance of understanding trait correlation structures for vegetation modelling.
+TODO For example, what types of models do/don’t make use of the correlation structure?
+TODO What are the perceived (or demonstrated!) advantages of doing so?
+TODO What is the likelihood that it will become increasingly important in the next generation of models to incorporate knowledge of trait correlation structure?
+As it stands, the manuscript feels like it just written for other modellers.
+
+DONE 3. Limited PFT definition limits interest of the analyses.
+Some models use biome as part of the PFT definition (i.e., boreal vs. temperate vs. tropical); other do not.
+It is unclear why including biome in PFT definition is still needed, both for vegetation modelling, and for the analyses reported in this manuscript.
+Surely, adding analyses for non-biome PFTs (even making these the primary results?) would yield more generally interesting and generally applicable answers to the overall research question?
+Also, there would be fewer species groups with small sample sizes for observed data.
+Conversely, by insisting on using biome-define PFTs, the impact of the paper seems likely to be limited to users of models that use that structure.
+
+{PFT selection was specific to CLM. Methods could readily be applied to other PFTs.}
+
+Minor comments
+TODO L28. LES traits are described as showing clear relationships to plant "productivity"?
+What is meant here by “productivity”?
+Growth rate of individual plants?
+Vegetation scale GPP?
+It sounds like growth rate, yet there is increasing evidence that LMA is unrelated to growth rate under field conditions. e.g. Paine et al 2015 J Ecol.
+
+TODO Lines 38-40. “First, observed global correlations may not hold at smaller scales, such as sites, species, and individuals. Some studies suggest consistent correlations across scales whereas others show no or even opposite correlations”.
+Here a range of literature is poorly cited to – that is, it is unclear which analyses referred to considered which scale.
+Yet, these are very different issues: whether there is consistency among PFTs, whether there is consistency among sites; whether there is consistency among individual species. (and also, what do the authors means in regards to “individuals”?).
+
+TODO L48-49. Sure, biomass (and nutrient) allocation to different tissue types varies among PFTs, but that does not mean that trait relationships vary among PFTs. That is, trait relationships may or may not vary, but it does not follow as a simple consequence of differences in allocation --as claimed here.
+
+TODO L58 I do not understand this statement of ‘the timescale for adaption’, please clarify it more.
+
+TODO L197. Figure 2 shows that mass-based traits were generally *negatively* correlated with leaf lifespan whereas your statement says positive!
+
+TODO L227-228. Here the authors state that the lowest SLA, Nmass, Pmass and Rdmass values were observed in temperate evergreen PFTs. But referring to Figure 4, this isn’t clearly that case at all. E.g. boreal groups have equally low values for several traits.
+
+TODO L232-234. This statement is incorrect. Figure 4 in fact shows tropical broadleaved evergreen trees to have low leaf P (per mass or per area), and high leaf N (per mass or per area).
+
+TODO L237. Please clarify how the reader should identify which trait values assumed in CLM are significantly different top those observed.
+ 
+TODO L246. If it is possible to compare the estimations, can you please provide some details or examples?
+
+TODO L257. By “phylogenetic resolution” presumably you simply mean that grasses are treated differently from other angiosperms, and gymnosperms are treated separately too?
+
+TODO L325-326. In Fig 4, the estimated Nmass values for each of the three models are actually very close. Can you please clarify your statement?
+
+TODO P27. Figure 1. Please provide the full name of each PFT.
+
+TODO Perhaps label Mass or Area Normalized on the axes of the figure S2 and S3?
+
+******************************************
+
+Editor
+Editors Comments for the Author(s):
+Thank you for your recent submission to Ecology Letters.  We have now received three expert reviews of your paper.  All three reviewers felt your study was interesting but there were also questions about the novelty of the work.  Main concerns were that much of what you present here repeats findings already in the literature with the main difference being a larger dataset. All reviewer agreed that you present a nice new analysis and provide the R code but it is unclear that this new analysis actually provides truly novel insights of broad interest.   Further, as written it is not clear whether the authors are aware of how much the questions/results in this study overlap with the existing literature.  Although that would certainly be corrected through revision, it is not clear to me that the paper can reach the level of novelty or general interest to merit space in Ecology Letters.  With this decision I have included the reviewer comments.  All have provided suggestions for how to improve the paper further before submitting elsewhere and I note that moving forward you should take greater care in representing the past literature and what you are adding to it - including more recent papers on trait covariance which are missing (see Dwyer and Laughlin 2017 for instance).
+
+******************************************

@@ -1,0 +1,56 @@
+******************************************
+Referee: 1
+
+Comments for the Authors
+The study of Shiklomanov et al. has two objectives: examine the generality of leaf economic trait correlations across Plant Functional Types (PFT) and compare the performance of models that account and do not account for trait covariance to reduce estimate uncertainties of traits. They found that for global-scale data, trait correlations were generally consistent across PTFs and with the leaf economic spectrum. Also, they found that accounting for trait covariance reduces the uncertainty of trait estimates. The manuscript is well written and clear, the objectives are well presented and the analyses are robust, but what is less clear for me is the novelty of the paper, in particular in regards to the first objective.
+
+The first objective is framed under the more general concern of whether LES depends on the ecological and spatial scales. There are already a handful of studies that have shown that the generality of LES is flawed for small scales. Then, the generality of their finding on LES being consistent across PTFs is largely dependent on the scale of the study. This limits the implications of the findings of this study and its generality. Secondly, since there is not a strong theoretical or mechanistic justification for the consistency or lack of consistency in trait correlations across PTFs, this section becomes largely descriptive.
+
+The second objective represents a clear methodological advance and has important implications for trait-ecology. However, I would like to see a more thorough discussion of the implications for this result and the study of PTFs. For example, what are the implications for finding that multivariate and hierarchical models were largely indistinguishable?
+
+Other comments:
+I could not find table 1 in the text.
+
+******************************************
+
+Referee: 2
+
+Comments for the Authors
+In “Does the leaf economic spectrum hold within plant functional types? A Bayesian multivariate trait meta-analysis” the authors developed a Bayesian hierarchical model that introduces trait covariance to reduce the uncertainty in mean trait estimates for PFTs. The authors compiled trait data from the TRY database to test their hierarchical multivariate Bayesian model against a univariate model and a multivariate model with no trait covariance. The authors found that (i) pairwise trait covariances are consistent in direction but vary in magnitude between PFTs for most of the traits investigated; (ii) pairwise trait correlation coefficients were similar in magnitude across PFTs; (iii) accounting for covariance in the hierarchical model helped reduce uncertainty in parameter estimates.
+
+This is a great manuscript that introduces tools that have the potential to become widely used the field. I am particularly excited about the hierarchical model and the R package developed by the authors.  The current manuscript needs clarification in a few points, as I explain below. I hope they are of help to the authors to improve the manuscript.
+
+87 Are you including here species where traits were obtained from the same study and, therefore, same time and location or did you “merge” trait data from different sources? If not, how are you accounting for the possible mismatch/ lack of coordination in traits caused by sampling condition bias? Either way, please clarify how you used the trait data and what your criteria for inclusion in the dataset was.
+
+94 Why not include Amax? It is a more direct proxy of leaf productivity and an easier to interpret photosynthetic parameter than Vc,max or Jmax. I believe Amax is also much better represented in TRY than Vc,max or Jmax.
+
+104 There is no table 1. I am assuming it should have the description of what each functional type acronym means? If not, please add this information somewhere.
+Fig. 1- I see some functional types are very poorly represented for Rd, Vc,max and Jmax (specially the latter two).
+
+109-110 Where did the species occurrence data come from? Coordinates from the location of where they were sampled for traits? If so, did you take in consideration that some of the species traits might have been measured under greenhouse conditions or in a common garden setting? The MAT from sampling site might not represent the MAT of the natural range of the species, causing you to classify it under the wrong PFT.
+
+110 Why not Mean Annual Temperature, MAT?
+
+111 How was MAT? R? GIS? Please add more details.
+
+112 Please address somewhere in the text that with this PTF approach you are not taking in consideration water availability and that a significant portion of the variation within PFT might have arisen for that reason. E.g. you are not able to distinguish cold+dry and cold+wet sites.
+
+117 Sample = species?
+
+154 This is exciting! Please add a description of the package on GitHub.
+
+177 Tables S1 and S2 are not model parameter estimate comparisons.
+
+264-271 I think the authors should be more careful with conclusions about the comparative strength of the correlations within PFTs due to the huge differences in sample size across PTFs. With your approach, how can you make sure that the stronger relationship between SLA and Nmass in the broadleaved than in the needleleaved PFTs happened due to different resource allocation strategies if the sample size for the former is almost 3-fold the sample size of the latter?
+
+282-284 I think this is a good example of the point I made in my previous comment: the uncertainty in the Vc,max,area estimates for needleleaved PFTs was very large, so for me it sounds more likely that the “weak” correlation you found happened because of the large uncertainty introduced by the low sample size than an underlying ecological meaning.
+
+SA2- Please add some information on why the authors of the “Supporting Information 2” are different from the authors of the manuscript.
+
+******************************************
+
+Editor
+Editors Comments for the Author(s):
+Thank you for your recent submission to Ecology Letters.  We have now received three expert reviews of your paper.  All three reviewers felt your study was interesting but there were also questions about the novelty of the work.  Main concerns were that much of what you present here repeats findings already in the literature with the main difference being a larger dataset. All reviewer agreed that you present a nice new analysis and provide the R code but it is unclear that this new analysis actually provides truly novel insights of broad interest.   Further, as written it is not clear whether the authors are aware of how much the questions/results in this study overlap with the existing literature.  Although that would certainly be corrected through revision, it is not clear to me that the paper can reach the level of novelty or general interest to merit space in Ecology Letters.  With this decision I have included the reviewer comments.  All have provided suggestions for how to improve the paper further before submitting elsewhere and I note that moving forward you should take greater care in representing the past literature and what you are adding to it - including more recent papers on trait covariance which are missing (see Dwyer and Laughlin 2017 for instance).
+
+******************************************
