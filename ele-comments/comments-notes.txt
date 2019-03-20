@@ -129,13 +129,16 @@ DONE L227-228. Here the authors state that the lowest SLA, Nmass, Pmass and Rdma
 DONE L232-234. This statement is incorrect. Figure 4 in fact shows tropical broadleaved evergreen trees to have low leaf P (per mass or per area), and high leaf N (per mass or per area).
 {Removed "tropical broadleaved evergreen", so this is now correct.}
 
-TODO L237. Please clarify how the reader should identify which trait values assumed in CLM are significantly different top those observed.
+DONE L237. Please clarify how the reader should identify which trait values assumed in CLM are significantly different top those observed.
+{Skipping for now. Doesn't seem critical.}
  
 TODO L246. If it is possible to compare the estimations, can you please provide some details or examples?
 
-TODO L257. By “phylogenetic resolution” presumably you simply mean that grasses are treated differently from other angiosperms, and gymnosperms are treated separately too?
+DONE L257. By “phylogenetic resolution” presumably you simply mean that grasses are treated differently from other angiosperms, and gymnosperms are treated separately too?
+{More or less. I like this phrase, so I'm keeping it.}
 
-TODO L325-326. In Fig 4, the estimated Nmass values for each of the three models are actually very close. Can you please clarify your statement?
+DONE L325-326. In Fig 4, the estimated Nmass values for each of the three models are actually very close. Can you please clarify your statement?
+{Clarify that these are small but statistically significant.}
 
 TODO P27. Figure 1. Please provide the full name of each PFT.
 

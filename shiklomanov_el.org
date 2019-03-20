@@ -396,7 +396,7 @@ Meanwhile, our discussion of tropical tree productivity with respect to foliar n
 
 The second objective of this paper was to investigate the ability of trait covariance to reduce uncertainties in trait estimates.
 We show that accounting for covariance reduced uncertainty around PFT-level trait means, particularly for undersampled trait-PFT combinations (Fig. 4 and 5).
-Moreover, accounting for covariance occasionally changed the /position/ of trait mean estimates, even for well-sampled PFT-trait combinations (e.g. $N_{mass}$ for temperate broadleaved deciduous trees, Fig. 4).
+Moreover, accounting for covariance occasionally resulted in small but statistically significant differences in the /position/ of trait mean estimates even for well-sampled PFT-trait combinations (e.g. $N_{mass}$ for temperate broadleaved deciduous trees, Fig. 4).
 This result echoes Diaz /et al./ citeyear:diaz_2015_global in demonstrating the importance of studying the multivariate trait space rather than individual traits. 
 Such shifts suggest that sampling of these traits in TRY is not representative (Fig. 1; see also citealt:kattge_2011_try). 
 These shifts also indicate that parameter estimates based on univariate trait data [[cite:lebauer_2013_facilitating,dietze_2014_quantitative,butler_2017_mapping][e.g.]] may not only overestimate uncertainty, but may also be systematically biased.
