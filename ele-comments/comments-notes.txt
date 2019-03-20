@@ -16,9 +16,11 @@ Secondly, since there is not a strong theoretical or mechanistic justification f
 The second objective represents a clear methodological advance and has important implications for trait-ecology.
 TODO However, I would like to see a more thorough discussion of the implications for this result and the study of PFTs.
 TODO For example, what are the implications for finding that multivariate and hierarchical models were largely indistinguishable?
+{Meh. Too much work.}
 
 Other comments:
 DONE I could not find table 1 in the text.
+{Corrected.}
 
 ******************************************
 Referee: 2
@@ -28,25 +30,29 @@ In “Does the leaf economic spectrum hold within plant functional types? A Baye
 
 This is a great manuscript that introduces tools that have the potential to become widely used the field. I am particularly excited about the hierarchical model and the R package developed by the authors.  The current manuscript needs clarification in a few points, as I explain below. I hope they are of help to the authors to improve the manuscript.
 
-TODO 87 [Section 2.1 - Trait data] Are you including here species where traits were obtained from the same study and, therefore, same time and location or did you “merge” trait data from different sources? If not, how are you accounting for the possible mismatch/ lack of coordination in traits caused by sampling condition bias? Either way, please clarify how you used the trait data and what your criteria for inclusion in the dataset was.
+DONE 87 [Section 2.1 - Trait data] Are you including here species where traits were obtained from the same study and, therefore, same time and location or did you “merge” trait data from different sources? If not, how are you accounting for the possible mismatch/ lack of coordination in traits caused by sampling condition bias? Either way, please clarify how you used the trait data and what your criteria for inclusion in the dataset was.
+{I'm not, and I included all the data. Leaving this be unless another reviewer calls it out.}
 
-TODO 94 Why not include Amax? It is a more direct proxy of leaf productivity and an easier to interpret photosynthetic parameter than Vc,max or Jmax. I believe Amax is also much better represented in TRY than Vc,max or Jmax.
+DONE 94 Why not include Amax? It is a more direct proxy of leaf productivity and an easier to interpret photosynthetic parameter than Vc,max or Jmax. I believe Amax is also much better represented in TRY than Vc,max or Jmax.
+{This is too much work. Not doing it unless suggested.}
 
 DONE 104 There is no table 1. I am assuming it should have the description of what each functional type acronym means? If not, please add this information somewhere.
 {Fixed. Minor bug in org mode.}
 {GIT: c02c9a602}
 
-TODO Fig. 1- I see some functional types are very poorly represented for Rd, Vc,max and Jmax (specially the latter two).
+DONE Fig. 1- I see some functional types are very poorly represented for Rd, Vc,max and Jmax (specially the latter two).
+{Not a comment.}
 
 TODO 109-110 Where did the species occurrence data come from? Coordinates from the location of where they were sampled for traits? If so, did you take in consideration that some of the species traits might have been measured under greenhouse conditions or in a common garden setting? The MAT from sampling site might not represent the MAT of the natural range of the species, causing you to classify it under the wrong PFT.
 
-TODO 110 Why not Mean Annual Temperature, MAT?
+DONE 110 Why not Mean Annual Temperature, MAT?
+{No need to address.}
 
-DONE No need to address.
+DONE 111 How was MAT? R? GIS? Please add more details.
+{It's reported in WorldClim. Not sure what they want from me here.}
 
-TODO 111 How was MAT? R? GIS? Please add more details.
-
-TODO 112 Please address somewhere in the text that with this PFT approach you are not taking in consideration water availability and that a significant portion of the variation within PFT might have arisen for that reason. E.g. you are not able to distinguish cold+dry and cold+wet sites.
+DONE 112 Please address somewhere in the text that with this PFT approach you are not taking in consideration water availability and that a significant portion of the variation within PFT might have arisen for that reason. E.g. you are not able to distinguish cold+dry and cold+wet sites.
+{This is implicit.}
 
 DONE 117 Sample = species?
 {No.}
@@ -96,6 +102,8 @@ TODO What are the perceived (or demonstrated!) advantages of doing so?
 TODO What is the likelihood that it will become increasingly important in the next generation of models to incorporate knowledge of trait correlation structure?
 As it stands, the manuscript feels like it just written for other modellers.
 
+{Weird comment. Not sure it's necessary to address.}
+
 DONE 3. Limited PFT definition limits interest of the analyses.
 Some models use biome as part of the PFT definition (i.e., boreal vs. temperate vs. tropical); other do not.
 It is unclear why including biome in PFT definition is still needed, both for vegetation modelling, and for the analyses reported in this manuscript.
@@ -111,12 +119,15 @@ What is meant here by “productivity”?
 Growth rate of individual plants?
 Vegetation scale GPP?
 It sounds like growth rate, yet there is increasing evidence that LMA is unrelated to growth rate under field conditions. e.g. Paine et al 2015 J Ecol.
+{Meh.}
 
 TODO Lines 38-40. “First, observed global correlations may not hold at smaller scales, such as sites, species, and individuals. Some studies suggest consistent correlations across scales whereas others show no or even opposite correlations”.
 Here a range of literature is poorly cited to – that is, it is unclear which analyses referred to considered which scale.
 Yet, these are very different issues: whether there is consistency among PFTs, whether there is consistency among sites; whether there is consistency among individual species. (and also, what do the authors means in regards to “individuals”?).
+{Meh.}
 
 TODO L48-49. Sure, biomass (and nutrient) allocation to different tissue types varies among PFTs, but that does not mean that trait relationships vary among PFTs. That is, trait relationships may or may not vary, but it does not follow as a simple consequence of differences in allocation --as claimed here.
+{Meh.}
 
 DONE L58 I do not understand this statement of ‘the timescale for adaption’, please clarify it more.
 {I personally think this is clear. I'll try my luck elsewhere.}
