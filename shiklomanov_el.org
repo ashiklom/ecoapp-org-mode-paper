@@ -45,25 +45,7 @@
 #+BEGIN_EXPORT latex
 \begin{footnotesize}
 \noindent
-\textbf{Article type:} Letters
-
-\noindent
-\textbf{Author contributions:}
-ANS wrote the manuscript and implemented the analysis.
-ANS and EMC designed the analysis and figures.
-MCD conceived the original idea for the manuscript, guided its development, and provided financial support.
-MB, SJ, KK, ÜN, and NAS provided extensive feedback on multiple drafts of the manuscript, and contributed data.
-CB and YO contributed data.
-
-\noindent
-\textbf{Data accessibility:}
-The R code and ancillary data for running these analyses is publicly available online via the Open Science Framework at https://osf.io/w8y73/.
-The TRY data request used for this analysis has been archived at http://try-db.org,
-and can be retrieved by providing the TRY data request ID (\#1584).
-Alternatively, the exact pre-formatted data used in this analysis are available on request to Alexey Shiklomanov (alexey.shiklomanov@pnnl.gov).
-
-\noindent
-\textbf{Running title:} Leaf economic spectrum within vs. across PFTs (45 characters)
+\textbf{Submission type:} Articles
 
 \noindent
 \textbf{Keywords:} Functional trade-off; hierarchical modeling; trait variation; ecological modeling; leaf morphology; leaf biochemistry
@@ -91,6 +73,7 @@ Alternatively, the exact pre-formatted data used in this analysis are available 
 #+BEGIN_EXPORT latex
 \linenumbers
 \doublespacing
+\pagebreak
 #+END_EXPORT
 
 * Abstract
@@ -542,6 +525,7 @@ C4G & C4 Grass & 255\\
 #+BEGIN_SRC emacs-lisp :result no :eval no
 (setq org-latex-pdf-process (list "latexmk -shell-escape -bibtex -f -pdf %f"))
 (setq citeproc-org-ignore-backends nil)
+(citeproc-org-setup)
 #+END_SRC
 
 #+RESULTS:
@@ -568,3 +552,25 @@ C3 grasses and temperate needleleaved evergreen trees had the highest $J_{max,ar
 All of the shrub PFTs had the lowest $J_{max,mass}$ but average or above-average $J_{max,area}$, while the opposite was true of broadleaved tropical PFTs.
 Of the tree PFTs, needleleaved evergreen trees had the highest $J_{max,area}$ but the lowest $J_{max,mass}$.
 
+** Old heading blocks
+   
+#+BEGIN_EXPORT latex
+\noindent
+\textbf{Author contributions:}
+ANS wrote the manuscript and implemented the analysis.
+ANS and EMC designed the analysis and figures.
+MCD conceived the original idea for the manuscript, guided its development, and provided financial support.
+MB, SJ, KK, ÜN, and NAS provided extensive feedback on multiple drafts of the manuscript, and contributed data.
+CB and YO contributed data.
+
+\noindent
+\textbf{Data accessibility:}
+The R code and ancillary data for running these analyses is publicly available online via the Open Science Framework at https://osf.io/w8y73/.
+The TRY data request used for this analysis has been archived at http://try-db.org,
+and can be retrieved by providing the TRY data request ID (\#1584).
+Alternatively, the exact pre-formatted data used in this analysis are available on request to Alexey Shiklomanov (alexey.shiklomanov@pnnl.gov).
+
+\noindent
+\textbf{Running title:} Leaf economic spectrum within vs. across PFTs (45 characters)
+
+#+END_EXPORT
