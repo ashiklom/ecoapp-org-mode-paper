@@ -53,13 +53,13 @@ correlation_fig_cap <- paste(
 
 correlation_range_cap <- paste(
   "Relationship between pairwise correlation strength and data range for each PFT.",
-  "In each pair of sub-panels, the left panel is relationship between pairwise correlation",
+  "In each pair of sub-panels, the top panel is relationship between pairwise correlation",
   "and the range of the variable on the x axis",
-  "while the right panel is the relationship between pairwise correlation",
+  "while the bottom panel is the relationship between pairwise correlation",
   "and the y variable",
   "(For instance, in the two-panel figure in row 1 column 2,",
-  "the left panel is the SLA-leaf lifespan correlation as a function of the range of SLA",
-  "and the right panel is the same correlation as a function of the range of leaf lifespan).",
+  "the top panel is the SLA-leaf lifespan correlation as a function of the range of SLA",
+  "and the bottom panel is the same correlation as a function of the range of leaf lifespan).",
   "Data range is expressed as the difference between the 2.5% and 97.5% quantiles of each normalized trait (i.e. $\\frac{X}{E[X]}$).",
   "Grey shading is the 95% confidence interval around a local regression (LOESS).",
   "Upper triangle is area-normalized values, and lower triangle is mass-normalized values."
