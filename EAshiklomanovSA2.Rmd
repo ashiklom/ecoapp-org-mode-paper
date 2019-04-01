@@ -6,14 +6,11 @@ author:
     Elizabeth M. Cowdery,
     Michael Bahn,
     Chaeho Byun,
-    Joseph Craine,
-    Andrés Gonzalez-Melo,
     Steven Jansen,
     Koen Kramer,
     Vanessa Minden,
     Ülo Niinemets,
     Yusuke Onoda,
-    Enio Egon Sosinski,
     Nadejda A. Soudzilovskaia,
     Michael C. Dietze
 output: pdf_document
