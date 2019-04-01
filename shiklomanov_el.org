@@ -48,6 +48,9 @@
 \textbf{Submission type:} Articles
 
 \noindent
+\textbf{Running head:} Trait covariance within vs. across PFTs (39 characters)
+
+\noindent
 \textbf{Keywords:} Functional trade-off; hierarchical modeling; trait variation; ecological modeling; leaf morphology; leaf biochemistry
 
 \end{footnotesize}
@@ -390,7 +393,7 @@ As such, future observational campaigns should consider trait covariance when de
 
 The additional benefit of hierarchical multivariate modeling in our study was limited, largely due to the low number of points used to estimate across-PFT covariance.
 Therefore, for parameterizing the current generation of ecosystem models using well-sampled traits, simple multivariate models fit independently to each PFT may be sufficient and the additional conceptual challenges and computational overhead of hierarchical modeling are not required.
-However, for modeling larger numbers of PFTs cite:boulangeat_2012_improving and especially individual species [[cite:post_1996_linkages][e.g. Linkages, ]], the benefits of hierarchical modeling may accumulate cite:dietze_2008_capturing,cressie_2009_accounting,webb_2010_structured,clark_2004_why.
+However, for modeling larger numbers of PFTs cite:boulangeat_2012_improving and especially individual species [[cite:post_1996_linkages][e.g. Linkages ---]], the benefits of hierarchical modeling may accumulate cite:dietze_2008_capturing,cressie_2009_accounting,webb_2010_structured,clark_2004_why.
 
 More generally, we foresee tremendous potential for multivariate and hierarchical modeling to elucidate the relationship between traits and organismal and ecosystem function. 
 A natural next step to this study would be to apply the same approach to traits whose relationship to the leaf economic spectrum is less clear. 
@@ -569,8 +572,4 @@ The R code and ancillary data for running these analyses is publicly available o
 The TRY data request used for this analysis has been archived at http://try-db.org,
 and can be retrieved by providing the TRY data request ID (\#1584).
 Alternatively, the exact pre-formatted data used in this analysis are available on request to Alexey Shiklomanov (alexey.shiklomanov@pnnl.gov).
-
-\noindent
-\textbf{Running title:} Leaf economic spectrum within vs. across PFTs (45 characters)
-
 #+END_EXPORT
