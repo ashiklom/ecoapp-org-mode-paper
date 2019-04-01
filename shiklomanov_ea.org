@@ -287,6 +287,12 @@ a lower intercept ($b_0$), indicating lower overall uncertainty,
 and
 a lower slope ($b_1$), indicating reduced sensitivity of uncertainty ($\alpha$) to sample size ($n$).
 
+** Data and code availability
+
+The R code and data for running these analyses is publicly available online via the Open Science Framework at https://osf.io/w8y73/.
+To comply with TRY intellectual property guidelines, the trait data used in this study have been "anonymized" such that they can only be identified to the PFT level (not the species level) as required to reproduce this analysis.
+The complete TRY data request used for this analysis has been archived at http://try-db.org, and can be retrieved by providing the TRY data request ID (#1584).
+
 * Results
 
 ** Trait correlation patterns across- and within-PFTs
