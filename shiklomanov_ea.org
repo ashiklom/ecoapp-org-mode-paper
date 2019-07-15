@@ -459,12 +459,13 @@ traits_file <- "~/laptop_folders/Projects/new-phytologist-traits/np-trait-analys
 try_data <- readRDS(traits_file)
 n_present <- try_data %>%
   select(-ObservationID, -AccSpeciesID) %>%
-  group_by(pft = clm45) %>%
+  rename(pft = clm45) %>%
+  group_by(pft) %>%
   summarize_all(~sum(!is.na(.x)))
 n_species <- try_data %>%
   distinct(clm45, AccSpeciesID) %>%
   select(pft = clm45, species = AccSpeciesID) %>%
-  count(pft, name = "# of Species")
+  count(pft, name = "Species")
 n_both <- n_present %>%
   full_join(n_species, by = "pft") %>%
   mutate(
@@ -472,7 +473,9 @@ n_both <- n_present %>%
     label = pft2abbr[pft],
     pft = tools::toTitleCase(gsub("_", " ", pft))
   ) %>%
-  select(`Label` = label, `PFT` = pft, `# of Species`, everything()) %>%
+  select(`Label` = label, `PFT` = pft, `# of Species`,
+         leaf_lifespan, SLA,
+         ends_with("mass"), ends_with("area")) %>%
   rename(
     "Leaf lifespan" = leaf_lifespan
   )
@@ -482,43 +485,50 @@ species_caption <- paste(
   "for plant functional types (PFTs)",
   "used in this analysis."
 )
+col_names <- colnames(n_both)
+col_names <- gsub("_?(mass|area)$", "", col_names)
 kable(
-  n_species,
+  n_both,
   caption = species_caption,
+  col.names = col_names,
   align = rep("c", ncol(n_species)),
   format = "latex",
   booktabs = TRUE
 ) %>%
-  kableExtra::kable_styling(latex_options = "hold_position")
+  kableExtra::add_header_above(c(" " = 5, "Mass" = 5, "Area" = 5)) %>%
+  kableExtra::kable_styling(latex_options = c("hold_position", "scale_down"))
 #+END_SRC
 #+RESULTS: pfts
 #+BEGIN_EXPORT latex
 \begin{table}[!h]
 
-\caption{\label{tab:}\label{tab:pfts}Names, labels, and species counts for plant functional types (PFTs) used in this analysis.}
+\caption{\label{tab:}\label{tab:pfts}Names, labels, species counts, and number of non-missing observations of each trait for plant functional types (PFTs) used in this analysis.}
 \centering
-\begin{tabular}{ccc}
+\resizebox{\linewidth}{!}{
+\begin{tabular}{ccccccccccccccc}
 \toprule
-Label & PFT & Number of species\\
+\multicolumn{5}{c}{ } & \multicolumn{5}{c}{Mass} & \multicolumn{5}{c}{Area} \\
+\cmidrule(l{3pt}r{3pt}){6-10} \cmidrule(l{3pt}r{3pt}){11-15}
+Label & PFT & \# of Species & Leaf lifespan & SLA & N & P & Rd & Vcmax & Jmax & N & P & Rd & Vcmax & Jmax\\
 \midrule
-BlETr & Broadleaf Evergreen Tropical & 1229\\
-BlETe & Broadleaf Evergreen Temperate & 363\\
-BlDTr & Broadleaf Deciduous Tropical & 286\\
-BlDTe & Broadleaf Deciduous Temperate & 345\\
-BlDBo & Broadleaf Deciduous Boreal & 62\\
+BlETr & Broadleaf Evergreen Tropical & 1229 & 153 & 11710 & 7547 & 2912 & 237 & 205 & 58 & 4023 & 1684 & 326 & 225 & 152\\
+BlETe & Broadleaf Evergreen Temperate & 363 & 135 & 2210 & 1811 & 1194 & 121 & 36 & 16 & 928 & 339 & 196 & 106 & 87\\
+BlDTr & Broadleaf Deciduous Tropical & 286 & 82 & 2166 & 1545 & 812 & 98 & 54 & 30 & 813 & 500 & 113 & 56 & 53\\
+BlDTe & Broadleaf Deciduous Temperate & 345 & 181 & 9536 & 5982 & 2163 & 942 & 245 & 576 & 2163 & 398 & 866 & 697 & 849\\
+BlDBo & Broadleaf Deciduous Boreal & 62 & 58 & 908 & 898 & 340 & 142 & 0 & 0 & 141 & 60 & 11 & 5 & 5\\
 \addlinespace
-NlETe & Needleleaf Evergreen Temperate & 130\\
-NlEBo & Needleleaf Evergreen Boreal & 30\\
-NlD & Needleleaf Deciduous & 19\\
-ShE & Shrub Evergreen & 1120\\
-ShDTe & Shrub Deciduous Temperate & 330\\
+NlETe & Needleleaf Evergreen Temperate & 130 & 66 & 2958 & 4940 & 3729 & 262 & 92 & 91 & 1227 & 462 & 84 & 274 & 106\\
+NlEBo & Needleleaf Evergreen Boreal & 30 & 24 & 530 & 1457 & 393 & 493 & 0 & 0 & 101 & 14 & 16 & 3 & 3\\
+NlD & Needleleaf Deciduous & 19 & 16 & 195 & 328 & 179 & 34 & 1 & 0 & 48 & 10 & 3 & 4 & 0\\
+ShE & Shrub Evergreen & 1120 & 298 & 5018 & 3555 & 2404 & 207 & 22 & 13 & 1376 & 747 & 205 & 41 & 32\\
+ShDTe & Shrub Deciduous Temperate & 330 & 100 & 3026 & 1525 & 1227 & 10 & 9 & 1 & 576 & 281 & 13 & 33 & 19\\
 \addlinespace
-ShDBo & Shrub Deciduous Boreal & 94\\
-C3GAr & C3 Grass Arctic & 157\\
-C3GTe & C3 Grass Temperate & 624\\
-C4G & C4 Grass & 255\\
+ShDBo & Shrub Deciduous Boreal & 94 & 80 & 482 & 552 & 313 & 0 & 1 & 1 & 133 & 51 & 0 & 1 & 1\\
+C3GAr & C3 Grass Arctic & 157 & 65 & 989 & 996 & 573 & 11 & 1 & 2 & 219 & 85 & 7 & 1 & 2\\
+C3GTe & C3 Grass Temperate & 624 & 76 & 6322 & 3802 & 1541 & 103 & 21 & 27 & 1257 & 382 & 93 & 52 & 47\\
+C4G & C4 Grass & 255 & 31 & 1312 & 1461 & 335 & 44 & 0 & 0 & 410 & 56 & 28 & 0 & 0\\
 \bottomrule
-\end{tabular}
+\end{tabular}}
 \end{table}
 #+END_EXPORT
 
@@ -561,8 +571,6 @@ C4G & C4 Grass & 255\\
 (citeproc-org-setup)
 #+END_SRC
 
-#+RESULTS:
-  
 ** Old statement about A_max from Methods/Trait data:
 
 Although maximum photosynthetic rate ($A_{max}$) was an important trait in previous studies, we omitted it for two reasons.
