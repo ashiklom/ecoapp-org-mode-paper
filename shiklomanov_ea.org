@@ -457,18 +457,29 @@ bibliography:~/Dropbox/references/library.bib
 library(shiklomanov2017np)
 traits_file <- "~/laptop_folders/Projects/new-phytologist-traits/np-trait-analysis/extdata/traits_analysis.rds"
 try_data <- readRDS(traits_file)
+n_present <- try_data %>%
+  select(-ObservationID, -AccSpeciesID) %>%
+  group_by(pft = clm45) %>%
+  summarize_all(~sum(!is.na(.x)))
 n_species <- try_data %>%
   distinct(clm45, AccSpeciesID) %>%
   select(pft = clm45, species = AccSpeciesID) %>%
-  count(pft) %>%
+  count(pft, name = "# of Species")
+n_both <- n_present %>%
+  full_join(n_species, by = "pft") %>%
   mutate(
     pft = as.character(pft),
     label = pft2abbr[pft],
     pft = tools::toTitleCase(gsub("_", " ", pft))
   ) %>%
-  select(`Label` = label, `PFT` = pft, `Number of species` = n)
+  select(`Label` = label, `PFT` = pft, `# of Species`, everything()) %>%
+  rename(
+    "Leaf lifespan" = leaf_lifespan
+  )
 species_caption <- paste(
-  "\\label{tab:pfts}Names, labels, and species counts for plant functional types (PFTs)",
+  "\\label{tab:pfts}Names, labels, species counts,",
+  "and number of non-missing observations of each trait",
+  "for plant functional types (PFTs)",
   "used in this analysis."
 )
 kable(
