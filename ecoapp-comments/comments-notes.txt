@@ -1,0 +1,180 @@
+Editor:
+
+Your revisions should address the specific points made by each reviewer, paying close attention to their broad concern ("what is this paper really about, beyond exploration").
+
+Reviewer: 1
+
+Comments to the Author
+Dear editor, dear authors,
+
+I enjoyed reading this ms by Shiklomanov et al., which is concerned with trade-offs and intraspecific variability in leaf traits. The main idea is to fit leaf trait correlations (essentially the leaf economic spectrum, LES) structured by the plant functional type (PFT) classification used in vegetation models. This allows decomposing the global LES trait correlation into between and within PFT correlation. The results are broadly that the LES also holds within PFTs, although there is some variation between PFTs. Although these results don’t appear particularly surprising to me (given that the LES broadly also holds within species), I have to concur with the authors that this specific analysis is novel (surprising to me that this hasn’t been done before); that the results are likely interesting both for the modelling and the trait community; and the topic is a good fit for Ecological Applications.
+
+To improve the paper, I have made a number of specific comments below. I want to highlight three general points:
+
+a) at several crucial places in the ms, the authors interpret a reduction of posterior uncertainty essentially as an improvement of model fit. Although I would agree that this pattern is indicative of a better fit, it is not a direct proof, and it is possible to have counterexamples. To resolve this issue, the authors should explicitly assess model fit (e.g. calculate RMSE or similar either on the fitted data, or a hold-out), and replace this in the discussion appropriately.
+
+b) The paper itself is written comparatively well, but motivation and ecological interpretation could be extended at some points. See my detailed remarks.  
+
+These two points, although important, should be relatively easy to address for the authors. There is one other point that I would find important, but which would require substantial work, which is why I would phrase this as a more optional suggestion:
+
+c) The choice to structure species by PFTs seems obvious from the perspective of a person working with dynamic vegetation models, but less obvious from a general ecology / data analysis perspective. If we forget the models for a moment, I am quite sure that there are other grouping options that might make sense, maybe more sense, other than a PFT grouping. Some things that come to mind is
+
+- Group species according to taxonomy
+- Group species according to traits (have to make sure that this doesn’t become circular)
+- Group species according to space / habitat / ecosystem
+- Fit species grouping with the model (could also consider unsupervised classification according to some objective)
+
+I think the authors should at least consider and discuss these options in the paper as a possibility for further research. Personally, I think adding some of these analyses would make a much stronger and more general paper, but I hesitate to make this a requirement, as this would shift the focus of the paper and would probably require significant rewriting of intro and discussion as well.
+
+Best wishes,
+Florian Hartig
+
+
+Specific comments
+
+2 Abstract goes directly into the topic. A bit of motivation / relevance would be nice.
+
+8  indicating … -> Spontaneously, I don’t see how this can be concluded, but I’ll read on and wait to be educated
+
+13 I was again missing a conclusion about the relevance / applicability of the findings
+
+15 Personally, I would have found it more logical to start this paper with trait correlations and the LES, because this is what you examine in the end, and then follow up with the PFTs
+
+17 Why "however". There doesn’t seem to be a contradiction. It’s more: at the same time
+
+19 Benefits … most papers cited here just demonstrate the fact that there is variability and speculate about the benefits, but OK …
+
+23 could make a paragraph break here
+
+24 It’s a bit weird to say the allometry constrains the traits, as the allometry can be said to be a trait itself. I guess what you mean is that there are relationships between traits, so that trait-space can be reduced.
+
+29 erase well
+
+31 causality probably goes both ways – in particular climates, you find particular parts of the LES, although there may also be plasticity
+
+35 could also cite Scheiter, Simon, Liam Langan, and Steven I. Higgins. "Next‐generation dynamic global vegetation models: learning from community ecology." New Phytologist 198, no. 3 (2013): 957-969.
+
+51 Here and for the other points above: I agree with the conclusions summarized here, but it might be helpful for the reader to provide a very short sketch of the premises / arguments for the respective conclusions in the cited papers. E.g. what’s the argument in Messier 2016 for the causality problem?
+
+51 Also, the Messier paper is 2017, not 2016
+
+53 OK, but why is that a problem for using global trait correlations?
+
+59 I get the assembly point, this is basically about transient dynamics through dispersal limitation, but isn’t the larger concern if the potential trait space / trade-off is actually much larger / different than what we see as being “filtered by evolution”.
+
+60 An issue with this entire section that ends here is that it doesn’t become clear which of the issues you discuss here (if any) can be solved by an approach where you fit trait correlations in hierarchical groups. The arguments in favor of the PFT analysis in the following paragraph make sense to me, but they relate only vaguely to the specific issues in the previous section. Please be more clear about which issues are solved by working with PFTs (and why), and which remain unsolved.
+
+78 What do you mean by constrain? Predict? See also my major comment: what’s the performance criterion under which you want to evaluate an “improvement”.
+
+109 Seems obvious that one could also try this analysis on taxonomic  groups
+
+127 of course, both the univariate and the multivariate models could be made hierarchical. Not 100% clear why you only choose to make the multivariate model hierarchical.
+
+134 Could you comment on whether Gibbs sampling is the most efficient / preferred method for the estimation of covariance matrices in such a setting?
+
+136 You should specify the parameters, i.e. were all priors uninformative?
+
+137 Same for the Wishart – was this a more or less uninformative Wishart?
+
+138 Estimating covariances is notoriously problematic, in particular in small data situations. It would seem useful to me to spend a few words on the degrees of freedom, scaling, and whether you see an overfitting concern here, plus about possible ideas for Bayesian regularization of the means or covariances (in case of low data situations). If you think that the data is usually so strong that this is not an issue, that’s also fine, but would be good to be explicit about this. Also, I wonder: have you tested (via simulation) that your current setup can faithfully retrieve the correlation parameters?
+
+139 Not sure if this equation is useful to the reader. Is there anything we learn from that? Seems just a restatement of what you said
+
+139 Equations should have numbers
+
+141 Which page? This is a large book.
+
+142 I don’t understand why this would be the case. Can you explain why you couldn’t model missing observations as latent variables?
+
+147 The explanation is not 100% clear to me: do I understand correctly: in a loop, you a) impute b) fit the hierarchical model? What I don’t get is: i) how does the fitted model then feed back to the imputation step? Also, when do you stop? I think it would be important to explain this procedure in more detail. A convenient way to test the entire setup is  
+
+147 Moreover, if this a new method, I would ask you to confirm that this actually works with randomly removed data (it’s clear that imputation will always run in trouble if you remove data  purposefully, but at least let’s make sure it works under ideal conditions). Ideal validation would be via https://arxiv.org/pdf/1804.06788.pdf , in this case you check the entire analysis chain.
+
+150 How many missing values are we talking about here in the real data?  10%,  90%? See comment above, if you check the methods, make sure that the scenario corresponds to what you find in the real data
+
+153 Is this the univariate psrf, i.e. per parameter? If so, write: for all parameters
+
+160 I realize that it’s inherently difficult to summarize a 7-dim correlation, but just as a comment: would it be possible that, if the first and second largest EV are very close to each other, one could get a large switch of the direction of the dominant EV by a small change in the data, similar to what often happens in PCAs? As a more robust alternative, one could consider similarity measures of the MVN, e.g. KL distance, which would be independent of these axis problems.
+
+Fig.3 What you provide here is basically the raw data for the covariance matrix. It’s really hard to see any trends here. Consider if you can somehow compress this to something more meaningful. Also, axis should be properly labeled.
+
+Major comment analysis: all measures you report here are based on the fitted models only (i.e. don’t consider the fit to the data / residuals). I find that somewhat dangerous. What I would ask you to add is some measure if predictive error for all three models (univariate, multivariate, hierarchical multivariate). I think in this case it’s unlikely that you’re grossly overfitting, so it would be OK for me if you would calculate this on the same data that you used for fitting, but more ideal would of course be to have a hold-out. Consider also if there is a possibility to analyze the error, e.g. by plotting / regressing it against suitable predictors such as PFT, taxonomy, location
+
+195 good solution to the comply with TRY and still make the data available!
+
+200 Here and later: it’s unclear what model you refer to when you say “global” etc. … you introduced three models: univariate, multivariate, and multivariate hierarchical. I assume that you can’t mean the univariate, but with global you could mean the global multivariate, the between PFT correlation in the hierarchical, or the global (within + across PFT) correlation in the hierarchical model.
+
+226 Maybe I’m missing it, but is there any discussion of the correlation between PFTs? In general, I think you could leverage the hierarchical setup much better. Essentially, what we have is a global correlation. With the hierarchical model, we can now partition this global LES into a within and between PFT correlation. What I understand from this section so far is that the within PFT correlation is broadly identical to the global correlation, except for some PFTs. But what about the between PFT correlation, does this also follow the LES, or is this completely different? Apart from the verbal discussion, it would be great if the partitioning could be visualized in some way, so that one could see where the different PFTs lie in the overall trait spectrum, and how the traits correlate within them. If this could be done, I think it could be an ecologically very valuable figure.
+
+233 and which had lower error?
+
+234 OK, I see this addresses in some sense my point about the correlation across  PFTs above, but would be nice to discuss this in terms of correlation of the means, not means only. As a side note: given the small number of PFTs, one does wonder if the trait correlation across PFTs can even properly be estimated (I think you make some comments to this effect later, but if it can’t estimate, then why fit this model?).  
+
+244 significantly? This is a Bayesian analysis.
+
+244 how were CLM parameters derived?
+
+251 OK, this is the uncertainty of the mean, but more important for me would be the predictive error, which could be very different (also depending  on  how much IV  is in  these traits).
+
+268 You use again “significant”, but I  don’t think  you  have run significant tests here. Clarify what you mean
+
+279 It’s a bit unfortunate that this analysis doesn’t allow separating spread and direction of the trade-off. What I mean is that a lower correlation could result from a smaller slope in a regression  between two traits, or from more spread around the regression line. Would be nice to see which of the two possibilities is responsible here, a change of the direction of the trade-off, or an increase in variability. Please discuss if applicable.
+
+282 Again, for building this into models, one would probably be  interested  in the slope and not R2
+
+296 Again, I wonder if “weak” means that slope or R2, plus, again: significance. Moreover, note that significance is not effect size.
+
+316 The logical conclusions seems to examine other groups than the  standard model  PFTs, e.g. divide species taxonomically, morphologically, or via biomes
+
+331 This is a weird wording, at least you should use predictive uncertainty, but I’m not even sure if you showed this. What you seem to discuss here is a reduction of posterior predictive uncertainty, but that is just an estimate. I can reduce posterior predictive uncertainty just by adjusting the prior, but that does’t mean that the model will better fit the data. I think you urgently need to establish a measure of model fit / predictive error for this discussion.
+
+335 but again, a change doesn’t imply an improvement. You have to show that the multivariate model is better
+
+337 I don’t see how you arrive at this conclusion. If the data-generating process was multivariate normal, univariate and multivariate means should be identical. To me, this result rather suggests that the correlation is not multivariate, which seems to question the assumptions of your model, or that the PFT means are not in line with the global mean (so that you get a mixture distribution, but this has nothing to do with multivariate). It may be a good idea to provide at least a few visual checks of model adequacy, e.g. by posterior predictive model checks
+
+339 OK, I think if the traits are correlated, the multivariate model is clearly better, because we want to know this correlation. I find this so obvious that it wouldn’t even need discussing. However, with the comments above in mind, I think you should specify what you mean by “bias” – as said, I don’t think there should be a bias in the mean if the data-generating process is multivariate normal, and you fit univariate normal distributions.
+
+341 What do you mean by “reliable”?
+
+349 That makes sense to me, but I was missing the relating info in the results
+
+355 It also seems obvious that the procedure could make use of phylogenetic or morphological similarity, as it is commonly done in PGLS type models
+
+356 It seems what you discuss here is independent of PFTs, right? But then I would say people are already working on this, and it doesn’t really relate to the results of this study
+
+368 I think the mutually confounding issue is actually the point that is most interesting from an ecological perspective. The relevant question is if trade-offs such as the LES scale through all levels (individual,  PFTs, all plants), or if they could be different at some scales. When taking together your results and other literature that looks at LES  within  species, it seems to me that current evidence suggestions  that trade-offs tend to be universal? Could you extend on this discussion, possibly also highlighting which trade-offs you suspect to be universal, and which might be different at different ecological scales?
+
+372 I wouldn’t  sign this statement, but OK, if you think so
+
+385 See my concern: uncertainty != predictive error
+
+More figure comments:
+
+Fig. 1 not a big fan of this lattice plot layouts, you are loosing a lot of space with the plot headings, and the PFTs would better be placed below the plots, under the bars, imo. Conside if the visualization can be improved.
+
+Fig. 2 as said, not sure what you mean by significant. Moreover, why would you not plot the n.s. too? A correlation of zero is also an information, isn’t it?
+
+Fig. 3 as said in the previous comments, I wonder if this could be better condensed. Difficult to see any patterns because of the high amount of info.
+
+Fig. 4 Same point about lattice layout. Also, not sure why you suddenly introduce the units to the traits, while they are absent in all other plots.
+
+Fig. 5 see my main comment: CI is not fit.
+
+
+Reviewer: 2
+
+Comments to the Author
+This manuscript starts from the relatively simple question of whether leaf economic spectrum (LES) patterns (correlations between SLA and leaf N, etc) hold when they are applied to a subset of the global distribution of plants (divided into PFTs). This is an interesting question because we use the LES a lot in trait-driven land surface models, yet these relationships tend to break down using smaller subsets (by area, etc) of plants. Reaching beyond the traits traditionally considered in the LES, this paper also considers metabolic 'traits'. While I think this is an interesting question, I found myself wondering at the end of this paper what the actual point was. It reads a bit like a bunch of exploratory analyses in search of a conclusion, as evidenced by the many nearly unreadable multi-panel and matrix plots.
+
+Given that we know quite a bit about the LES, it would have been interesting to start this manuscript with some hypotheses instead of an exploration -> looking at all of these plots it is difficult to untangle what is unexpected versus what is normal. Similarly, why did the authors think the hierarchical model was necessary, and what does it mean that it didn't improve estimates? Overall this manuscript feels a bit too focused on the technical methods at the expense of the motivating questions.
+
+Writing-wise, this manuscript is well written and clear, however, it feels like it is written to target people already in the small niche of ecological land surface modelers. I think it would be more appealing to a wider audience if the introduction was edited to explain more of the underlying concepts and why we care about them. For example, the manuscript refers to LES working at the global scale and not at local scales, then refers to PFTs as an intermediate scale (lines 74-76) but this is using "scale" in a very abstract way that deserves more explanation. Global and local scales are both spatial, but PFTs are really a conceptual scale between lumping everything together ('global') and modeling each species or individual separately. At the very end of the manuscript PFTs are then semi-equated with biomes (line 383-384) which isn't right. Throughout the introduction it would help if the manuscript spent a bit more time explaining to a novice/outside reader why PFTs, traits, and land surface models are all worth reading and learning about.
+
+A few questions/comments about the tables and figures:
+Table 1: Make sure it's clear that the top 8 PFTs in the list are trees.
+Figure 1: Seems like this would be better as a table in an appendix? Dedicating a whole figure to show sample sizes seems like a lot.
+Figure 2: This figure needs more explanation in the caption of what is being shown. What does the slope and length of the lines represent? Also, it's almost impossible to tell this many colors apart in a figure (colorbrewer doesn't even have 14 classes as an option) - it might be worth trying to come up with a pared down version of this that focuses on some key points.
+Figure 3: Is this showing something substantially different from figure 2? This one is even harder to interpret just given the sizes of the plots and the numbers of bars.
+Figure 4: Again, this is a lot of information making it hard to see what is important and what isn't, especially given that in most cases the three model types produce almost identical results. Also, the caption states that leaf lifespan and SLA only show mass based results, but is there a mass vs. area difference for leaf lifespan? and SLA is per mass by definition, no? Finally on this one, it looks like CLM values have confidence interval bars on them, but they are just single values, I think?
+Tables S1 and S2: SLA is listed as kg m-2 in both of these - should be m2 kg-1 (as in text, line 90), and/or flipped to LMA for area-normalized?
+Table S4: What do 'present' and 'missing' mean here? or how are there correlation values when 'present' = 0?

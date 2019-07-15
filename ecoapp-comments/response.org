@@ -1,0 +1,31 @@
+#+TITLE: Reviewer response
+#+AUTHOR: Alexey N. Shiklomanov, Elizabeth M. Cowdery, Michael Bahn, Chaeho Byun, Steven Jansen, Koen Kramer, Vanessa Minden, Ülo Niinemets, Yusuke Onoda, Nadejda A. Soudzilovskaia, Michael C. Dietze
+
+{TODO Summary}
+
+* Reviewer 1
+
+#+BEGIN_QUOTE
+a) at several crucial places in the ms, the authors interpret a reduction of posterior uncertainty essentially as an improvement of model fit. Although I would agree that this pattern is indicative of a better fit, it is not a direct proof, and it is possible to have counterexamples. To resolve this issue, the authors should explicitly assess model fit (e.g. calculate RMSE or similar either on the fitted data, or a hold-out), and replace this in the discussion appropriately.
+#+END_QUOTE
+
+#+BEGIN_QUOTE
+b) The paper itself is written comparatively well, but motivation and ecological interpretation could be extended at some points. See my detailed remarks.  
+#+END_QUOTE
+
+#+BEGIN_QUOTE
+c) The choice to structure species by PFTs seems obvious from the perspective of a person working with dynamic vegetation models, but less obvious from a general ecology / data analysis perspective. If we forget the models for a moment, I am quite sure that there are other grouping options that might make sense, maybe more sense, other than a PFT grouping. Some things that come to mind is
+
+- Group species according to taxonomy
+- Group species according to traits (have to make sure that this doesn’t become circular)
+- Group species according to space / habitat / ecosystem
+- Fit species grouping with the model (could also consider unsupervised classification according to some objective)
+
+I think the authors should at least consider and discuss these options in the paper as a possibility for further research. Personally, I think adding some of these analyses would make a much stronger and more general paper, but I hesitate to make this a requirement, as this would shift the focus of the paper and would probably require significant rewriting of intro and discussion as well.
+#+END_QUOTE
+
+We agree that exploring other species groupings, including those suggested here, would be an interesting future direction for this work, and we have added text to this effect to the discussion. <TODO>
+However, we have chosen to keep this paper focused on groupings by plant functional type for the following reasons:
+(1) 
+
+* Revie
