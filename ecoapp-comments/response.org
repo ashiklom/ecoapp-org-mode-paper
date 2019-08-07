@@ -25,7 +25,6 @@ I think the authors should at least consider and discuss these options in the pa
 #+END_QUOTE
 
 We agree that exploring other species groupings, including those suggested here, would be an interesting future direction for this work, and we have added text to this effect to the discussion. <TODO>
-However, we have chosen to keep this paper focused on groupings by plant functional type for the following reasons:
-(1) 
+However, we have chosen to keep this paper focused on groupings by plant functional type, primarily because these rules are relevant to- and can be used as inputs to dynamic vegetation models.
 
-* Revie
+* Reviewer 2
