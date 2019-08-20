@@ -123,7 +123,7 @@ The position of species along the leaf economic spectrum is influenced by climat
 cite:wright_2004_worldwide,wright_2005_modulation,cornwell_2009_community,ordonez_2009_global,wigley_2016_leaf.
 As a result, relationships between leaf economic traits and climate have been used in ecosystem models to more finely resolve variation in plant function cite:sakschewski_2015_leaf,verheijen_2015_inclusion.
 
-However, the use of global among-trait and trait-environment correlations, for both ecological inference and predictive modeling, has several important caveats.
+At the same time, the use of global among-trait and trait-environment correlations, for both ecological inference and predictive modeling, has several important caveats.
 First, observed global correlations may not hold at smaller scales, such as sites, species, and individuals.
 Some studies suggest consistent correlations across scales cite:wright_2004_worldwide,albert_2010_multi,asner_2014_amazonian,
 whereas others show no or even opposite correlations cite:albert_2010_intraspecific_functional_variability,messier_2010_how,wright_2012_does,feng_2013_scale,grubb_2015_relationships,wigley_2016_leaf,messier_2017_interspecific,kichenin_2013_contrasting.
@@ -455,7 +455,7 @@ bibliography:~/Dropbox/references/library.bib
 #+NAME: pfts
 #+BEGIN_SRC R :exports results :results output latex
 library(shiklomanov2017np)
-traits_file <- "~/laptop_folders/Projects/new-phytologist-traits/np-trait-analysis/extdata/traits_analysis.rds"
+traits_file <- here::here("../np-trait-analysis/extdata/traits_analysis.rds//")
 try_data <- readRDS(traits_file)
 n_present <- try_data %>%
   select(-ObservationID, -AccSpeciesID) %>%
@@ -473,7 +473,7 @@ n_both <- n_present %>%
     label = pft2abbr[pft],
     pft = tools::toTitleCase(gsub("_", " ", pft))
   ) %>%
-  select(`Label` = label, `PFT` = pft, `# of Species`,
+  select(`Label` = label, `PFT` = pft, `Species`,
          leaf_lifespan, SLA,
          ends_with("mass"), ends_with("area")) %>%
   rename(
@@ -499,7 +499,7 @@ kable(
   kableExtra::kable_styling(latex_options = c("hold_position", "scale_down"))
 #+END_SRC
 #+RESULTS: pfts
-#+BEGIN_EXPORT latex
+#+begin_export latex
 \begin{table}[!h]
 
 \caption{\label{tab:}\label{tab:pfts}Names, labels, species counts, and number of non-missing observations of each trait for plant functional types (PFTs) used in this analysis.}
@@ -509,7 +509,7 @@ kable(
 \toprule
 \multicolumn{5}{c}{ } & \multicolumn{5}{c}{Mass} & \multicolumn{5}{c}{Area} \\
 \cmidrule(l{3pt}r{3pt}){6-10} \cmidrule(l{3pt}r{3pt}){11-15}
-Label & PFT & \# of Species & Leaf lifespan & SLA & N & P & Rd & Vcmax & Jmax & N & P & Rd & Vcmax & Jmax\\
+Label & PFT & Species & Leaf lifespan & SLA & N & P & Rd & Vcmax & Jmax & N & P & Rd & Vcmax & Jmax\\
 \midrule
 BlETr & Broadleaf Evergreen Tropical & 1229 & 153 & 11710 & 7547 & 2912 & 237 & 205 & 58 & 4023 & 1684 & 326 & 225 & 152\\
 BlETe & Broadleaf Evergreen Temperate & 363 & 135 & 2210 & 1811 & 1194 & 121 & 36 & 16 & 928 & 339 & 196 & 106 & 87\\
@@ -530,18 +530,13 @@ C4G & C4 Grass & 255 & 31 & 1312 & 1461 & 335 & 44 & 0 & 0 & 410 & 56 & 28 & 0 &
 \bottomrule
 \end{tabular}}
 \end{table}
-#+END_EXPORT
+#+end_export
 
 * Figures                                                          :no_title:
 
 #+BEGIN_EXPORT latex
 \pagebreak
 #+END_EXPORT
-
-#+CAPTION: Sample sizes for each trait-PFT pair. $y$ axis is scaled logarithmically. Full PFT names are given in Table 1.
-#+NAME: fig:samplesize
-#+ATTR_LATEX: :width \textwidth
-[[/Users/shik544/laptop_folders/Projects/new-phytologist-traits/np-trait-analysis/figures/manuscript/sample_size.pdf]]
 
 #+CAPTION: Pairwise trait mean and covariance estimates for all data pooled globally (black) and for each PFT (colored). Covariance estimates not significantly different from zero ($p < 0.05$) are indicated by x symbols at the mean estimate. $x$ and $y$ axes vary on a log scale, reflecting the fact that the model was fit using the base 10 log of all traits. With the exception of leaf lifespan, pairwise covariances are consistent in direction but vary somewhat in magnitude between PFTs, and when comparing PFT-level and global estimates. However, many pairwise covariances are not statistically significant, particularly (but not always) for undersampled traits and PFTs.
 [[/Users/shik544/laptop_folders/Projects/new-phytologist-traits/np-trait-analysis/figures/manuscript/stick_pairs.pdf]]
