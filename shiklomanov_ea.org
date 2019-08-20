@@ -106,22 +106,21 @@ The across-PFT hierarchy provided additional constraint, though this was only di
 
 * Introduction
 
-The use of functional groups with common characteristics is widespread in ecological studies cite:naeem_2003_disentangling and is essential to many ecosystem models cite:lavorel_1997_plant_functional_classifications,wullschleger_2014_plant.
-However, ecologists have long recognized the importance of individual variability and stochasticity in shaping ecosystems
-cite:gleason_1939_individualistic,rosindell_2011_unified,bolnick_2011_why,clark_2016_why
-and the benefits of more finely-resolved representation of functional diversity are supported by an increasing body of ecological literature
-cite:mayfield_2006_diversity,mcmahon_2011_improving,van_2011_going,reichstein_2014_linking,violle_2014_emergence,medlyn_2015_using,moran_2015_intraspecific.
-Plant functional traits can be used to link directly measurable features of individuals to their fitness within an ecosystem, and to whole-ecosystem function cite:violle_2007_let.
-Recent trait syntheses have revealed that plant functional diversity is constrained by allometries and trade-offs between ecological strategies cite:kattge_2011_try,wright_2004_worldwide,kleyer_2015_why,diaz_2015_global.
-One such constraint is the "leaf economic spectrum", which defines a trade-off between productive but short-lived leaves versus less productive but recalcitrant and long-lived leaves cite:wright_2004_worldwide,shipley_2006_fundamental,reich_2014_world,diaz_2015_global. 
-Leaf economic traits are well-correlated with
+Plant functional traits link directly measurable features of individuals to their fitness within an ecosystem, and are often related to various aspects of whole-ecosystem function cite:violle_2007_let.
+Although global trait databases are larger and more open now than ever before, large gaps and sampling biases in these databases continue to pose a challenge to trait ecology cite:cornwell_2019_what.
+If all traits and plant species were completely independent from each other, the only way forward would be to collect more trait data, which is expensive and time-consuming (especially given that trait data is most sparse for rare species and in places that are hardest to access, such as the tropics; cite:cornwell_2019_what).
+Fortunately, this is not the case.
+Recent trait syntheses have revealed that variability in plant functional traits is constrained by biophysical limitations and trade-offs between ecological strategies cite:kattge_2011_try,wright_2004_worldwide,kleyer_2015_why,diaz_2015_global.
+One such constraint is the "leaf economic spectrum", which defines a trade-off between productive but short-lived leaves versus less productive but recalcitrant and long-lived leaves cite:wright_2004_worldwide,shipley_2006_fundamental,reich_2014_world,diaz_2015_global.
+Leaf economic traits are correlated with
 plant productivity cite:shipley_2005_functional,niinemets_2016_within,wu_2016_convergence,
 litter decomposition rates cite:bakker_2010_leaf,hobbie_2015_plant,
 community composition cite:burns_2004_patterns,cavender-bares_2004_multiple,
 and ecosystem function cite:diaz_2004_plant,musavi_2015_imprint.
-The position of species along the leaf economic spectrum is influenced by climate and soil conditions
+The position of species along the leaf economic spectrum is related to climate and soil conditions
 cite:wright_2004_worldwide,wright_2005_modulation,cornwell_2009_community,ordonez_2009_global,wigley_2016_leaf.
-As a result, relationships between leaf economic traits and climate have been used in ecosystem models to more finely resolve variation in plant function cite:sakschewski_2015_leaf,verheijen_2015_inclusion.
+As a result, relationships between leaf economic traits and climate have been used in ecosystem models to more finely resolve variation in plant function cite:sakschewski_2015_leaf,verheijen_2015_inclusion,scheiter_2013_next.
+Meanwhile, functionally similar species into groups with common characteristics is widespread in ecological studies cite:naeem_2003_disentangling and is essential to many ecosystem models cite:lavorel_1997_plant_functional_classifications,wullschleger_2014_plant.
 
 At the same time, the use of global among-trait and trait-environment correlations, for both ecological inference and predictive modeling, has several important caveats.
 First, observed global correlations may not hold at smaller scales, such as sites, species, and individuals.
@@ -133,8 +132,10 @@ Different selective pressures dominate at different scales, particularly within 
 and different traits have different sensitivities to such pressures cite:messier_2016_trait.
 Experimental evidence shows that species can alter different aspects of their leaf economy independently cite:wright_2012_does.
 Meanwhile, allocation patterns (and therefore investment strategies and trait relationships) vary across plant functional types cite:ghimire_2017_global.
-Second, among-trait correlations at any scale do not provide causal evidence for functional trade-offs cite:messier_2016_trait,
-and ascribing excessive leverage to trait correlations can result in underestimation of functional diversity cite:grubb_2015_trade.
+Second, among-trait correlations do not provide causal evidence for functional trade-offs.
+Rather, these correlations set an upper limit on the dissimilarity in variation structure between traits,
+such traits even moderately-correlated at one scale can still vary independently at other scales cite:messier_2016_trait.
+Similarly, some trait "trade-offs" (and corresponding correlations) only occur under specific limiting conditions, in the absence of which the trait pairs are free to vary independently cite:grubb_2015_trade.
 Third, plants maintain their fitness through multiple independent strategies, corresponding to multiple mutually orthogonal axes of trait variability.
 For instance, changes in leaf economic traits can fail to predict changes in other aspects of plant function, such as
 hydraulics cite:li_2015_leaf,
@@ -154,7 +155,7 @@ At the other extreme, existing regional and global analyses (e.g. citealt:van_20
 While the leaf economic spectrum has been investigated at the global scale, where it is robust, and at local scales, where deviations from it are common, it has received less attention at the intermediate scale of PFTs.
 Thus, this paper seeks to answer the following questions:
 First, does the leaf economic spectrum hold within vs. across PFTs?
-Second, can the leaf economic spectrum and similar covariance patterns be leveraged to constrain trait estimates, particularly under data limitation?
+Second, can the leaf economic spectrum and similar covariance patterns be leveraged to reduce uncertainties in trait estimates, particularly under data limitation?
 The answers to these question have implications for both functional ecology and ecosystem modeling.
 To address these questions, we developed a hierarchical multivariate Bayesian model that explicitly accounts for across- and within-PFT variability in trait correlations.
 We then fit this model to a global trait database to estimate mean trait values and variance-covariance matrices for PFTs as defined in a major earth system model (Community Land Model, CLM, citealt:clm45_note).
@@ -220,48 +221,77 @@ where $\mathbf{\mu}_p$ and $\mathbf{\Sigma}_p$ are the mean vector and covarianc
 *** Model implementation
 
 We fit the above models using Gibbs sampling, which leverages conjugate prior relationships for efficient exploration of the sampling space.
-For priors on all multivariate mean vectors ($\mathbf{\mu}$), we used normal distributions:
+For priors on all multivariate mean vectors ($\mathbf{\mu}$), we used multivariate normal distributions.
+For priors on all multivariate variance-covariance matrices, we used the Wishart distribution ($W$), which leads to the following posterior distribution:
 
-$$P(\mathbf{\mu}) \sim mvN(\mathbf{\mu}_0, {\mathbf{\Sigma}}_0)$$
-
-For priors on all multivariate variance-covariance matrices, we used the Wishart distribution ($W$):
-
-$$P(\mathbf{\Sigma}) \sim W(\nu_0, \mathbf{S}_0)$$
-
-This leads to the following posterior distribution:
-
-$$P(\mathbf{\Sigma} \mid
+#+BEGIN_EXPORT latex
+\begin{equation}
+P(\mathbf{\Sigma} \mid
   \mathbf{x}, \mathbf{\mu},
   \nu_0, \mathbf{\Sigma}_0)
 \sim
-  (W(\nu^*, S^*))^{-1}$$
+  (W(\nu^*, S^*))^{-1}
+\end{equation}
+#+END_EXPORT
 
-$$\nu^* = 1 + \nu_0 + n + m$$
-$$\mathbf{x^*} = \mathbf{x} - \bar{\mu}$$
-$$\mathbf{SS} = \mathbf{x^*}^{T} \mathbf{x^*}$$
-$$\mathbf{S^*} = (\mathbf{S}_0 + \mathbf{SS})^{-1}$$
+#+BEGIN_EXPORT latex
+\begin{equation}
+\nu^* = 1 + \nu_0 + n + m
+\end{equation}
+#+END_EXPORT
 
-where $n$ is the number of observations and $m$ is the number of traits in data matrix $x$. For further details, see Gelman /et al./ citeyear:gelman_2003_bayesian.
+#+BEGIN_EXPORT latex
+\begin{equation}
+\mathbf{S^*} = (\mathbf{S}_0 + (\mathbf{x} - \bar{\mu})^T (\mathbf{x} - \bar{\mu}))^{-1}
+\end{equation}
+#+END_EXPORT
+
+where $n$ is the number of observations and $m$ is the number of traits in data matrix $x$.
+For further details, see Gelman /et al./ citeyear:gelman_2003_bayesian.
 
 The multivariate nature of this sampling procedure makes it incapable of accommodating partially missing observations.
 Therefore, our algorithm included multiple imputation of partially missing data cite:white_2010_multiple,graham_2009_missing_data_analysis.
 For a block of data $\mathbf{x\prime}$ containing missing observations in columns $\mathbf{m}$ and present observations in columns $\mathbf{p}$,
 missing values $\mathbf{x\prime}[m]$ are drawn randomly from a conditional multivariate normal distribution at each iteration of the sampling algorithm:
 
-$$\mathbf{x^\prime}[m|p] \sim mvN(\mathbf{\mu}^\prime, \mathbf{\Sigma}^\prime)$$
+#+BEGIN_EXPORT latex
+\begin{equation}
+\mathbf{x^\prime}[m|p] \sim mvN(\mathbf{\mu}^\prime, \mathbf{\Sigma}^\prime)
+\end{equation}
+#+END_EXPORT
 
-$$\mathbf{\mu\prime} = 
+#+begin_export latex
+\begin{equation}
+\mathbf{\mu\prime} =
   (\mathbf{x\prime}[p] - \mathbf{\mu^\prime}[p]) 
-  (\mathbf{\Sigma}[p,p]^{-1} \mathbf{\Sigma}[p,m])$$
-$$\mathbf{\Sigma\prime} = \mathbf{\Sigma}[m,m] - 
-  \mathbf{\Sigma}[m,p]
-  (\mathbf{\Sigma}[p,p]^{-1} \mathbf{\Sigma}[p,m])$$
-  
-We emphasize that imputation of missing data is performed repeatedly as parameters are being estimated, in order to integrate over the uncertainty in the missing data.
-This approach is distinct from single imputation, where data are imputed once in a separate step prior to parameter estimation cite:white_2010_multiple,graham_2009_missing_data_analysis.
-A demonstration of this multiple imputation approach and how it is used to estimate trait covariance is provided Supporting Information Method S1.
+  (\mathbf{\Sigma}[p,p]^{-1} \mathbf{\Sigma}[p,m])
+\end{equation}
+#+end_export
 
-For each model fit, we ran five chains, continuing sampling until the final result achieved convergence as determined by a Gelman-Rubin potential scale reduction statistic less than 1.1 cite:gelman_1992_inference.
+#+begin_export latex
+\begin{equation}
+\mathbf{\Sigma\prime} = \mathbf{\Sigma}[m,m] -
+  \mathbf{\Sigma}[m,p]
+  (\mathbf{\Sigma}[p,p]^{-1} \mathbf{\Sigma}[p,m])
+\end{equation}
+#+end_export
+
+Sampling proceeds according to the following algorithm:
+Let $\mu_i$ and $\mathbf{\Sigma}_i$ be the estimates of the mean vector and covariance matrix, respectively, at MCMC iteration $i$.
+Similarly, let $x_i$ be the realization of the data $\mathbf{x}\prime$ with imputed values at MCMC iteration $i$.
+
+1. Initialize $\mu_1$ and $\mathbf{\Sigma}_1$ as a random draw from their respective priors.
+2. Generate $x_1$ as a function of $\mu_1$ and $\mathbf{\Sigma}_1$.
+3. Draw $\mu_2$ and $\mathbf{Sigma}_2$ as a function of $x_1$, according to the corresponding Gibbs sampling step.
+4. Generate $x_2$ as function of $\mu_2$ and $\mathbf{\Sigma}_2$.
+5. Draw $\mu_3$ and $\mathbf{Sigma}_3$ as a function of $x_2$.
+6. Continue alternating these steps until a stable distribution of $\mu$ and $\mathbf{Sigma}$ is reached.
+
+A detailed demonstration of this multiple imputation approach and how it is used to estimate trait covariance is provided Supporting Information Method S1.
+By performing imputation at every step of the algorithm, we integrate over the uncertainty in the missing data.
+This approach is distinct from single imputation, where data are imputed once in a separate step prior to parameter estimation cite:white_2010_multiple,graham_2009_missing_data_analysis.
+
+For each model fit, we ran independent five chains, continuing sampling until the final result achieved convergence as determined by a univariate Gelman-Rubin potential scale reduction statistic less than 1.1 for all parameters cite:gelman_1992_inference.
 We implemented this sampling algorithm in a publicly available R cite:team_2018_r package (<http://github.com/ashiklom/mvtraits>).
 
 *** Analysis of results
@@ -288,11 +318,19 @@ We calculated $V_{c,max,mass}$ by multiplying the reported $V_{c,max,area}$ by t
 
 To test whether multivariate and hierarchical models offer relatively more utility at smaller sample sizes, we calculated the relative uncertainty ($\alpha$) as a function of the mean ($\mu$) and upper ($q_{0.975}$) and lower ($q_{0.025}$) confidence limits of trait estimates.
 
-$$ \alpha = \frac{q_{0.975} - q_{0.025}}{\mu} $$
+#+BEGIN_EXPORT latex
+\begin{equation}
+\alpha = \frac{q_{0.975} - q_{0.025}}{\mu}
+\end{equation}
+#+END_EXPORT
 
 We then fit a log-linear least-squares regression relating relative uncertainty to sample size ($n$) for each model (univariate, multivariate, and hierarchical; Fig. 5).
 
-$$ \log{\alpha} = b_0 + b_1 \log{n} $$
+#+BEGIN_EXPORT latex
+\begin{equation|}
+\log{\alpha} = b_0 + b_1 \log{n}
+\end{equation}
+#+END_EXPORT
 
 If all three models performed equally well at all sample sizes, their respective slope and intercept coefficients would be statistically indistinguishable.
 Meanwhile, models that perform better should have
