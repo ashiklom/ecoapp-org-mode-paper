@@ -316,8 +316,12 @@ To assess the consistency of within- and across-PFT trait trade-offs, we examine
 we calculated the eigenvalues from the variance-covariance matrix for just that trait pair and plotted the corresponding dominant eigenvectors centered on the mean estimates (Fig. 2).
 This figure provides a visual representation of relative positions of PFTs in trait space and both the direction and extent of within-PFT trait covariance.
 It is analogous to conceptual figures describing hierarchical trait variability across environmental gradients as presented in Cornwell & Ackerly citeyear:cornwell_2009_community and Albert /et al./ citeyear:albert_2010_intraspecific_functional_variability.
-Due to the small number of points used to estimate across-PFT covariance in the hierarchical model, none of its across-PFT covariances were significantly different from zero ($p < 0.05$).
-Therefore, we compared within-PFT covariances from the hierarchical model against covariances from a single global multivariate model.
+
+Due to the small number of points used to estimate across-PFT covariance in the hierarchical model, all of the across-PFT covariance coefficients had 95% credible intervals that overlapped zero (i.e. none were "statistically significant").
+A power analysis of correlation coefficients (`pwr::pwr.r.test` in R; cite:r_pwr_package) showed that with 14 plant functional types ($n = 14$),
+the smallest across-PFT correlation we would be able to estimate with 95% power ($\alpha = 0.95$) and confidence ($p = 0.05$) is 0.74,
+so we can reliably say that all PFT correlation coefficients were smaller than that value.
+Given the relatively low power of the across-PFT correlations, we instead compared within-PFT covariances from the hierarchical model against covariances from a single global multivariate model (henceforth referred to as "global" correlation/covariance).
 
 Besides the consistency in the direction of trait covariance within vs. across PFTs, we also investigated the strength and predictive power of these covariances, represented by correlation coefficients (i.e. pairwise covariance normalized by each trait's variance).
 We plotted the mean and 95% confidence interval of the pairwise trait correlation coefficients from the global multivariate model and PFT-specific estimates from the hierarchical model (Fig. 3).
