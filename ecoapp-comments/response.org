@@ -154,7 +154,9 @@ See main response.
 134 Could you comment on whether Gibbs sampling is the most efficient / preferred method for the estimation of covariance matrices in such a setting?
 #+end_quote
 
-{TODO}
+We have added a sentence about the advantages of Gibbs sampling in terms of its 100% proposal acceptance rate (compared to the 10-65% target acceptance rates of Metropolis Hastings, Differential Evolution, and Hamiltonian Monte-Carlo).
+We recognize that this is not a complete picture of the efficiency, since other algorithms could potentially compensate for lower acceptance by achieving faster convergence.
+A thorough comparison of algorithm efficiency would be useful and interesting, but is outside the scope of this work.
 
 #+begin_quote
 136 You should specify the parameters, i.e. were all priors uninformative?
