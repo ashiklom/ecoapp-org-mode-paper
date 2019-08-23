@@ -186,21 +186,23 @@ We have added numbers to all equations.
 141 Which page? This is a large book.
 #+end_quote
 
-{TODO}
+We have added the section number, section title, and page number.
 
 #+begin_quote
 142 I don’t understand why this would be the case. Can you explain why you couldn’t model missing observations as latent variables?
 #+end_quote
 
-{TODO}
-
+This was unclear wording on our part.
+What we meant to say here was that the most popular R packages for Bayesian analysis using graphical models (namely, BUGS/JAGS and Stan) do not have convenient support for multivariate distributions with partial missingness.
+Our model actually does treat the partially missing observations as latent variables -- it just samples them in blocks conditioned on the partially present data in each row and the current sampled mean vector and variance-covariance matrix.
 
 #+begin_quote
 147 The explanation is not 100% clear to me: do I understand correctly: in a loop, you a) impute b) fit the hierarchical model? What I don’t get is: i) how does the fitted model then feed back to the imputation step? Also, when do you stop? I think it would be important to explain this procedure in more detail.
 #+end_quote
 
-We have added a more detailed step-by-step explanation of the sampling procedure to this section.
-In addition, we refer readers to the detailed demonstration of the algorithm in Supporting Information Method S1.
+When we (more correctly) describe our approach as modeling missing values as latent variables (see previous comment), this section should make more sense.
+However, for clarity, we have added a more detailed step-by-step explanation of the sampling procedure here.
+We also refer readers to the detailed demonstration of the algorithm in Supporting Information Method S1.
 
 #+begin_quote
 147 Moreover, if this a new method, I would ask you to confirm that this actually works with randomly removed data (it’s clear that imputation will always run in trouble if you remove data purposefully, but at least let’s make sure it works under ideal conditions). Ideal validation would be via https://arxiv.org/pdf/1804.06788.pdf , in this case you check the entire analysis chain.

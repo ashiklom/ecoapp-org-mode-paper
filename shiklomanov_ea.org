@@ -264,6 +264,7 @@ P(\mathbf{\Sigma} \mid
 where $n$ is the number of observations and $m$ is the number of traits in data matrix $x$.
 For further details, see Gelman /et al./ citeyear:gelman_2003_bayesian (Section 3.6, "Multivariate normal with unknown mean and variance", pg. 72).
 
+We modeled the partially missing observations as latent variables conditioned on the present observations and estimated mean vector and covariance matrix.
 The multivariate nature of this sampling procedure makes it incapable of accommodating partially missing observations.
 Therefore, our algorithm included multiple imputation of partially missing data cite:white_2010_multiple,graham_2009_missing_data_analysis.
 For a block of data $\mathbf{x\prime}$ containing missing observations in columns $\mathbf{m}$ and present observations in columns $\mathbf{p}$,
@@ -293,7 +294,7 @@ missing values $\mathbf{x\prime}[m]$ are drawn randomly from a conditional multi
 
 Sampling proceeds according to the following algorithm:
 Let $\mu_i$ and $\mathbf{\Sigma}_i$ be the estimates of the mean vector and covariance matrix, respectively, at MCMC iteration $i$.
-Similarly, let $x_i$ be the realization of the data $\mathbf{x}\prime$ with imputed values at MCMC iteration $i$.
+Similarly, let $x_i$ be the realization of the data $\mathbf{x}\prime$ with missing (latent) values imputed at MCMC iteration $i$.
 
 1. Initialize $\mu_1$ and $\mathbf{\Sigma}_1$ as a random draw from their respective priors.
 2. Generate $x_1$ as a function of $\mu_1$ and $\mathbf{\Sigma}_1$.
@@ -302,8 +303,8 @@ Similarly, let $x_i$ be the realization of the data $\mathbf{x}\prime$ with impu
 5. Draw $\mu_3$ and $\mathbf{Sigma}_3$ as a function of $x_2$.
 6. Continue alternating these steps until a stable distribution of $\mu$ and $\mathbf{Sigma}$ is reached.
 
-A detailed demonstration of this multiple imputation approach and how it is used to estimate trait covariance is provided Supporting Information Method S1.
-By performing imputation at every step of the algorithm, we integrate over the uncertainty in the missing data.
+A detailed demonstration of this approach is shown in Supporting Information Method S1.
+By performing imputation at every MCMC iteration, we integrate over the uncertainty in the missing data.
 This approach is distinct from single imputation, where data are imputed once in a separate step prior to parameter estimation cite:white_2010_multiple,graham_2009_missing_data_analysis.
 
 For each model fit, we ran independent five chains, continuing sampling until the final result achieved convergence as determined by a univariate Gelman-Rubin potential scale reduction statistic less than 1.1 for all parameters cite:gelman_1992_inference.
