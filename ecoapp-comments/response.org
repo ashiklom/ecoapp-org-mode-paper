@@ -9,9 +9,13 @@
 a) at several crucial places in the ms, the authors interpret a reduction of posterior uncertainty essentially as an improvement of model fit. Although I would agree that this pattern is indicative of a better fit, it is not a direct proof, and it is possible to have counterexamples. To resolve this issue, the authors should explicitly assess model fit (e.g. calculate RMSE or similar either on the fitted data, or a hold-out), and replace this in the discussion appropriately.
 #+END_QUOTE
 
+{TODO}
+
 #+BEGIN_QUOTE
 b) The paper itself is written comparatively well, but motivation and ecological interpretation could be extended at some points. See my detailed remarks.  
 #+END_QUOTE
+
+{TODO}
 
 #+BEGIN_QUOTE
 c) The choice to structure species by PFTs seems obvious from the perspective of a person working with dynamic vegetation models, but less obvious from a general ecology / data analysis perspective. If we forget the models for a moment, I am quite sure that there are other grouping options that might make sense, maybe more sense, other than a PFT grouping. Some things that come to mind is
@@ -24,7 +28,7 @@ c) The choice to structure species by PFTs seems obvious from the perspective of
 I think the authors should at least consider and discuss these options in the paper as a possibility for further research. Personally, I think adding some of these analyses would make a much stronger and more general paper, but I hesitate to make this a requirement, as this would shift the focus of the paper and would probably require significant rewriting of intro and discussion as well.
 #+END_QUOTE
 
-We agree that exploring other species groupings, including those suggested here, would be an interesting future direction for this work, and we have added text to this effect to the discussion. <TODO>
+We agree that exploring other species groupings, including those suggested here, would be an interesting future direction for this work, and we have added text to this effect to the discussion. {TODO}
 However, we have chosen to keep this paper focused on groupings by plant functional type, primarily because these rules are relevant to- and can be used as inputs to dynamic vegetation models.
 
 #+BEGIN_QUOTE
@@ -317,6 +321,9 @@ Major comment analysis: all measures you report here are based on the fitted mod
 #+end_quote
 
 {TODO}
+Clarify posterior predictive uncertainty.
+Clarify that we use the same priors.
+For the same priors and data, the multivariate model achieves reduced posterior predictive uncertainty.
 
 #+begin_quote
 335 but again, a change doesn’t imply an improvement. You have to show that the multivariate model is better
@@ -390,17 +397,30 @@ Fig. 2 as said, not sure what you mean by significant.
 
 As in the corresponding part of the methods, we replaced "not significant" with "credible intervals overlapped zero".
 
+#+BEGIN_QUOTE
+Moreover, why would you not plot the n.s. too? A correlation of zero is also an information, isn’t it?
+#+END_QUOTE
+
+{TODO}
+This was originally done to reduce visual clutter.
+
 #+begin_quote
 Fig. 3 as said in the previous comments, I wonder if this could be better condensed. Difficult to see any patterns because of the high amount of info.
 #+end_quote
+
+{TODO}
 
 #+begin_quote
 Fig. 4 Same point about lattice layout. Also, not sure why you suddenly introduce the units to the traits, while they are absent in all other plots.
 #+end_quote
 
+{TODO}
+
 #+begin_quote
 Fig. 5 see my main comment: CI is not fit.
 #+end_quote
+
+{TODO}
 
 * Reviewer 2
 
