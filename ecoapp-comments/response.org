@@ -160,15 +160,11 @@ A thorough comparison of algorithm efficiency would be useful and interesting, b
 
 #+begin_quote
 136 You should specify the parameters, i.e. were all priors uninformative?
-#+end_quote
 
-{TODO}
-
-#+begin_quote
 137 Same for the Wishart – was this a more or less uninformative Wishart?
 #+end_quote
 
-{TODO}
+We added a table containing values for the weakly-informative priors on the multivariate normal distribution to the supplementary information, and a description of the other priors to this section.
 
 #+begin_quote
 138 Estimating covariances is notoriously problematic, in particular in small data situations. It would seem useful to me to spend a few words on the degrees of freedom, scaling, and whether you see an overfitting concern here, plus about possible ideas for Bayesian regularization of the means or covariances (in case of low data situations). If you think that the data is usually so strong that this is not an issue, that’s also fine, but would be good to be explicit about this. Also, I wonder: have you tested (via simulation) that your current setup can faithfully retrieve the correlation parameters?

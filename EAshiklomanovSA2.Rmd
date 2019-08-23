@@ -38,6 +38,11 @@ library(kableExtra)
 library(drake)
 library(ggplot2)
 library(GGally)
+stopifnot(
+  requireNamespace("shiklomanov2017np", quietly = TRUE),
+  requireNamespace("dplyr", quietly = TRUE),
+  requireNamespace("tibble", quietly = TRUE)
+)
 
 correlation_scatter_cap <- paste(
   "Relationship between squared pairwise correlation and sample size of pairwise observations for each PFT.",
@@ -65,6 +70,43 @@ correlation_range_cap <- paste(
   "Upper triangle is area-normalized values, and lower triangle is mass-normalized values."
 )
 ```
+
+```{r echo = FALSE, results = "asis"}
+prior_df <- tibble::tribble(
+  ~param, ~mean, ~stdev,
+  "Jmax_area", 2, 0.19,
+  "Jmax_mass", 0, 0.26,
+  "leaf_lifespan", 0.8, 0.4,
+  "Narea", 0.25, 0.3,
+  "Nmass", 1.25, 0.3,
+  "Parea", -1, 0.3,
+  "Pmass", 0, 0.3,
+  "Rdarea", log10(0.0011), 0.15,
+  "Rdmass", log10(0.8), 0.20,
+  "SLA", 1, 0.6,
+  "Vcmax_mass", log10(0.45), 0.2,
+  "Vcmax_area", log10(50), 0.18
+) %>%
+  dplyr::mutate(variance = stdev ^ 2)
+
+prior_df %>%
+  dplyr::mutate(param = factor(param, shiklomanov2017np::both_params)) %>%
+  dplyr::arrange(param) %>%
+  dplyr::select(Trait = param, "Lognormal Mean" = mean, "Lognormal SD" = stdev) %>%
+  knitr::kable(
+    format = "latex",
+    booktabs = TRUE,
+    caption = paste(
+      "Parameters for trait-specific prior distributions.",
+      "For the multivariate and hierarchical distributions,",
+      "the variance-covariance matrix prior was a diagonal matrix containing the",
+      "square of the lognormal standard deviation values (i.e. the variance)",
+      "shown here and all off-diagnoal terms set to zero." 
+    )
+  ) %>%
+  kableExtra::kable_styling(latex_options = c("scale_down", "hold_position"))
+```
+
 
 ```{r mean_value_table, echo = FALSE, results = "asis"}
 table_cap_mass <- paste(

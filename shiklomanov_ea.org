@@ -259,12 +259,15 @@ P(\mathbf{\Sigma} \mid
 
 #+BEGIN_EXPORT latex
 \begin{equation}
-\mathbf{S^*} = (\mathbf{S}_0 + (\mathbf{x} - \bar{\mu})^T (\mathbf{x} - \bar{\mu}))^{-1}
+\mathbf{S^*} = (\mathbf{S}_0 + (\bar{\mathbf{x}} - \mu)^T (\bar{\mathbf{x}} - \mu))^{-1}
 \end{equation}
 #+END_EXPORT
 
-where $n$ is the number of observations and $m$ is the number of traits in data matrix $x$.
-For further details, see Gelman /et al./ citeyear:gelman_2003_bayesian (Section 3.6, "Multivariate normal with unknown mean and variance", pg. 72).
+where $n$ is the number of observations, $m$ is the number of traits in data matrix $\mathbf{x}$, and $\bar{\mathbf{x}}$ is the column means of $\mathbf{x}$.
+For further details on the derivation of the conjugate relationship, see Gelman /et al./ citeyear:gelman_2003_bayesian (Section 3.6, "Multivariate normal with unknown mean and variance", pg. 72).
+We used weakly-informative priors for trait means and variances (diagonals of the multivariate normal covariance matrix), the values of which are shown in Table S1.
+All of the covariance (off-diagonal) terms in the prior variance matrix were set to zero.
+We used uninformative priors for the Wishart distribution ($\nu_0 = 0$, $\mathbf{S}_0 = \mathrm{diag}(1, m)$).
 
 We modeled the partially missing observations as latent variables conditioned on the present observations and estimated mean vector and covariance matrix.
 The multivariate nature of this sampling procedure makes it incapable of accommodating partially missing observations.
@@ -349,7 +352,7 @@ To test whether multivariate and hierarchical models offer relatively more utili
 We then fit a log-linear least-squares regression relating relative uncertainty to sample size ($n$) for each model (univariate, multivariate, and hierarchical; Fig. 5).
 
 #+BEGIN_EXPORT latex
-\begin{equation|}
+\begin{equation}
 \log{\alpha} = b_0 + b_1 \log{n}
 \end{equation}
 #+END_EXPORT
