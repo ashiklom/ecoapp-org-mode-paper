@@ -122,7 +122,7 @@ cite:wright_2004_worldwide,wright_2005_modulation,cornwell_2009_community,ordone
 As a result, relationships between leaf economic traits and climate have been used in ecosystem models to more finely resolve variation in plant function cite:sakschewski_2015_leaf,verheijen_2015_inclusion,scheiter_2013_next.
 Meanwhile, functionally similar species into groups with common characteristics is widespread in ecological studies cite:naeem_2003_disentangling and is essential to many ecosystem models cite:lavorel_1997_plant_functional_classifications,wullschleger_2014_plant.
 
-At the same time, the use of global among-trait and trait-environment correlations, for both ecological inference and predictive modeling, has several important caveats.
+The use of global among-trait and trait-environment correlations, for both ecological inference and predictive modeling, has several important caveats.
 First, observed global correlations may not hold at smaller scales, such as sites, species, and individuals.
 Some studies suggest consistent correlations across scales cite:wright_2004_worldwide,albert_2010_multi,asner_2014_amazonian,
 whereas others show no or even opposite correlations cite:albert_2010_intraspecific_functional_variability,messier_2010_how,wright_2012_does,feng_2013_scale,grubb_2015_relationships,wigley_2016_leaf,messier_2017_interspecific,kichenin_2013_contrasting.
@@ -141,8 +141,6 @@ For instance, changes in leaf economic traits can fail to predict changes in oth
 hydraulics cite:li_2015_leaf,
 dispersal cite:westoby_2002_plant_ecological_strategies,
 and overall plant carbon budget cite:edwards_2014_leaf.
-Finally, modeling ecosystem function based on trait correlations is sampling from the hypothetical space of potential species and communities that could have evolved,
-failing to account for real constraints such as the timescales required for adaptation and community assembly.
 
 An alternative to using a single global set of trait trade-offs is to allow trait correlations to vary among PFTs (potentially with finer resolution, e.g. citealt:boulangeat_2012_improving)
 while using statistical analyses to account for uncertainty and variability in the aggregated trait values.

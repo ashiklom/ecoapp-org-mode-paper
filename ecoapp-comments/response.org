@@ -121,7 +121,8 @@ Therefore, we have replaced this point with a more relevant point from the paper
 59 I get the assembly point, this is basically about transient dynamics through dispersal limitation, but isn’t the larger concern if the potential trait space / trade-off is actually much larger / different than what we see as being “filtered by evolution”.
 #+end_quote
 
-{TODO}
+We agree with this point.
+However, per the reviewer's next comment, this particular point was somewhat tangential to the aims of this manuscript, so we removed this sentence altogether.
 
 #+begin_quote
 60 An issue with this entire section that ends here is that it doesn’t become clear which of the issues you discuss here (if any) can be solved by an approach where you fit trait correlations in hierarchical groups. The arguments in favor of the PFT analysis in the following paragraph make sense to me, but they relate only vaguely to the specific issues in the previous section. Please be more clear about which issues are solved by working with PFTs (and why), and which remain unsolved.
