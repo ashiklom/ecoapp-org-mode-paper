@@ -262,7 +262,7 @@ P(\mathbf{\Sigma} \mid
 #+END_EXPORT
 
 where $n$ is the number of observations and $m$ is the number of traits in data matrix $x$.
-For further details, see Gelman /et al./ citeyear:gelman_2003_bayesian.
+For further details, see Gelman /et al./ citeyear:gelman_2003_bayesian (Section 3.6, "Multivariate normal with unknown mean and variance", pg. 72).
 
 The multivariate nature of this sampling procedure makes it incapable of accommodating partially missing observations.
 Therefore, our algorithm included multiple imputation of partially missing data cite:white_2010_multiple,graham_2009_missing_data_analysis.
