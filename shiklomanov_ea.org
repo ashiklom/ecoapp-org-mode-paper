@@ -198,14 +198,22 @@ We compared three models representing different levels of complexity.
 The simplest was the "univariate" model, in which each trait is independent.
 For an observation $x_{i,t}$ of trait $t$ and sample $i$:
 
-$$x_{i,t} \sim N(\mu_t, \sigma_t)$$
+#+BEGIN_EXPORT latex
+\begin{equation}
+x_{i,t} \sim N(\mu_t, \sigma_t)
+\end{equation}
+#+END_EXPORT
 
 where $N$ is the univariate Gaussian distribution with mean $\mu_t$ and standard deviation $\sigma_t$ for trait $t$.
 
 The second-simplest model was the "multivariate" model, in which traits are drawn from a single multivariate distribution.
 For observed trait vector ${\mathbf{x_i}}$ for sample $i$:
 
-$$\mathbf{x_i} \sim mvN(\mathbf{\mu}, \mathbf{\Sigma})$$
+#+BEGIN_EXPORT latex
+\begin{equation}
+\mathbf{x_i} \sim mvN(\mathbf{\mu}, \mathbf{\Sigma})
+\end{equation}
+#+END_EXPORT
 
 where $mvN$ is the multivariate Gaussian distribution with mean vector $\mathbf{\mu}$ and covariance matrix $\mathbf{\Sigma}$.
 We fit both of these models independently for each PFT and once for the entire dataset (i.e. one global PFT).
@@ -213,8 +221,15 @@ We fit both of these models independently for each PFT and once for the entire d
 The most complex model was the "hierarchical" model, where traits are drawn from a PFT-specific multivariate distribution describing within-PFT variation, and whose mean vector is itself sampled from a global multivariate distribution describing variation across PFTs.
 For observed trait vector $\mathbf{x}_{i,p}$ for sample $i$ belonging to PFT $p$:
 
-$$\mathbf{x}_{i,p} \sim mvN(\mathbf{\mu}_p, \mathbf{\Sigma}_p)$$
-$$\mathbf{\mu}_p \sim mvN(\mathbf{\mu}_g, \mathbf{\Sigma}_g)$$
+#+begin_export latex
+\begin{equation}
+\mathbf{x}_{i,p} \sim mvN(\mathbf{\mu}_p, \mathbf{\Sigma}_p)
+\end{equation}
+
+\begin{equation}
+\mathbf{\mu}_p \sim mvN(\mathbf{\mu}_g, \mathbf{\Sigma}_g)
+\end{equation}
+#+end_export
 
 where $\mathbf{\mu}_p$ and $\mathbf{\Sigma}_p$ are the mean vector and covariance matrix describing variation within PFT $p$, and $\mathbf{\mu}_g$ and $\mathbf{\Sigma}_g$ are the mean vector and covariance matrix describing across-PFT (global) variation.
 
