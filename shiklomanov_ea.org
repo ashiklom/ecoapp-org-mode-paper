@@ -141,6 +141,8 @@ For instance, changes in leaf economic traits can fail to predict changes in oth
 hydraulics cite:li_2015_leaf,
 dispersal cite:westoby_2002_plant_ecological_strategies,
 and overall plant carbon budget cite:edwards_2014_leaf.
+Finally, the observed global trait space is the result of, among other things, thousands to millions of years of evolution and community assembly,
+and may therefore be very different in shape and size from the trait space defining ecosystem responses at policy-relevant time scales of years to decades.
 
 An alternative to using a single global set of trait trade-offs is to allow trait correlations to vary among PFTs (potentially with finer resolution, e.g. citealt:boulangeat_2012_improving)
 while using statistical analyses to account for uncertainty and variability in the aggregated trait values.
