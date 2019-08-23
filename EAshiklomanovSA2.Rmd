@@ -233,7 +233,6 @@ Consider two positively correlated traits, A and B.
 ```{r create_traits}
 set.seed(12345) # For reproducibility
 library(mvtraits)
-
 true_mu <- c(0, 0)
 true_cov <- matrix(c(1, 0.8, 0.8, 1), nrow = 2)
 Y_all <- random_mvnorm(1000, true_mu, true_cov)
@@ -245,7 +244,10 @@ Simulate missingness by randomly removing half of the data.
 
 ```{r remove_na}
 Y <- Y_all
-Y[sample.int(2000, 1000)] <- NA
+ymiss <- sample.int(2000, 1000)
+# Save true values for validation
+ymiss_true <- Y[ymiss]
+Y[ymiss] <- NA
 plot(Y_all, pch = 19, col = "grey")
 points(Y, pch = 19, col = "black")
 legend(
@@ -348,3 +350,28 @@ hist(cov_ab, xlab = "Covariance estimate", ylab = "Count", main = "Covariance es
 abline(v = true_cov[2, 1], col = "red", lwd = 2)
 legend("topright", legend = "True cov.", lty = "solid", lwd = 2, col = "red")
 ```
+
+The `mvtraits` package provides the convenience function `fit_mvnorm` for performing this entire procedure automatically.
+
+
+```{r}
+results <- fit_mvnorm(Y)
+results$stats$mu$Mean
+true_mu
+results$stats$Sigma$Mean
+true_cov
+```
+
+It also provides a function for bootstrapping the results of a model fit this way:
+
+```{r}
+data_boot <- bootstrap_missing(results, Y)
+boot_means <- apply(data_boot, c(1, 2), mean)[ymiss]
+plot(ymiss_true ~ boot_means, pch = 19,
+     xlab = "Imputed values (bootstrapped mean)",
+     ylab = "True missing values")
+abline(0, 1, lty = "dashed")
+```
+
+We can see that for all data points where at least one observation was available as constraint, the algorithm imputed values that were close to the true values.
+However, where values for both traits were missing, the algorithm falls back to the global mean, which has the same statistical properties as the missing data (i.e. central tendency and spread) but doesn't match the true values.
