@@ -406,7 +406,7 @@ For example, needleleaf evergreen trees had relatively low $N_{mass}$ and $P_{ma
 
 A key application of this study was to provide data-driven parameter estimates for Earth System Models.
 To this end, we compared our mean parameter estimates with corresponding default parameters in CLM 4.5 cite:clm45_note (Fig. 4).
-Our SLA estimates were significantly lower than CLM parameters for all PFTs except tropical broadleaved evergreen trees.
+Our SLA estimates were significantly lower (non-overlapping 95% credible interval) than CLM parameters for all PFTs except tropical broadleaved evergreen trees.
 Our $N_{mass}$ estimates showed more across-PFT variability than CLM parameters, and only agreed with CLM for evergreen temperate trees, needleleaved trees, and C3 arctic grasses.
 Similarly to Kattge /et al./ citeyear:kattge_2009_quantifying, we found that CLM overestimates $V_{c,max}$, both by mass and area. 
 
@@ -424,7 +424,7 @@ The hierarchical model further reduced both sensitivity to sample size and overa
 The leaf economic spectrum is defined by a negative correlation between SLA and leaf lifespan, and a positive correlation of SLA with $N_{mass}$, $P_{mass}$, and photosynthesis and respiration rates cite:wright_2004_worldwide.
 Our first objective was to investigate the extent to which these relationships hold within and across PFTs.
 Our results indicate that the leaf economic spectrum generally holds within PFTs, at least at the functional and phylogenetic resolution of current Earth System Models.
-Within PFTs, correlations between SLA, $N_{mass}$, and $P_{mass}$ were consistently positive, and correlations of these traits with leaf lifespan were generally negative (though, for many PFTs, correlations were not significantly different from zero).
+Within PFTs, correlations between SLA, $N_{mass}$, and $P_{mass}$ were consistently positive, and correlations of these traits with leaf lifespan were generally negative (though, for many PFTs, 95% credible intervals on correlations overlapped zero).
 Although we did not include maximum photosynthesis rate ($A_{max}$), $V_{c,max,mass}$ and $J_{max,mass}$ generally exhibited the expected positive correlations with SLA and negative correlations with leaf lifespan, as did $R_{d,mass}$, though many correlations were not significant.
 
 While trait relationships within PFTs were consistent in direction, their strength was more variable.

@@ -268,7 +268,7 @@ and $\mu^*_t$ and $\Sigma^*_t$ are the draws of the mean vector and covariance m
 \end{tikzpicture}
 ```
 
-## Demonstration {-}
+## Demonstration: Simulated bivariate data {-}
 
 Consider two positively correlated traits, A and B.
 
@@ -285,11 +285,19 @@ plot(Y_all, pch = 19)
 Simulate missingness by randomly removing half of the data.
 
 ```{r remove_na}
-Y <- Y_all
-ymiss <- sample.int(2000, 1000)
+Ym <- Y_all
+
+# Remove half of the data
+Ym[sample.int(2000, 1000)] <- NA
+
+# Remove completely missing rows -- they are useless
+ikeep <- apply(Ym, 1, function(x) any(!is.na(x)))
+Y <- Ym[ikeep, ]
+
 # Save true values for validation
-ymiss_true <- Y[ymiss]
-Y[ymiss] <- NA
+ymiss <- which(is.na(Y))
+ymiss_true <- Y_all[ikeep,][ymiss]
+
 plot(Y_all, pch = 19, col = "grey")
 points(Y, pch = 19, col = "black")
 legend(
@@ -409,11 +417,125 @@ It also provides a function for bootstrapping the results of a model fit this wa
 ```{r}
 data_boot <- bootstrap_missing(results, Y)
 boot_means <- apply(data_boot, c(1, 2), mean)[ymiss]
-plot(ymiss_true ~ boot_means, pch = 19,
-     xlab = "Imputed values (bootstrapped mean)",
-     ylab = "True missing values")
+# 95% CI for imputed values
+boot_lo <- apply(data_boot, c(1, 2), quantile, probs = 0.025)[ymiss]
+boot_hi <- apply(data_boot, c(1, 2), quantile, probs = 0.975)[ymiss]
+plot(
+  x = 0, y = 0,
+  xlim = range(c(boot_lo, boot_hi)),
+  ylim = range(ymiss_true),
+  type = "n",
+  xlab = "Imputed values (bootstrapped mean)",
+  ylab = "True missing values"
+)
+arrows(boot_lo, ymiss_true, boot_hi, ymiss_true, length = 0.01, code = 3,
+       col = "gray70")
+points(boot_means, ymiss_true, pch = 19)
 abline(0, 1, lty = "dashed")
+abline(lm(ymiss_true ~ boot_means), col = "blue")
+legend("bottomright", c("1:1", "Regression"),
+       lty = c("dashed", "solid"),
+       col = c("black", "blue"))
 ```
 
-We can see that for all data points where at least one observation was available as constraint, the algorithm imputed values that were close to the true values.
-However, where values for both traits were missing, the algorithm falls back to the global mean, which has the same statistical properties as the missing data (i.e. central tendency and spread) but doesn't match the true values.
+We can see that mean estimates of the imputed values are close to the true values, and that the imputed values have non-trivial (but reasonable) uncertainty around them.
+
+## Demonstration: Hierarchical modeling of the Iris dataset {-}
+
+For a real-world application of this, we can use the Iris dataset.
+Because this data is grouped by species, we can also demonstrate the hierarchical model
+(though with only 3 species, the statistical power for estimating across-species covariance is minimal).
+
+First, an overview of the Iris dataset:
+
+```{r}
+summary(iris)
+pairs(iris[,1:4], col = iris[,5], pch = 19)
+```
+
+Let's also look at the true values of the correlations, which we can compare against the model estimates.
+
+```{r}
+```
+
+First, we isolate the groups from the actual data.
+
+```{r}
+grp <- iris[, 5]
+head(grp)
+dat <- as.matrix(iris[, 1:4])
+head(dat)
+```
+
+As in the previous example, let's introduce 50% random missingness into the data.
+
+```{r}
+dat_m <- dat
+ndata <- prod(dim(dat_m))
+dat_m[sample(ndata, floor(ndata * 0.5))] <- NA
+
+# Again, we only keep rows that have at least 1 value
+ikeep <- apply(dat_m, 1, function(x) any(!is.na(x)))
+Y <- dat_m[ikeep, ]
+grp_m <- grp[ikeep]
+
+# Save true values for validation
+ymiss_true <- dat[ikeep, ]
+ymiss_true[!is.na(Y)] <- NA
+```
+
+Now, fit the hierarchical model.
+
+```{r}
+result <- fit_mvnorm_hier(Y, grp_m)
+```
+
+We can compare our correlation matrix estimates to the true correlations in the data.
+
+```{r}
+result_corr <- lapply(result$stats$Corr_group, "[[", "Mean")
+corr_cols <- colnames(result_corr[[1]])
+iris_split <- split(iris[, corr_cols], iris[, 5])
+true_corr <- lapply(iris_split, cor)
+
+# Take the ratio of our correlation estimate and the true value
+true_corr
+result_corr
+Map("/", result_corr, true_corr)
+```
+
+In all cases, we underestimate the true correlations, but the extent varies by trait and species.
+The largest underestimates (in relative terms) occur for correlations that were the weakest in the observational data, which makes sense since statistical power for correlation estimates scales super-linearly with sample size.
+
+If our imputation algorithm works correctly, then we expect traits with stronger correlations to be imputed more accurately and precisely than traits with weak correlations.
+Let's estimate the missing values to see if this is the case.
+
+```{r}
+boot_data <- bootstrap_missing_hier(result, Y, grp_m)
+boot_means <- apply(boot_data, c(1, 2), mean)
+boot_lo <- apply(boot_data, c(1, 2), quantile, probs = 0.025)
+boot_hi <- apply(boot_data, c(1, 2), quantile, probs = 0.975)
+boot_means[!is.na(Y)] <- NA
+boot_lo[!is.na(Y)] <- NA
+boot_hi[!is.na(Y)] <- NA
+
+par(mfrow = c(2, 2))
+for (i in 1:4) {
+  plot(
+    0, 0,
+    type = "n",
+    xlim = range(c(boot_lo[, i], boot_hi[, i]), na.rm = TRUE),
+    ylim = range(ymiss_true[, i], na.rm = TRUE),
+    xlab = "Estimate",
+    ylab = "True value",
+    main = colnames(iris)[i]
+  )
+  arrows(boot_lo[, i], ymiss_true[, i], boot_hi[, i],
+         length = 0.01, col = "gray70", code = 3)
+  points(boot_means[, i], ymiss_true[, i],
+         pch = 19, col = grp_m)
+  abline(0, 1, lty = "dashed")
+  legend("bottomright", levels(grp_m),
+         pch = 19, col = 1:3)
+}
+```

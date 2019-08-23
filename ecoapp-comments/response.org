@@ -210,13 +210,15 @@ We also refer readers to the detailed demonstration of the algorithm in Supporti
 147 Moreover, if this a new method, I would ask you to confirm that this actually works with randomly removed data (it’s clear that imputation will always run in trouble if you remove data purposefully, but at least let’s make sure it works under ideal conditions). Ideal validation would be via https://arxiv.org/pdf/1804.06788.pdf , in this case you check the entire analysis chain.
 #+end_quote
 
-{TODO}
+We have added a section to Supplementary Method S1 that provides a detailed validation of our approach for imputing missing values on simulated bivariate data and the classic Iris dataset.
 
 #+begin_quote
 150 How many missing values are we talking about here in the real data?  10%,  90%? See comment above, if you check the methods, make sure that the scenario corresponds to what you find in the real data
 #+end_quote
 
-{TODO}
+We have added the sample sizes for each trait and PFT to Table 1.
+The number of imputed values for each trait and PFT is shown in Table S4.
+Pairwise missing data and corresponding estimates of the correlation coefficients are shown in Table S5.
 
 #+begin_quote
 153 Is this the univariate psrf, i.e. per parameter? If so, write: for all parameters
@@ -237,7 +239,11 @@ Fig.3 What you provide here is basically the raw data for the covariance matrix.
 {TODO}
 
 #+begin_quote
-Major comment analysis: all measures you report here are based on the fitted models only (i.e. don’t consider the fit to the data / residuals). I find that somewhat dangerous. What I would ask you to add is some measure if predictive error for all three models (univariate, multivariate, hierarchical multivariate). I think in this case it’s unlikely that you’re grossly overfitting, so it would be OK for me if you would calculate this on the same data that you used for fitting, but more ideal would of course be to have a hold-out. Consider also if there is a possibility to analyze the error, e.g. by plotting / regressing it against suitable predictors such as PFT, taxonomy, location
+Major comment analysis: all measures you report here are based on the fitted models only (i.e. don’t consider the fit to the data / residuals).
+I find that somewhat dangerous.
+What I would ask you to add is some measure if predictive error for all three models (univariate, multivariate, hierarchical multivariate).
+I think in this case it’s unlikely that you’re grossly overfitting, so it would be OK for me if you would calculate this on the same data that you used for fitting, but more ideal would of course be to have a hold-out.
+Consider also if there is a possibility to analyze the error, e.g. by plotting / regressing it against suitable predictors such as PFT, taxonomy, location
 #+end_quote
 
 {TODO}
@@ -249,7 +255,13 @@ Major comment analysis: all measures you report here are based on the fitted mod
 {TODO}
 
 #+begin_quote
-226 Maybe I’m missing it, but is there any discussion of the correlation between PFTs? In general, I think you could leverage the hierarchical setup much better. Essentially, what we have is a global correlation. With the hierarchical model, we can now partition this global LES into a within and between PFT correlation. What I understand from this section so far is that the within PFT correlation is broadly identical to the global correlation, except for some PFTs. But what about the between PFT correlation, does this also follow the LES, or is this completely different? Apart from the verbal discussion, it would be great if the partitioning could be visualized in some way, so that one could see where the different PFTs lie in the overall trait spectrum, and how the traits correlate within them. If this could be done, I think it could be an ecologically very valuable figure.
+226 Maybe I’m missing it, but is there any discussion of the correlation between PFTs?
+In general, I think you could leverage the hierarchical setup much better. Essentially, what we have is a global correlation.
+With the hierarchical model, we can now partition this global LES into a within and between PFT correlation.
+What I understand from this section so far is that the within PFT correlation is broadly identical to the global correlation, except for some PFTs.
+But what about the between PFT correlation, does this also follow the LES, or is this completely different?
+Apart from the verbal discussion, it would be great if the partitioning could be visualized in some way, so that one could see where the different PFTs lie in the overall trait spectrum, and how the traits correlate within them.
+If this could be done, I think it could be an ecologically very valuable figure.
 #+end_quote
 
 {TODO}
@@ -270,13 +282,13 @@ Major comment analysis: all measures you report here are based on the fitted mod
 244 significantly? This is a Bayesian analysis.
 #+end_quote
 
-{TODO}
+We clarified that, by "significantly lower", we meant that the 95% credible interval of our estimates did not overlap the CLM values.
 
 #+begin_quote
 244 how were CLM parameters derived?
 #+end_quote
 
-{TODO}
+This is described in the "Methods: Analysis of results section."
 
 #+begin_quote
 251 OK, this is the uncertainty of the mean, but more important for me would be the predictive error, which could be very different (also depending  on  how much IV  is in  these traits).
@@ -288,25 +300,28 @@ Major comment analysis: all measures you report here are based on the fitted mod
 268 You use again “significant”, but I  don’t think  you  have run significant tests here. Clarify what you mean
 #+end_quote
 
-{TODO}
+As above, we clarified that by "not-significant", we meant "95% credible interval of our estimate overlapped zero".
 
 #+begin_quote
 279 It’s a bit unfortunate that this analysis doesn’t allow separating spread and direction of the trade-off. What I mean is that a lower correlation could result from a smaller slope in a regression  between two traits, or from more spread around the regression line. Would be nice to see which of the two possibilities is responsible here, a change of the direction of the trade-off, or an increase in variability. Please discuss if applicable.
 #+end_quote
 
 {TODO}
+Replace with reduced major axis regression slopes.
 
 #+begin_quote
 282 Again, for building this into models, one would probably be interested in the slope and not R2
 #+end_quote
 
 {TODO}
+As above, replace with reduced major axis regression slopes.
 
 #+begin_quote
 296 Again, I wonder if “weak” means that slope or R2, plus, again: significance. Moreover, note that significance is not effect size.
 #+end_quote
 
 {TODO}
+As above, replace with reduced major axis regression slopes.
 
 #+begin_quote
 316 The logical conclusions seems to examine other groups than the standard model PFTs, e.g. divide species taxonomically, morphologically, or via biomes
@@ -315,7 +330,10 @@ Major comment analysis: all measures you report here are based on the fitted mod
 {TODO}
 
 #+begin_quote
-331 This is a weird wording, at least you should use predictive uncertainty, but I’m not even sure if you showed this. What you seem to discuss here is a reduction of posterior predictive uncertainty, but that is just an estimate. I can reduce posterior predictive uncertainty just by adjusting the prior, but that does’t mean that the model will better fit the data. I think you urgently need to establish a measure of model fit / predictive error for this discussion.
+331 This is a weird wording, at least you should use predictive uncertainty, but I’m not even sure if you showed this.
+What you seem to discuss here is a reduction of posterior predictive uncertainty, but that is just an estimate.
+I can reduce posterior predictive uncertainty just by adjusting the prior, but that does’t mean that the model will better fit the data.
+I think you urgently need to establish a measure of model fit / predictive error for this discussion.
 #+end_quote
 
 {TODO}
@@ -330,13 +348,18 @@ For the same priors and data, the multivariate model achieves reduced posterior 
 {TODO}
 
 #+begin_quote
-337 I don’t see how you arrive at this conclusion. If the data-generating process was multivariate normal, univariate and multivariate means should be identical. To me, this result rather suggests that the correlation is not multivariate, which seems to question the assumptions of your model, or that the PFT means are not in line with the global mean (so that you get a mixture distribution, but this has nothing to do with multivariate). It may be a good idea to provide at least a few visual checks of model adequacy, e.g. by posterior predictive model checks
+337 I don’t see how you arrive at this conclusion.
+If the data-generating process was multivariate normal, univariate and multivariate means should be identical.
+To me, this result rather suggests that the correlation is not multivariate, which seems to question the assumptions of your model, or that the PFT means are not in line with the global mean (so that you get a mixture distribution, but this has nothing to do with multivariate).
+It may be a good idea to provide at least a few visual checks of model adequacy, e.g. by posterior predictive model checks
 #+end_quote
 
 {TODO}
 
 #+begin_quote
-339 OK, I think if the traits are correlated, the multivariate model is clearly better, because we want to know this correlation. I find this so obvious that it wouldn’t even need discussing. However, with the comments above in mind, I think you should specify what you mean by “bias” – as said, I don’t think there should be a bias in the mean if the data-generating process is multivariate normal, and you fit univariate normal distributions.
+339 OK, I think if the traits are correlated, the multivariate model is clearly better, because we want to know this correlation.
+I find this so obvious that it wouldn’t even need discussing.
+However, with the comments above in mind, I think you should specify what you mean by “bias” – as said, I don’t think there should be a bias in the mean if the data-generating process is multivariate normal, and you fit univariate normal distributions.
 #+end_quote
 
 {TODO}
