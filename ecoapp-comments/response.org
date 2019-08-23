@@ -385,8 +385,10 @@ Fig. 1 not a big fan of this lattice plot layouts, you are loosing a lot of spac
 We have removed this figure in the revised version.
 
 #+begin_quote
-Fig. 2 as said, not sure what you mean by significant. Moreover, why would you not plot the n.s. too? A correlation of zero is also an information, isn’t it?
+Fig. 2 as said, not sure what you mean by significant.
 #+end_quote
+
+As in the corresponding part of the methods, we replaced "not significant" with "credible intervals overlapped zero".
 
 #+begin_quote
 Fig. 3 as said in the previous comments, I wonder if this could be better condensed. Difficult to see any patterns because of the high amount of info.

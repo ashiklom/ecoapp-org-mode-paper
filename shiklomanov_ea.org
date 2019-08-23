@@ -312,7 +312,7 @@ We implemented this sampling algorithm in a publicly available R cite:team_2018_
 
 *** Analysis of results
     
-To assess the consistency of within- and across-PFT trait trade-offs, we examined covariance estimates for each trait pair and, where these values were significantly different from zero ($p < 0.05$),
+To assess the consistency of within- and across-PFT trait trade-offs, we examined covariance estimates for each trait pair and, where the 95% credible interval of the pairwise covariance coefficient did not intersect with zero,
 we calculated the eigenvalues from the variance-covariance matrix for just that trait pair and plotted the corresponding dominant eigenvectors centered on the mean estimates (Fig. 2).
 This figure provides a visual representation of relative positions of PFTs in trait space and both the direction and extent of within-PFT trait covariance.
 It is analogous to conceptual figures describing hierarchical trait variability across environmental gradients as presented in Cornwell & Ackerly citeyear:cornwell_2009_community and Albert /et al./ citeyear:albert_2010_intraspecific_functional_variability.
@@ -375,7 +375,7 @@ The only significant correlations of leaf lifespan with $V_{c,max,area}$ and $J_
 Pairwise trait correlation strength varied depending on scale, PFT, and trait (Fig. 3).
 In some cases, this variability was driven by low sample sizes (Fig. 1, S1; Tab. S3, S4).
 For instance, needleleaved deciduous trees, the most undersampled PFT in our analysis, were often the only PFT for which a correlation was not statistically significant.
-Similarly, we had no observations of dark respirations for deciduous boreal shrubs, which explains why we found no significant correlations of dark respiration with any other trait for that PFT.
+Similarly, we had no observations of dark respiration for deciduous boreal shrubs, which explains why we found no significant correlations of dark respiration with any other trait for that PFT.
 However, the relationship between correlations strength and sample size was inconsistent (Fig. S1; Tab. S4).
 Every trait pair had at least one case (and often several cases) where a better-sampled PFT showed weaker correlations than PFTs with lower sample sizes, or where correlation strength varied significantly among PFTs with similar sample sizes (Fig. S1).
 Relationships between correlation strength and data range were even less consistent (Fig. S2).
@@ -592,13 +592,13 @@ C4G & C4 Grass & 255 & 31 & 1312 & 1461 & 335 & 44 & 0 & 0 & 410 & 56 & 28 & 0 &
 \pagebreak
 #+END_EXPORT
 
-#+CAPTION: Pairwise trait mean and covariance estimates for all data pooled globally (black) and for each PFT (colored). Covariance estimates not significantly different from zero ($p < 0.05$) are indicated by x symbols at the mean estimate. $x$ and $y$ axes vary on a log scale, reflecting the fact that the model was fit using the base 10 log of all traits. With the exception of leaf lifespan, pairwise covariances are consistent in direction but vary somewhat in magnitude between PFTs, and when comparing PFT-level and global estimates. However, many pairwise covariances are not statistically significant, particularly (but not always) for undersampled traits and PFTs.
+#+CAPTION: Pairwise trait mean and covariance estimates for all data pooled globally (black) and for each PFT (colored). Covariance estimates for which credible intervals overlapped zero are indicated by x symbols at the mean estimate. $x$ and $y$ axes vary on a log scale, reflecting the fact that the model was fit using the base 10 log of all traits. With the exception of leaf lifespan, pairwise covariances are consistent in direction but vary somewhat in magnitude between PFTs, and when comparing PFT-level and global estimates. However, many pairwise covariances are not statistically significant, particularly (but not always) for undersampled traits and PFTs.
 [[/Users/shik544/laptop_folders/Projects/new-phytologist-traits/np-trait-analysis/figures/manuscript/stick_pairs.pdf]]
 
-#+CAPTION: Mean and 95% CI on estimates of pairwise correlation coefficients for all data pooled globally (dark grey) and for each PFT (colored). For most PFT-trait pairs, correlations are mutually consistent in magnitude but vary in strength.
+#+CAPTION: Mean and 95% credible interval on estimates of pairwise correlation coefficients for all data pooled globally (dark grey) and for each PFT (colored). For most PFT-trait pairs, correlations are mutually consistent in magnitude but vary in strength.
 [[/Users/shik544/laptop_folders/Projects/new-phytologist-traits/np-trait-analysis/figures/manuscript/correlation_boxplot.pdf]]
 
-#+CAPTION: Mean and 95% confidence interval on best estimates of traits for each plant functional type from the univariate, multivariate, and hierarchical models. For leaf lifespan and SLA, results were not significantly different between the mass- and area-based models, so only results from the mass-based model are shown. For some PFT-trait combinations, where large error bars resulting from the relatively uninformative priors are substantially larger than the variability among means, the $y$ axes are constrained to facilitate comparison. Values and uncertainties for estimates from the hierarchical model are reported in tables S1 and S2.
+#+CAPTION: Mean and 95% credible interval on best estimates of traits for each plant functional type from the univariate, multivariate, and hierarchical models. For leaf lifespan and SLA, results were not significantly different between the mass- and area-based models, so only results from the mass-based model are shown. For some PFT-trait combinations, where large error bars resulting from the relatively uninformative priors are substantially larger than the variability among means, the $y$ axes are constrained to facilitate comparison. Values and uncertainties for estimates from the hierarchical model are reported in tables S1 and S2.
 #+NAME: fig:traitmeans
 [[/Users/shik544/laptop_folders/Projects/new-phytologist-traits/np-trait-analysis/figures/manuscript/mean_comparison.pdf]]
 
