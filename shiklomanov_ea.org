@@ -468,7 +468,7 @@ Moreover, accounting for covariance occasionally resulted in small but statistic
 This result echoes Diaz /et al./ citeyear:diaz_2015_global in demonstrating the importance of studying the multivariate trait space rather than individual traits. 
 Such shifts suggest that sampling of these traits in TRY is not representative (Fig. 1; see also citealt:kattge_2011_try). 
 These shifts also indicate that parameter estimates based on univariate trait data [[cite:lebauer_2013_facilitating,dietze_2014_quantitative,butler_2017_mapping][e.g.]] may not only overestimate uncertainty, but may also be systematically biased.
-Although some traits in our analysis ($R_{d}$, $V_{c,max}$, and $J_{max}$) still had insufficient observations necessary to reliably estimate covariance patterns for some PFTs, 
+Although some traits in our analysis ($R_{d}$, $V_{c,max}$, and $J_{max}$) had too few observations to estimate covariance patterns for some PFTs with much statistical power,
 we show that leveraging covariance increases the effective sample size of all traits.
 This means that field and remote sensing studies that estimate only certain traits (like SLA and $N_{mass}$)  may be able to use trait correlations to provide constraint on traits they do not directly observe (such as $P_{mass}$ and $R_{d,mass}$) cite:singh_2015_imaging,musavi_2015_imprint,lepine_2016_examining,serbin_2014_spectroscopic.
 As such, future observational campaigns should consider trait covariance when deciding which traits to measure.

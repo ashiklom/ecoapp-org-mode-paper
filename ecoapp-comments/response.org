@@ -366,7 +366,7 @@ We have added a demonstration of this effect using simulated data to the supplem
 341 What do you mean by “reliable”?
 #+end_quote
 
-{TODO}
+We changed this to say "too few observations to estimate covariance patterns for some PFTs with much statistical power".
 
 #+begin_quote
 349 That makes sense to me, but I was missing the relating info in the results
