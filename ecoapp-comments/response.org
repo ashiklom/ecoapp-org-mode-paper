@@ -352,17 +352,15 @@ For the same priors and data, the multivariate model achieves reduced posterior 
 If the data-generating process was multivariate normal, univariate and multivariate means should be identical.
 To me, this result rather suggests that the correlation is not multivariate, which seems to question the assumptions of your model, or that the PFT means are not in line with the global mean (so that you get a mixture distribution, but this has nothing to do with multivariate).
 It may be a good idea to provide at least a few visual checks of model adequacy, e.g. by posterior predictive model checks
-#+end_quote
 
-{TODO}
-
-#+begin_quote
 339 OK, I think if the traits are correlated, the multivariate model is clearly better, because we want to know this correlation.
 I find this so obvious that it wouldn’t even need discussing.
 However, with the comments above in mind, I think you should specify what you mean by “bias” – as said, I don’t think there should be a bias in the mean if the data-generating process is multivariate normal, and you fit univariate normal distributions.
 #+end_quote
 
-{TODO}
+The univariate and multivariate means are only identical if partially missing data are dropped, in which case additional information about missing parameters based on covariance with existing parameters is neglected.
+However, by leveraging among-trait covariance, we can make more educated guesses about parts of the trait space that have data for other traits, and we can therefore at least partially overcome sampling biases.
+We have added a demonstration of this effect using simulated data to the supplementary information.
 
 #+begin_quote
 341 What do you mean by “reliable”?

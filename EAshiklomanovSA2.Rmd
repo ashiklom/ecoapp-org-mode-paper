@@ -511,7 +511,7 @@ If our imputation algorithm works correctly, then we expect traits with stronger
 Let's estimate the missing values to see if this is the case.
 
 ```{r}
-boot_data <- bootstrap_missing_hier(result, Y, grp_m)
+boot_data <- bootstrap_missing_hier(result, Y, grp_m, progress = FALSE)
 boot_means <- apply(boot_data, c(1, 2), mean)
 boot_lo <- apply(boot_data, c(1, 2), quantile, probs = 0.025)
 boot_hi <- apply(boot_data, c(1, 2), quantile, probs = 0.975)
@@ -539,3 +539,49 @@ for (i in 1:4) {
          pch = 19, col = 1:3)
 }
 ```
+
+# Method S2: Biased mean estimates in non-representatively sampled bivariate data
+
+One important result of this manuscript is that accounting for trait covariance can reduce biases in trait sampling.
+We can demonstrate this with an idealized case where we know the correct answer.
+Consider two traits "A" and "B", with mean zero, unit variance, and strong covariance ($R = 0.8$):
+
+```{r}
+library(mvtraits)
+mu <- c(0, 0)
+sigma <- matrix(c(1, 0.8, 0.8, 1), nrow = 2, ncol = 2)
+n <- 5000
+sim <- random_mvnorm(n, mu, sigma)
+colnames(sim) <- c("A", "B")
+plot(sim[, "A"], sim[, "B"], xlab = "A", ylab = "B", pch = 19, cex = 0.3)
+```
+
+Now, suppose that trait B is sampled with a strong preference for low values.
+We can simulate this by removing a random sample of B weighted by its value along the normal distribution cumulative distribution function.
+
+```{r}
+sim2 <- sim
+sim2[sample(n, n / 2, prob = pnorm(sim2[, "B"])), "B"] <- NA
+
+colMeans(sim2, na.rm = TRUE)
+
+plot(density(sim[, "B"]), col = "black",
+     main = "Kernel density of trait B",
+     xlab = "Trait B")
+lines(density(sim2[, "B"], na.rm = TRUE), col = "red")
+abline(v = mean(sim[, "B"]), col = "black", lty = "dashed")
+abline(v = mean(sim2[, "B"], na.rm = TRUE), col = "red", lty = "dashed")
+legend("topright", c("True", "Observed"), lty = 1, col = c("black", "red"))
+```
+
+We can see that the univariate estimate of trait B, -0.43, is systematically biased.
+Now, let's fit these data using our multivariate model.
+
+```{r}
+fit <- fit_mvnorm(sim2)
+subset(fit$summary_table,
+       variable == "mu",
+       select = c("variable", "index", "Mean", "2.5%", "97.5%"))
+```
+
+We can see that the mean estimate for B is still negatively biased, but much less so than in the univariate case.
