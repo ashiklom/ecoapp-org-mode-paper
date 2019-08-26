@@ -6,3 +6,8 @@ auto/
 try_references.csv
 /*shiklomanovSA*.log
 /.drake
+
+# Latex outputs
+*.aux
+*.log
+*.out
