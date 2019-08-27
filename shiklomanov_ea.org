@@ -377,7 +377,7 @@ The complete TRY data request used for this analysis has been archived at http:/
 
 ** Trait correlation patterns across- and within-PFTs
 
-For all traits except leaf lifespan, pairwise trait correlations were generally consistent in direction both globally and within each PFT (Fig. 2).
+For all traits except leaf lifespan, pairwise trait correlations were generally consistent in direction both globally and within each PFT (Fig. 1).
 Mass- and area-normalized traits were all positively correlated with each other and, respectively, positively and negatively correlated with SLA, both globally and within each PFT.
 Mass-based traits were generally negatively correlated with leaf lifespan, but correlations of area-based traits with leaf lifespan were more variable.
 The $N_{area}$ -leaf lifespan relationship was positive globally and for evergreen shrubs, tropical broadleaved deciduous trees, temperate needleleaved evergreen trees, but negative for temperate and boreal broadleaved deciduous trees and not significant for any other PFTs.
@@ -605,8 +605,13 @@ C4G & C4 Grass & 255 & 31 & 1312 & 1461 & 335 & 44 & 0 & 0 & 410 & 56 & 28 & 0 &
 \pagebreak
 #+END_EXPORT
 
-#+CAPTION: Pairwise trait mean and covariance estimates for all data pooled globally (black) and for each PFT (colored). Covariance estimates for which credible intervals overlapped zero are indicated by x symbols at the mean estimate. $x$ and $y$ axes vary on a log scale, reflecting the fact that the model was fit using the base 10 log of all traits. With the exception of leaf lifespan, pairwise covariances are consistent in direction but vary somewhat in magnitude between PFTs, and when comparing PFT-level and global estimates. However, many pairwise covariances are not statistically significant, particularly (but not always) for undersampled traits and PFTs.
-[[/Users/shik544/laptop_folders/Projects/new-phytologist-traits/np-trait-analysis/figures/manuscript/stick_pairs.pdf]]
+#+CAPTION: First eigenvector of correlation matrices estimated by the hierarchical model, for mass-normalized (/left/) and area-normalized (/right/) traits.
+#+CAPTION: Black line ("GLOB") indicates correlations across PFT means, and colored lines indicate correlations within PFTs.
+#+CAPTION: Points that are close together on the same side of the zero line (e.g. SLA, Nmass, and Pmass) indicate traits that are mutually positively correlated.
+#+CAPTION: Points on opposite sides of the zero line indicate traits that are anti-correlated (e.g. SLA and leaf lifespan).
+#+CAPTION: Points near zero indicate statistical independence from other traits.
+#+CAPTION: Traits along the $x$ axis are sorted in order of decreasing agreement in eigenvector terms, so within each panel, correlations among traits to the left are more robust within- and across-PFTs than correlations to the right.
+[[/Users/shik544/Projects/phd_work/multivariate_traits/np-trait-analysis/figures/ecoapp-revision/eigenvector.png]]
 
 #+CAPTION: Mean and 95% credible interval on estimates of pairwise correlation coefficients for all data pooled globally (dark grey) and for each PFT (colored). For most PFT-trait pairs, correlations are mutually consistent in magnitude but vary in strength.
 [[/Users/shik544/laptop_folders/Projects/new-phytologist-traits/np-trait-analysis/figures/manuscript/correlation_boxplot.pdf]]
