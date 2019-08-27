@@ -220,7 +220,9 @@ For observed trait vector ${\mathbf{x_i}}$ for sample $i$:
 where $mvN$ is the multivariate Gaussian distribution with mean vector $\mathbf{\mu}$ and covariance matrix $\mathbf{\Sigma}$.
 We fit both of these models independently for each PFT and once for the entire dataset (i.e. one global PFT).
 
-The most complex model was the "hierarchical" model, where traits are drawn from a PFT-specific multivariate distribution describing within-PFT variation, and whose mean vector is itself sampled from a global multivariate distribution describing variation across PFTs.
+The most complex model was the "hierarchical multivariate" model (henceforth, just "hierarchical model"),
+where traits are drawn from a PFT-specific multivariate distribution describing within-PFT variation,
+and whose mean vector is itself sampled from a global multivariate distribution describing variation across PFTs.
 For observed trait vector $\mathbf{x}_{i,p}$ for sample $i$ belonging to PFT $p$:
 
 #+begin_export latex

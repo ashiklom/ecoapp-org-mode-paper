@@ -148,7 +148,8 @@ See main response.
 127 of course, both the univariate and the multivariate models could be made hierarchical. Not 100% clear why you only choose to make the multivariate model hierarchical.
 #+end_quote
 
-{TODO}
+We have clarified here that the "hierarchical" model means "hierarchical multivariate."
+More generally, our hypothesis is that the benefit of hierarchy to trait estimation comes from leveraging the across-PFT covariance structure, which is nonexistent in the univariate model.
 
 #+begin_quote
 134 Could you comment on whether Gibbs sampling is the most efficient / preferred method for the estimation of covariance matrices in such a setting?
