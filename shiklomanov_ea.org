@@ -635,6 +635,8 @@ C4G & C4 Grass & 255 & 31 & 1312 & 1461 & 335 & 44 & 0 & 0 & 410 & 56 & 28 & 0 &
 #+BEGIN_SRC emacs-lisp :result no :eval no
 (setq org-latex-pdf-process (list "latexmk -shell-escape -bibtex -f -pdf %f"))
 (setq citeproc-org-ignore-backends nil)
+(setq citeproc-org-suppress-affixes-cite-link-types '("citealt"))
+(setq citeproc-org-suppress-author-cite-link-types '("citeyear"))
 (citeproc-org-setup)
 #+END_SRC
 
