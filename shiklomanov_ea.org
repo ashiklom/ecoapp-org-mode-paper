@@ -142,6 +142,13 @@ hydraulics cite:li_2015_leaf,
 dispersal cite:westoby_2002_plant_ecological_strategies,
 and overall plant carbon budget cite:edwards_2014_leaf.
 
+# Why the PFT scale?
+# Possibly relevant references:
+# - cite:calow_1987_towards
+# - cite:albert_2011_when
+# - cite:box_1995_factors, cite:prentice_1992_special_paper
+# - Refs from current PFT paragraph
+
 The leaf economic spectrum has been investigated extensively at the global scale, where it is robust,
 and at local scales (within species, and across similar species within the same ecosystem), where deviations from it are common.
 However, a lot of ecosystem ecology involves plant functional types, groups of plant species with similar structural and functional characteristics that occupy similar bioclimatic niches cite:ustin_2010_remote.
