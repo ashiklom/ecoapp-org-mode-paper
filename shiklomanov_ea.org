@@ -108,7 +108,7 @@ The across-PFT hierarchy provided additional constraint, though this was only di
 
 * Introduction
 
-Plant functional traits link directly measurable features of individuals to their fitness within an ecosystem, and are often related to various aspects of whole-ecosystem function cite:violle_2007_let.
+Plant functional traits link directly measurable features of individuals to their fitness within an ecosystem, and are often related to various aspects of whole-ecosystem function cite:violle_2007_let,cardinale_2012_impacts.
 Although global trait databases are larger and more open now than ever before, large gaps and sampling biases in these databases continue to pose a challenge to trait ecology cite:cornwell_2019_what.
 If all traits and plant species were completely independent from each other, the only way forward would be to collect more trait data, which is expensive and time-consuming (especially because trait data is most sparse for rare species and in places that are hardest to access, such as the tropics; cite:cornwell_2019_what).
 Fortunately, this is not the case.
@@ -122,27 +122,36 @@ and ecosystem function cite:diaz_2004_plant,musavi_2015_imprint.
 The position of species along the leaf economic spectrum is related to climate and soil conditions
 cite:wright_2004_worldwide,wright_2005_modulation,cornwell_2009_community,ordonez_2009_global,wigley_2016_leaf.
 As a result, relationships between leaf economic traits and climate have been used in ecosystem models to more finely resolve variation in plant function cite:sakschewski_2015_leaf,verheijen_2015_inclusion,scheiter_2013_next.
-Meanwhile, grouping similar species into plant functional types with shared characteristics is widespread in ecological studies cite:naeem_2003_disentangling and is essential to many ecosystem models cite:lavorel_1997_plant_functional_classifications,wullschleger_2014_plant.
 
-The use of global among-trait and trait-environment correlations, for both ecological inference and predictive modeling, has several important caveats.
-First, observed global correlations may not hold at smaller scales, such as sites, species, and individuals.
-Some studies suggest consistent correlations across scales cite:wright_2004_worldwide,albert_2010_multi,asner_2014_amazonian,
-whereas others show no or even opposite correlations cite:albert_2010_intraspecific_functional_variability,messier_2010_how,wright_2012_does,feng_2013_scale,grubb_2015_relationships,wigley_2016_leaf,messier_2017_interspecific,kichenin_2013_contrasting.
+The global, interspecific trait space in which the classic leaf economic spectrum was defined is the end result of a multitude of different processes operating at different spatial, temporal, and phylogenetic scales.
+The subset of these processes operating on time-scales of centuries to millenia, such as evolution or turnover in soil carbon and nutrients,
+may not be relevant for predicting how individual plants and ecosystems will respond to changes on policy-relevant timescals of months to decades.
+The extent to which processes operating on these shorter timescales result in the same trait trade-offs is an open question in trait ecology.
+Observational studies of trait correlations at smaller spatial scales, such as sites, species, and individuals, produce inconsistent results,
+with some studies finding consistent correlations across scales cite:wright_2004_worldwide,albert_2010_multi,asner_2014_amazonian
+and others finding that correlation strength and direction are scale-dependent  cite:albert_2010_intraspecific_functional_variability,messier_2010_how,wright_2012_does,feng_2013_scale,grubb_2015_relationships,wigley_2016_leaf,messier_2017_interspecific,kichenin_2013_contrasting.
 Many mechanisms have been suggested for scale-dependence of trait relationships.
 Trade-offs may only apply when multiple competing strategies co-occur, and alternative processes can drive community assembly where strong environmental filters severely limit the range of feasible strategies cite:rosado_2017_relative,grime_2012_evolutionary.
 Different selective pressures dominate at different scales, particularly within versus across species cite:albert_2010_intraspecific_functional_variability,messier_2010_how,kichenin_2013_contrasting,
 and different traits have different sensitivities to such pressures cite:messier_2016_trait.
 Experimental evidence shows that species can alter different aspects of their leaf economy independently cite:wright_2012_does.
 Meanwhile, allocation patterns (and therefore investment strategies and trait relationships) vary across plant functional types cite:ghimire_2017_global.
-Second, among-trait correlations do not provide causal evidence for functional trade-offs.
-Rather, these correlations set an upper limit on the dissimilarity in variation structure between traits,
-such traits even moderately-correlated at one scale can still vary independently at other scales cite:messier_2016_trait.
-Similarly, some trait "trade-offs" (and corresponding correlations) only occur under specific limiting conditions, in the absence of which the trait pairs are free to vary independently cite:grubb_2015_trade.
-Third, plants maintain their fitness through multiple independent strategies, corresponding to multiple mutually orthogonal axes of trait variability.
-For instance, changes in leaf economic traits can fail to predict changes in other aspects of plant function, such as
+Moreover, plants maintain their fitness through multiple strategies, not just leaf economics, which can lead to multiple mutually orthogonal axes of trait variability.
+As a result, changes in leaf economic traits often fail to predict changes in other aspects of plant function, such as
 hydraulics cite:li_2015_leaf,
 dispersal cite:westoby_2002_plant_ecological_strategies,
 and overall plant carbon budget cite:edwards_2014_leaf.
+
+The leaf economic spectrum has been investigated extensively at the global scale, where it is robust,
+and at local scales (within species, and across similar species within the same ecosystem), where deviations from it are common.
+However, a lot of ecosystem ecology involves plant functional types, groups of plant species with similar structural and functional characteristics that occupy similar bioclimatic niches cite:ustin_2010_remote.
+Plant functional types are essential to many dynamic vegetation and earth system models cite:lavorel_1997_plant_functional_classifications,wullschleger_2014_plant,prentice_1992_special_paper.
+However, they are also useful for ecology more broadly.
+
+Meanwhile, grouping similar species into plant functional types with shared characteristics is widespread in ecological studies cite:naeem_2003_disentangling and is essential to many ecosystem models cite:lavorel_1997_plant_functional_classifications,wullschleger_2014_plant.
+
+While the leaf economic spectrum has been investigated at the global scale, where
+
 Finally, the observed global trait space is the result of, among other things, thousands to millions of years of evolution and community assembly,
 and may therefore be very different in shape and size from the trait space defining ecosystem responses at policy-relevant time scales of years to decades.
 
