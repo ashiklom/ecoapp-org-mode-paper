@@ -35,7 +35,7 @@ However, we have chosen to keep this paper focused on groupings by plant functio
 2 Abstract goes directly into the topic. A bit of motivation / relevance would be nice.
 #+END_QUOTE
 
-{TODO}
+We have added two sentences introducing the leaf economic spectrum and its study at different scales to the abstract.
 
 #+BEGIN_QUOTE
 8  indicating … -> Spontaneously, I don’t see how this can be concluded, but I’ll read on and wait to be educated

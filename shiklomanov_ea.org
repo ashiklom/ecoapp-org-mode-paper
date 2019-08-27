@@ -93,10 +93,12 @@
 #+END_EXPORT
 
 * Abstract
-  :PROPERTIES:
-  :UNNUMBERED: true
-  :END:
-  
+:PROPERTIES:
+:UNNUMBERED: true
+:END:
+
+The leaf economic spectrum is a widely-studied axis of plant trait variability that defines a trade-off between plant investment in leaf longevity versus productivity.
+While the leaf economic spectrum has been investigated at the global scale, where it is robust, and at local scales, where deviations from it are common, it has received less attention at the intermediate scale of PFTs.
 We investigated whether global leaf economic relationships are also present within plant functional types (PFTs), and the extent to which this hierarchical structure can be used to constrain trait estimates.
 We developed a hierarchical multivariate Bayesian model that assumes separate means and covariance structures within and across PFTs and fit this model to seven leaf traits from the TRY database related to leaf morphology, biochemistry, and photosynthetic metabolism.
 Trait correlations were generally consistent in direction within and across PFTs, and consistent with predictions of the leaf economic spectrum.
