@@ -311,19 +311,19 @@ We clarified that, by "significantly lower", we meant that the 95% credible inte
 This is described in the "Methods: Analysis of results section."
 
 #+begin_quote
-251 OK, this is the uncertainty of the mean, but more important for me would be the predictive error, which could be very different (also depending  on  how much IV  is in  these traits).
+251 OK, this is the uncertainty of the mean, but more important for me would be the predictive error, which could be very different (also depending on how much IV is in these traits).
 #+end_quote
 
 {TODO}
 
 #+begin_quote
-268 You use again “significant”, but I  don’t think  you  have run significant tests here. Clarify what you mean
+268 You use again “significant”, but I don’t think you have run significant tests here. Clarify what you mean
 #+end_quote
 
 As above, we clarified that by "not-significant", we meant "95% credible interval of our estimate overlapped zero".
 
 #+begin_quote
-279 It’s a bit unfortunate that this analysis doesn’t allow separating spread and direction of the trade-off. What I mean is that a lower correlation could result from a smaller slope in a regression  between two traits, or from more spread around the regression line. Would be nice to see which of the two possibilities is responsible here, a change of the direction of the trade-off, or an increase in variability. Please discuss if applicable.
+279 It’s a bit unfortunate that this analysis doesn’t allow separating spread and direction of the trade-off. What I mean is that a lower correlation could result from a smaller slope in a regression between two traits, or from more spread around the regression line. Would be nice to see which of the two possibilities is responsible here, a change of the direction of the trade-off, or an increase in variability. Please discuss if applicable.
 #+end_quote
 
 {TODO}
@@ -478,15 +478,25 @@ Given that we know quite a bit about the LES, it would have been interesting to 
 {TODO}
 
 #+begin_quote
-Similarly, why did the authors think the hierarchical model was necessary, and what does it mean that it didn't improve estimates? Overall this manuscript feels a bit too focused on the technical methods at the expense of the motivating questions.
+Similarly, why did the authors think the hierarchical model was necessary, and what does it mean that it didn't improve estimates?
 #+end_quote
 
 {TODO}
 
 #+begin_quote
-Writing-wise, this manuscript is well written and clear, however, it feels like it is written to target people already in the small niche of ecological land surface modelers. I think it would be more appealing to a wider audience if the introduction was edited to explain more of the underlying concepts and why we care about them. For example, the manuscript refers to LES working at the global scale and not at local scales, then refers to PFTs as an intermediate scale (lines 74-76) but this is using "scale" in a very abstract way that deserves more explanation.
+Overall this manuscript feels a bit too focused on the technical methods at the expense of the motivating questions.
+#+end_quote
+
+{TODO}
+
+#+begin_quote
+Writing-wise, this manuscript is well written and clear, however, it feels like it is written to target people already in the small niche of ecological land surface modelers.
+I think it would be more appealing to a wider audience if the introduction was edited to explain more of the underlying concepts and why we care about them.
+For example, the manuscript refers to LES working at the global scale and not at local scales, then refers to PFTs as an intermediate scale (lines 74-76) but this is using "scale" in a very abstract way that deserves more explanation.
 Global and local scales are both spatial, but PFTs are really a conceptual scale between lumping everything together ('global') and modeling each species or individual separately.
 #+end_quote
+
+We have re-written large parts of the introduction to address this concern, with particular emphasis on the need for PFTs in the context of trait ecology and vegetation modeling.
 
 #+begin_quote
 At the very end of the manuscript PFTs are then semi-equated with biomes (line 383-384) which isn't right.
@@ -496,7 +506,7 @@ At the very end of the manuscript PFTs are then semi-equated with biomes (line 3
 Throughout the introduction it would help if the manuscript spent a bit more time explaining to a novice/outside reader why PFTs, traits, and land surface models are all worth reading and learning about.
 #+end_quote
 
-We have re-written large parts of the introduction to address this concern, with particular emphasis on the need for PFTs in the context of trait ecology and vegetation modeling.
+See earlier comment abot revisions to the inroduction.
 
 #+begin_quote
 Table 1: Make sure it's clear that the top 8 PFTs in the list are trees.
@@ -511,7 +521,9 @@ Figure 1: Seems like this would be better as a table in an appendix? Dedicating 
 We have replaced this figure with a table.
 
 #+begin_quote
-Figure 2: This figure needs more explanation in the caption of what is being shown. What does the slope and length of the lines represent? Also, it's almost impossible to tell this many colors apart in a figure (colorbrewer doesn't even have 14 classes as an option) - it might be worth trying to come up with a pared down version of this that focuses on some key points.
+Figure 2: This figure needs more explanation in the caption of what is being shown.
+What does the slope and length of the lines represent?
+Also, it's almost impossible to tell this many colors apart in a figure (colorbrewer doesn't even have 14 classes as an option) - it might be worth trying to come up with a pared down version of this that focuses on some key points.
 #+end_quote
 
 {TODO}
