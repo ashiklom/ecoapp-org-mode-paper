@@ -267,7 +267,8 @@ Consider also if there is a possibility to analyze the error, e.g. by plotting /
 
 #+begin_quote
 226 Maybe I’m missing it, but is there any discussion of the correlation between PFTs?
-In general, I think you could leverage the hierarchical setup much better. Essentially, what we have is a global correlation.
+In general, I think you could leverage the hierarchical setup much better.
+Essentially, what we have is a global correlation.
 With the hierarchical model, we can now partition this global LES into a within and between PFT correlation.
 What I understand from this section so far is that the within PFT correlation is broadly identical to the global correlation, except for some PFTs.
 But what about the between PFT correlation, does this also follow the LES, or is this completely different?
@@ -284,10 +285,18 @@ If this could be done, I think it could be an ecologically very valuable figure.
 {TODO}
 
 #+begin_quote
-234 OK, I see this addresses in some sense my point about the correlation across  PFTs above, but would be nice to discuss this in terms of correlation of the means, not means only. As a side note: given the small number of PFTs, one does wonder if the trait correlation across PFTs can even properly be estimated (I think you make some comments to this effect later, but if it can’t estimate, then why fit this model?).
+234 OK, I see this addresses in some sense my point about the correlation across PFTs above, but would be nice to discuss this in terms of correlation of the means, not means only.
 #+end_quote
 
 {TODO}
+
+#+begin_quote
+As a side note: given the small number of PFTs, one does wonder if the trait correlation across PFTs can even properly be estimated (I think you make some comments to this effect later, but if it can’t estimate, then why fit this model?).
+#+end_quote
+
+We have added a simple power analysis of correlation coefficients to the "Methods: Analysis of Results".
+The result is that, with 14 PFTs, we can estimate correlations of at least 0.74 with 95% power and confidence.
+This means that our "non-significant" correlations still allow us to place an upper limit on the strength of across-PFT correlations, albeit a higher one than we would have liked.
 
 #+begin_quote
 244 significantly? This is a Bayesian analysis.
