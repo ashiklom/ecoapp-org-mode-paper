@@ -285,13 +285,15 @@ P(\mathbf{\Sigma} \mid
 
 where $n$ is the number of observations, $m$ is the number of traits in data matrix $\mathbf{x}$, and $\bar{\mathbf{x}}$ is the column means of $\mathbf{x}$.
 For further details on the derivation of the conjugate relationship, see Gelman /et al./ citeyear:gelman_2003_bayesian (Section 3.6, "Multivariate normal with unknown mean and variance", pg. 72).
+
 We used weakly-informative priors for trait means and variances (diagonals of the multivariate normal covariance matrix), the values of which are shown in Table S1.
 All of the covariance (off-diagonal) terms in the prior variance matrix were set to zero.
 We used uninformative priors for the Wishart distribution ($\nu_0 = 0$, $\mathbf{S}_0 = \mathrm{diag}(1, m)$).
 
-We modeled the partially missing observations as latent variables conditioned on the present observations and estimated mean vector and covariance matrix.
-The multivariate nature of this sampling procedure makes it incapable of accommodating partially missing observations.
-Therefore, our algorithm included multiple imputation of partially missing data cite:white_2010_multiple,graham_2009_missing_data_analysis.
+The above equations defining the conjugacy relationship do not work if the data matrix $x$ has any missing values.
+Therefore, we modeled the partially missing observations as latent variables conditioned on the present observations and estimated mean vector and covariance matrix.
+This approach is conceptually similar to multiple imputation cite:white_2010_multiple,graham_2009_missing_data_analysis,
+and is quite distinct from single imputation, where data are imputed once in a separate step prior to parameter estimation cite:white_2010_multiple,graham_2009_missing_data_analysis.
 For a block of data $\mathbf{x\prime}$ containing missing observations in columns $\mathbf{m}$ and present observations in columns $\mathbf{p}$,
 missing values $\mathbf{x\prime}[m]$ are drawn randomly from a conditional multivariate normal distribution at each iteration of the sampling algorithm:
 
@@ -330,7 +332,10 @@ Similarly, let $x_i$ be the realization of the data $\mathbf{x}\prime$ with miss
 
 A detailed demonstration of this approach is shown in Supporting Information Method S1.
 By performing imputation at every MCMC iteration, we integrate over the uncertainty in the missing data.
-This approach is distinct from single imputation, where data are imputed once in a separate step prior to parameter estimation cite:white_2010_multiple,graham_2009_missing_data_analysis.
+Combined with uninformative priors on the covariance centered on zero (as described above),
+this means our approach provides an inherently conservative estimate of both trait covariances and imputed missing values.
+Where data are limited, our approach will tend towards covariance estimates of zero with wide credible intervals,
+and the resulting weak and uninformative covariance estimates will lead to larger uncertainties in the imputed values.
 
 For each model fit, we ran independent five chains, continuing sampling until the final result achieved convergence as determined by a univariate Gelman-Rubin potential scale reduction statistic less than 1.1 for all parameters cite:gelman_1992_inference.
 We implemented this sampling algorithm in a publicly available R cite:team_2018_r package (<http://github.com/ashiklom/mvtraits>).

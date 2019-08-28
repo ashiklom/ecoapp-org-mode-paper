@@ -179,7 +179,8 @@ We added a table containing values for the weakly-informative priors on the mult
 138 Estimating covariances is notoriously problematic, in particular in small data situations. It would seem useful to me to spend a few words on the degrees of freedom, scaling, and whether you see an overfitting concern here, plus about possible ideas for Bayesian regularization of the means or covariances (in case of low data situations). If you think that the data is usually so strong that this is not an issue, that’s also fine, but would be good to be explicit about this. Also, I wonder: have you tested (via simulation) that your current setup can faithfully retrieve the correlation parameters?
 #+end_quote
 
-{TODO}
+We have added a few sentences to the methods describing how our approach avoids overfitting by tending towards zero covariance estimates with wide credible intervals in cases where data are limiting.
+Beyond that, given Reviewer 2's comments that this manuscript is "too focused on the technical methods at the expense of the motivating questions", we are reluctant to spend too much time discussing alternative approaches, including Bayesian regularization.
 
 #+begin_quote
 139 Not sure if this equation is useful to the reader. Is there anything we learn from that? Seems just a restatement of what you said
@@ -206,6 +207,7 @@ We have added the section number, section title, and page number.
 This was unclear wording on our part.
 What we meant to say here was that the most popular R packages for Bayesian analysis using graphical models (namely, BUGS/JAGS and Stan) do not have convenient support for multivariate distributions with partial missingness.
 Our model actually does treat the partially missing observations as latent variables -- it just samples them in blocks conditioned on the partially present data in each row and the current sampled mean vector and variance-covariance matrix.
+We have revised this section to make this clearer.
 
 #+begin_quote
 147 The explanation is not 100% clear to me: do I understand correctly: in a loop, you a) impute b) fit the hierarchical model? What I don’t get is: i) how does the fitted model then feed back to the imputation step? Also, when do you stop? I think it would be important to explain this procedure in more detail.
