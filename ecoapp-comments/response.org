@@ -1,6 +1,9 @@
 #+TITLE: Reviewer response
 #+AUTHOR: Alexey N. Shiklomanov, Elizabeth M. Cowdery, Michael Bahn, Chaeho Byun, Steven Jansen, Koen Kramer, Vanessa Minden, Ülo Niinemets, Yusuke Onoda, Nadejda A. Soudzilovskaia, Michael C. Dietze
 
+#+OPTIONS: toc:nil tags:nil
+#+LATEX_HEADER: \usepackage[left=1in,right=1in,top=1in,bottom=1in]{geometry}
+
 {TODO Summary}
 
 * Reviewer 1
