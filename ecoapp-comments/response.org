@@ -18,7 +18,8 @@ a) at several crucial places in the ms, the authors interpret a reduction of pos
 b) The paper itself is written comparatively well, but motivation and ecological interpretation could be extended at some points. See my detailed remarks.  
 #+END_QUOTE
 
-{TODO}
+We have re-written large parts of the introduction to address this concern, with particular emphasis on the need for PFTs in the context of trait ecology and vegetation modeling.
+{TODO - discussion}
 
 #+BEGIN_QUOTE
 c) The choice to structure species by PFTs seems obvious from the perspective of a person working with dynamic vegetation models, but less obvious from a general ecology / data analysis perspective. If we forget the models for a moment, I am quite sure that there are other grouping options that might make sense, maybe more sense, other than a PFT grouping. Some things that come to mind is
@@ -56,7 +57,7 @@ We have added two sentences introducing the leaf economic spectrum and its study
 15 Personally, I would have found it more logical to start this paper with trait correlations and the LES, because this is what you examine in the end, and then follow up with the PFTs
 #+END_QUOTE
 
-We agree and have revised this paragraph accordingly.
+We have re-organized this paragraph accordingly.
 
 #+BEGIN_QUOTE
 17 Why "however". There doesn’t seem to be a contradiction. It’s more: at the same time
@@ -105,7 +106,8 @@ We have added this reference.
 51 Here and for the other points above: I agree with the conclusions summarized here, but it might be helpful for the reader to provide a very short sketch of the premises / arguments for the respective conclusions in the cited papers. E.g. what’s the argument in Messier 2016 for the causality problem?
 #+end_quote
 
-We have elaborated on the Messier and Grubb papers in this sentence.
+In our re-organization of the introduction, we ended up dropping the specific sentence to which this is referring.
+Moreover
 
 #+begin_quote
 51 Also, the Messier paper is 2017, not 2016
@@ -130,7 +132,11 @@ We agree, and have revised this sentence to make the point more general (i.e. th
 60 An issue with this entire section that ends here is that it doesn’t become clear which of the issues you discuss here (if any) can be solved by an approach where you fit trait correlations in hierarchical groups. The arguments in favor of the PFT analysis in the following paragraph make sense to me, but they relate only vaguely to the specific issues in the previous section. Please be more clear about which issues are solved by working with PFTs (and why), and which remain unsolved.
 #+end_quote
 
-{TODO}
+We have re-organized and re-written the introduction to address this and related concerns.
+In the revised version, there is a more logical argument flow:
+(1) Global trait correlations may not hold at local scales.
+(2) But, trying to do ecosystem ecology from the bottom-up starting with individual species is also problematic.
+(3) Therefore, PFTs are a useful intermediate scale.
 
 #+begin_quote
 78 What do you mean by constrain? Predict? See also my major comment: what’s the performance criterion under which you want to evaluate an “improvement”.
@@ -479,7 +485,7 @@ At the very end of the manuscript PFTs are then semi-equated with biomes (line 3
 Throughout the introduction it would help if the manuscript spent a bit more time explaining to a novice/outside reader why PFTs, traits, and land surface models are all worth reading and learning about.
 #+end_quote
 
-{TODO}
+We have re-written large parts of the introduction to address this concern, with particular emphasis on the need for PFTs in the context of trait ecology and vegetation modeling.
 
 #+begin_quote
 Table 1: Make sure it's clear that the top 8 PFTs in the list are trees.
