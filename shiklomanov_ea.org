@@ -256,7 +256,7 @@ where $\mathbf{\mu}_p$ and $\mathbf{\Sigma}_p$ are the mean vector and covarianc
 *** Model implementation
 
 We fit the above models using Gibbs sampling, which leverages conjugate prior relationships for efficient exploration of the sampling space.
-The main advantags of Gibbs sampling over distribution-agnostic Bayesian algorithms such as Metropolis Hastings cite:haario_2001_adaptive, Differential Evolution cite:terbraak_2008_differential, and Hamiltonian Monte-Carlo cite:neal_2011_hmc is that Gibbs sampling has a 100% proposal acceptance rate (compared to 10-65% for these algorithms), meaning that it requires roughly 2-10 times fewer MCMC iterations.
+The main advantages of Gibbs sampling over distribution-agnostic Bayesian algorithms such as Metropolis Hastings cite:haario_2001_adaptive, Differential Evolution cite:terbraak_2008_differential, and Hamiltonian Monte-Carlo cite:neal_2011_hmc is that Gibbs sampling has a 100% proposal acceptance rate (compared to 10-65% for these algorithms), meaning that it requires roughly 2-10 times fewer MCMC iterations.
 
 For priors on all multivariate mean vectors ($\mathbf{\mu}$), we used multivariate normal distributions.
 For priors on all multivariate variance-covariance matrices, we used the Wishart distribution ($W$), which leads to the following posterior distribution:
