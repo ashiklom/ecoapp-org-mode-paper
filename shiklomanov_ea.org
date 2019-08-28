@@ -124,8 +124,8 @@ cite:wright_2004_worldwide,wright_2005_modulation,cornwell_2009_community,ordone
 As a result, relationships between leaf economic traits and climate have been used in ecosystem models to more finely resolve variation in plant function cite:sakschewski_2015_leaf,verheijen_2015_inclusion,scheiter_2013_next.
 
 The global, interspecific trait space in which the classic leaf economic spectrum was defined is the end result of a multitude of different processes operating at different spatial, temporal, and phylogenetic scales.
-The subset of these processes operating on time-scales of centuries to millenia, such as evolution or turnover in soil carbon and nutrients,
-may not be relevant for predicting how individual plants and ecosystems will respond to changes on policy-relevant timescals of months to decades.
+The subset of these processes operating on time-scales of centuries to millennia, such as evolution or turnover in soil carbon and nutrients,
+may not be relevant for predicting how individual plants and ecosystems will respond to changes on policy-relevant timescales of months to decades cite:shaw_2012_rapid.
 The extent to which processes operating on these shorter timescales result in the same trait trade-offs is an open question in trait ecology.
 Observational studies of trait correlations at smaller spatial scales, such as sites, species, and individuals, produce inconsistent results,
 with some studies finding consistent correlations across scales cite:wright_2004_worldwide,albert_2010_multi,asner_2014_amazonian
@@ -142,33 +142,33 @@ hydraulics cite:li_2015_leaf,
 dispersal cite:westoby_2002_plant_ecological_strategies,
 and overall plant carbon budget cite:edwards_2014_leaf.
 
-# Why the PFT scale?
-# Possibly relevant references:
-# - cite:calow_1987_towards
-# - cite:albert_2011_when
-# - cite:box_1995_factors, cite:prentice_1992_special_paper
-# - Refs from current PFT paragraph
+Ascribing too much predictive power to observed global trait relationships can be problematic for all of the reasons discussed above.
+On the other hand, trying to understand ecosystem through bottom-up approaches starting with individual species is also challenging.
+For one, the required species-specific trait observations do not exist for a very large number of species cite:cornwell_2019_what.
+Even where sufficient trait data are available, scaling functional traits to ecosystem-scale processes also requires data on species relative abundance cite:grime_1998_benefits,
+which can be even more uncertain than the trait data cite:clark_2016_why.
+Finally, plant interactions can result in community-level responses to environmental change that are distinct from the sum of species-specific changes cite:poorter_2003_plant.
 
-The leaf economic spectrum has been investigated extensively at the global scale, where it is robust,
-and at local scales (within species, and across similar species within the same ecosystem), where deviations from it are common.
-However, a lot of ecosystem ecology involves plant functional types, groups of plant species with similar structural and functional characteristics that occupy similar bioclimatic niches cite:ustin_2010_remote.
-Plant functional types are essential to many dynamic vegetation and earth system models cite:lavorel_1997_plant_functional_classifications,wullschleger_2014_plant,prentice_1992_special_paper.
-However, they are also useful for ecology more broadly.
+Another strategy is to aggregate species with similar structural and functional characteristics into plant functional types (PFTs).
+Although PFTs are most widely used as the unit of plant functional differentiation in dynamic vegetation and earth system models
+cite:lavorel_1997_plant_functional_classifications,wullschleger_2014_plant,prentice_1992_special_paper,
+the underlying concept of plant assemblages has been an important part of ecological discourse for over a century cite:cowles_1899_ecological,clements_1936_nature,naeem_2003_disentangling.
+Patterns of trait variation within and across PFTs are relevant for several reasons.
+First, trait covariance can be leveraged to impute missing trait values cite:swenson_2013_phylogenetic or otherwise borrowing statistical strength across different traits.
+The extent to which leveraging trait covariance reduces the size (i.e. variability and/or uncertainty) of the trait space has important implications for
+quantifying the parametric uncertainty in vegetation model projections cite:dietze_2013_improving,lebauer_2013_facilitating,dietze_2014_quantitative.
+Second, the large uncertainty in model projections of future global carbon budgets cite:friedlingstein_2006_climate,friedlingstein_2014_uncertainties
+has been at least partially attributed to the models' failure to account for plant adaptation to changing environments cite:sitch_2008_evaluation,
+which has led to an increased interest in adding within-PFT trait plasticity to models cite:van_2011_going,verheijen_2015_inclusion.
 
-Meanwhile, grouping similar species into plant functional types with shared characteristics is widespread in ecological studies cite:naeem_2003_disentangling and is essential to many ecosystem models cite:lavorel_1997_plant_functional_classifications,wullschleger_2014_plant.
-
-While the leaf economic spectrum has been investigated at the global scale, where
-
-Finally, the observed global trait space is the result of, among other things, thousands to millions of years of evolution and community assembly,
-and may therefore be very different in shape and size from the trait space defining ecosystem responses at policy-relevant time scales of years to decades.
-
-An alternative to using a single global set of trait trade-offs is to allow trait correlations to vary among PFTs (potentially with finer resolution, e.g. citealt:boulangeat_2012_improving)
-while using statistical analyses to account for uncertainty and variability in the aggregated trait values.
-For example, the Predictive Ecosystem Analyzer (PEcAn, pecanproject.org), an ecosystem model-data informatics system, parameterizes PFTs using trait probability distributions from a Bayesian meta-analysis of trait data cite:dietze_2013_improving,lebauer_2013_facilitating. 
-This approach explicitly separates the processes driving PFT-level differentiation from those driving finer-scale functional variability,
-and is useful for guiding future data collection and model refinement cite:dietze_2014_quantitative.
-However, a univariate meta-analysis like PEcAn's fails to account for trait correlations and therefore neglects useful knowledge about relationships across PFTs and between traits.
-At the other extreme, existing regional and global analyses (e.g. citealt:van_2011_going,sakschewski_2015_leaf) ignore variability within PFTs, often resulting in macroecological, evolutionary, and competitive trade-offs across PFTs being used to drive acclimation and instantaneous responses within PFTs.
+# More general ecological thoughts about PFTs:
+# Lastly, PFTs are defined such that the differences between them in terms of the abiotic environment (e.g. tropical, temperate, boreal) and structure
+# Lastly, abiotic differences between the biomes underlying PFT definitions (e.g. tropical, temperate, and boreal)
+#
+# Lastly, PFTs are, by definition the product of regional- to global-scale environmental filters cite:box_1995_factors,prentice_1992_special_paper,
+# as well as evolutionary discretization of traits like woodiness, leaf habit, and photosynthetic pathway on time scales far exceeding
+# Lastly, the categorical traits typically used to define PFTs, namely woodiness, leaf habit, and photosynthetic pathway, are effectively fixed on sub-millennial timescales,
+# and to a lesser extent the climate regions that are typically used to define PFTs
 
 While the leaf economic spectrum has been investigated at the global scale, where it is robust, and at local scales, where deviations from it are common, it has received less attention at the intermediate scale of PFTs.
 Thus, this paper seeks to answer the following questions:
