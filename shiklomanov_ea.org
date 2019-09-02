@@ -628,23 +628,33 @@ C4G & C4 Grass & 255 & 31 & 1312 & 1461 & 335 & 44 & 0 & 0 & 410 & 56 & 28 & 0 &
 \pagebreak
 #+END_EXPORT
 
-#+CAPTION: First eigenvector of correlation matrices estimated by the hierarchical model, for mass-normalized (/left/) and area-normalized (/right/) traits.
-#+CAPTION: Black line ("GLOB") indicates correlations across PFT means, and colored lines indicate correlations within PFTs.
-#+CAPTION: Points that are close together on the same side of the zero line (e.g. SLA, Nmass, and Pmass) indicate traits that are mutually positively correlated.
-#+CAPTION: Points on opposite sides of the zero line indicate traits that are anti-correlated (e.g. SLA and leaf lifespan).
-#+CAPTION: Points near zero indicate statistical independence from other traits.
-#+CAPTION: Traits along the $x$ axis are sorted in order of decreasing agreement in eigenvector terms, so within each panel, correlations among traits to the left are more robust within- and across-PFTs than correlations to the right.
-[[/Users/shik544/Projects/phd_work/multivariate_traits/np-trait-analysis/figures/ecoapp-revision/eigenvector.png]]
+#+CAPTION: Mean pairwise reduced major axis (RMA) slope estimates calculated from within- and across-PFT covariance matrix estimates from the hierarchical model.
+#+CAPTION: Blue colors indicate positive slopes and red colors indicate negative slopes, with darker shades indicating steeper slopes.
+#+CAPTION: Asterisks ("*") indicate slopes whose 95% credible intervals do not overlap zero.
+#+NAME: fig:rmaslope
+[[../np-trait-analysis/figures/manuscript/rma-slope-tiles.pdf]]
 
-#+CAPTION: Mean and 95% credible interval on estimates of pairwise correlation coefficients for all data pooled globally (dark grey) and for each PFT (colored). For most PFT-trait pairs, correlations are mutually consistent in magnitude but vary in strength.
-[[/Users/shik544/laptop_folders/Projects/new-phytologist-traits/np-trait-analysis/figures/manuscript/correlation_boxplot.pdf]]
-
-#+CAPTION: Mean and 95% credible interval on best estimates of traits for each plant functional type from the univariate, multivariate, and hierarchical models. For leaf lifespan and SLA, results were not significantly different between the mass- and area-based models, so only results from the mass-based model are shown. For some PFT-trait combinations, where large error bars resulting from the relatively uninformative priors are substantially larger than the variability among means, the $y$ axes are constrained to facilitate comparison. Values and uncertainties for estimates from the hierarchical model are reported in tables S1 and S2.
+#+CAPTION: Mean and 95% credible interval on best estimates of traits for each plant functional type from the hierarchical model.
+#+CAPTION: For leaf lifespan and SLA, results were similar whether the other traits were normalized by mass- or area-, so only results from the mass-based fit are shown.
+#+CAPTION: Values and uncertainties for estimates from the hierarchical model are reported in tables S1 and S2.
 #+NAME: fig:traitmeans
-[[/Users/shik544/laptop_folders/Projects/new-phytologist-traits/np-trait-analysis/figures/manuscript/mean_comparison.pdf]]
+[[../np-trait-analysis/figures/manuscript/mean_comparison.pdf]]
 
-#+CAPTION: Relative uncertainty in PFT-level trait estimates as a function of sample size for each model type. Lines represent linear models ($\log(y) = b_0 + b_1 \log(x)$) fit independently for each model type. In general, differences in estimate uncertainty between the univariate and multivariate models were minimal at large sample sizes but increasingly important at low sample sizes. However, differences in estimate uncertainty between the multivariate and hierarchical models were consistently negligible.
-[[/Users/shik544/laptop_folders/Projects/new-phytologist-traits/np-trait-analysis/figures/manuscript/relative_ci_model.pdf]]
+#+CAPTION: Normalized mean root mean square error (RMSE) estimates from 5-fold cross-validation, by model and trait.
+#+CAPTION: Normalization is such that the highest RMSE for a given trait-model combination is 1.
+#+CAPTION: Model abbreviations are as follows:
+#+CAPTION: `uni` is the univariate model, by PFT;
+#+CAPTION: `multi` is the multivariate model on all data ("global"), ignoring PFTs;
+#+CAPTION: `multi_group` is the multivariate model fit separately to each PFT;
+#+CAPTION: and `hier` is the hierarchical model.
+#+NAME: Fig:rmse
+[[../np-trait-analysis/figures/manuscript/n-fold-rmse.png]]
+
+#+CAPTION: Relative uncertainty in PFT-level trait estimates as a function of sample size for each model type.
+#+CAPTION: Lines represent linear models ($\log(y) = b_0 + b_1 \log(x)$) fit independently for each model type.
+#+CAPTION: In general, differences in estimate uncertainty between the univariate and multivariate models were minimal at large sample sizes but increasingly important at low sample sizes.
+#+CAPTION: However, differences in estimate uncertainty between the multivariate and hierarchical models were consistently negligible.
+[[../np-trait-analysis/figures/relative_ci_model.pdf]]
 
 #+BEGIN_EXPORT latex
 \pagebreak
