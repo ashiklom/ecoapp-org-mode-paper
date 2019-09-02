@@ -332,32 +332,36 @@ For each model fit, we ran independent five chains, continuing sampling until th
 We implemented this sampling algorithm in a publicly available R cite:team_2018_r package (<http://github.com/ashiklom/mvtraits>).
 
 *** Analysis of results
-    
-To assess the consistency of within- and across-PFT trait trade-offs, we examined covariance estimates for each trait pair and, where the 95% credible interval of the pairwise covariance coefficient did not intersect with zero,
-we calculated the eigenvalues from the variance-covariance matrix for just that trait pair and plotted the corresponding dominant eigenvectors centered on the mean estimates (Fig. 2).
-This figure provides a visual representation of relative positions of PFTs in trait space and both the direction and extent of within-PFT trait covariance.
-It is analogous to conceptual figures describing hierarchical trait variability across environmental gradients as presented in Cornwell & Ackerly citeyear:cornwell_2009_community and Albert /et al./ citeyear:albert_2010_intraspecific_functional_variability.
 
-Due to the small number of points used to estimate across-PFT covariance in the hierarchical model, all of the across-PFT covariance coefficients had 95% credible intervals that overlapped zero (i.e. none were "statistically significant").
-A power analysis of correlation coefficients (`pwr::pwr.r.test` in R; cite:r_pwr_package) showed that with 14 plant functional types ($n = 14$),
-the smallest across-PFT correlation we would be able to estimate with 95% power ($\alpha = 0.95$) and confidence ($p = 0.05$) is 0.74,
-so we can reliably say that all PFT correlation coefficients were smaller than that value.
-Given the relatively low power of the across-PFT correlations, we instead compared within-PFT covariances from the hierarchical model against covariances from a single global multivariate model (henceforth referred to as "global" correlation/covariance).
+To assess the consistency of within- and across-PFT trait trade-offs,
+we calculated the mean and 95% credible interval of the pairwise reduced major axis slope ($M$) for each trait pair ($i$, $j$)
+from posterior samples of their variance-covariance matrices ($\mathbf{\Sigma}$) using the following equation:
 
-Besides the consistency in the direction of trait covariance within vs. across PFTs, we also investigated the strength and predictive power of these covariances, represented by correlation coefficients (i.e. pairwise covariance normalized by each trait's variance).
-We plotted the mean and 95% confidence interval of the pairwise trait correlation coefficients from the global multivariate model and PFT-specific estimates from the hierarchical model (Fig. 3).
+#+BEGIN_EXPORT latex
+\begin{equation}
+M_{i,j} = \frac{\mathbf{\Sigma}__{j,j}}{\mathbf{\Sigma}_{i,i}} \textmf{sign}(\mathbf{\Sigma}_{i,j})
+\end{equation}
+#+END_EXPORT
 
-Correlation coefficients are sensitive to data sampling, particularly sample size and range (stronger correlations when data have more samples and larger range).
-To evaluate the contribution of data sampling to our correlation estimates, we plotted the each pairwise correlation coefficient squared against pairwise sample size and normalized data range (Fig. S1 and S2).
+Although this is a Bayesian analysis and therefore has no formal tests of statistical significance,
+we approximated the statistical significance of slope estimates as those whose 95% credible interval did not overlap zero.
+We calculated reduced major axis slopes both within and across PFTs.
 
-To assess multivariate and hierarchical constraint on trait estimates,
-we compared the mean and 95% confidence intervals of trait estimates for each PFT from each model (Fig. 4).
-For reference, we included the default parameter values of CLM 4.5 (Table 8.1 in citealt:clm45_note) for SLA, $N_{mass}$, $N_{area}$, $V_{c,max,mass}$, and $V_{c,max,area}$ in Fig. 4.
+To compare the ability of the different models to predict missing trait observations,
+we performed a cross-validation where we randomly removed 1000 observations from the data
+and evaluated the ability of the fitted models to impute these missing observations.
+We report the results of the normalized mean root mean square error (RMSE) of these predicted observations.
+
+To explore patterns of trait variation across PFTs,
+and to provide updated parameter values for earth system models,
+we calculated the mean and 95% credible intervals of PFT-level trait estimates from our hierarchical model.
+We also compare these values to to the default parameter values of CLM 4.5 (Table 8.1 in citealt:clm45_note) for SLA, $N_{mass}$, $N_{area}$, $V_{c,max,mass}$ and $V_{c,max,area}$.
 To convert CLM's reported C:N ratio to $N_{mass}$, we assumed a uniform leaf C fraction of 0.46.
 We then divided this calculated $N_{mass}$ by the reported SLA to obtain $N_{area}$.
 We calculated $V_{c,max,mass}$ by multiplying the reported $V_{c,max,area}$ by the reported SLA.
 
-To test whether multivariate and hierarchical models offer relatively more utility at smaller sample sizes, we calculated the relative uncertainty ($\alpha$) as a function of the mean ($\mu$) and upper ($q_{0.975}$) and lower ($q_{0.025}$) confidence limits of trait estimates.
+To test whether multivariate and hierarchical models offer relatively more utility at smaller sample sizes,
+we calculated the relative uncertainty ($\alpha$) as a function of the mean ($\mu$) and upper ($q_{0.975}$) and lower ($q_{0.025}$) confidence limits of trait estimates.
 
 #+BEGIN_EXPORT latex
 \begin{equation}
@@ -405,6 +409,13 @@ However, the relationship between correlations strength and sample size was inco
 Every trait pair had at least one case (and often several cases) where a better-sampled PFT showed weaker correlations than PFTs with lower sample sizes, or where correlation strength varied significantly among PFTs with similar sample sizes (Fig. S1).
 Relationships between correlation strength and data range were even less consistent (Fig. S2).
 Therefore, we conclude that the variation in our correlation results can not be explained by sampling alone and captures some underlying ecophysiological differences between PFTs.
+
+# TODO: Make this fit better
+Due to the small number of points used to estimate across-PFT covariance in the hierarchical model, all of the across-PFT covariance coefficients had 95% credible intervals that overlapped zero (i.e. none were "statistically significant").
+A power analysis of correlation coefficients (`pwr::pwr.r.test` in R; cite:r_pwr_package) showed that with 14 plant functional types ($n = 14$),
+the smallest across-PFT correlation we would be able to estimate with 95% power ($\alpha = 0.95$) and confidence ($p = 0.05$) is 0.74,
+so we can reliably say that all PFT correlation coefficients were smaller than that value.
+
 
 ** Estimates of PFT-level means
 
