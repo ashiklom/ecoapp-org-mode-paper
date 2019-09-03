@@ -696,6 +696,7 @@ C4G & C4 Grass & 255 & 31 & 1312 & 1461 & 335 & 44 & 0 & 0 & 410 & 56 & 28 & 0 &
 #+END_EXPORT
 
 #+CAPTION: Mean pairwise reduced major axis (RMA) slope estimates calculated from within- and across-PFT covariance matrix estimates from the hierarchical model.
+#+CAPTION: The slope numerator ($y$) is the outer trait and the denominator ($x$) is the inner trait (so in the top row, the slope is \Delta(leaf lifespan) / \Delta(SLA)).
 #+CAPTION: Blue colors indicate positive slopes and red colors indicate negative slopes, with darker shades indicating steeper slopes.
 #+CAPTION: Asterisks ("*") indicate slopes whose 95% credible intervals do not overlap zero.
 #+NAME: fig:rmaslope
@@ -707,14 +708,14 @@ C4G & C4 Grass & 255 & 31 & 1312 & 1461 & 335 & 44 & 0 & 0 & 410 & 56 & 28 & 0 &
 #+NAME: fig:traitmeans
 [[../np-trait-analysis/figures/manuscript/mean_comparison.pdf]]
 
-#+CAPTION: Normalized mean root mean square error (RMSE) estimates from 5-fold cross-validation, by model and trait.
+#+CAPTION: Normalized mean root mean square error (RMSE) estimates from 20-fold cross-validation, by model and trait.
 #+CAPTION: Normalization is such that the highest RMSE for a given trait-model combination is 1.
 #+CAPTION: Model abbreviations are as follows:
 #+CAPTION: `uni` is the univariate model fit separately to each PFT;
 #+CAPTION: `multi` is the multivariate model fit separately to each PFT;
 #+CAPTION: and `hier` is the hierarchical model.
 #+NAME: fig:rmse
-[[../np-trait-analysis/figures/manuscript/n-fold-rmse.png]]
+[[../np-trait-analysis/figures/manuscript/n-fold-rmse.pdf]]
 
 #+CAPTION: Relative uncertainty in PFT-level trait estimates as a function of sample size for each model type.
 #+CAPTION: Lines represent linear models ($\log(y) = b_0 + b_1 \log(x)$) fit independently for each model type.
