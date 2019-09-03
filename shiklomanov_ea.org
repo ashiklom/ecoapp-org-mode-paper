@@ -447,8 +447,7 @@ However, the differences between the grouped multivariate model and the hierarch
 and in some cases (e.g. mass- and area-normalized V_{c,max} and J_{max}),
 the multivariate model actually slightly outperformed the hierarchical model.
 
-# TODO: Supplementary figure with all mean estimates
-In general, leaf trait estimates from the univariate, multivariate, and hierarchical models were similar (Fig. {TODO}).
+In general, leaf trait estimates from the univariate, multivariate, and hierarchical models were similar (Fig. S1).
 Where estimates differed between models, the largest differences were between the univariate and multivariate models, and additional constraint from the hierarchical model relative to PFT-specific multivariate models had a minimal effect on trait estimates.
 Significant differences in trait estimates between univariate and multivariate models occurred even for well-sampled traits, such as leaf nitrogen content.
 We also observed differences in posterior predictive uncertainties of mean estimates with respect to sample size.

@@ -45,6 +45,18 @@ stopifnot(
 npdir <- here::here("..", "np-trait-analysis")
 ```
 
+```{r mean-compare-all, echo = FALSE, fig.cap = mca_cap}
+mca_cap <- paste(
+  "Mean and 95% credible intervals on estimates of trait means for each plant functional type",
+  "from the univariate, multivariate, and hierarchical models.",
+  "For leaf lifespan and SLA, results were similar for mass- and area-based models,",
+  "so only results from the mass-based model area shown.",
+  "For some PFT-trait combination, where error bars are large due to the relatively",
+  "uniformative prior, $y$ axes are constrained to facilitate comparison."
+)
+knitr::include_graphics(file.path(npdir, "figures", "manuscript", "mean_comparison_all.pdf"))
+```
+
 ```{r echo = FALSE, results = "asis"}
 prior_df <- tibble::tribble(
   ~param, ~mean, ~stdev,
