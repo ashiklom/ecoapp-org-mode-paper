@@ -4,7 +4,7 @@
 #+OPTIONS: toc:nil tags:nil
 #+LATEX_HEADER: \usepackage[left=1in,right=1in,top=1in,bottom=1in]{geometry}
 
-{TODO Summary}
+{TODO Write summary}
 
 * Reviewer 1
 
@@ -407,7 +407,10 @@ We changed this to say "too few observations to estimate covariance patterns for
 {TODO}
 
 #+begin_quote
-368 I think the mutually confounding issue is actually the point that is most interesting from an ecological perspective. The relevant question is if trade-offs such as the LES scale through all levels (individual,  PFTs, all plants), or if they could be different at some scales. When taking together your results and other literature that looks at LES  within  species, it seems to me that current evidence suggestions  that trade-offs tend to be universal? Could you extend on this discussion, possibly also highlighting which trade-offs you suspect to be universal, and which might be different at different ecological scales?
+368 I think the mutually confounding issue is actually the point that is most interesting from an ecological perspective.
+The relevant question is if trade-offs such as the LES scale through all levels (individual,  PFTs, all plants), or if they could be different at some scales.
+When taking together your results and other literature that looks at LES  within  species, it seems to me that current evidence suggestions  that trade-offs tend to be universal?
+Could you extend on this discussion, possibly also highlighting which trade-offs you suspect to be universal, and which might be different at different ecological scales?
 #+end_quote
 
 {TODO}
@@ -416,16 +419,18 @@ We changed this to say "too few observations to estimate covariance patterns for
 372 I wouldn’t sign this statement, but OK, if you think so
 #+end_quote
 
-{TODO}
+We have replaced this statement in the revision.
 
 #+begin_quote
 385 See my concern: uncertainty != predictive error
 #+end_quote
 
-{TODO}
+We have added a cross-validation analysis as you suggested (see earlier comments).
+We have also clarified this sentence.
 
 #+begin_quote
-Fig. 1 not a big fan of this lattice plot layouts, you are loosing a lot of space with the plot headings, and the PFTs would better be placed below the plots, under the bars, imo. Consider if the visualization can be improved.
+Fig. 1 not a big fan of this lattice plot layouts, you are losing a lot of space with the plot headings, and the PFTs would better be placed below the plots, under the bars, imo.
+Consider if the visualization can be improved.
 #+end_quote
 
 We have removed this figure in the revised version.
@@ -434,7 +439,8 @@ We have removed this figure in the revised version.
 Fig. 2 as said, not sure what you mean by significant.
 #+end_quote
 
-As in the corresponding part of the methods, we replaced "not significant" with "credible intervals overlapped zero".
+
+However, we have replaced this figure with a conceptually simpler one in the revision.
 
 #+BEGIN_QUOTE
 Moreover, why would you not plot the n.s. too? A correlation of zero is also an information, isn’t it?
@@ -442,29 +448,35 @@ Moreover, why would you not plot the n.s. too? A correlation of zero is also an 
 
 {TODO}
 This was originally done to reduce visual clutter.
+However, we have replaced this figure with a conceptually simpler one in the revision.
 
 #+begin_quote
 Fig. 3 as said in the previous comments, I wonder if this could be better condensed. Difficult to see any patterns because of the high amount of info.
 #+end_quote
 
-{TODO}
+We have replaced this figure with a conceptually simpler one in the revision.
 
 #+begin_quote
-Fig. 4 Same point about lattice layout. Also, not sure why you suddenly introduce the units to the traits, while they are absent in all other plots.
+Fig. 4 Same point about lattice layout.
+Also, not sure why you suddenly introduce the units to the traits, while they are absent in all other plots.
 #+end_quote
 
-{TODO}
+The units in this figure make more sense now, since it is the first figure to actually show trait values (rather than their slopes).
+However, we have decided to keep the "lattice" layout.
 
 #+begin_quote
 Fig. 5 see my main comment: CI is not fit.
 #+end_quote
 
-{TODO}
+No, but is important.
+In the revision, we have an additional figure and analysis of the RMSE.
 
 * Reviewer 2
 
 #+begin_quote
-This manuscript starts from the relatively simple question of whether leaf economic spectrum (LES) patterns (correlations between SLA and leaf N, etc) hold when they are applied to a subset of the global distribution of plants (divided into PFTs). This is an interesting question because we use the LES a lot in trait-driven land surface models, yet these relationships tend to break down using smaller subsets (by area, etc) of plants. Reaching beyond the traits traditionally considered in the LES, this paper also considers metabolic 'traits'.
+This manuscript starts from the relatively simple question of whether leaf economic spectrum (LES) patterns (correlations between SLA and leaf N, etc) hold when they are applied to a subset of the global distribution of plants (divided into PFTs).
+This is an interesting question because we use the LES a lot in trait-driven land surface models, yet these relationships tend to break down using smaller subsets (by area, etc) of plants.
+Reaching beyond the traits traditionally considered in the LES, this paper also considers metabolic 'traits'.
 
 While I think this is an interesting question, I found myself wondering at the end of this paper what the actual point was. It reads a bit like a bunch of exploratory analyses in search of a conclusion, as evidenced by the many nearly unreadable multi-panel and matrix plots.
 #+end_quote
@@ -472,7 +484,8 @@ While I think this is an interesting question, I found myself wondering at the e
 {TODO}
 
 #+begin_quote
-Given that we know quite a bit about the LES, it would have been interesting to start this manuscript with some hypotheses instead of an exploration -> looking at all of these plots it is difficult to untangle what is unexpected versus what is normal.
+Given that we know quite a bit about the LES, it would have been interesting to start this manuscript with some hypotheses instead of an exploration ->
+looking at all of these plots it is difficult to untangle what is unexpected versus what is normal.
 #+end_quote
 
 {TODO}
@@ -501,6 +514,8 @@ We have re-written large parts of the introduction to address this concern, with
 #+begin_quote
 At the very end of the manuscript PFTs are then semi-equated with biomes (line 383-384) which isn't right.
 #+end_quote
+
+First of all, we state outright that our analysis of biome trends is not.
 
 #+begin_quote
 Throughout the introduction it would help if the manuscript spent a bit more time explaining to a novice/outside reader why PFTs, traits, and land surface models are all worth reading and learning about.

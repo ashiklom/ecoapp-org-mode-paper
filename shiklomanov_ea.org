@@ -431,7 +431,7 @@ Similarly, compared to grass PFTs, temperate and boreal shrubs had similar SLA b
 Patterns were different when these traits were normalized by area instead of mass.
 For example, needleleaf evergreen trees had relatively low $N_{mass}$ and $P_{mass}$ but relatively high $N_{area}$ and $P_{area}$, while the opposite was true of deciduous temperate trees and shrubs.
 
-A key application of this study was to provide data-driven parameter estimates for vegetation models.
+A key application of this study was to provide data-driven parameter estimates for Earth System models.
 To this end, we compared our mean parameter estimates with corresponding default parameters in CLM 4.5 cite:clm45_note (Fig. 2).
 Our SLA estimates were lower (non-overlapping 95% credible interval) than CLM parameters for all PFTs except tropical broadleaved evergreen trees.
 Our $N_{mass}$ estimates showed more across-PFT variability than CLM parameters, and only agreed with CLM for evergreen temperate trees, needleleaved trees, and C3 arctic grasses.
@@ -465,23 +465,31 @@ The hierarchical model further reduced both sensitivity to sample size and overa
 
 The leaf economic spectrum is defined by a negative correlation between SLA and leaf lifespan, and a positive correlation of SLA with $N_{mass}$, $P_{mass}$, and photosynthesis and respiration rates cite:wright_2004_worldwide.
 Our first objective was to investigate the extent to which these relationships hold within and across PFTs.
+# TODO: This is more nuanced -- discuss within- vs. across trends in leaf lifespan more here.
 Our results indicate that the leaf economic spectrum generally holds within PFTs, at least at the functional and phylogenetic resolution of current Earth System Models.
-Within PFTs, correlations between SLA, $N_{mass}$, and $P_{mass}$ were consistently positive, and correlations of these traits with leaf lifespan were generally negative (though, for many PFTs, 95% credible intervals on correlations overlapped zero).
+Within PFTs, slopes between SLA, $N_{mass}$, and $P_{mass}$ were consistently positive, and slopes of these traits with leaf lifespan were generally negative (though, for many PFTs, 95% credible intervals on correlations overlapped zero).
 Although we did not include maximum photosynthesis rate ($A_{max}$), $V_{c,max,mass}$ and $J_{max,mass}$ generally exhibited the expected positive correlations with SLA and negative correlations with leaf lifespan, as did $R_{d,mass}$, though many correlations were not significant.
 
+# TODO: Probably dropw this whole paragraph
 While trait relationships within PFTs were consistent in direction, their strength was more variable.
-For example, correlations of SLA with $N_{mass}$ and $P_{mass}$ were weaker in needleleaved PFTs compared to broadleaved PFTs.
-Meanwhile, correlations of SLA with $N_{area}$ were strongly negative for all PFTs (except the data-limited needleleaved deciduous trees), and especially so in temperate needleleaved species.
+# TODO: Below is not true.
+For example, slopes of SLA with $N_{mass}$ and $P_{mass}$ were weaker in needleleaved PFTs compared to broadleaved PFTs.
+Meanwhile, slopes of SLA with $N_{area}$ were strongly negative for all PFTs.
 Given that evergreen conifers have a relatively constant allocation of N to cell walls and RuBisCO cite:onoda_2017_physiological, our results support the idea that needleleaved species primarily adapt to their environment by changing leaf morphology (i.e. SLA) rather than foliar biochemistry cite:robakowski_2004_growth.
 
-Correlations between leaf nutrient concentrations and traits related to photosynthetic metabolism ($V_{c,max}$ and $J_{max}$) are often used to parameterize photosynthesis in ecosystem models cite:clm45_note,rogers_2016_roadmap.
-We found that the strength of these correlations was PFT-dependent.
+Relationships between leaf nutrient concentrations and traits related to photosynthetic metabolism ($V_{c,max}$ and $J_{max}$) are often used to parameterize photosynthesis in ecosystem models cite:clm45_note,rogers_2016_roadmap.
+We found that, in general, these relationships are robust.
+However, many PFTs--particularly those in high latitudes--lack the pairwise observations of metabolic and nutrient traits necessary to evaluate these relationships.
+
+# TODO: This is not really true either, so probably drop a lot of it.
+We found that the strength of these relationships was PFT-dependent.
 Although trait correlations are not necessarily indicative of allocation strategies, this result supports the findings of Ghimire /et al./ citeyear:ghimire_2017_global that N allocation to photosynthesis varies widely by PFT.
 In tropical evergreen broadleaved trees, for example, photosynthetic metabolism traits were better correlated with $P_{mass}$ than $N_{mass}$.
 This suggests that productivity of tropical species is P-limited cite:reich_2004_global,ghimire_2017_global, that N allocation strategies are more variable under N-poor conditions cite:ghimire_2017_global, or more generally that photosynthetic metabolism is more sensitive to environmental covariates than leaf nitrogen contents cite:ali_2015_global.
 Meanwhile, the relatively weak $N_{area}$ - $V_{c,max,area}$ correlation in needleleaved (compared to broadleaved) species echoes earlier results by Kattge /et al./ citeyear:kattge_2009_quantifying and suggests lower allocation of N to photosynthesis cite:ghimire_2017_global.
 Considering that needleleaf-dominated boreal forests have the largest influence on global climate of any biome cite:snyder_2004_evaluating,bonan_2008_forests_climate_change, we suggest that parameterization of needleleaf tree productivity based on foliar nitrogen content in Earth System Models be treated with caution.
 
+# TODO: This is not really true. Revise this section.
 Correlations of all traits with leaf lifespan were weaker (and often insignificant) within most PFTs than globally.
 This suggests that leaf economic relationships related to leaf lifespan are dominated by fundamental differences between deciduous and evergreen PFTs, while factors driving variability in leaf lifespan within PFTs are more complex and idiosyncratic cite:reich_2014_biogeographic,wu_2016_leaf.
 However, much of this within-PFT variability is driven by variations in shade responses, and a key limitation of our study is the absence of any information about the relative canopy positions at which traits were collected cite:lusk_2008_why,keenan_2016_global.
@@ -504,6 +512,7 @@ Meanwhile, our discussion of tropical tree productivity with respect to foliar n
 
 ** Covariance as constraint
 
+# TODO: Talk about RMSE here
 The second objective of this paper was to investigate the ability of trait covariance to reduce uncertainties in trait estimates.
 We show that accounting for covariance reduced uncertainty around PFT-level trait means, particularly for undersampled trait-PFT combinations (Fig. 4 and 5).
 Moreover, accounting for covariance occasionally resulted in small but statistically significant differences in the /position/ of trait mean estimates even for well-sampled PFT-trait combinations (e.g. $N_{mass}$ for temperate broadleaved deciduous trees, Fig. 4).
@@ -530,14 +539,15 @@ Ultimately, multivariate and hierarchical modeling may reveal functional trade-o
 ** Conclusions
 
 The vast diversity of plants is a major challenge for functional ecology and ecosystem modeling.
-Functional diversity research fundamentally depends on dimensionality reduction through a search for meaningful pattern that can be exploited to take reasonable guesses at average behavior. 
-The trait trade-offs comprising the leaf economic spectrum are one such pattern. 
+However, variation in plant form and function is not random, but often follows patterns driven by selective pressures.
+The trait trade-offs comprising the leaf economic spectrum are one such pattern.
 Our first objective in this study was to investigate the extent to which leaf economic relationships often observed at the global scale are also present within functional groups typically used in the current generation of Earth System Models.
 In general, we found that trait covariation within PFTs was generally similar to covariation observed globally, but that some within-PFT covariance patterns varied depending on trait and PFT.
+# TODO: Check the details of this
 Some relationships, such as the relationship between leaf N and P or between $V_{c,max}$ and $J_{max}$, varied relatively little across different PFTs and functional scales, suggesting these patterns are driven by universal constraints on leaf composition and function.
 However, others, such as the relationships between foliar nutrient content (N and P) and photosynthetic metabolism ($V_{c,max}$ and $J_{max}$), are PFT-dependent and therefore more representative of biome-specific environmental constraints or long-term evolutionary processes.
 Our second objective was to evaluate the utility of using trait covariance to constrain trait estimates.
-Our results indicate that accounting for covariance not only reduces estimate uncertainties--especially under data limitation--but can even significantly alter estimates for well-sampled traits.  
+Our results indicate that accounting for covariance improves the accuracy of trait imputation, reduces posterior predictive uncertainty in trait mean estimates, and, in some cases, even significantly alters these mean estimates.
 Collectively, our study highlight the importance of careful consideration of plant trait covariance across scales, both for understanding ecological processes and improving their representation in models.
 
 * Acknowledgments
@@ -545,7 +555,7 @@ Collectively, our study highlight the importance of careful consideration of pla
 This project was supported by NASA grant NNX14AH65G and NSF grants 1261582, 1458021, and 1655095, as well as the TRY initiative on plant traits (http://www.try-db.org).
 The TRY initiative and database is hosted, developed, and maintained by J. Kattge and G. Boenisch (Max Planck Institute for Biogeochemistry, Jena, Germany).
 TRY is currently supported by DIVERSITAS/Future Earth and the German Centre for Integrative Biodiversity Research (iDiv) Halle-Jena-Leipzig.
-The authors would also like to thank Christine Rollinson, Istem Fer, and Colin Averill for their valuable feedback on early drafts of this manuscript.
+The authors would also like to thank Ben Bond-Lamberty, Christine Rollinson, Istem Fer, and Colin Averill for their valuable feedback on early drafts of this manuscript.
 
 * References                                                       :no_title:
   
@@ -692,7 +702,7 @@ C4G & C4 Grass & 255 & 31 & 1312 & 1461 & 335 & 44 & 0 & 0 & 410 & 56 & 28 & 0 &
 
 Although maximum photosynthetic rate ($A_{max}$) was an important trait in previous studies, we omitted it for two reasons.
 First, data on raw photosynthetic rates are highly sensitive to measurement methodology and environmental conditions, which were generally inconsistent or unavailable in TRY.
-Second, $A_{max}$ is rarely used in vegetation models as a photosynthetic parameter because it integrates over variability in many physiologically independent traits, such as $V_{c,max}$, $J_{max}$, and stomatal conductance cite:ali_2015_global.
+Second, $A_{max}$ is rarely used in Earth System models as a photosynthetic parameter because it integrates over variability in many physiologically independent traits, such as $V_{c,max}$, $J_{max}$, and stomatal conductance cite:ali_2015_global.
 
 ** Old results text on PFT-level means:
    
