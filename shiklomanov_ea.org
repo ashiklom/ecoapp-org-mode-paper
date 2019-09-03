@@ -679,7 +679,7 @@ C4G & C4 Grass & 255 & 31 & 1312 & 1461 & 335 & 44 & 0 & 0 & 410 & 56 & 28 & 0 &
 #+CAPTION: In general, differences in estimate uncertainty between the univariate and multivariate models were minimal at large sample sizes but increasingly important at low sample sizes.
 #+CAPTION: However, differences in estimate uncertainty between the multivariate and hierarchical models were consistently negligible.
 #+NAME: fig:relativeci
-[[../np-trait-analysis/figures/relative_ci_model.pdf]]
+[[../np-trait-analysis/figures/manuscript/relative_ci_model.pdf]]
 
 #+BEGIN_EXPORT latex
 \pagebreak
