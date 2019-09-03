@@ -462,6 +462,48 @@ The hierarchical model further reduced both sensitivity to sample size and overa
 
 ** Scale dependence of the leaf economic spectrum
 
+#+BEGIN_COMMENT
+Key points:
+
+Theme: Leaf morphology and nutrient contents (SLA, N, P)
+Results:
+  - Within and across PFTs, direction of relationships was consistent, regardless of mass or area, but magnitude was variable, especially for mass-normalized traits.
+  - Among tree PFTs, SLA with Nmass (and, to a lesser extent, Pmass) strongest in temperate, weaker in tropical and boreal.
+  - Among non-tree PFTs, similar
+  - Area patterns were more similar across PFT
+Discussion:
+  - The most robust feature of the leaf economic spectrum
+  - Supported by many studies at different scales
+  - But, even here, differences in slope magnitude reflect differences in allocation (Onoda, etc.)
+
+Theme: Metabolism (Rd, Vcmax, Jmax)
+Results:
+  - Across PFT relationships are weaker than within-PFT
+  - Within-PFT, generally consistent direction. Very stable Vcmax-Jmax slope, but magnitude of relationship of both traits with Rd more variable
+  - Traits are usually positively correlated with SLA, N, and P, but with a few exceptions
+    - Broadleaf deciduous temperate -- different direction for SLA-R_{d,area}, SLA-Jmax, and N-R_{d,area} (and P-R_{d,area})
+    - Needleleaf evergreen temperate -- different direction for R_{d,area}-V_{c,max_area}
+  - Lots more gaps due to missingness
+Discussion:
+  - Weaker across-PFT patterns indicative of the more dynamic nature of these traits.
+  - Data limited for many PFTs -- need more pairwise measurements!
+  - Consistent relationship of N_area with Vcmax supports the use of this relationships in ESMs
+  - What's up with broadleaved deciduous temperate SLA/N/P-Rdarea, SLA/N/P-Jmaxarea?
+
+Theme: Longevity (lifespan)
+Results:
+  - Most consistently strong set of across-PFT patterns, especially for mass-normalized traits
+  - Most variable set of within-PFT patterns, especially for area-normalized traits
+  - For mass-normalized traits, among deciduous PFTs, latitudinal gradient in LL-SLA and LL-N relationship -- more negative with increasing latitude
+  - For area-normalized traits, patterns are generally weaker and more idiosyncratic
+Discussion:
+- Global patterns related to leaf longevity are a more robust feature of across- than within-PFT variability
+- Fundamental difference between leaf longevity for deciduous and evergreen trees
+  - Evergreen -- Driven by ???.
+  - Deciduous -- Driven by seasonality. This also explains the latitudinal gradient among deciduous species.
+#+END_COMMENT
+
+
 The leaf economic spectrum is defined by a negative correlation between SLA and leaf lifespan, and a positive correlation of SLA with $N_{mass}$, $P_{mass}$, and photosynthesis and respiration rates cite:wright_2004_worldwide.
 Our first objective was to investigate the extent to which these relationships hold within and across PFTs.
 # TODO: This is more nuanced -- discuss within- vs. across trends in leaf lifespan more here.
