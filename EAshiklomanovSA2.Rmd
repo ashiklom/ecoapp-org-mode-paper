@@ -45,7 +45,11 @@ stopifnot(
 npdir <- here::here("..", "np-trait-analysis")
 ```
 
-```{r mean-compare-all, echo = FALSE, fig.cap = mca_cap}
+(Page intentionally left blank)
+
+\clearpage
+
+```{r mean-compare-all, echo = FALSE, fig.cap = mca_cap, fig.position = "H"}
 mca_cap <- paste(
   "Mean and 95% credible intervals on estimates of trait means for each plant functional type",
   "from the univariate, multivariate, and hierarchical models.",
@@ -56,6 +60,8 @@ mca_cap <- paste(
 )
 knitr::include_graphics(file.path(npdir, "figures", "manuscript", "mean_comparison_all.pdf"))
 ```
+
+\clearpage
 
 ```{r echo = FALSE, results = "asis"}
 prior_df <- tibble::tribble(
@@ -174,6 +180,8 @@ with_clm %>%
   kableExtra::kable_styling(latex_options = c("scale_down", "hold_position"))
 ```
 
+\clearpage
+
 ```{r pairwise_correlation_table, echo = FALSE, results = "asis"}
 rma_display <- readRDS(file.path(npdir, "extdata", "rma-display.rds"))
 kable(
@@ -185,7 +193,8 @@ kable(
                   "for each plant functional type.",
                   "Values with asterisks indicate slopes",
                   "with credible intervals that don't intersect zero.")
-)
+) %>%
+  kableExtra::kable_styling(latex_options = "hold_position")
 
 ## corr_results <- readd(corr_processed)
 ## kable(
@@ -511,6 +520,7 @@ boot_means[!is.na(Y)] <- NA
 boot_lo[!is.na(Y)] <- NA
 boot_hi[!is.na(Y)] <- NA
 
+# TODO: Fix these figure margins
 par(mfrow = c(2, 2))
 for (i in 1:4) {
   plot(
