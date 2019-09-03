@@ -347,11 +347,6 @@ Although this is a Bayesian analysis and therefore has no formal tests of statis
 we approximated the statistical significance of slope estimates as those whose 95% credible interval did not overlap zero.
 We calculated reduced major axis slopes both within and across PFTs.
 
-To compare the ability of the different models to predict missing trait observations,
-we performed a cross-validation where we randomly removed 1000 observations from the data
-and evaluated the ability of the fitted models to impute these missing observations.
-We report the results of the normalized mean root mean square error (RMSE) of these predicted observations.
-
 To explore patterns of trait variation across PFTs,
 and to provide updated parameter values for earth system models,
 we calculated the mean and 95% credible intervals of PFT-level trait estimates from our hierarchical model.
@@ -359,6 +354,11 @@ We also compare these values to to the default parameter values of CLM 4.5 (Tabl
 To convert CLM's reported C:N ratio to $N_{mass}$, we assumed a uniform leaf C fraction of 0.46.
 We then divided this calculated $N_{mass}$ by the reported SLA to obtain $N_{area}$.
 We calculated $V_{c,max,mass}$ by multiplying the reported $V_{c,max,area}$ by the reported SLA.
+
+To compare the ability of the different models to predict missing trait observations,
+we performed a cross-validation where we randomly removed 1000 observations from the data
+and evaluated the ability of the fitted models to impute these missing observations.
+We report the results of the normalized mean root mean square error (RMSE) of these predicted observations.
 
 To test whether multivariate and hierarchical models offer relatively more utility at smaller sample sizes,
 we calculated the relative uncertainty ($\alpha$) as a function of the mean ($\mu$) and upper ($q_{0.975}$) and lower ($q_{0.025}$) confidence limits of trait estimates.
@@ -454,8 +454,8 @@ We also observed differences in posterior predictive uncertainties of mean estim
 High-latitude PFTs had large uncertainties relative to other PFTs, and the traits with the largest uncertainties were dark respiration, $V_{c,max}$, and $J_{max}$.
 For many of these trait-PFT combinations, the additional constraint from trait covariance provided by the multivariate and hierarchical models reduced error bars, making it possible to compare estimates against those of other PFTs.
 # TODO: Re-run sample size analysis and create the corresponding figure
-Our analysis of the relationship between sample size and trait uncertainty found that, compared to the univariate model, the multivariate model both reduced uncertainty overall (lower intercept) and reduced the sensitivity of uncertainty to sample size (lower slope) (Fig. {TODO}).
-The hierarchical model further reduced both sensitivity to sample size and overall uncertainty, but this benefit was primarily detectable at very small sample sizes (Fig. {TODO}).
+Our analysis of the relationship between sample size and trait uncertainty found that, compared to the univariate model, the multivariate model both reduced uncertainty overall (lower intercept) and reduced the sensitivity of uncertainty to sample size (lower slope) (Fig. 4).
+The hierarchical model further reduced both sensitivity to sample size and overall uncertainty, but this benefit was primarily detectable at very small sample sizes.
 
 
 * Discussion
@@ -671,13 +671,14 @@ C4G & C4 Grass & 255 & 31 & 1312 & 1461 & 335 & 44 & 0 & 0 & 410 & 56 & 28 & 0 &
 #+CAPTION: `uni` is the univariate model fit separately to each PFT;
 #+CAPTION: `multi` is the multivariate model fit separately to each PFT;
 #+CAPTION: and `hier` is the hierarchical model.
-#+NAME: Fig:rmse
+#+NAME: fig:rmse
 [[../np-trait-analysis/figures/manuscript/n-fold-rmse.png]]
 
 #+CAPTION: Relative uncertainty in PFT-level trait estimates as a function of sample size for each model type.
 #+CAPTION: Lines represent linear models ($\log(y) = b_0 + b_1 \log(x)$) fit independently for each model type.
 #+CAPTION: In general, differences in estimate uncertainty between the univariate and multivariate models were minimal at large sample sizes but increasingly important at low sample sizes.
 #+CAPTION: However, differences in estimate uncertainty between the multivariate and hierarchical models were consistently negligible.
+#+NAME: fig:relativeci
 [[../np-trait-analysis/figures/relative_ci_model.pdf]]
 
 #+BEGIN_EXPORT latex
