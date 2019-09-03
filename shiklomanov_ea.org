@@ -570,7 +570,7 @@ bibliography:~/Dropbox/references/library.bib
 #+NAME: tab:pfts
 #+BEGIN_SRC R :exports results :results output latex
 library(shiklomanov2017np)
-traits_file <- here::here("../np-trait-analysis/extdata/traits_analysis.rds//")
+traits_file <- here::here("../np-trait-analysis/extdata/traits_analysis.rds")
 try_data <- readRDS(traits_file)
 n_present <- try_data %>%
   select(-ObservationID, -AccSpeciesID) %>%
@@ -613,7 +613,8 @@ kable(
   kableExtra::add_header_above(c(" " = 5, "Mass" = 5, "Area" = 5)) %>%
   kableExtra::kable_styling(latex_options = c("hold_position", "scale_down"))
 #+END_SRC
-#+RESULTS: pfts
+
+#+RESULTS: tab:pfts
 #+begin_export latex
 \begin{table}[!h]
 
