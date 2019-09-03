@@ -423,35 +423,16 @@ Namely, among deciduous PFTs, leaf lifespan-SLA and leaf lifespan-N_mass slopes 
 (BlETr > BlETe, BlDTr > BlDTe > BlDBo, ShDTe > ShDBo, C3GTe > C3GAr).
 Meanwhile, slopes of leaf lifespan with area-normalized traits were generally weaker and idiosyncratic.
 
-# Begin old text...
-
-Within PFTs, for all traits except leaf lifespan, slopes between trait pairs were usually consistent in direction, though with a few exceptions (Fig.\ 1).
-Mass- and area-normalized traits (N, P, R_d, V_{c,max}, J_{max}) usually had positive relationships with each other and, respectively, positive and negative relationships with SLA.
-A notable exception was broadleaved deciduous temperate trees (BlDTe),
-which had positive slopes for SLA-R_{d,area} and SLA-J_{max,area} (negative for most other PFTs)
-and a negative slope for N-R_d (positive for most other PFTs).
-Mass-based traits and SLA usually had negative relationships with leaf lifespan,
-but more of these had credible intervals that intersected zero, and the mean direction of the slopes was different for a few PFTs:
-Broadleaved deciduous temperate (BlDTe) and boreal trees (BlDBo), and boreal deciduous shrubs (ShDBo), had positive SLA-leaf lifespan relationships,
-and C3 arctic grasses (C3GAr) and C4 grasses had positive relationships of leaf lifespan with SLA, N_mass, P_mass, and R_{d,mass}.
-Slopes between leaf lifespan and area-normalized traits were even more variable, both by PFT and trait.
-For example, among broadleaved trees, the slope of the leaf lifespan-N_area relationship was positive for tropical species (BlETr and BlDTr) but negative for temperate (BlETe, BlDTe) and boreal (BlDTe) species.
-
-In terms of mass vs. area normalization, across-PFT relationships for mass-normalized traits were stronger on average.
-All mass-normalized traits and SLA had a relatively strong negative across-PFT relationship with leaf lifespan
-and generally positive relationships with each other, with the exception of J_{max,mass}.
-Across-PFT relationships among area-normalized traits were less consistent, with relatively strong relationships only for leaf lifespan with SLA (negative), N_area (positive), and P_area (positive).
-However, an important caveat to these results is that all of the across-PFT slopes had credible intervals that intersected zero.
-This is due to the relatively small number of points (14) used to estimate the across-PFT covariance matrix.
-A power analysis of correlation coefficients (`pwr::pwr.r.test` in R; cite:r_pwr_package) showed that with 14 plant functional types ($n = 14$),
+An important caveat to these results is that many slopes, including all of the across-PFT slopes, had 95% credible intervals that intersected zero.
+This is primarily due to variations in the effective number of pairwise observations used to estimate the covariance matrix --
+the more pairwise observations are available, the smaller the minimum covariance that can be estimated with the same level of statistical power and confidence.
+For example, a power analysis of correlation coefficients (`pwr::pwr.r.test` in R; cite:r_pwr_package) showed that with 14 plant functional types ($n = 14$),
 the smallest across-PFT correlation we would be able to estimate with 95% power ($\alpha = 0.95$) and confidence ($p = 0.05$) is 0.74,
 so we can confidently say that all PFT correlation coefficients (different from, but closely related to slope) were smaller than that value.
-Moreover, because all across-PFT slopes have the same sample size (unlike PFT-level estimates, where sample size varies dramatically by PFT and trait pair),
-we can reliably draw inference from the relative strength of pairwise across-PFT trait relationships.
-
-The impact of sample size on ability to confidently estimate pairwise trait relationships is evident in within PFTs as well.
-Many of the PFTs for which a large number of pairwise trait slopes are near zero--most notably, all of the high-latitude PFTs (BlDBo, NlEBo, NlD, ShDBo, and C3GAr)--all have relatively small sample sizes (Tab.\ 1).
-Importantly, for estimating covariance, pairwise observations of multiple traits on the same individual are required, but the number of pairwise observations for many of these traits was often zero (Tab. S4).
+That being said, because all across-PFT slopes have the same sample size,
+we can reasonably expect differences in the mean strength of pairwise across-PFT trait relationships to be ecologically meaningful.
+The situation is more complex for PFT-level estimates, where sample size varies by multiple orders of magnitude by PFT and trait pair (Tab.\ 1, Tab.\ S4).
+In particular, high-latitude PFTs (BlDBo, NlEBo, NlD, ShDBo, and C3GAr) and metabolic traits (R_d, V_{c,max}, J_max) stand out as having particularly low sample sizes.
 
 ** Estimates of PFT-level means
 
