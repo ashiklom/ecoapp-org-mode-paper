@@ -517,10 +517,34 @@ Discussion:
 
 The leaf economic spectrum is defined by a negative correlation between SLA and leaf lifespan, and a positive correlation of SLA with $N_{mass}$, $P_{mass}$, and photosynthesis and respiration rates cite:wright_2004_worldwide.
 Our first objective was to investigate the extent to which these relationships hold within and across PFTs.
-# TODO: This is more nuanced -- discuss within- vs. across trends in leaf lifespan more here.
-# TODO: Come back to this with a summary of the key results
-Our results suggest that some dimensions of the leaf economic spectrum hold both within and across PFTs (at least at the functional and phylogenetic resolution of current Earth System Models),
-while others are more nuanced.
+Our results suggest that, among the seven traits we investigated, there are three levels of "robustness" for leaf economic relationships.
+The top tier of leaf economic relationships involves morphological and biochemical traits---SLA, N, and P---which had covariance patterns consistent with the leaf economic spectrum both across PFTs and within all PFTs.
+The second tier involves metabolic traits---R_d, V_{c,max}, and J_max---which generally followed the leaf economic spectrum, but with a few notable deviations for specific PFTs and weaker covariance across PFTs.
+The third tier involves leaf lifespan, which had a relatively strong leaf economic spectrum signal across PFTs and within a majority of PFTs,
+but which showed systematic deviations from the leaf economic spectrum for many PFTs.
+
+# TODO: Flesh this out (morphological, biochemical)
+The consistent direction of relationships among SLA, N, and P is supported by ???.
+{More refs}
+{N:P ratio is conserved across PFTs}
+That being said, it should be noted that although the direction of relationships among these three traits was consistent, the magnitude of their slopes showed non-trivial variation, particularly on a mass basis.
+{Refs about SLA-N relationship?}
+
+# TODO: Flesh this out (metabolic)
+The less robust leaf economic spectrum signal in metabolic traits is likely a combination of two factors:
+more plasticity in plant metabolism relative to morphological and biochemical traits,
+and much smaller sample sizes for confidently estimating relationships.
+Examples of plasticity:
+Water conservation strategy under water limitation cite:wright_2001_strategy
+Varied N allocation to photosynthesis cite:ghimire_2017_global
+Sample size limitation, especially for high-latitude PFTs (Tab.\ 1; Tab.\ S4).
+All that being said, an important limitation to these results is the relative scarcity of metabolic trait measurements, especially for high-latitude PFTs.
+Without more pairwise observations of these traits with other leaf traits, it is difficult to know exactly how much these are actual ecological patterns versus just artifacts of sampling bias.
+
+# TODO: Flesh this out (longevity)
+Leaf longevity...
+
+# Old text ------------------------
 
 In terms of direction, the most consistent relationships within- and across-PFTs were those among leaf morphology (SLA) and nutrient contents (N and P).
 The directionality of relationships between these traits and metabolic traits (R_d, V_{c,max}, J_max) was more variable.
@@ -534,9 +558,6 @@ The across-PFT pattern followed the leaf economic spectrum, with leaf lifespan p
 However, the within-PFT relationships varied depending on leaf habit and latitude.
 Namely, evergreen
 
-
-had a distinct latitudinal gradient, with
-
 Among mass-normalized traits, C3 arctic grasses and C4 grasses, stood out as having negative relationships between leaf lifespan and SLA, N, P, and R_d,
 and temperate and boreal broadleaved deciduous trees similarly had
 
@@ -547,9 +568,6 @@ this relationship can be interpreted as a climatic gradient, with plants from wa
 Both within and across PFTs, slopes of relationships between SLA, N_mass, and P_mass were consistently positive, though with varying magnitude.
 Although we did not include maximum photosynthesis rate (A_max), closely related metabolic traits V_{c,max,mass} and J_{max,mass} generally exhibited the expected positive relationships with SLA and negative correlations with leaf lifespan, as did R_{d,mass},
 though many PFTs had insufficient data to confidently estimate these relationships.
-
-
-
 
 These same traits had negative relationships with leaf lifespan within all PFTs, with the notable exceptions of
 temperate and boreal broadleaved deciduous trees (which showed positive SLA-leaf lifespan relationships) and
@@ -627,10 +645,11 @@ The vast diversity of plants is a major challenge for functional ecology and eco
 However, variation in plant form and function is not random, but often follows patterns driven by selective pressures.
 The trait trade-offs comprising the leaf economic spectrum are one such pattern.
 Our first objective in this study was to investigate the extent to which leaf economic relationships often observed at the global scale are also present within functional groups typically used in the current generation of Earth System Models.
-In general, we found that trait covariation within PFTs was generally similar to covariation observed globally, but that some within-PFT covariance patterns varied depending on trait and PFT.
-# TODO: Check the details of this
-Some relationships, such as the relationship between leaf N and P or between $V_{c,max}$ and $J_{max}$, varied relatively little across different PFTs and functional scales, suggesting these patterns are driven by universal constraints on leaf composition and function.
-However, others, such as the relationships between foliar nutrient content (N and P) and photosynthetic metabolism ($V_{c,max}$ and $J_{max}$), are PFT-dependent and therefore more representative of biome-specific environmental constraints or long-term evolutionary processes.
+# TODO: Tweak wording
+In general, we found that relationships between leaf structure (SLA) and biochemistry (N, P) are robust within and across PFTs,
+while metabolic traits (R_d, V_{c,max}, J_max) are slightly less so,
+and leaf lifespan shows even more variation.
+# TODO: Add RMSE info here
 Our second objective was to evaluate the utility of using trait covariance to constrain trait estimates.
 Our results indicate that accounting for covariance improves the accuracy of trait imputation, reduces posterior predictive uncertainty in trait mean estimates, and, in some cases, even significantly alters these mean estimates.
 Collectively, our study highlight the importance of careful consideration of plant trait covariance across scales, both for understanding ecological processes and improving their representation in models.
