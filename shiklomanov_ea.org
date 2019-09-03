@@ -175,7 +175,7 @@ Finally, we assess the scale dependence and generality of estimated trait covari
 
 ** Trait data
 
-We focused on seven foliar traits obtained from the TRY global database cite:kattge_2011_try (see Appendix S1 in Supporting Information):
+We focused on seven leaf traits obtained from the TRY global database cite:kattge_2011_try (see Appendix S1 in Supporting Information):
 longevity (months),
 specific leaf area (SLA, m$^2$ kg$^{-1}$),
 nitrogen content ($N_{mass}$, mg N g$^{-1}$ or $N_{area}$, g m$^{-2}$),
@@ -331,7 +331,7 @@ and the resulting weak and uninformative covariance estimates will lead to large
 For each model fit, we ran independent five chains, continuing sampling until the final result achieved convergence as determined by a univariate Gelman-Rubin potential scale reduction statistic less than 1.1 for all parameters cite:gelman_1992_inference.
 We implemented this sampling algorithm in a publicly available R cite:team_2018_r package (<http://github.com/ashiklom/mvtraits>).
 
-*** Analysis of results
+** Analysis of results
 
 To assess the consistency of within- and across-PFT trait trade-offs,
 we calculated the mean and 95% credible interval of the pairwise reduced major axis slope ($M$) for each trait pair ($i$, $j$)
@@ -391,31 +391,35 @@ The complete TRY data request used for this analysis has been archived at http:/
 
 * Results
 
-** Trait correlation patterns across- and within-PFTs
+** Trait correlation patterns within- and across-PFTs
 
-For all traits except leaf lifespan, pairwise trait correlations were generally consistent in direction both globally and within each PFT (Fig. 1).
-Mass- and area-normalized traits were all positively correlated with each other and, respectively, positively and negatively correlated with SLA, both globally and within each PFT.
-Mass-based traits were generally negatively correlated with leaf lifespan, but correlations of area-based traits with leaf lifespan were more variable.
-The $N_{area}$ -leaf lifespan relationship was positive globally and for evergreen shrubs, tropical broadleaved deciduous trees, temperate needleleaved evergreen trees, but negative for temperate and boreal broadleaved deciduous trees and not significant for any other PFTs.
-Similarly, the correlation between $P_{area}$ and leaf lifespan was positive globally but negative for evergreen shrubs and not significant for any other PFTs.
-The correlation between leaf lifespan and $R_{d,area}$ was significant and negative globally, but was not significant within any PFTs.
-The only significant correlations of leaf lifespan with $V_{c,max,area}$ and $J_{max,area}$ were negative for temperate broadleaved deciduous trees.
+Within PFTs, for all traits except leaf lifespan, slopes between trait pairs were usually consistent in direction, though with a few exceptions (Fig.\ 1).
+Mass- and area-normalized traits (N, P, R_d, V_{c,max}, J_{max}) usually had positive relationships with each other and, respectively, positive and negative relationships with SLA.
+A notable exception was broadleaved deciduous temperate trees (BlDTe),
+which had positive slopes for SLA-R_{d,area} and SLA-J_{max,area} (negative for most other PFTs)
+and a negative slope for N-R_d (positive for most other PFTs).
+Mass-based traits and SLA usually had negative relationships with leaf lifespan,
+but more of these had credible intervals that intersected zero, and the mean direction of the slopes was different for a few PFTs:
+Broadleaved deciduous temperate (BlDTe) and boreal trees (BlDBo), and boreal deciduous shrubs (ShDBo), had positive SLA-leaf lifespan relationships,
+and C3 arctic grasses (C3GAr) and C4 grasses had positive relationships of leaf lifespan with SLA, N_mass, P_mass, and R_{d,mass}.
+Slopes between leaf lifespan and area-normalized traits were even more variable, both by PFT and trait.
+For example, among broadleaved trees, the slope of the leaf lifespan-N_area relationship was positive for tropical species (BlETr and BlDTr) but negative for temperate (BlETe, BlDTe) and boreal (BlDTe) species.
 
-Pairwise trait correlation strength varied depending on scale, PFT, and trait (Fig. 3).
-In some cases, this variability was driven by low sample sizes (Fig. 1, S1; Tab. S3, S4).
-For instance, needleleaved deciduous trees, the most undersampled PFT in our analysis, were often the only PFT for which a correlation was not statistically significant.
-Similarly, we had no observations of dark respiration for deciduous boreal shrubs, which explains why we found no significant correlations of dark respiration with any other trait for that PFT.
-However, the relationship between correlations strength and sample size was inconsistent (Fig. S1; Tab. S4).
-Every trait pair had at least one case (and often several cases) where a better-sampled PFT showed weaker correlations than PFTs with lower sample sizes, or where correlation strength varied significantly among PFTs with similar sample sizes (Fig. S1).
-Relationships between correlation strength and data range were even less consistent (Fig. S2).
-Therefore, we conclude that the variation in our correlation results can not be explained by sampling alone and captures some underlying ecophysiological differences between PFTs.
-
-# TODO: Make this fit better
-Due to the small number of points used to estimate across-PFT covariance in the hierarchical model, all of the across-PFT covariance coefficients had 95% credible intervals that overlapped zero (i.e. none were "statistically significant").
+In terms of mass vs. area normalization, across-PFT relationships for mass-normalized traits were stronger on average.
+All mass-normalized traits and SLA had a relatively strong negative across-PFT relationship with leaf lifespan
+and generally positive relationships with each other, with the exception of J_{max,mass}.
+Across-PFT relationships among area-normalized traits were less consistent, with relatively strong relationships only for leaf lifespan with SLA (negative), N_area (positive), and P_area (positive).
+However, an important caveat to these results is that all of the across-PFT slopes had credible intervals that intersected zero.
+This is due to the relatively small number of points (14) used to estimate the across-PFT covariance matrix.
 A power analysis of correlation coefficients (`pwr::pwr.r.test` in R; cite:r_pwr_package) showed that with 14 plant functional types ($n = 14$),
 the smallest across-PFT correlation we would be able to estimate with 95% power ($\alpha = 0.95$) and confidence ($p = 0.05$) is 0.74,
-so we can reliably say that all PFT correlation coefficients were smaller than that value.
+so we can confidently say that all PFT correlation coefficients (different from, but closely related to slope) were smaller than that value.
+Moreover, because all across-PFT slopes have the same sample size (unlike PFT-level estimates, where sample size varies dramatically by PFT and trait pair),
+we can reliably draw inference from the relative strength of pairwise across-PFT trait relationships.
 
+The impact of sample size on ability to confidently estimate pairwise trait relationships is evident in within PFTs as well.
+Many of the PFTs for which a large number of pairwise trait slopes are near zero--most notably, all of the high-latitude PFTs (BlDBo, NlEBo, NlD, ShDBo, and C3GAr)--all have relatively small sample sizes (Tab.\ 1).
+Importantly, for estimating covariance, pairwise observations of multiple traits on the same individual are required, but the number of pairwise observations for many of these traits was often zero (Tab. S4).
 
 ** Estimates of PFT-level means
 
@@ -542,7 +546,7 @@ bibliography:~/Dropbox/references/library.bib
 \pagebreak
 #+END_EXPORT
 
-#+NAME: pfts
+#+NAME: tab:pfts
 #+BEGIN_SRC R :exports results :results output latex
 library(shiklomanov2017np)
 traits_file <- here::here("../np-trait-analysis/extdata/traits_analysis.rds//")
@@ -665,8 +669,9 @@ C4G & C4 Grass & 255 & 31 & 1312 & 1461 & 335 & 44 & 0 & 0 & 410 & 56 & 28 & 0 &
 #+STARTUP: showall
 #+STARTUP: noindent
 
-#+BEGIN_SRC emacs-lisp :result no :eval no
+#+BEGIN_SRC emacs-lisp :results silent
 (setq org-latex-pdf-process (list "latexmk -shell-escape -bibtex -f -pdf %f"))
+(setq org-latex-prefer-user-labels nil)
 (setq citeproc-org-ignore-backends nil)
 (setq citeproc-org-suppress-affixes-cite-link-types '("citealt"))
 (setq citeproc-org-suppress-author-cite-link-types '("citeyear"))
