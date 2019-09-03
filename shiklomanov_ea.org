@@ -452,13 +452,12 @@ Similarly to Kattge /et al./ citeyear:kattge_2009_quantifying, we found that CLM
 
 ** Comparing different models
 
-As a method for imputing trait observations, our hierarchical model consistently outperformed the univariate approach (Fig. 3).
-In every case, the RMSE of the hierarchical model was lower than that of the univariate model,
-and, with the exception of leaf lifespan (using mass-normalized traits), the multivariate model also outperformed the univariate model.
-# TODO: Do a 20 or 30-fold cross validation to confirm this is not a fluke.
-However, the differences between the grouped multivariate model and the hierarchical model were usually small,
-and in some cases (e.g. mass- and area-normalized V_{c,max} and J_{max}),
-the multivariate model actually slightly outperformed the hierarchical model.
+Both our multivariate and hierarchical models consistently outperformed the univariate approach in terms of their ability to impute missing trait values (Fig. 3).
+The relative amount of improvement from the univariate to the multivariate or hierarchical model was roughly proportional to the sample size of the underlying trait.
+For instance, for SLA---the best-sampled trait in our analysis---the hierarchical model's RMSE improved on the univariate model by only 4-6%,
+while the improvement for the much more sparsely observed V_{c,max} and J_max was 30-40%.
+The differences between the grouped multivariate model and the hierarchical model were negligible,
+indicating that the additional information content of the across-PFT covariance is limited.
 
 In general, leaf trait estimates from the univariate, multivariate, and hierarchical models were similar (Fig. S1).
 Where estimates differed between models, the largest differences were between the univariate and multivariate models, and additional constraint from the hierarchical model relative to PFT-specific multivariate models had a minimal effect on trait estimates.
@@ -466,7 +465,6 @@ Significant differences in trait estimates between univariate and multivariate m
 We also observed differences in posterior predictive uncertainties of mean estimates with respect to sample size.
 High-latitude PFTs had large uncertainties relative to other PFTs, and the traits with the largest uncertainties were dark respiration, $V_{c,max}$, and $J_{max}$.
 For many of these trait-PFT combinations, the additional constraint from trait covariance provided by the multivariate and hierarchical models reduced error bars, making it possible to compare estimates against those of other PFTs.
-# TODO: Re-run sample size analysis and create the corresponding figure
 Our analysis of the relationship between sample size and trait uncertainty found that, compared to the univariate model, the multivariate model both reduced uncertainty overall (lower intercept) and reduced the sensitivity of uncertainty to sample size (lower slope) (Fig. 4).
 The hierarchical model further reduced both sensitivity to sample size and overall uncertainty, but this benefit was primarily detectable at very small sample sizes.
 
