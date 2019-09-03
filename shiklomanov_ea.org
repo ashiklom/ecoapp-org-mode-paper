@@ -391,7 +391,39 @@ The complete TRY data request used for this analysis has been archived at http:/
 
 * Results
 
-** Trait correlation patterns within- and across-PFTs
+** Trait covariance patterns within- and across-PFTs
+
+The direction and magnitude of pairwise trait relationships was quite variable within- and across-PFTs (Fig. 1).
+Broadly, this variability can be captured by breaking up the seven leaf traits considered in this analysis into three groups:
+morphology and biochemistry (SLA, N, P),
+metabolism (R_d, V_{c,max}, J_max),
+and leaf lifespan.
+
+Morphological and biochemical traits (SLA, N, P) show the most robust and consistent mutual covariance of these three groups.
+SLA was positively related to N_mass and P_mass, and negatively related to N_area and P_area, both across PFTs and within all PFTs.
+The magnitude of the slopes between N and P (regardless of normalization), and of SLA with N_area and P_area, were relatively constant within all PFTs,
+but the magnitude of the slopes of SLA with N_mass and P_mass were more variable.
+
+Covariance among metabolic traits (R_d, V_{c,max}, J_max) was slightly less robust.
+Pairwise across-PFT relationships of metabolic traits with each other were usually weaker than the corresponding within-PFT relationships, relationships of metabolic traits with morphological and biochemical traits, and relationships of morphological and biochemical traits with each other.
+Within PFTs, the relationship between V_{c,max} and J_max (regardless of normalization) was largely consistent in magnitude and direction,
+while the relationship of R_d with both of these traits was more variable.
+Within-PFT relationships of metabolic traits with N and P were usually positive,
+and relationships with SLA were usually positive under mass normalization and negative under area normalization.
+Two PFTs had notable deviations from these patterns under area normalization:
+Broadleaved deciduous temperate (BlDTe) trees had opposite slopes for the SLA-R_{d,area}, SLA-J_{max,area}, and N_area-R_{d,area},
+while needleleaved evergreen temperate trees (NlETe) had opposite slopes for R_{d,area}-V_{c,max,area} and SLA-V_{c,max,area}.
+Finally, an important feature of metabolic traits is the much larger number of near-zero pairwise slope estimates,
+which is driven by the relative paucity of observations (especially pairwise observations) of these traits for many PFTs.
+
+Slopes of all of the above traits with leaf lifespan showed the most variability.
+Across-PFT relationships of leaf lifespan with other traits were, on average, stronger than across-PFT relationships among the other traits, especially for mass-normalized traits.
+Within-PFT relationships of leaf lifespan with mass normalized traits were most often positive, but varied systematically with leaf habit and biome.
+Namely, among deciduous PFTs, leaf lifespan-SLA and leaf lifespan-N_mass slopes were less positive or more negative in colder biomes than warmer ones
+(BlETr > BlETe, BlDTr > BlDTe > BlDBo, ShDTe > ShDBo, C3GTe > C3GAr).
+Meanwhile, slopes of leaf lifespan with area-normalized traits were generally weaker and idiosyncratic.
+
+# Begin old text...
 
 Within PFTs, for all traits except leaf lifespan, slopes between trait pairs were usually consistent in direction, though with a few exceptions (Fig.\ 1).
 Mass- and area-normalized traits (N, P, R_d, V_{c,max}, J_{max}) usually had positive relationships with each other and, respectively, positive and negative relationships with SLA.
