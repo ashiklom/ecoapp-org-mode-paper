@@ -536,11 +536,9 @@ The vast diversity of plants is a major challenge for functional ecology and eco
 However, variation in plant form and function is not random, but often follows patterns driven by selective pressures.
 The trait trade-offs comprising the leaf economic spectrum are one such pattern.
 Our first objective in this study was to investigate the extent to which leaf economic relationships often observed at the global scale are also present within functional groups typically used in the current generation of Earth System Models.
-# TODO: Tweak wording
 In general, we found that relationships between leaf structure (SLA) and biochemistry (N, P) are robust within and across PFTs,
 while metabolic traits (R_d, V_{c,max}, J_max) are slightly less so,
 and leaf lifespan shows even more variation.
-# TODO: Add RMSE info here
 Our second objective was to evaluate the utility of using trait covariance to constrain trait estimates.
 Our results indicate that accounting for covariance improves the accuracy of trait imputation, reduces posterior predictive uncertainty in trait mean estimates, and, in some cases, even significantly alters these mean estimates.
 Collectively, our study highlight the importance of careful consideration of plant trait covariance across scales, both for understanding ecological processes and improving their representation in models.
