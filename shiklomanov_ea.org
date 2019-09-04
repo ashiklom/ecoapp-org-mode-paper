@@ -517,7 +517,8 @@ However, this comparison may not be entirely fair because our study design inher
 
 ** Covariance as constraint
 
-The second objective of this paper was to investigate the ability of trait covariance to reduce uncertainties in trait estimates.
+The second objective of this paper was to investigate the information content of trait covariance;
+i.e. how much more can we learn about specific traits based on their relationships with other traits?
 We show that accounting for covariance both improved the accuracy of trait imputation (Fig.\ 3) and reduced posterior predictive uncertainty around PFT-level trait means, particularly for undersampled trait-PFT combinations (Fig.\ 4, S1).
 Moreover, accounting for covariance occasionally resulted in small but statistically significant differences in the /position/ of trait mean estimates even for well-sampled PFT-trait combinations (e.g. $N_{mass}$ for temperate broadleaved deciduous trees, Fig.\ S1).
 This result echoes Diaz /et al./ citeyear:diaz_2015_global in demonstrating the importance of studying the multivariate trait space rather than individual traits. 
@@ -525,19 +526,20 @@ Such shifts suggest that sampling of these traits in TRY is not representative (
 These shifts also indicate that parameter estimates based on univariate trait data [[cite:lebauer_2013_facilitating,dietze_2014_quantitative,butler_2017_mapping][e.g.]] may not only overestimate uncertainty, but may also be systematically biased.
 Although some traits in our analysis ($R_{d}$, $V_{c,max}$, and $J_{max}$) had too few observations to estimate covariance patterns for some PFTs with much statistical power,
 we show that leveraging covariance increases the effective sample size of all traits.
-This means that field and remote sensing studies that estimate only certain traits (like SLA and $N_{mass}$)  may be able to use trait correlations to provide constraint on traits they do not directly observe (such as $P_{mass}$ and $R_{d,mass}$) cite:singh_2015_imaging,musavi_2015_imprint,lepine_2016_examining,serbin_2014_spectroscopic.
+This means that field and remote sensing studies that estimate only certain traits (like SLA and $N_{mass}$) may be able to use trait correlations to provide constraint on traits they do not directly observe (such as $P_{mass}$ and $R_{d,mass}$) cite:singh_2015_imaging,musavi_2015_imprint,lepine_2016_examining,serbin_2014_spectroscopic.
 As such, future observational campaigns should consider trait covariance when deciding which traits to measure.
 
 The additional benefit of hierarchical multivariate modeling in our study was limited, due to a combindation of the low number of points used to estimate across-PFT covariance, the weak slopes of those relationships, and the usually consistent direction of pairwise slopes within and across PFTs.
 Therefore, for parameterizing the current generation of ecosystem models using well-sampled traits, simple multivariate models fit independently to each PFT may be sufficient and the additional conceptual challenges and computational overhead of hierarchical modeling are not required.
 However, for modeling larger numbers of PFTs cite:boulangeat_2012_improving and especially individual species [[cite:post_1996_linkages][e.g. Linkages ---]], the benefits of hierarchical modeling may accumulate cite:dietze_2008_capturing,cressie_2009_accounting,webb_2010_structured,clark_2004_why, particularly in situations where within- and across-group covariance patterns differ.
+Future work should use similar methods to explore the extent to which leaf economic relationships hold within vs. across other groups, such as taxonomic levels (species, genus, family, clade), successional stages, or spatial domains.
 
 More generally, we foresee tremendous potential for multivariate and hierarchical modeling to elucidate the relationship between traits and organismal and ecosystem function. 
 A natural next step to this study would be to apply the same approach to traits whose relationship to the leaf economic spectrum is less clear. 
 One example is hydraulic traits:
 While stem and leaf hydraulic traits are correlated cite:bartlett_2016_correlations, the scaling between hydraulic and leaf economic traits is poorly understood cite:reich_2014_world,li_2015_leaf. 
 Similarly, reexamining the relationships defining wood cite:chave_2009_towards,fortunel_2012_leaf,baraloto_2010_decoupled and root cite:kramer-walter_2016_root,valverde-barrantes_2016_root economic spectra, as well as their relationship to the foliar traits, would provide useful information on scale-dependence of plant growth and allocation strategies.
-We emphasize that the difficulty of measuring hydraulic and other non-foliar traits [[cite:jansen_2015_current][e.g.]] further increases the value of any technique that can fully leverage the information they provide. 
+We emphasize that the difficulty of measuring hydraulic and other non-foliar traits [[cite:jansen_2015_current][e.g.]] further increases the value of any technique that can fully leverage the information they provide.
 Ultimately, multivariate and hierarchical modeling may reveal functional trade-offs that are mutually confounding at different scales, thereby enhancing our understanding of processes driving functional diversity.
 
 ** Conclusions
@@ -548,7 +550,7 @@ The trait trade-offs comprising the leaf economic spectrum are one such pattern.
 Our first objective in this study was to investigate the extent to which leaf economic relationships often observed at the global scale are also present within functional groups typically used in the current generation of Earth System Models.
 In general, we found that relationships between leaf structure (SLA) and biochemistry (N, P) are robust within and across PFTs,
 while metabolic traits (R_d, V_{c,max}, J_max) are slightly less so,
-and leaf lifespan shows even more variation.
+and leaf lifespan was the closest to a truly hierarchical variability pattern.
 Our second objective was to evaluate the utility of using trait covariance to constrain trait estimates.
 Our results indicate that accounting for covariance improves the accuracy of trait imputation, reduces posterior predictive uncertainty in trait mean estimates, and, in some cases, even significantly alters these mean estimates.
 Collectively, our study highlight the importance of careful consideration of plant trait covariance across scales, both for understanding ecological processes and improving their representation in models.
