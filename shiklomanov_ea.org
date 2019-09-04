@@ -506,6 +506,15 @@ The systematic differences in the leaf lifespan-SLA relationship with biome we o
 Specifically, for deciduous species, leaf lifespan is primarily driven by the length of the local growing season, which generally decreases with annual mean temperature, whereas the larger variability in leaf lifespan of evergreen species is less sensitive (or even inversely related) to changes in climate (Fig.\ S2).
 Ultimately, this suggests that leaf economic relationships related to leaf lifespan are dominated by across-PFT differences, particularly those between deciduous and evergreen PFTs, while factors driving variability in leaf lifespan within PFTs are more complex and idiosyncratic cite:reich_2014_biogeographic,wu_2016_leaf.
 
+Across PFTs, the interaction between growth form and biome in PFT definitions (Table 1) confounds the interpretation of our observed trends in PFT means with respect to well established biogeographic patterns.
+We observed as expected that arctic grasses had lower mean SLA than temperate grasses, and that evergreen trees had lower SLA than their deciduous counterparts cite:poorter_2009_causes.
+However, by far our highest SLA values were for temperate deciduous broadleaf trees, rather than in grass PFTs as expected cite:poorter_2009_causes.
+Similarly to Onoda /et al./ citeyear:onoda_2011_global, we found no consistent patterns in SLA with temperature:
+Among broadleaved evergreen PFTs, temperate species had lower SLA than tropical, but among broadleaved deciduous PFTs, temperate species had higher SLA than both tropical and boreal species.
+Unlike Reich & Oleksyn citeyear:reich_2004_global, who found that foliar N:P ratios decline with latitude, our $N_{mass}$ estimates were higher in PFTs from colder biomes compared to warmer ones while $P_{mass}$ was mostly constant between biomes.
+Contrary to Atkin /et al./ citeyear:atkin_2015_global, our results for both $R_{d,mass}$ and $R_{d,area}$ failed to show a trend with respect to biome.
+However, this comparison may not be entirely fair because our study design inherently averages over the extensive climatic variability within PFTs.
+
 ** Covariance as constraint
 
 The second objective of this paper was to investigate the ability of trait covariance to reduce uncertainties in trait estimates.
