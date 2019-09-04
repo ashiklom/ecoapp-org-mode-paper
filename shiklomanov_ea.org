@@ -100,11 +100,12 @@
 The leaf economic spectrum is a widely-studied axis of plant trait variability that defines a trade-off between plant investment in leaf longevity versus productivity.
 While the leaf economic spectrum has been investigated at the global scale, where it is robust, and at local scales, where deviations from it are common, it has received less attention at the intermediate scale of PFTs.
 We investigated whether global leaf economic relationships are also present within plant functional types (PFTs), and the extent to which this hierarchical structure can be used to constrain trait estimates.
-We developed a hierarchical multivariate Bayesian model that assumes separate means and covariance structures within and across PFTs and fit this model to seven leaf traits from the TRY database related to leaf morphology, biochemistry, and photosynthetic metabolism.
-Trait correlations were generally consistent in direction within and across PFTs, and consistent with predictions of the leaf economic spectrum.
-However, correlation strength varied substantially across PFTs indicating that leaf economic relationships within PFTs are often confounded by the unique physiology of certain plant types or environmental conditions in certain biomes.
-Leveraging covariance in multivariate models reduced uncertainties in mean trait estimates, particularly for undersampled trait-PFT combinations.
-The across-PFT hierarchy provided additional constraint, though this was only distinguishable at very small sample sizes.
+We developed a hierarchical multivariate Bayesian model that assumes separate means and covariance structures within and across PFTs and fit this model to seven leaf traits from the TRY database related to leaf longevity, morphology, biochemistry, and photosynthetic metabolism.
+Although patterns of trait covariation were generally consistent with the leaf economic spectrum, we found three approximate tiers to this consistency:
+Relationships among morphological and biochemical traits (SLA, N, P) were the most robust within and across PFTs;
+relationships among metabolic traits (R_d, V_{c,max}, J_max) were slightly less so;
+and relationships involving leaf lifespan was the closest to a truly hierarchical variability pattern.
+Leveraging covariance in multivariate models improved trait imputation accuracy and reduced predictive uncertainties in mean trait estimates, particularly for undersampled trait-PFT combinations.
 
 * Introduction
 
