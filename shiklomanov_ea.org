@@ -591,7 +591,8 @@ n_both <- n_present %>%
   mutate(
     pft = as.character(pft),
     label = pft2abbr[pft],
-    pft = tools::toTitleCase(gsub("_", " ", pft))
+    pft = tools::toTitleCase(gsub("_", " ", pft)),
+    pft = if_else(grepl("(Broad|Needle)", pft), paste(pft, "Tree"), pft)
   ) %>%
   select(`Label` = label, `PFT` = pft, `Species`,
          leaf_lifespan, SLA,
@@ -632,15 +633,15 @@ kable(
 \cmidrule(l{3pt}r{3pt}){6-10} \cmidrule(l{3pt}r{3pt}){11-15}
 Label & PFT & Species & Leaf lifespan & SLA & N & P & Rd & Vcmax & Jmax & N & P & Rd & Vcmax & Jmax\\
 \midrule
-BlETr & Broadleaf Evergreen Tropical & 1229 & 153 & 11710 & 7547 & 2912 & 237 & 205 & 58 & 4023 & 1684 & 326 & 225 & 152\\
-BlETe & Broadleaf Evergreen Temperate & 363 & 135 & 2210 & 1811 & 1194 & 121 & 36 & 16 & 928 & 339 & 196 & 106 & 87\\
-BlDTr & Broadleaf Deciduous Tropical & 286 & 82 & 2166 & 1545 & 812 & 98 & 54 & 30 & 813 & 500 & 113 & 56 & 53\\
-BlDTe & Broadleaf Deciduous Temperate & 345 & 181 & 9536 & 5982 & 2163 & 942 & 245 & 576 & 2163 & 398 & 866 & 697 & 849\\
-BlDBo & Broadleaf Deciduous Boreal & 62 & 58 & 908 & 898 & 340 & 142 & 0 & 0 & 141 & 60 & 11 & 5 & 5\\
+BlETr & Broadleaf Evergreen Tropical Tree & 1229 & 153 & 11710 & 7547 & 2912 & 237 & 205 & 58 & 4023 & 1684 & 326 & 225 & 152\\
+BlETe & Broadleaf Evergreen Temperate Tree & 363 & 135 & 2210 & 1811 & 1194 & 121 & 36 & 16 & 928 & 339 & 196 & 106 & 87\\
+BlDTr & Broadleaf Deciduous Tropical Tree & 286 & 82 & 2166 & 1545 & 812 & 98 & 54 & 30 & 813 & 500 & 113 & 56 & 53\\
+BlDTe & Broadleaf Deciduous Temperate Tree & 345 & 181 & 9536 & 5982 & 2163 & 942 & 245 & 576 & 2163 & 398 & 866 & 697 & 849\\
+BlDBo & Broadleaf Deciduous Boreal Tree & 62 & 58 & 908 & 898 & 340 & 142 & 0 & 0 & 141 & 60 & 11 & 5 & 5\\
 \addlinespace
-NlETe & Needleleaf Evergreen Temperate & 130 & 66 & 2958 & 4940 & 3729 & 262 & 92 & 91 & 1227 & 462 & 84 & 274 & 106\\
-NlEBo & Needleleaf Evergreen Boreal & 30 & 24 & 530 & 1457 & 393 & 493 & 0 & 0 & 101 & 14 & 16 & 3 & 3\\
-NlD & Needleleaf Deciduous & 19 & 16 & 195 & 328 & 179 & 34 & 1 & 0 & 48 & 10 & 3 & 4 & 0\\
+NlETe & Needleleaf Evergreen Temperate Tree & 130 & 66 & 2958 & 4940 & 3729 & 262 & 92 & 91 & 1227 & 462 & 84 & 274 & 106\\
+NlEBo & Needleleaf Evergreen Boreal Tree & 30 & 24 & 530 & 1457 & 393 & 493 & 0 & 0 & 101 & 14 & 16 & 3 & 3\\
+NlD & Needleleaf Deciduous Tree & 19 & 16 & 195 & 328 & 179 & 34 & 1 & 0 & 48 & 10 & 3 & 4 & 0\\
 ShE & Shrub Evergreen & 1120 & 298 & 5018 & 3555 & 2404 & 207 & 22 & 13 & 1376 & 747 & 205 & 41 & 32\\
 ShDTe & Shrub Deciduous Temperate & 330 & 100 & 3026 & 1525 & 1227 & 10 & 9 & 1 & 576 & 281 & 13 & 33 & 19\\
 \addlinespace
@@ -706,30 +707,6 @@ C4G & C4 Grass & 255 & 31 & 1312 & 1461 & 335 & 44 & 0 & 0 & 410 & 56 & 28 & 0 &
 (citeproc-org-setup)
 #+END_SRC
 
-** Old statement about A_max from Methods/Trait data:
-
-Although maximum photosynthetic rate ($A_{max}$) was an important trait in previous studies, we omitted it for two reasons.
-First, data on raw photosynthetic rates are highly sensitive to measurement methodology and environmental conditions, which were generally inconsistent or unavailable in TRY.
-Second, $A_{max}$ is rarely used in Earth System models as a photosynthetic parameter because it integrates over variability in many physiologically independent traits, such as $V_{c,max}$, $J_{max}$, and stomatal conductance cite:ali_2015_global.
-
-** Old results text on PFT-level means:
-   
-Evergreen PFTs, particularly temperate and boreal needleleaf trees, had the longest leaf lifespan.
-Meanwhile, all deciduous PFTs had lifespans shorter than 7 months, with generally longer lifespan in warmer biomes than colder ones.
-
-# Across-PFT patterns in SLA...
-
-C3 grasses had the highest $V_{c,max,mass}$ and $V_{c,max,area}$.
-Compared to broadleaved trees, temperate needleleaved evergreen trees had lower $V_{c,max,mass}$ but higher $V_{c,max,area}$.
-Among broadleaved trees, deciduous trees had higher $V_{c,max,mass}$ and slightly higher $V_{c,max,area}$ than evergreen trees.
-Between the deciduous and evergreen tree PFTs, we observed no significant trend by climate zone.
-
-C3 grasses and temperate needleleaved evergreen trees had the highest $J_{max,area}$, but temperate broadleaved deciduous trees had the highest $J_{max,mass}$.
-All of the shrub PFTs had the lowest $J_{max,mass}$ but average or above-average $J_{max,area}$, while the opposite was true of broadleaved tropical PFTs.
-Of the tree PFTs, needleleaved evergreen trees had the highest $J_{max,area}$ but the lowest $J_{max,mass}$.
-
-** Old heading blocks
-   
 #+BEGIN_EXPORT latex
 \noindent
 \textbf{Author contributions:}
