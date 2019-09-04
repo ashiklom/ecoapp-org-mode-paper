@@ -136,7 +136,7 @@ Trade-offs may only apply when multiple competing strategies co-occur, and alter
 Different selective pressures dominate at different scales, particularly within versus across species cite:albert_2010_intraspecific_functional_variability,messier_2010_how,kichenin_2013_contrasting,
 and different traits have different sensitivities to such pressures cite:messier_2016_trait.
 Experimental evidence shows that species can alter different aspects of their leaf economy independently cite:wright_2012_does.
-Meanwhile, allocation patterns (and therefore investment strategies and trait relationships) vary across plant functional types cite:ghimire_2017_global.
+Meanwhile, global analyses show that allocation patterns (and therefore investment strategies and trait relationships) vary across plant functional types cite:ghimire_2017_global.
 Moreover, plants maintain their fitness through multiple strategies, not just leaf economics, which can lead to multiple mutually orthogonal axes of trait variability.
 As a result, changes in leaf economic traits often fail to predict changes in other aspects of plant function, such as
 hydraulics cite:li_2015_leaf,
