@@ -539,8 +539,12 @@ The scale dependence we observed in V_{c,max}-J_max relationship---namely, that 
 All that being said, an important limitation to these results is the relative scarcity of metabolic trait measurements, especially for high-latitude PFTs (Tab.\ 1, S4).
 More pairwise observations of these metabolic traits with other leaf economic traits are needed to better understand how much these are actual ecological patterns versus just artifacts of sampling bias.
 
-# TODO: Flesh this out (longevity)
-Leaf longevity...
+The fact that trait relationships involving leaf lifespan showed the most scale dependence and within-PFT variability is not particularly surprising considering that leaf habit (deciduous vs.\ evergreen)---the largest driver of global variability in leaf lifespan---is a part of the PFT definition.
+As noted by citealt:wright_2004_worldwide in their original presentation of the leaf economic spectrum, specific leaf area and leaf lifespan were decoupled in deciduous species, largely because of these specues' relatively small variation in leaf lifespan.
+The very inconsistent direction of relationships of area-normalized traits with leaf lifespan is also consistent with the results of citealt:wright_2004_worldwide.
+The systematic differences in the leaf lifespan-SLA relationship with biome we observed among deciduous PFTs can be interpreted in terms of within-PFT climate variability.
+Specifically, for deciduous species, leaf lifespan is primarily driven by the length of the local growing season, which generally decreases with annual mean temperature, whereas the larger variability in leaf lifespan of evergreen species is less sensitive (or even inversely related) to changes in climate (Fig.\ S2).
+In summary, this suggests that, at the PFT-level, patterns of trait covariance associated with leaf lifespan are the most hierarchical.
 
 # Old text ------------------------
 
