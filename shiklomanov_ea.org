@@ -403,6 +403,7 @@ Morphological and biochemical traits (SLA, N, P) show the most robust and consis
 SLA was positively related to N_mass and P_mass, and negatively related to N_area and P_area, both across PFTs and within all PFTs.
 The magnitude of the slopes between N and P (regardless of normalization), and of SLA with N_area and P_area, were relatively constant within all PFTs,
 but the magnitude of the slopes of SLA with N_mass and P_mass were more variable.
+In particular, temperate tree species (BlETe, BlDTe, NlETe) showed steeper SLA-N_mass slopes (more variation in SLA relative to N_mass) than most other PFTs.
 
 Covariance among metabolic traits (R_d, V_{c,max}, J_max) was slightly less robust.
 Pairwise across-PFT relationships of metabolic traits with each other were usually weaker than the corresponding within-PFT relationships, relationships of metabolic traits with morphological and biochemical traits, and relationships of morphological and biochemical traits with each other.
@@ -514,21 +515,19 @@ Discussion:
   - Deciduous -- Driven by seasonality. This also explains the latitudinal gradient among deciduous species.
 #+END_COMMENT
 
-
-The leaf economic spectrum is defined by a negative correlation between SLA and leaf lifespan, and a positive correlation of SLA with $N_{mass}$, $P_{mass}$, and photosynthesis and respiration rates cite:wright_2004_worldwide.
+The leaf economic spectrum is defined by a negative relationship between SLA and leaf lifespan, and a positive relationship of SLA with $N_{mass}$, $P_{mass}$, and photosynthesis and respiration rates cite:wright_2004_worldwide.
 Our first objective was to investigate the extent to which these relationships hold within and across PFTs.
 Our results suggest that, among the seven traits we investigated, there are three levels of "robustness" for leaf economic relationships.
 The top tier of leaf economic relationships involves morphological and biochemical traits---SLA, N, and P---which had covariance patterns consistent with the leaf economic spectrum both across PFTs and within all PFTs.
-The second tier involves metabolic traits---R_d, V_{c,max}, and J_max---which generally followed the leaf economic spectrum, but with a few notable deviations for specific PFTs and weaker covariance across PFTs.
+The second tier involves metabolic traits---R_d, V_{c,max}, and J_max---which were generally consistent with the leaf economic spectrum, but with a weaker relationship across PFTs and with notable deviations within specific PFTs.
 The third tier involves leaf lifespan, which had a relatively strong leaf economic spectrum signal across PFTs and within a majority of PFTs,
-but which showed systematic deviations from the leaf economic spectrum for many PFTs.
+but which showed systematic deviations from the leaf economic spectrum within many PFTs.
 
-# TODO: Flesh this out (morphological, biochemical)
-The consistent direction of relationships among SLA, N, and P is supported by ???.
-{More refs}
-{N:P ratio is conserved across PFTs}
-That being said, it should be noted that although the direction of relationships among these three traits was consistent, the magnitude of their slopes showed non-trivial variation, particularly on a mass basis.
-{Refs about SLA-N relationship?}
+The consistent direction of relationships among SLA, N, and P (by mass and area) across and within all PFTs suggests that they are driven by processes that are more-or-less universal.
+The consistent positive relationship between N and P (by mass or area) reflects the tight stoichiometric link between these two nutrients, and suggests that the variations in nutrient supply that would drive changes in the N:P ratio are larger within-PFTs than across cite:elser_2010_biological.
+Meanwhile, the consistent positive relationships of SLA with mass-normalized N and P reflects the fact that increases in leaf mass per area (i.e. decreases in SLA) are driven primarily by increases in structural carbohydrates, which inevitably leads to a decline in nutrient mass fractions cite:poorter_2009_causes.
+At the same time, the consistent negative relationships of SLA with area-normalized N and P reflect more recent evidence of the role of these nutrients in structural proteins cite:onoda_2017_physiological.
+That being said, it should be noted that although the direction of SLA-N_mass and SLA-P_mass relationships was consistent, the magnitude of their slopes showed non-trivial variation, particularly on a mass basis.
 
 # TODO: Flesh this out (metabolic)
 The less robust leaf economic spectrum signal in metabolic traits is likely a combination of two factors:
