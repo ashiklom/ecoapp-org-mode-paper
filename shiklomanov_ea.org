@@ -482,13 +482,13 @@ The second tier involves metabolic traits---R_d, V_{c,max}, and J_max---which we
 The third tier involves leaf lifespan, which had a relatively strong leaf economic spectrum signal across PFTs and within a majority of PFTs,
 but which showed systematic deviations from the leaf economic spectrum within many PFTs.
 
-The consistent direction of relationships among SLA, N, and P (by mass and area) across and within all PFTs suggests that they are driven by processes that are more-or-less universal.
+The consistent direction of relationships among SLA, N, and P (by mass and area) across and within all PFTs suggests that they are driven by processes that are more-or-less universal (Fig.\ 1).
 The consistent positive relationship between N and P (by mass or area) reflects the tight stoichiometric link between these two nutrients, and suggests that the variations in nutrient supply that would drive changes in the N:P ratio are larger within-PFTs than across cite:elser_2010_biological.
 Meanwhile, the consistent positive relationships of SLA with mass-normalized N and P reflects the fact that increases in leaf mass per area (i.e. decreases in SLA) are driven primarily by increases in structural carbohydrates, which inevitably leads to a decline in nutrient mass fractions cite:poorter_2009_causes.
 At the same time, the consistent negative relationships of SLA with area-normalized N and P reflect more recent evidence of the role of these nutrients in structural proteins cite:onoda_2017_physiological.
 That being said, it should be noted that although the direction of SLA-N_mass and SLA-P_mass relationships was consistent, the magnitude of their slopes showed non-trivial variation, particularly on a mass basis.
 
-The less robust leaf economic spectrum signal in metabolic traits is likely a combination of two factors:
+The less robust leaf economic spectrum signal in metabolic traits (Fig.\ 1) is likely a combination of two factors:
 more plasticity in plant metabolism relative to morphological and biochemical traits,
 and much smaller sample sizes for confidently estimating relationships.
 Plasticity in plant metabolic traits independent of the leaf economic spectrum is well documented.
@@ -498,7 +498,7 @@ The scale dependence we observed in V_{c,max}-J_max relationship---namely, that 
 All that being said, an important limitation to these results is the relative scarcity of metabolic trait measurements, especially for high-latitude PFTs (Tab.\ 1, S4).
 More pairwise observations of these metabolic traits with other leaf economic traits are needed to better understand how much these are actual ecological patterns versus just artifacts of sampling bias.
 
-The fact that trait relationships involving leaf lifespan showed the most scale dependence and within-PFT variability is not particularly surprising considering that leaf habit (deciduous vs.\ evergreen)---the largest driver of global variability in leaf lifespan---is a part of the PFT definition.
+The fact that trait relationships involving leaf lifespan showed the most scale dependence and within-PFT variability (Fig.\ 1) is not particularly surprising considering that leaf habit (deciduous vs.\ evergreen)---the largest driver of global variability in leaf lifespan---is a part of the PFT definition.
 As noted by citealt:wright_2004_worldwide in their original presentation of the leaf economic spectrum, specific leaf area and leaf lifespan were decoupled in deciduous species, largely because of these specues' relatively small variation in leaf lifespan.
 The very inconsistent direction of relationships of area-normalized traits with leaf lifespan is also consistent with the results of citealt:wright_2004_worldwide.
 The systematic differences in the leaf lifespan-SLA relationship with biome we observed among deciduous PFTs can be interpreted in terms of within-PFT climate variability.
@@ -507,21 +507,20 @@ Ultimately, this suggests that leaf economic relationships related to leaf lifes
 
 ** Covariance as constraint
 
-# TODO: Talk about RMSE here
 The second objective of this paper was to investigate the ability of trait covariance to reduce uncertainties in trait estimates.
-We show that accounting for covariance reduced uncertainty around PFT-level trait means, particularly for undersampled trait-PFT combinations (Fig. 4 and 5).
-Moreover, accounting for covariance occasionally resulted in small but statistically significant differences in the /position/ of trait mean estimates even for well-sampled PFT-trait combinations (e.g. $N_{mass}$ for temperate broadleaved deciduous trees, Fig. 4).
+We show that accounting for covariance both improved the accuracy of trait imputation (Fig.\ 3) and reduced posterior predictive uncertainty around PFT-level trait means, particularly for undersampled trait-PFT combinations (Fig.\ 4, S1).
+Moreover, accounting for covariance occasionally resulted in small but statistically significant differences in the /position/ of trait mean estimates even for well-sampled PFT-trait combinations (e.g. $N_{mass}$ for temperate broadleaved deciduous trees, Fig.\ S1).
 This result echoes Diaz /et al./ citeyear:diaz_2015_global in demonstrating the importance of studying the multivariate trait space rather than individual traits. 
-Such shifts suggest that sampling of these traits in TRY is not representative (Fig. 1; see also citealt:kattge_2011_try). 
+Such shifts suggest that sampling of these traits in TRY is not representative (Tab.\ 1; Method S2; see also citealt:kattge_2011_try).
 These shifts also indicate that parameter estimates based on univariate trait data [[cite:lebauer_2013_facilitating,dietze_2014_quantitative,butler_2017_mapping][e.g.]] may not only overestimate uncertainty, but may also be systematically biased.
 Although some traits in our analysis ($R_{d}$, $V_{c,max}$, and $J_{max}$) had too few observations to estimate covariance patterns for some PFTs with much statistical power,
 we show that leveraging covariance increases the effective sample size of all traits.
 This means that field and remote sensing studies that estimate only certain traits (like SLA and $N_{mass}$)  may be able to use trait correlations to provide constraint on traits they do not directly observe (such as $P_{mass}$ and $R_{d,mass}$) cite:singh_2015_imaging,musavi_2015_imprint,lepine_2016_examining,serbin_2014_spectroscopic.
 As such, future observational campaigns should consider trait covariance when deciding which traits to measure.
 
-The additional benefit of hierarchical multivariate modeling in our study was limited, largely due to the low number of points used to estimate across-PFT covariance.
+The additional benefit of hierarchical multivariate modeling in our study was limited, due to a combindation of the low number of points used to estimate across-PFT covariance, the weak slopes of those relationships, and the usually consistent direction of pairwise slopes within and across PFTs.
 Therefore, for parameterizing the current generation of ecosystem models using well-sampled traits, simple multivariate models fit independently to each PFT may be sufficient and the additional conceptual challenges and computational overhead of hierarchical modeling are not required.
-However, for modeling larger numbers of PFTs cite:boulangeat_2012_improving and especially individual species [[cite:post_1996_linkages][e.g. Linkages ---]], the benefits of hierarchical modeling may accumulate cite:dietze_2008_capturing,cressie_2009_accounting,webb_2010_structured,clark_2004_why.
+However, for modeling larger numbers of PFTs cite:boulangeat_2012_improving and especially individual species [[cite:post_1996_linkages][e.g. Linkages ---]], the benefits of hierarchical modeling may accumulate cite:dietze_2008_capturing,cressie_2009_accounting,webb_2010_structured,clark_2004_why, particularly in situations where within- and across-group covariance patterns differ.
 
 More generally, we foresee tremendous potential for multivariate and hierarchical modeling to elucidate the relationship between traits and organismal and ecosystem function. 
 A natural next step to this study would be to apply the same approach to traits whose relationship to the leaf economic spectrum is less clear. 
