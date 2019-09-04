@@ -4,7 +4,34 @@
 #+OPTIONS: toc:nil tags:nil
 #+LATEX_HEADER: \usepackage[left=1in,right=1in,top=1in,bottom=1in]{geometry}
 
-{TODO Write summary}
+Dear Ecological Applications editorial staff and reviewers,
+
+We appreciate your thorough review of our manuscript, "Does the leaf economic spectrum hold within plant functional types? A Bayesian multivariate trait meta-analysis."
+We are pleased to present a significantly revised version of the manuscript, which we feel has improved significantly since the last version, in large part thanks to the reviewers' thoughtful and helpful comments and suggestions.
+A summary of the major changes in this revision is as follows:
+
+First, and most importantly, we have re-written virtually all of the results and discussion concerning the scale dependence of leaf economic relationships.
+We now organize both of these sections around three groups of traits that show varying degrees of consistency with the global leaf economic spectrum:
+Morphological and biochemical traits (SLA, N, and P), for which these relationships are most robust;
+metabolic traits (R_d, V_{c,max}, J_{max}), for which they are somewhat more variable;
+and leaf lifespan, for which they are even more variable.
+We have also replaced the 2 figures related to this topic from the previous draft with a single figure that, we hope, is easier to read and which better shows the major features of our results.
+
+Second, we have re-organized the introduction to better set up the need and ecological context for our analysis.
+We now begin with a discussion of trait covariance in general and of the global leaf economic spectrum specifically.
+We then provide a brief overview of evidence for deviations from the leaf economic spectrum at smaller scales.
+We then briefly discuss the challenges with working with individual species from a modeling perspective, which leads to a paragraph introducing plant functional types.
+This leads us to our guiding question about whether the leaf economic spectrum holds at the PFT scale.
+
+Finally, following the request of Reviewer 1, we have performed a cross-validation of our approach to trait imputation.
+This analysis provides a more robust comparison of the three models we tried, and serves as a validation of our imputation approach, which is important given the massive volume of imputation performed in this analysis.
+
+In addition to these changes, we have addressed many concerns and suggestions of the reviewers about specific lines of text, aesthetic choices, etc.
+
+Thank you in advance for your consideration of this revised manuscript, and we look forward to your reply!
+
+Best,
+Alexey Shiklomanov, corresponding author
 
 * Reviewer 1
 
@@ -453,24 +480,9 @@ This is an interesting question because we use the LES a lot in trait-driven lan
 Reaching beyond the traits traditionally considered in the LES, this paper also considers metabolic 'traits'.
 
 While I think this is an interesting question, I found myself wondering at the end of this paper what the actual point was. It reads a bit like a bunch of exploratory analyses in search of a conclusion, as evidenced by the many nearly unreadable multi-panel and matrix plots.
-#+end_quote
-
-{TODO}
-
-#+begin_quote
 Given that we know quite a bit about the LES, it would have been interesting to start this manuscript with some hypotheses instead of an exploration ->
 looking at all of these plots it is difficult to untangle what is unexpected versus what is normal.
-#+end_quote
-
-{TODO}
-
-#+begin_quote
 Similarly, why did the authors think the hierarchical model was necessary, and what does it mean that it didn't improve estimates?
-#+end_quote
-
-{TODO}
-
-#+begin_quote
 Overall this manuscript feels a bit too focused on the technical methods at the expense of the motivating questions.
 #+end_quote
 
@@ -483,25 +495,28 @@ For example, the manuscript refers to LES working at the global scale and not at
 Global and local scales are both spatial, but PFTs are really a conceptual scale between lumping everything together ('global') and modeling each species or individual separately.
 #+end_quote
 
-We have re-written large parts of the introduction to address this concern, with particular emphasis on the need for PFTs in the context of trait ecology and vegetation modeling.
+We have re-written large parts of the introduction to address this concern, with particular emphasis on the need for PFTs in the context of trait ecology and vegetation modeling (lines TODO).
 
 #+begin_quote
 At the very end of the manuscript PFTs are then semi-equated with biomes (line 383-384) which isn't right.
 #+end_quote
 
-First of all, we state outright that our analysis of biome trends is not.
+We recognize that our analysis of trends in across PFT means is not as robust as a dedicated analysis for biomes (as we say at the beginning of this section).
+That being said, biome forms an important part of PFT definitions --
+in fact, when we compare, for example, broadleaved deciduous trees from tropical, temperate, and boreal biomes, we are "factoring out" the potentially confounding effects of growth form, leaf morphology, and leaf habit on leaf traits and end up with a purely biome-based trait effect.
+We have therefore decided to keep this part of the discussion unchanged.
 
 #+begin_quote
 Throughout the introduction it would help if the manuscript spent a bit more time explaining to a novice/outside reader why PFTs, traits, and land surface models are all worth reading and learning about.
 #+end_quote
 
-See earlier comment abot revisions to the inroduction.
+See earlier comment about revisions to the introduction.
 
 #+begin_quote
 Table 1: Make sure it's clear that the top 8 PFTs in the list are trees.
 #+end_quote
 
-{TODO}
+We have merged this table with the sample size table (see next comment), and have replaced this accordingly.
 
 #+begin_quote
 Figure 1: Seems like this would be better as a table in an appendix? Dedicating a whole figure to show sample sizes seems like a lot.
@@ -513,21 +528,21 @@ We have replaced this figure with a table.
 Figure 2: This figure needs more explanation in the caption of what is being shown.
 What does the slope and length of the lines represent?
 Also, it's almost impossible to tell this many colors apart in a figure (colorbrewer doesn't even have 14 classes as an option) - it might be worth trying to come up with a pared down version of this that focuses on some key points.
-#+end_quote
 
-{TODO}
-
-#+begin_quote
 Figure 3: Is this showing something substantially different from figure 2? This one is even harder to interpret just given the sizes of the plots and the numbers of bars.
 #+end_quote
 
-{TODO}
+We have replaced both of these figures with a single, very different figure (Fig.\ 1) that, we hope, does a better job of highlighting the key results.
 
 #+begin_quote
-Figure 4: Again, this is a lot of information making it hard to see what is important and what isn't, especially given that in most cases the three model types produce almost identical results. Also, the caption states that leaf lifespan and SLA only show mass based results, but is there a mass vs. area difference for leaf lifespan? and SLA is per mass by definition, no? Finally on this one, it looks like CLM values have confidence interval bars on them, but they are just single values, I think?
+Figure 4: Again, this is a lot of information making it hard to see what is important and what isn't, especially given that in most cases the three model types produce almost identical results.
+Also, the caption states that leaf lifespan and SLA only show mass based results, but is there a mass vs. area difference for leaf lifespan? and SLA is per mass by definition, no?
+Finally on this one, it looks like CLM values have confidence interval bars on them, but they are just single values, I think?
 #+end_quote
 
-{TODO}
+We have moved the original version of this figure to the supplementary information and replaced it with a version that only has the results from the hierarchical model and the CLM 4.5 parameters.
+We have also changed the symbol for CLM 4.5 values from "+" to "x" to make it clearer that those values do not have error bars.
+Finally, we have clarified in the caption that the normalization refers to traits /other/ than SLA or leaf lifespan.
 
 #+begin_quote
 Tables S1 and S2: SLA is listed as kg m-2 in both of these - should be m2 kg-1 (as in text, line 90), and/or flipped to LMA for area-normalized?
@@ -539,4 +554,4 @@ Yes, these units should have been m2 kg-1. We have fixed this in the revision.
 Table S4: What do 'present' and 'missing' mean here? or how are there correlation values when 'present' = 0?
 #+end_quote
 
-{TODO}
+We have replaced this table, so this comment is no longer relevant.
