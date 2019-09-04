@@ -529,16 +529,15 @@ Meanwhile, the consistent positive relationships of SLA with mass-normalized N a
 At the same time, the consistent negative relationships of SLA with area-normalized N and P reflect more recent evidence of the role of these nutrients in structural proteins cite:onoda_2017_physiological.
 That being said, it should be noted that although the direction of SLA-N_mass and SLA-P_mass relationships was consistent, the magnitude of their slopes showed non-trivial variation, particularly on a mass basis.
 
-# TODO: Flesh this out (metabolic)
 The less robust leaf economic spectrum signal in metabolic traits is likely a combination of two factors:
 more plasticity in plant metabolism relative to morphological and biochemical traits,
 and much smaller sample sizes for confidently estimating relationships.
-Examples of plasticity:
-Water conservation strategy under water limitation cite:wright_2001_strategy
-Varied N allocation to photosynthesis cite:ghimire_2017_global
-Sample size limitation, especially for high-latitude PFTs (Tab.\ 1; Tab.\ S4).
-All that being said, an important limitation to these results is the relative scarcity of metabolic trait measurements, especially for high-latitude PFTs.
-Without more pairwise observations of these traits with other leaf traits, it is difficult to know exactly how much these are actual ecological patterns versus just artifacts of sampling bias.
+Plasticity in plant metabolic traits independent of the leaf economic spectrum is well documented.
+For example, citeyear:kattge_2009_quantifying showed that across-PFT variation in V_{c,max,area} was driven by differences in photosynthetic N use efficiency while variation within PFTs was driven by differences in N content, and that N_area-V_{c,max,area} relationships within PFTs were variable.
+More generally, there is substantial variability across PFTs in how leaf N is allocated to photosynthesis cite:ghimire_2017_global and across leaf biochemical consituents more generally cite:onoda_2011_global.
+The scale dependence we observed in V_{c,max}-J_max relationship---namely, that its slope was consistent within PFTs, but very weak across PFTs---may be a reflection of strong variation in growth irradiance and temperature across biomes, which have been shown to alter the J_{max}/V_{c,max} ratio cite:hikosaka_2005_nitrogen,hikosaka_2005_temperature,xiang_2013_contrasting.
+All that being said, an important limitation to these results is the relative scarcity of metabolic trait measurements, especially for high-latitude PFTs (Tab.\ 1, S4).
+More pairwise observations of these metabolic traits with other leaf economic traits are needed to better understand how much these are actual ecological patterns versus just artifacts of sampling bias.
 
 # TODO: Flesh this out (longevity)
 Leaf longevity...
