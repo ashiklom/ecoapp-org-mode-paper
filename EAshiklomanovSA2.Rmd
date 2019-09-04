@@ -63,6 +63,52 @@ knitr::include_graphics(file.path(npdir, "figures", "manuscript", "mean_comparis
 
 \clearpage
 
+```{r ll-clim, echo = FALSE, fig.cap = ll_clim_cap, warning = FALSE}
+ll_clim_cap <- paste(
+  "Relationships of leaf lifespan to mean annual temperature ",
+  "within a subset of PFTs,",
+  "with least-squares linear regression and 95% confidence interval."
+)
+traits_clim <- file.path(npdir, "extdata", "traits_with_climate.rds") %>%
+  readRDS() %>%
+  as_tibble()
+clim_dat <- traits_clim %>%
+  distinct(ObservationID, Latitude, Longitude, AMT)
+trait_analysis <- file.path(npdir, "extdata", "traits_analysis.rds") %>%
+  readRDS() %>%
+  as_tibble()
+dat <- inner_join(trait_analysis, clim_dat, "ObservationID") %>%
+  mutate(pft = forcats::fct_recode(clm45, !!!shiklomanov2017np::abbr2pft))
+ppp <- c("BlDTe", "BlDBo", "ShDTe", "ShDBo", "NlETe", "NlEBo")
+
+dat %>%
+  filter(pft %in% ppp, !is.na(leaf_lifespan), !is.na(AMT)) %>%
+  mutate(pft = factor(pft, ppp)) %>%
+  ggplot() +
+  aes(x = AMT, y = leaf_lifespan) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  facet_wrap(vars(pft), scales = "free_y", dir = "v", ncol = 3) +
+  labs(x = expression("Annual mean temperature" ~ (degree * C)),
+       y = "Leaf lifespan (months)") +
+  cowplot::theme_cowplot()
+
+## dat %>%
+##   filter(pft %in% ppp, !is.na(SLA), !is.na(AMT)) %>%
+##   mutate(pft = factor(pft, ppp)) %>%
+##   ggplot() +
+##   aes(x = AMT, y = SLA) +
+##   geom_point() +
+##   geom_smooth(method = "lm") +
+##   facet_wrap(vars(pft), scales = "free_y", dir = "v", ncol = 3) +
+##   labs(x = expression("Annual mean temperature" ~ (degree * C)),
+##        y = expression("Specific leaf area" ~ (kg ~ m^{-2}))) +
+##   cowplot::theme_cowplot()
+
+```
+
+\clearpage
+
 ```{r echo = FALSE, results = "asis"}
 prior_df <- tibble::tribble(
   ~param, ~mean, ~stdev,
