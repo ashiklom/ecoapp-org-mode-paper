@@ -503,10 +503,7 @@ We have re-written large parts of the introduction to address this concern, with
 At the very end of the manuscript PFTs are then semi-equated with biomes (line 383-384) which isn't right.
 #+end_quote
 
-We recognize that our analysis of trends in across PFT means is not as robust as a dedicated analysis for biomes (as we say at the beginning of this section).
-That being said, biome forms an important part of PFT definitions --
-in fact, when we compare, for example, broadleaved deciduous trees from tropical, temperate, and boreal biomes, we are "factoring out" the potentially confounding effects of growth form, leaf morphology, and leaf habit on leaf traits and end up with a purely biome-based trait effect.
-We have therefore decided to keep this part of the discussion unchanged.
+We have removed this paragraph.
 
 #+begin_quote
 Throughout the introduction it would help if the manuscript spent a bit more time explaining to a novice/outside reader why PFTs, traits, and land surface models are all worth reading and learning about.
