@@ -15,7 +15,7 @@ We now organize both of these sections around three groups of traits that show v
 Morphological and biochemical traits (SLA, N, and P), for which these relationships are most robust;
 metabolic traits (R_d, V_{c,max}, J_{max}), for which they are somewhat more variable;
 and leaf lifespan, for which they are even more variable.
-We have also replaced the 2 figures related to this topic from the previous draft with a single figure that, we hope, is easier to read and which better shows the major features of our results.
+We have also replaced the 2 figures related to this topic, the previous Figures 2 and 3, from the previous draft with a new Figure 1 that, we hope, is easier to read and which better shows the major features of our results.
 
 Second, we have re-organized the introduction to better set up the need and ecological context for our analysis.
 We now begin with a discussion of trait covariance in general and of the global leaf economic spectrum specifically.
@@ -28,7 +28,7 @@ This analysis provides a more robust comparison of the three models we tried, an
 
 In addition to these changes, we have addressed many concerns and suggestions of the reviewers about specific lines of text, aesthetic choices, etc.
 
-Thank you in advance for your consideration of this revised manuscript, and we look forward to your reply!
+Thank you in advance for your consideration of this revised manuscript!
 
 Best,
 Alexey Shiklomanov, corresponding author
@@ -42,7 +42,7 @@ To resolve this issue, the authors should explicitly assess model fit (e.g. calc
 #+END_QUOTE
 
 We have added a 20-fold cross-validation exercise comparing the ability of the grouped univariate, multivariate, and hierarchical models to impute trait values.
-This analysis is described on lines TODO, and the results are shown in the new Fig.\ 3, described on lines TODO, and briefly discussed in lines TODO.
+This analysis is described on lines TODO, and the results are shown in the new Fig. 3, described on lines TODO, and briefly discussed in lines TODO.
 We also revised phrasing throughout the manuscript to the more precise "reduced predictive uncertainty".
 
 #+BEGIN_QUOTE
@@ -69,7 +69,7 @@ Personally, I think adding some of these analyses would make a much stronger and
 #+END_QUOTE
 
 We agree that exploring other species groupings, including those suggested here, would be an interesting future direction for this work, and we have added text to this effect to the discussion (lines TODO).
-However, we have chosen to keep this paper focused on groupings by plant functional type, primarily because these rules are relevant to- and can be used as inputs to dynamic vegetation models.
+However, we have chosen to keep this paper focused on groupings by plant functional type, primarily because these rules are relevant, and can be used as inputs, to dynamic vegetation models.
 
 #+BEGIN_QUOTE
 2 Abstract goes directly into the topic. A bit of motivation / relevance would be nice.
@@ -81,7 +81,7 @@ We have added two sentences introducing the leaf economic spectrum and its study
 8  indicating … -> Spontaneously, I don’t see how this can be concluded, but I’ll read on and wait to be educated
 #+END_QUOTE
 
-We have removed this sentence from the revised introduction, so this comment is no longer relevant.
+We have removed this sentence from the revised introduction, so this comment no longer applies.
 
 #+BEGIN_QUOTE
 13 I was again missing a conclusion about the relevance / applicability of the findings
@@ -102,7 +102,7 @@ We now start with a discussion of the leaf economic spectrum, then move to empir
 19 Benefits … most papers cited here just demonstrate the fact that there is variability and speculate about the benefits, but OK …
 #+END_QUOTE
 
-We have rewritten this part of the introduction, so this comment is no longer relevant.
+We have rewritten this part of the introduction, so this comment no longer applies.
 
 #+begin_quote
 23 could make a paragraph break here
@@ -206,7 +206,7 @@ A thorough comparison of algorithm efficiency would be useful and interesting, b
 137 Same for the Wishart – was this a more or less uninformative Wishart?
 #+end_quote
 
-We added a table containing values for the weakly-informative priors on the multivariate normal distribution to the supplementary information (Tab.\ S1), and a description of the other priors to this section (lines TODO).
+We added a table containing values for the weakly-informative priors on the multivariate normal distribution to the supplementary information (Tab. S1), and a description of the other priors to this section (lines TODO).
 
 #+begin_quote
 138 Estimating covariances is notoriously problematic, in particular in small data situations.
@@ -222,7 +222,7 @@ Beyond that, given Reviewer 2's comments that this manuscript is "too focused on
 139 Not sure if this equation is useful to the reader. Is there anything we learn from that? Seems just a restatement of what you said
 #+end_quote
 
-We have removed this equation as well as the preceding one (which is similarly uninformative).
+We have removed this equation as well as the preceding one (which was similarly uninformative).
 
 #+begin_quote
 139 Equations should have numbers
@@ -278,14 +278,14 @@ would it be possible that, if the first and second largest EV are very close to 
 As a more robust alternative, one could consider similarity measures of the MVN, e.g. KL distance, which would be independent of these axis problems.
 #+end_quote
 
-We have replaced this analysis and corresponding figure with one showing the reduced major axis slopes (Fig.\ 1).
-This calculation (including the uncertainty propagation) is conceptually much simpler, so we feel this comment is no longer relevant.
+We have replaced this analysis and corresponding figure with one showing the reduced major axis slopes (Fig. 1).
+This calculation (including the uncertainty propagation) is conceptually much simpler, so we feel this comment no longer applies.
 
 #+begin_quote
 Fig.3 What you provide here is basically the raw data for the covariance matrix. It’s really hard to see any trends here. Consider if you can somehow compress this to something more meaningful. Also, axis should be properly labeled.
 #+end_quote
 
-As mentioned above, we have replaced this figure with a tile plot of reduced major axis slopes (Fig.\ 1) that, we hope, more clearly shows patterns within- and across PFTs.
+As mentioned above, we have replaced this figure with a tile plot of reduced major axis slopes (Fig. 1) that, we hope, more clearly shows patterns within- and across PFTs.
 
 #+begin_quote
 Major comment analysis: all measures you report here are based on the fitted models only (i.e. don’t consider the fit to the data / residuals).
@@ -319,7 +319,7 @@ We have completely re-written this section of the results around the new Figure 
 233 and which had lower error?
 #+end_quote
 
-In the revised results section, this comment is no longer relevant.
+In the revised results section, this comment no longer applies.
 
 #+begin_quote
 As a side note: given the small number of PFTs, one does wonder if the trait correlation across PFTs can even properly be estimated (I think you make some comments to this effect later, but if it can’t estimate, then why fit this model?).
@@ -370,7 +370,7 @@ As mentioned above, we have replaced the analysis of correlations with analysis 
 316 The logical conclusions seems to examine other groups than the standard model PFTs, e.g. divide species taxonomically, morphologically, or via biomes
 #+end_quote
 
-We have addedd a sentence about this as a future direction later in the discussion (line TODO).
+We have added a sentence about this as a future direction later in the discussion (line TODO).
 
 #+begin_quote
 331 This is a weird wording, at least you should use predictive uncertainty, but I’m not even sure if you showed this.
@@ -410,13 +410,13 @@ We changed this to say "too few observations to estimate covariance patterns for
 349 That makes sense to me, but I was missing the relating info in the results
 #+end_quote
 
-See earlier comments about the power analysis and pairwise sample size tables in the supplememntary information.
+See our above responses (comment "As a side note...", between "233..." and "244...") about the power analysis and pairwise sample size tables in the Supplementary Information.
 
 #+begin_quote
 355 It also seems obvious that the procedure could make use of phylogenetic or morphological similarity, as it is commonly done in PGLS type models
 #+end_quote
 
-
+{TODO}
 
 #+begin_quote
 356 It seems what you discuss here is independent of PFTs, right? But then I would say people are already working on this, and it doesn’t really relate to the results of this study
@@ -486,7 +486,9 @@ Similarly, why did the authors think the hierarchical model was necessary, and w
 Overall this manuscript feels a bit too focused on the technical methods at the expense of the motivating questions.
 #+end_quote
 
-{TODO}
+We appreciate this point and agree that the introduction did not do a good enough job of laying out the motivation for this study, and that its driving hypotheses were implicit, not explicit, making things more difficult for the reader.
+We have revised the introduction to be clearer and more logically organized, with an explicit motivating question at its end.
+(See main response.)
 
 #+begin_quote
 Writing-wise, this manuscript is well written and clear, however, it feels like it is written to target people already in the small niche of ecological land surface modelers.
@@ -532,7 +534,7 @@ Also, it's almost impossible to tell this many colors apart in a figure (colorbr
 Figure 3: Is this showing something substantially different from figure 2? This one is even harder to interpret just given the sizes of the plots and the numbers of bars.
 #+end_quote
 
-We have replaced both of these figures with a single, very different figure (Fig.\ 1) that, we hope, does a better job of highlighting the key results.
+We have replaced both of these figures with a single, very different figure (Fig. 1) that, we hope, does a better job of highlighting the key results.
 
 #+begin_quote
 Figure 4: Again, this is a lot of information making it hard to see what is important and what isn't, especially given that in most cases the three model types produce almost identical results.
@@ -548,10 +550,10 @@ Finally, we have clarified in the caption that the normalization refers to trait
 Tables S1 and S2: SLA is listed as kg m-2 in both of these - should be m2 kg-1 (as in text, line 90), and/or flipped to LMA for area-normalized?
 #+end_quote
 
-Yes, these units should have been m2 kg-1. We have fixed this in the revision.
+Thanks; yes, these units should have been m2 kg-1. We have fixed this in the revision.
 
 #+begin_quote
 Table S4: What do 'present' and 'missing' mean here? or how are there correlation values when 'present' = 0?
 #+end_quote
 
-We have replaced this table, so this comment is no longer relevant.
+We have replaced this table, so this comment no longer applies.
