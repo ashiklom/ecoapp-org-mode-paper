@@ -511,7 +511,7 @@ For example, the manuscript refers to LES working at the global scale and not at
 Global and local scales are both spatial, but PFTs are really a conceptual scale between lumping everything together ('global') and modeling each species or individual separately.
 #+end_quote
 
-We have re-written large parts of the introduction to address this concern, with particular emphasis on the need for PFTs in the context of trait ecology and vegetation modeling (lines TODO).
+We have re-written large parts of the introduction to address this concern, with particular emphasis on the need for PFTs in the context of trait ecology and vegetation modeling.
 
 #+begin_quote
 At the very end of the manuscript PFTs are then semi-equated with biomes (line 383-384) which isn't right.
