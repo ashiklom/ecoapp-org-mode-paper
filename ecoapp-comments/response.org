@@ -416,22 +416,25 @@ See our above responses (comment "As a side note...", between "233..." and "244.
 355 It also seems obvious that the procedure could make use of phylogenetic or morphological similarity, as it is commonly done in PGLS type models
 #+end_quote
 
-{TODO}
+We have mentioned this as an additional future direction of this work (line TODO).
 
 #+begin_quote
-356 It seems what you discuss here is independent of PFTs, right? But then I would say people are already working on this, and it doesn’t really relate to the results of this study
+356 It seems what you discuss here is independent of PFTs, right?
+But then I would say people are already working on this, and it doesn’t really relate to the results of this study
 #+end_quote
 
-{TODO}
+We respectfully disagree with this comment for several reasons.
+A key result of this work is the additional constraint on trait estimates provided through multivariate approaches, whether hierarchical or not, and we expect this constraint to be particularly valuable for the hard-to-measure traits discussed in this section.
+Moreover, if, as we show (more clearly in this revision), even well-established leaf economic relationships have some hierarchical character, then examining the extent to which this is the case for other "economic spectra" (namely, wood and roots, as mentioned here) is a very relevant future application.
 
 #+begin_quote
 368 I think the mutually confounding issue is actually the point that is most interesting from an ecological perspective.
 The relevant question is if trade-offs such as the LES scale through all levels (individual,  PFTs, all plants), or if they could be different at some scales.
-When taking together your results and other literature that looks at LES  within  species, it seems to me that current evidence suggestions  that trade-offs tend to be universal?
+When taking together your results and other literature that looks at LES  within  species, it seems to me that current evidence suggestions that trade-offs tend to be universal?
 Could you extend on this discussion, possibly also highlighting which trade-offs you suspect to be universal, and which might be different at different ecological scales?
 #+end_quote
 
-{TODO}
+As mentioned in the main comments, our revised version of the manuscript focuses much more on the differing extent to which some trait relationships are universal or actually scale-dependent.
 
 #+begin_quote
 372 I wouldn’t sign this statement, but OK, if you think so
