@@ -1,10 +1,17 @@
-#+TITLE: Reviewer response
-#+AUTHOR: Alexey N. Shiklomanov, Elizabeth M. Cowdery, Michael Bahn, Chaeho Byun, Steven Jansen, Koen Kramer, Vanessa Minden, Ülo Niinemets, Yusuke Onoda, Nadejda A. Soudzilovskaia, Michael C. Dietze
-
 #+OPTIONS: toc:nil tags:nil
 #+LATEX_HEADER: \usepackage[left=1in,right=1in,top=1in,bottom=1in]{geometry}
+#+STARTUP: noindent
 
+#+begin_export latex
+\begin{flushright}
+September 6, 2019
+\end{flushright}
+#+end_export
+
+\noindent
 Dear Ecological Applications editorial staff and reviewers,
+
+\vspace{5mm}
 
 We appreciate your thorough review of our manuscript, "Does the leaf economic spectrum hold within plant functional types? A Bayesian multivariate trait meta-analysis."
 We are pleased to present a significantly revised version of the manuscript, which we feel has improved significantly since the last version, in large part thanks to the reviewers' thoughtful and helpful comments and suggestions.
@@ -15,7 +22,7 @@ We now organize both of these sections around three groups of traits that show v
 Morphological and biochemical traits (SLA, N, and P), for which these relationships are most robust;
 metabolic traits (R_d, V_{c,max}, J_{max}), for which they are somewhat more variable;
 and leaf lifespan, for which they are even more variable.
-We have also replaced the 2 figures related to this topic, the previous Figures 2 and 3, from the previous draft with a new Figure 1 that, we hope, is easier to read and which better shows the major features of our results.
+We have also replaced the 2 figures related to this topic---the previous Figures 2 and 3---with a new Figure 1 that should be easier to read and which better shows the major features of our results.
 
 Second, we have re-organized the introduction to better set up the need and ecological context for our analysis.
 We now begin with a discussion of trait covariance in general and of the global leaf economic spectrum specifically.
@@ -30,8 +37,21 @@ In addition to these changes, we have addressed many concerns and suggestions of
 
 Thank you in advance for your consideration of this revised manuscript!
 
+\vspace{5mm}
+
+#+BEGIN_EXPORT latex
+\begin{flushright}
 Best,
-Alexey Shiklomanov, corresponding author
+
+Alexey Shiklomanov
+
+Corresponding author
+\end{flushright}
+#+END_EXPORT
+
+\clearpage
+
+(NOTE: All line numbers below refer to the clean revised version, /not/ the version with changes highlighted.)
 
 * Reviewer 1
 
@@ -87,7 +107,7 @@ We have removed this sentence from the revised introduction, so this comment no 
 13 I was again missing a conclusion about the relevance / applicability of the findings
 #+END_QUOTE
 
-{TODO}
+We have revised the abstract accordingly to better highlight the ecological implications of our results (lines TODO).
 
 #+BEGIN_QUOTE
 15 Personally, I would have found it more logical to start this paper with trait correlations and the LES, because this is what you examine in the end, and then follow up with the PFTs
