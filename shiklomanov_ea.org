@@ -97,14 +97,14 @@
 :UNNUMBERED: true
 :END:
 
-The leaf economic spectrum is a widely-studied axis of plant trait variability that defines a trade-off between plant investment in leaf longevity versus productivity.
-While the leaf economic spectrum has been investigated at the global scale, where it is robust, and at local scales, where deviations from it are common, it has received less attention at the intermediate scale of PFTs.
-We investigated whether global leaf economic relationships are also present within plant functional types (PFTs), and the extent to which this hierarchical structure can be used to constrain trait estimates.
+The leaf economic spectrum is a widely-studied axis of plant trait variability that defines a trade-off between plant investment in leaf longevity and productivity.
+While this has been investigated at the global scale, where it is robust, and at local scales, where deviations from it are common, it has received less attention at the intermediate scale of PFTs.
+We investigated whether global leaf economic relationships are also present within the scale of plant functional types (PFTs) commonly used by Earth System models, and the extent to which this global-PFT hierarchy can be used to constrain trait estimates.
 We developed a hierarchical multivariate Bayesian model that assumes separate means and covariance structures within and across PFTs and fit this model to seven leaf traits from the TRY database related to leaf longevity, morphology, biochemistry, and photosynthetic metabolism.
 Although patterns of trait covariation were generally consistent with the leaf economic spectrum, we found three approximate tiers to this consistency:
 Relationships among morphological and biochemical traits (SLA, N, P) were the most robust within and across PFTs;
 relationships among metabolic traits (R_d, V_{c,max}, J_max) were slightly less so;
-and relationships involving leaf lifespan was the closest to a truly hierarchical variability pattern.
+and relationships involving leaf lifespan were the closest to a truly hierarchical variability pattern.
 Leveraging covariance in multivariate models improved trait imputation accuracy and reduced predictive uncertainties in mean trait estimates, particularly for undersampled trait-PFT combinations.
 
 * Introduction
@@ -114,6 +114,7 @@ Although global trait databases are larger and more open now than ever before, l
 If all traits and plant species were completely independent from each other, the only way forward would be to collect more trait data, which is expensive and time-consuming (especially because trait data is most sparse for rare species and in places that are hardest to access, such as the tropics; cite:cornwell_2019_what).
 Fortunately, this is not the case.
 Recent trait syntheses have revealed that variability in plant functional traits is constrained by biophysical limitations and trade-offs between ecological strategies cite:kattge_2011_try,wright_2004_worldwide,kleyer_2015_why,diaz_2015_global.
+
 One such constraint is the "leaf economic spectrum", which defines a trade-off between productive but short-lived leaves versus less productive but recalcitrant and long-lived leaves cite:wright_2004_worldwide,shipley_2006_fundamental,reich_2014_world,diaz_2015_global.
 Leaf economic traits are correlated with
 plant productivity cite:shipley_2005_functional,niinemets_2016_within,wu_2016_convergence,
@@ -131,32 +132,33 @@ The extent to which processes operating on these shorter timescales result in th
 Observational studies of trait correlations at smaller spatial scales, such as sites, species, and individuals, produce inconsistent results,
 with some studies finding consistent correlations across scales cite:wright_2004_worldwide,albert_2010_multi,asner_2014_amazonian
 and others finding that correlation strength and direction are scale-dependent  cite:albert_2010_intraspecific_functional_variability,messier_2010_how,wright_2012_does,feng_2013_scale,grubb_2015_relationships,wigley_2016_leaf,messier_2017_interspecific,kichenin_2013_contrasting.
+
 Many mechanisms have been suggested for scale-dependence of trait relationships.
 Trade-offs may only apply when multiple competing strategies co-occur, and alternative processes can drive community assembly where strong environmental filters severely limit the range of feasible strategies cite:rosado_2017_relative,grime_2012_evolutionary.
 Different selective pressures dominate at different scales, particularly within versus across species cite:albert_2010_intraspecific_functional_variability,messier_2010_how,kichenin_2013_contrasting,
 and different traits have different sensitivities to such pressures cite:messier_2016_trait.
 Experimental evidence shows that species can alter different aspects of their leaf economy independently cite:wright_2012_does.
-Meanwhile, global analyses show that allocation patterns (and therefore investment strategies and trait relationships) vary across plant functional types cite:ghimire_2017_global.
+Global analyses show that allocation patterns (and therefore investment strategies and trait relationships) vary across plant functional types cite:ghimire_2017_global.
 Moreover, plants maintain their fitness through multiple strategies, not just leaf economics, which can lead to multiple mutually orthogonal axes of trait variability.
 As a result, changes in leaf economic traits often fail to predict changes in other aspects of plant function, such as
 hydraulics cite:li_2015_leaf,
 dispersal cite:westoby_2002_plant_ecological_strategies,
 and overall plant carbon budget cite:edwards_2014_leaf.
 
-Ascribing too much predictive power to observed global trait relationships can be problematic for all of the reasons discussed above.
+For these reasons, observed global trait relationships may have limited predictive power at finer scales.
 On the other hand, trying to understand ecosystem through bottom-up approaches starting with individual species is also challenging.
 For one, the required species-specific trait observations do not exist for a very large number of species cite:cornwell_2019_what.
 Even where sufficient trait data are available, scaling functional traits to ecosystem-scale processes also requires data on species relative abundance cite:grime_1998_benefits,
 which can be even more uncertain than the trait data cite:clark_2016_why.
 Finally, plant interactions can result in community-level responses to environmental change that are distinct from the sum of species-specific changes cite:poorter_2003_plant.
 
-Another strategy is to aggregate species with similar structural and functional characteristics into plant functional types (PFTs).
+An intermediate strategy is to aggregate species with similar structural and functional characteristics into plant functional types (PFTs).
 Although PFTs are most widely used as the unit of plant functional differentiation in dynamic vegetation and earth system models
 cite:lavorel_1997_plant_functional_classifications,wullschleger_2014_plant,prentice_1992_special_paper,
 the underlying concept of plant assemblages has been an important part of ecological discourse for over a century cite:cowles_1899_ecological,clements_1936_nature,naeem_2003_disentangling.
 Patterns of trait variation within and across PFTs are relevant for several reasons.
-First, trait covariance can be leveraged to impute missing trait values cite:swenson_2013_phylogenetic or otherwise borrowing statistical strength across different traits.
-The extent to which leveraging trait covariance reduces the size (i.e. variability and/or uncertainty) of the trait space has important implications for
+First, trait covariance can be leveraged to impute missing trait values cite:swenson_2013_phylogenetic;
+the extent to which leveraging trait covariance reduces the size (i.e. variability and/or uncertainty) of the trait space has important implications for
 quantifying the parametric uncertainty in vegetation model projections cite:dietze_2013_improving,lebauer_2013_facilitating,dietze_2014_quantitative.
 Second, the large uncertainty in model projections of future global carbon budgets cite:friedlingstein_2006_climate,friedlingstein_2014_uncertainties
 has been at least partially attributed to the models' failure to account for plant adaptation to changing environments cite:sitch_2008_evaluation,
@@ -197,14 +199,14 @@ We obtained categorical data on growth form, leaf type, phenology, and photosynt
 Where species attributes disagreed between datasets, we assigned the most frequently observed attribute (e.g., if five datasets say "shrub" but only one says "tree", we would use "shrub").
 Where species attributes were missing, we assigned attributes based on higher order phylogeny if possible (e.g., /Poaceae/ family are grasses, /Larix/ genus are deciduous needleleaved trees) or omitted the species if not.
 For biome specification, we matched geographic coordinates for each species to annual mean temperature ($AMT$, averaged 1970-2000) data from WorldClim-2 cite:fick_2017_worldclim,
-calculated the mean AMT for all sites where each species was observed,
+calculated the mean $AMT$ for all sites where each species was observed,
 and then binned these species based on the following cutoffs: boreal/arctic ($AMT \leq 5^\circ C$), temperate ($AMT \leq 20^\circ C$), and tropical ($AMT > 20^\circ C$).
 
 ** Multivariate analysis
 
 *** Basic model description
 
-We compared three models representing different levels of complexity.
+We compared three models with different levels of complexity.
 The simplest was the "univariate" model, in which each trait is independent.
 For an observation $x_{i,t}$ of trait $t$ and sample $i$:
 
@@ -386,6 +388,7 @@ a lower slope ($b_1$), indicating reduced sensitivity of uncertainty ($\alpha$) 
 
 ** Data and code availability
 
+All R analyses were run using R version 3.6.1 cite:r_361.
 The R code and data for running these analyses is publicly available online via the Open Science Framework at https://osf.io/w8y73/.
 To comply with TRY intellectual property guidelines, the trait data used in this study have been "anonymized" such that they can only be identified to the PFT level (not the species level) as required to reproduce this analysis.
 The complete TRY data request used for this analysis has been archived at http://try-db.org, and can be retrieved by providing the TRY data request ID (#1584).
@@ -400,7 +403,7 @@ morphology and biochemistry (SLA, N, P),
 metabolism (R_d, V_{c,max}, J_max),
 and leaf lifespan.
 
-Morphological and biochemical traits (SLA, N, P) show the most robust and consistent mutual covariance of these three groups.
+Morphological and biochemical traits (SLA, N, P) showed the most robust and consistent mutual covariance of these three groups.
 SLA was positively related to N_mass and P_mass, and negatively related to N_area and P_area, both across PFTs and within all PFTs.
 The magnitude of the slopes between N and P (regardless of normalization), and of SLA with N_area and P_area, were relatively constant within all PFTs,
 but the magnitude of the slopes of SLA with N_mass and P_mass were more variable.
@@ -468,7 +471,7 @@ We also observed differences in posterior predictive uncertainties of mean estim
 High-latitude PFTs had large uncertainties relative to other PFTs, and the traits with the largest uncertainties were dark respiration, $V_{c,max}$, and $J_{max}$.
 For many of these trait-PFT combinations, the additional constraint from trait covariance provided by the multivariate and hierarchical models reduced error bars, making it possible to compare estimates against those of other PFTs.
 Our analysis of the relationship between sample size and trait uncertainty found that, compared to the univariate model, the multivariate model both reduced uncertainty overall (lower intercept) and reduced the sensitivity of uncertainty to sample size (lower slope) (Fig. 4).
-The hierarchical model further reduced both sensitivity to sample size and overall uncertainty, but this benefit was primarily detectable at very small sample sizes.
+The hierarchical model further reduced both sensitivity to sample size and overall uncertainty, but this benefit was primarily detectable only at very small sample sizes.
 
 
 * Discussion
@@ -496,8 +499,8 @@ Plasticity in plant metabolic traits independent of the leaf economic spectrum i
 For example, citeyear:kattge_2009_quantifying showed that across-PFT variation in V_{c,max,area} was driven by differences in photosynthetic N use efficiency while variation within PFTs was driven by differences in N content, and that N_area-V_{c,max,area} relationships within PFTs were variable.
 More generally, there is substantial variability across PFTs in how leaf N is allocated to photosynthesis cite:ghimire_2017_global and across leaf biochemical consituents more generally cite:onoda_2011_global.
 The scale dependence we observed in V_{c,max}-J_max relationship---namely, that its slope was consistent within PFTs, but very weak across PFTs---may be a reflection of strong variation in growth irradiance and temperature across biomes, which have been shown to alter the J_{max}/V_{c,max} ratio cite:hikosaka_2005_nitrogen,hikosaka_2005_temperature,xiang_2013_contrasting.
-All that being said, an important limitation to these results is the relative scarcity of metabolic trait measurements, especially for high-latitude PFTs (Tab. 1, S4).
-More pairwise observations of these metabolic traits with other leaf economic traits are needed to better understand how much these are actual ecological patterns versus just artifacts of sampling bias.
+An important limitation to these results is the relative scarcity of metabolic trait measurements, especially for high-latitude PFTs (Tab. 1, S4).
+More simultaenous observations of metabolic traits and other leaf economic traits on the same leaf samples are needed to better understand how much these are actual ecological patterns versus just artifacts of sampling bias.
 
 The fact that trait relationships involving leaf lifespan showed the most scale dependence and within-PFT variability (Fig. 1) is not particularly surprising considering that leaf habit (deciduous vs. evergreen)---the largest driver of global variability in leaf lifespan---is a part of the PFT definition.
 As noted by citealt:wright_2004_worldwide in their original presentation of the leaf economic spectrum, specific leaf area and leaf lifespan were decoupled in deciduous species, largely because of these specues' relatively small variation in leaf lifespan.
@@ -522,8 +525,8 @@ i.e. how much more can we learn about specific traits based on their relationshi
 We show that accounting for covariance both improved the accuracy of trait imputation (Fig. 3) and reduced posterior predictive uncertainty around PFT-level trait means, particularly for undersampled trait-PFT combinations (Fig. 4, S1).
 Moreover, accounting for covariance occasionally resulted in small but statistically significant differences in the /position/ of trait mean estimates even for well-sampled PFT-trait combinations (e.g. $N_{mass}$ for temperate broadleaved deciduous trees, Fig. S1).
 This result echoes Diaz /et al./ citeyear:diaz_2015_global in demonstrating the importance of studying the multivariate trait space rather than individual traits. 
-Such shifts suggest that sampling of these traits in TRY is not representative (Tab. 1; Method S2; see also citealt:kattge_2011_try).
-These shifts also indicate that parameter estimates based on univariate trait data [[cite:lebauer_2013_facilitating,dietze_2014_quantitative,butler_2017_mapping][e.g.]] may not only overestimate uncertainty, but may also be systematically biased.
+Significant differences between univariate and multivariate estimates of trait means suggest that sampling of these traits in TRY is not representative (Tab. 1; Method S2; see also citealt:kattge_2011_try).
+These differences also indicate that parameter estimates based on univariate trait data [[cite:lebauer_2013_facilitating,dietze_2014_quantitative,butler_2017_mapping][e.g.]] may not only overestimate uncertainty, but may also be systematically biased.
 Although some traits in our analysis ($R_{d}$, $V_{c,max}$, and $J_{max}$) had too few observations to estimate covariance patterns for some PFTs with much statistical power,
 we show that leveraging covariance increases the effective sample size of all traits.
 This means that field and remote sensing studies that estimate only certain traits (like SLA and $N_{mass}$) may be able to use trait correlations to provide constraint on traits they do not directly observe (such as $P_{mass}$ and $R_{d,mass}$) cite:singh_2015_imaging,musavi_2015_imprint,lepine_2016_examining,serbin_2014_spectroscopic.
@@ -541,19 +544,6 @@ While stem and leaf hydraulic traits are correlated cite:bartlett_2016_correlati
 Similarly, reexamining the relationships defining wood cite:chave_2009_towards,fortunel_2012_leaf,baraloto_2010_decoupled and root cite:kramer-walter_2016_root,valverde-barrantes_2016_root economic spectra, as well as their relationship to the foliar traits, would provide useful information on scale-dependence of plant growth and allocation strategies.
 We emphasize that the difficulty of measuring hydraulic and other non-foliar traits [[cite:jansen_2015_current][e.g.]] further increases the value of any technique that can fully leverage the information they provide.
 Ultimately, multivariate and hierarchical modeling may reveal functional trade-offs that are mutually confounding at different scales, thereby enhancing our understanding of processes driving functional diversity.
-
-** Conclusions
-
-The vast diversity of plants is a major challenge for functional ecology and ecosystem modeling.
-However, variation in plant form and function is not random, but often follows patterns driven by selective pressures.
-The trait trade-offs comprising the leaf economic spectrum are one such pattern.
-Our first objective in this study was to investigate the extent to which leaf economic relationships often observed at the global scale are also present within functional groups typically used in the current generation of Earth System Models.
-In general, we found that relationships between leaf structure (SLA) and biochemistry (N, P) are robust within and across PFTs,
-while metabolic traits (R_d, V_{c,max}, J_max) are slightly less so,
-and leaf lifespan was the closest to a truly hierarchical variability pattern.
-Our second objective was to evaluate the utility of using trait covariance to constrain trait estimates.
-Our results indicate that accounting for covariance improves the accuracy of trait imputation, reduces posterior predictive uncertainty in trait mean estimates, and, in some cases, even significantly alters these mean estimates.
-Collectively, our study highlight the importance of careful consideration of plant trait covariance across scales, both for understanding ecological processes and improving their representation in models.
 
 * Acknowledgments
   
@@ -676,9 +666,9 @@ C4G & C4 Grass & 255 & 31 & 1312 & 1461 & 335 & 44 & 0 & 0 & 410 & 56 & 28 & 0 &
 #+CAPTION: Normalized mean root mean square error (RMSE) estimates from 20-fold cross-validation, by model and trait.
 #+CAPTION: Normalization is such that the highest RMSE for a given trait-model combination is 1.
 #+CAPTION: Model abbreviations are as follows:
-#+CAPTION: `uni` is the univariate model fit separately to each PFT;
-#+CAPTION: `multi` is the multivariate model fit separately to each PFT;
-#+CAPTION: and `hier` is the hierarchical model.
+#+CAPTION: `uni' is the univariate model fit separately to each PFT;
+#+CAPTION: `multi' is the multivariate model fit separately to each PFT;
+#+CAPTION: and `hier' is the hierarchical model.
 #+NAME: fig:rmse
 [[../np-trait-analysis/figures/manuscript/n-fold-rmse.pdf]]
 
