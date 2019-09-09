@@ -1,4 +1,4 @@
-#+TITLE: Does the leaf economic spectrum hold within plant functional types? A Bayesian multivariate trait meta-analysis
+#+TITLE:
 #+AUTHOR:
 #+DATE:
 #+OPTIONS: toc:nil tags:nil
@@ -8,11 +8,26 @@
 #+LATEX_HEADER: \usepackage[backend=biber,style=authoryear,date=year]{biblatex}
 #+LATEX_HEADER: \addbibresource{/Users/shik544/Dropbox/references/library.bib}
 
-#+LATEX_HEADER: \input{authors.tex}
+\noindent *Title:*
+Does the leaf economic spectrum hold within plant functional types?
+A Bayesian multivariate trait meta-analysis
+
+\noindent *Authors:*
+Alexey N. Shiklomanov,
+Elizabeth M. Cowdery,
+Michael Bahn,
+Chaeho Byun,
+Steven Jansen,
+Koen Kramer,
+Vanessa Minden,
+Ülo Niinemets,
+Yusuke Onoda,
+Nadejda A. Soudzilovskaia,
+Michael C. Dietze
 
 \noindent *Journal:* Ecological Applications
 
-\clearpage
+\vspace{\baselineskip}
 
 #+BEGIN_EXPORT latex
 \noindent

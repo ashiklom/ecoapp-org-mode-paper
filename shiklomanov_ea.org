@@ -138,7 +138,7 @@ Finally, we assess the scale dependence and generality of estimated trait covari
 
 ** Trait data
 
-We focused on seven leaf traits obtained from the TRY global database cite:kattge_2011_try (see Appendix S1 in Supporting Information):
+We focused on seven leaf traits obtained from the TRY global database cite:kattge_2011_try (see Appendix S1):
 longevity (months),
 specific leaf area (SLA, m$^2$ kg$^{-1}$),
 nitrogen content ($N_{mass}$, mg N g$^{-1}$ or $N_{area}$, g m$^{-2}$),
@@ -240,7 +240,7 @@ P(\mathbf{\Sigma} \mid
 where $n$ is the number of observations, $m$ is the number of traits in data matrix $\mathbf{x}$, and $\bar{\mathbf{x}}$ is the column means of $\mathbf{x}$.
 For further details on the derivation of the conjugate relationship, see Gelman /et al./ citeyear:gelman_2003_bayesian (Section 3.6, "Multivariate normal with unknown mean and variance", pg. 72).
 
-We used weakly-informative priors for trait means and variances (diagonals of the multivariate normal covariance matrix), the values of which are shown in Table S1.
+We used weakly-informative priors for trait means and variances (diagonals of the multivariate normal covariance matrix), the values of which are shown in Appendix S2: Table S1.
 All of the covariance (off-diagonal) terms in the prior variance matrix were set to zero.
 We used uninformative priors for the Wishart distribution ($\nu_0 = 0$, $\mathbf{S}_0 = \mathrm{diag}(1, m)$).
 
@@ -284,7 +284,7 @@ Similarly, let $x_i$ be the realization of the data $\mathbf{x}\prime$ with miss
 5. Draw $\mu_3$ and $\mathbf{Sigma}_3$ as a function of $x_2$.
 6. Continue alternating these steps until a stable distribution of $\mu$ and $\mathbf{Sigma}$ is reached.
 
-A detailed demonstration of this approach is shown in Supporting Information Method S1.
+A detailed demonstration of this approach is shown in Appendix S2: Section S1.
 By performing imputation at every MCMC iteration, we integrate over the uncertainty in the missing data.
 Combined with uninformative priors on the covariance centered on zero (as described above),
 this means our approach provides an inherently conservative estimate of both trait covariances and imputed missing values.
@@ -397,7 +397,7 @@ the smallest across-PFT correlation we would be able to estimate with 95% power 
 so we can confidently say that all PFT correlation coefficients (different from, but closely related to slope) were smaller than that value.
 That being said, because all across-PFT slopes have the same sample size,
 we can reasonably expect differences in the mean strength of pairwise across-PFT trait relationships to be ecologically meaningful.
-The situation is more complex for PFT-level estimates, where sample size varies by multiple orders of magnitude by PFT and trait pair (Tab. 1, Tab. S4).
+The situation is more complex for PFT-level estimates, where sample size varies by multiple orders of magnitude by PFT and trait pair (Tab. 1, Appendix S2: Tab. S4).
 In particular, high-latitude PFTs (BlDBo, NlEBo, NlD, ShDBo, and C3GAr) and metabolic traits (R_d, V_{c,max}, J_max) stand out as having particularly low sample sizes.
 
 ** Estimates of PFT-level means
@@ -425,7 +425,7 @@ while the improvement for the much more sparsely observed V_{c,max} and J_max wa
 The differences between the grouped multivariate model and the hierarchical model were negligible,
 indicating that the additional information content of the across-PFT covariance is limited.
 
-In general, leaf trait estimates from the univariate, multivariate, and hierarchical models were similar (Fig. S1).
+In general, leaf trait estimates from the univariate, multivariate, and hierarchical models were similar (Appendix S2: Fig. S1).
 Where estimates differed between models, the largest differences were between the univariate and multivariate models, and additional constraint from the hierarchical model relative to PFT-specific multivariate models had a minimal effect on trait estimates.
 Significant differences in trait estimates between univariate and multivariate models occurred even for well-sampled traits, such as leaf nitrogen content.
 We also observed differences in posterior predictive uncertainties of mean estimates with respect to sample size.
@@ -459,24 +459,24 @@ Plasticity in plant metabolic traits independent of the leaf economic spectrum i
 For example, citealt:kattge_2009_quantifying showed that across-PFT variation in V_{c,max,area} was driven by differences in photosynthetic N use efficiency while variation within PFTs was driven by differences in N content, and that N_area-V_{c,max,area} relationships within PFTs were variable.
 More generally, there is substantial variability across PFTs in how leaf N is allocated to photosynthesis cite:ghimire_2017_global and across leaf biochemical consituents more generally cite:onoda_2011_global.
 The scale dependence we observed in V_{c,max}-J_max relationship---namely, that its slope was consistent within PFTs, but very weak across PFTs---may be a reflection of strong variation in growth irradiance and temperature across biomes, which have been shown to alter the J_{max}/V_{c,max} ratio cite:hikosaka_2005_nitrogen,hikosaka_2005_temperature,xiang_2013_contrasting.
-An important limitation to these results is the relative scarcity of metabolic trait measurements, especially for high-latitude PFTs (Tab. 1, S4).
+An important limitation to these results is the relative scarcity of metabolic trait measurements, especially for high-latitude PFTs (Table 1, Appendix 2: Tab. S4).
 More simultaenous observations of metabolic traits and other leaf economic traits on the same leaf samples are needed to better understand how much these are actual ecological patterns versus just artifacts of sampling bias.
 
 The fact that trait relationships involving leaf lifespan showed the most scale dependence and within-PFT variability (Fig. 1) is not particularly surprising considering that leaf habit (deciduous vs. evergreen)---the largest driver of global variability in leaf lifespan---is a part of the PFT definition.
 As noted by citealt:wright_2004_worldwide in their original presentation of the leaf economic spectrum, specific leaf area and leaf lifespan were decoupled in deciduous species, largely because of these specues' relatively small variation in leaf lifespan.
 The very inconsistent direction of relationships of area-normalized traits with leaf lifespan is also consistent with the results of citealt:wright_2004_worldwide.
 The systematic differences in the leaf lifespan-SLA relationship with biome we observed among deciduous PFTs can be interpreted in terms of within-PFT climate variability.
-Specifically, for deciduous species, leaf lifespan is primarily driven by the length of the local growing season, which generally decreases with annual mean temperature, whereas the larger variability in leaf lifespan of evergreen species is less sensitive (or even inversely related) to changes in climate (Fig. S2).
+Specifically, for deciduous species, leaf lifespan is primarily driven by the length of the local growing season, which generally decreases with annual mean temperature, whereas the larger variability in leaf lifespan of evergreen species is less sensitive (or even inversely related) to changes in climate (Appendix S2: Fig. S2).
 Ultimately, this suggests that leaf economic relationships related to leaf lifespan are dominated by across-PFT differences, particularly those between deciduous and evergreen PFTs, while factors driving variability in leaf lifespan within PFTs are more complex and idiosyncratic cite:reich_2014_biogeographic,wu_2016_leaf.
 
 ** Covariance as constraint
 
 The second objective of this paper was to investigate the information content of trait covariance;
 i.e. how much more can we learn about specific traits based on their relationships with other traits?
-We show that accounting for covariance both improved the accuracy of trait imputation (Fig. 3) and reduced posterior predictive uncertainty around PFT-level trait means, particularly for undersampled trait-PFT combinations (Fig. 4, S1).
-Moreover, accounting for covariance occasionally resulted in small but statistically significant differences in the /position/ of trait mean estimates even for well-sampled PFT-trait combinations (e.g. $N_{mass}$ for temperate broadleaved deciduous trees, Fig. S1).
+We show that accounting for covariance both improved the accuracy of trait imputation (Fig. 3) and reduced posterior predictive uncertainty around PFT-level trait means, particularly for undersampled trait-PFT combinations (Fig. 4, Appendix S2: Fig. S1).
+Moreover, accounting for covariance occasionally resulted in small but statistically significant differences in the /position/ of trait mean estimates even for well-sampled PFT-trait combinations (e.g. $N_{mass}$ for temperate broadleaved deciduous trees, Appendix S2: Fig. S1).
 This result echoes Diaz /et al./ citeyear:diaz_2015_global in demonstrating the importance of studying the multivariate trait space rather than individual traits. 
-Significant differences between univariate and multivariate estimates of trait means suggest that sampling of these traits in TRY is not representative (Tab. 1; Method S2; see also citealt:kattge_2011_try).
+Significant differences between univariate and multivariate estimates of trait means suggest that sampling of these traits in TRY is not representative (Tab. 1; Appendix S2: Section S2; see also citealt:kattge_2011_try).
 These differences also indicate that parameter estimates based on univariate trait data [[cite:lebauer_2013_facilitating,dietze_2014_quantitative,butler_2017_mapping][e.g.]] may not only overestimate uncertainty, but may also be systematically biased.
 Although some traits in our analysis ($R_{d}$, $V_{c,max}$, and $J_{max}$) had too few observations to estimate covariance patterns for some PFTs with much statistical power,
 we show that leveraging covariance increases the effective sample size of all traits.
@@ -612,7 +612,7 @@ Asterisks ("*") indicate slopes whose 95% credible intervals do not overlap zero
 \noindent *Figure 2*:
 Mean and 95% credible interval on best estimates of traits for each plant functional type from the hierarchical model.
 For leaf lifespan and SLA, results were similar whether the other traits were normalized by mass- or area-, so only results from the mass-based fit are shown.
-Values and uncertainties for estimates from the hierarchical model are reported in tables S1 and S2.
+Values and uncertainties for estimates from the hierarchical model are reported in Appendix S2, tables S1 and S2.
 
 \vspace{\baselineskip}
 

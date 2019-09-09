@@ -1,18 +1,4 @@
 ---
-title: Supporting information
-author:
-  - >
-    Alexey N. Shiklomanov,
-    Elizabeth M. Cowdery,
-    Michael Bahn,
-    Chaeho Byun,
-    Steven Jansen,
-    Koen Kramer,
-    Vanessa Minden,
-    Ülo Niinemets,
-    Yusuke Onoda,
-    Nadejda A. Soudzilovskaia,
-    Michael C. Dietze
 output: pdf_document
 header-includes:
   - \usepackage{booktabs}
@@ -32,6 +18,27 @@ header-includes:
   - \renewcommand{\thefigure}{S\arabic{figure}}
 ---
 
+**Title:** 
+Does the leaf economic spectrum hold within plant functional types?
+A Bayesian multivariate trait meta-analysis
+
+**Authors:** 
+Alexey N. Shiklomanov,
+Elizabeth M. Cowdery,
+Michael Bahn,
+Chaeho Byun,
+Steven Jansen,
+Koen Kramer,
+Vanessa Minden,
+Ülo Niinemets,
+Yusuke Onoda,
+Nadejda A. Soudzilovskaia,
+Michael C. Dietze
+
+**Journal:** Ecological Applications
+
+**Appendix S2: Supporting information**
+
 ```{r libraries, include = FALSE}
 library(knitr)
 library(kableExtra)
@@ -44,8 +51,6 @@ stopifnot(
 )
 npdir <- here::here("..", "np-trait-analysis")
 ```
-
-(Page intentionally left blank)
 
 \clearpage
 
@@ -255,7 +260,7 @@ kable(
 
 \clearpage
 
-# Method S1: Estimating trait means and covariances through multiple imputation {-}
+# Section S1: Estimating trait means and covariances through multiple imputation {-}
 
 ## Introduction {-}
 
@@ -588,7 +593,7 @@ for (i in 1:4) {
 }
 ```
 
-# Method S2: Biased mean estimates in non-representatively sampled bivariate data
+# Section S2: Biased mean estimates in non-representatively sampled bivariate data
 
 One important result of this manuscript is that accounting for trait covariance can reduce biases in trait sampling.
 We can demonstrate this with an idealized case where we know the correct answer.
