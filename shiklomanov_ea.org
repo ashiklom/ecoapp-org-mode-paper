@@ -14,6 +14,9 @@
 
 #+LATEX_HEADER: \usepackage{booktabs}
 
+#+LATEX_HEADER: \usepackage{caption}
+#+LATEX_HEADER: \captionsetup{font={stretch=2}}
+
 #+LATEX_HEADER: \hypersetup{colorlinks=false, pdfborder={0 0 0}}
 
 #+LATEX_HEADER: \author[1,*]{Alexey N. Shiklomanov <alexey.shiklomanov@pnnl.gov>}
@@ -636,34 +639,36 @@ C4G & C4 Grass & 255 & 31 & 1312 & 1461 & 335 & 44 & 0 & 0 & 410 & 56 & 28 & 0 &
 \pagebreak
 #+END_EXPORT
 
-#+CAPTION: Mean pairwise reduced major axis (RMA) slope estimates calculated from within- and across-PFT covariance matrix estimates from the hierarchical model.
-#+CAPTION: The slope numerator ($y$) is the outer trait and the denominator ($x$) is the inner trait (so in the top row, the slope is \Delta(leaf lifespan) / \Delta(SLA)).
-#+CAPTION: Blue colors indicate positive slopes and red colors indicate negative slopes, with darker shades indicating steeper slopes.
-#+CAPTION: Asterisks ("*") indicate slopes whose 95% credible intervals do not overlap zero.
-#+NAME: fig:rmaslope
-[[../np-trait-analysis/figures/manuscript/rma-slope-tiles.pdf]]
+\noindent *Figure 1*:
+Mean pairwise reduced major axis (RMA) slope estimates calculated from within- and across-PFT covariance matrix estimates from the hierarchical model.
+The slope numerator ($y$) is the outer trait and the denominator ($x$) is the inner trait (so in the top row, the slope is \Delta(leaf lifespan) / \Delta(SLA)).
+Blue colors indicate positive slopes and red colors indicate negative slopes, with darker shades indicating steeper slopes.
+Asterisks ("*") indicate slopes whose 95% credible intervals do not overlap zero.
 
-#+CAPTION: Mean and 95% credible interval on best estimates of traits for each plant functional type from the hierarchical model.
-#+CAPTION: For leaf lifespan and SLA, results were similar whether the other traits were normalized by mass- or area-, so only results from the mass-based fit are shown.
-#+CAPTION: Values and uncertainties for estimates from the hierarchical model are reported in tables S1 and S2.
-#+NAME: fig:traitmeans
-[[../np-trait-analysis/figures/manuscript/mean_comparison.pdf]]
+\vspace{\baselineskip}
 
-#+CAPTION: Normalized mean root mean square error (RMSE) estimates from 20-fold cross-validation, by model and trait.
-#+CAPTION: Normalization is such that the highest RMSE for a given trait-model combination is 1.
-#+CAPTION: Model abbreviations are as follows:
-#+CAPTION: `uni' is the univariate model fit separately to each PFT;
-#+CAPTION: `multi' is the multivariate model fit separately to each PFT;
-#+CAPTION: and `hier' is the hierarchical model.
-#+NAME: fig:rmse
-[[../np-trait-analysis/figures/manuscript/n-fold-rmse.pdf]]
+\noindent *Figure 2*:
+Mean and 95% credible interval on best estimates of traits for each plant functional type from the hierarchical model.
+For leaf lifespan and SLA, results were similar whether the other traits were normalized by mass- or area-, so only results from the mass-based fit are shown.
+Values and uncertainties for estimates from the hierarchical model are reported in tables S1 and S2.
 
-#+CAPTION: Relative uncertainty in PFT-level trait estimates as a function of sample size for each model type.
-#+CAPTION: Lines represent linear models ($\log(y) = b_0 + b_1 \log(x)$) fit independently for each model type.
-#+CAPTION: In general, differences in estimate uncertainty between the univariate and multivariate models were minimal at large sample sizes but increasingly important at low sample sizes.
-#+CAPTION: However, differences in estimate uncertainty between the multivariate and hierarchical models were consistently negligible.
-#+NAME: fig:relativeci
-[[../np-trait-analysis/figures/manuscript/relative_ci_model.pdf]]
+\vspace{\baselineskip}
+
+\noindent *Figure 3*:
+Normalized mean root mean square error (RMSE) estimates from 20-fold cross-validation, by model and trait.
+Normalization is such that the highest RMSE for a given trait-model combination is 1.
+Model abbreviations are as follows:
+`uni' is the univariate model fit separately to each PFT;
+`multi' is the multivariate model fit separately to each PFT;
+and `hier' is the hierarchical model.
+
+\vspace{\baselineskip}
+
+\noindent *Figure 4*:
+Relative uncertainty in PFT-level trait estimates as a function of sample size for each model type.
+Lines represent linear models ($\log(y) = b_0 + b_1 \log(x)$) fit independently for each model type.
+In general, differences in estimate uncertainty between the univariate and multivariate models were minimal at large sample sizes but increasingly important at low sample sizes.
+However, differences in estimate uncertainty between the multivariate and hierarchical models were consistently negligible.
 
 #+BEGIN_EXPORT latex
 \pagebreak
