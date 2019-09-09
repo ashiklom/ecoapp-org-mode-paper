@@ -1,6 +1,8 @@
 *.bbl
 *.pdf
 *.tex
+!AppendixS1.tex
+!authors.tex
 
 auto/
 try_references.csv
@@ -11,3 +13,8 @@ try_references.csv
 *.aux
 *.log
 *.out
+*.bcf
+*.blg
+*.fdb_latexmk
+*.run.xml
+*.fls
