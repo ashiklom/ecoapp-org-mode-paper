@@ -2,7 +2,6 @@
 #+AUTHOR:
 #+DATE:
 #+OPTIONS: toc:nil tags:nil
-#+CSL_STYLE: ecology.csl
 
 #+LATEX_HEADER: \usepackage[left=1in,right=1in,top=1in,bottom=1in]{geometry}
 
@@ -15,13 +14,12 @@
 
 \clearpage
 
-* Appendix :no_title:
-
 #+BEGIN_EXPORT latex
 \noindent
 #+END_EXPORT
-
 *Appendix S1:* References for the original sources of the TRY trait data used in our analysis.
+
+\vspace{\baselineskip}
 
 nocite:kleyer_2008_leda_traitbase
 
@@ -297,7 +295,7 @@ nocite:demey_2013_nutrient
 
 * COMMENT Local variables and settings
 
-#+BEGIN_SRC emacs-lisp :result no :eval no
+#+BEGIN_SRC emacs-lisp :results hide
 (setq org-latex-pdf-process (list "latexmk -shell-escape -bibtex -f -pdf %f"))
 (setq nociteproc-org-ignore-backends '(latex beamer))
 (setq org-export-before-parsing-hook nil)
