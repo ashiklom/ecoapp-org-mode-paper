@@ -483,16 +483,19 @@ we show that leveraging covariance increases the effective sample size of all tr
 This means that field and remote sensing studies that estimate only certain traits (like SLA and $N_{mass}$) may be able to use trait correlations to provide constraint on traits they do not directly observe (such as $P_{mass}$ and $R_{d,mass}$) cite:singh_2015_imaging,musavi_2015_imprint,lepine_2016_examining,serbin_2014_spectroscopic.
 As such, future observational campaigns should consider trait covariance when deciding which traits to measure.
 
-The additional benefit of hierarchical multivariate modeling in our study was limited, due to a combindation of the low number of points used to estimate across-PFT covariance, the weak slopes of those relationships, and the usually consistent direction of pairwise slopes within and across PFTs.
+The additional benefit of hierarchical multivariate modeling in our study was limited, due to a combination of the low number of points used to estimate across-PFT covariance, the weak slopes of those relationships, and the usually consistent direction of pairwise slopes within and across PFTs.
 Therefore, for parameterizing the current generation of ecosystem models using well-sampled traits, simple multivariate models fit independently to each PFT may be sufficient and the additional conceptual challenges and computational overhead of hierarchical modeling are not required.
-However, this may not be the case for the /next/ generation of ecosystem models, which may have different and possibly more detailed representations of plant functional diversity.
-For example, such representations could consider systematic differences in trait values between regions with similar climates (e.g. tropical forests in South America and central Africa) revealed by spatially explicit trait analyses cite:butler_2017_mapping.
-An emerging class of terrestrial ecosystem models with explicit representations of demographic processes (e.g. competition, ecological succession, mortality, recruitment) further disaggregate PFTs based on successional stage cite:longo_2019_ed1, or even eschew PFTs altogether in factor of modeling individual species cite:post_1996_linkages,weng_2015_scaling.
-In both of these cases, the additional information provided by trait covariance (hierarchical or otherwise) could be valuable for overcoming the greater data limitation resulting from more finely-resolved plant groups.
-Another approach is to allow PFTs to emerge from the data through classification and clustering techniques applied to functional traits and other ecological characteristics cite:boulangeat_2012_improving.
-Trait covariance patterns such as those explored in our study could be used as inputs into such classification approaches in the future---for example, PFT definitions could be designed to maximize the differences in within- vs. across-PFT trait correlations.
-This work would be further enhanced if combined with additional information from phylogenetic or taxonomic similarity cite:symonds_2014_primer.
-Besides its utility to ecosystem modeling, such work would also contribute to outstanding questions in plant trait ecology about the extent to which leaf economic relationships hold within vs. across taxonomic levels (species, genus, family, clade), successional stages, or spatial domains.
+However, for modeling larger numbers of PFTs, the benefits of hierarchical modeling may accumulate cite:dietze_2008_capturing,cressie_2009_accounting,webb_2010_structured,clark_2004_why, particularly in situations where within- and across-group covariance patterns differ.
+Future work should use similar methods --- potentially in combination with additional information from phylogenetic or taxonomic similarity cite:symonds_2014_primer --- to explore the extent to which leaf economic relationships hold within vs. across other groups, such as taxonomic levels (species, genus, family, clade), successional stages, or spatial domains.
+
+This raises the question: What is the “best” way to represent plant functional diversity in the next generation of terrestrial ecosystem models?
+The current PFTs are products of expert knowledge from an era when computational power was much more limited and data on functional diversity were far fewer (CITE: Prentice 199X, etc.); this study, among others, points to their limitations.
+The current PFT structure is, however, not immutable.
+One alternative would be to explicitly account for systematic differences in trait values between regions with similar climates (e.g. Butler 2017).
+A second alternative is to further disaggregate PFTs based on successional stage, shade tolerance, or [something…] (Longo ED2 paper; LPJ-GUESS?).
+A third is to allow PFTs to emerge from the data through classification and clustering techniques applied to functional traits and other ecological characteristics cite:boulangeat_2012_improving.
+Finally, one could eschew PFTs altogether in favor of modeling individual species cite:post_1996_linkages,weng_2015_scaling, or abandon discrete categories altogether and model the continuous trait space (e.g. Scheiter, etc.).
+Our methods for quantifying trait covariance would benefit any or all of these approaches.
 
 More generally, we foresee tremendous potential for multivariate and hierarchical modeling to elucidate the relationship between traits and organismal and ecosystem function.
 A natural next step would be to apply the same approach to traits whose relationship to the leaf economic spectrum is less clear.
