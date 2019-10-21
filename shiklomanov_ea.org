@@ -489,12 +489,12 @@ However, for modeling larger numbers of PFTs, the benefits of hierarchical model
 Future work should use similar methods --- potentially in combination with additional information from phylogenetic or taxonomic similarity cite:symonds_2014_primer --- to explore the extent to which leaf economic relationships hold within vs. across other groups, such as taxonomic levels (species, genus, family, clade), successional stages, or spatial domains.
 
 This raises the question: What is the “best” way to represent plant functional diversity in the next generation of terrestrial ecosystem models?
-The current PFTs are products of expert knowledge from an era when computational power was much more limited and data on functional diversity were far fewer (CITE: Prentice 199X, etc.); this study, among others, points to their limitations.
-The current PFT structure is, however, not immutable.
-One alternative would be to explicitly account for systematic differences in trait values between regions with similar climates (e.g. Butler 2017).
-A second alternative is to further disaggregate PFTs based on successional stage, shade tolerance, or [something…] (Longo ED2 paper; LPJ-GUESS?).
-A third is to allow PFTs to emerge from the data through classification and clustering techniques applied to functional traits and other ecological characteristics cite:boulangeat_2012_improving.
-Finally, one could eschew PFTs altogether in favor of modeling individual species cite:post_1996_linkages,weng_2015_scaling, or abandon discrete categories altogether and model the continuous trait space (e.g. Scheiter, etc.).
+The current PFTs are products of an era in which computational power was more limited and data on functional diversity were relatively scarce cite:box_1995_factors,woodward_1996_pftintro,prentice_1992_special_paper; this study, among others, points to their limitations.
+This PFT structure is, however, not immutable.
+One alternative would be to explicitly account for systematic differences in trait values between regions with similar climates cite:butler_2017_mapping.
+A second alternative is to further disaggregate PFTs based on successional stage, shade tolerance, or similar ecological characteristic cite:longo_2019_ed1,hickler_2011_projecting.
+A third is to allow PFTs to emerge from the data by applying classification and clustering techniques to functional trait observations cite:boulangeat_2012_improving.
+Finally, one could eschew PFTs in favor of modeling individual species cite:post_1996_linkages,weng_2015_scaling, or even abandon discrete categories altogether and model the continuous trait space cite:scheiter_2013_next.
 Our methods for quantifying trait covariance would benefit any or all of these approaches.
 
 More generally, we foresee tremendous potential for multivariate and hierarchical modeling to elucidate the relationship between traits and organismal and ecosystem function.
