@@ -494,16 +494,6 @@ Trait covariance patterns such as those explored in our study could be used as i
 This work would be further enhanced if combined with additional information from phylogenetic or taxonomic similarity cite:symonds_2014_primer.
 Besides its utility to ecosystem modeling, such work would also contribute to outstanding questions in plant trait ecology about the extent to which leaf economic relationships hold within vs. across taxonomic levels (species, genus, family, clade), successional stages, or spatial domains.
 
-# More generally, in all of these cases, the additional information provided by trait covariance, hierarchical or otherwise, would be useful for
-
-# However, due to the combination of novel observations of plant functional diversity, more sophisticated simulations enabled by faster computers, and improved ecological understanding,
-
-# modeling studies are increasingly breaking from the "traditional" PFT definitions used in this study, and the benefits of hierarchical modeling may be greater under these alternative definitions.
-# For example, cite:boulangeat_2012_improving used an iterative classification approach based on species ecological characteristics to derive more detailed PFTs that better captured the diversity of their study area (Ecrins National Park, France).
-
-# However, for modeling larger numbers of PFTs cite:boulangeat_2012_improving and especially individual species [[cite:post_1996_linkages][e.g. Linkages ---]], the benefits of hierarchical modeling may accumulate cite:dietze_2008_capturing,cressie_2009_accounting,webb_2010_structured,clark_2004_why, particularly in situations where within- and across-group covariance patterns differ.
-# Future work should use similar methods---potentially in combination with additional information from phylogenetic or taxonomic similarity cite:symonds_2014_primer ---to explore the extent to which leaf economic relationships hold within vs. across other groups, such as taxonomic levels (species, genus, family, clade), successional stages, or spatial domains.
-
 More generally, we foresee tremendous potential for multivariate and hierarchical modeling to elucidate the relationship between traits and organismal and ecosystem function.
 A natural next step would be to apply the same approach to traits whose relationship to the leaf economic spectrum is less clear.
 One example is hydraulic traits:
