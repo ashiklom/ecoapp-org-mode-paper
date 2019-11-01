@@ -66,7 +66,7 @@ Relationships among morphological and biochemical traits (SLA, N, P) were the mo
 Relationships among metabolic traits (R_d, V_{c,max}, J_max) were slightly less consistent, reflecting in part their much sparser sampling (especially for high-latitude PFTs), but also pointing to more flexible plasticity in plant metabolistm.
 Finally, relationships involving leaf lifespan were the least consistent, indicating that leaf economic relationships related to leaf lifespan are dominated by across-PFT differences and that within-PFT variation in leaf lifespan is more complex and idiosyncratic.
 Across all traits, these covariance were an important source of information, as evidenced by the improved imputation accuracy and reduced predictive uncertainty in multivariate models compared to univariate models.
-Ultimately, our study reaffirms the value of studying not just individual traits but the multivariate trait space and the utility of hierarchical modeling for studying the scale dependence of trait relationships.
+Ultimately, our study reaffirms the value of studying not just individual traits but the multivariate trait space and the utility of hierarchical modeling for studying the scale dependence of trait relationships and for proposing, calibrating, and benchmarking PFT schemes.
 
 * Introduction
 
@@ -495,7 +495,7 @@ One alternative would be to explicitly account for systematic differences in tra
 A second alternative is to further disaggregate PFTs based on successional stage, shade tolerance, or similar ecological characteristic cite:longo_2019_ed1,hickler_2011_projecting.
 A third is to allow PFTs to emerge from the data by applying classification and clustering techniques to functional trait observations cite:boulangeat_2012_improving.
 Finally, one could eschew PFTs in favor of modeling individual species cite:post_1996_linkages,weng_2015_scaling, or even abandon discrete categories altogether and model the continuous trait space cite:scheiter_2013_next.
-Our methods for quantifying trait covariance would benefit any or all of these approaches.
+All of these approaches benefit from developments in modelling and cyberinfrastructure that make it possible to more fluidly propose, calibrate, and benchmark PFTs cite:lebauer_2013_facilitating,dietze_2014_quantitative.
 
 More generally, we foresee tremendous potential for multivariate and hierarchical modeling to elucidate the relationship between traits and organismal and ecosystem function.
 A natural next step would be to apply the same approach to traits whose relationship to the leaf economic spectrum is less clear.
