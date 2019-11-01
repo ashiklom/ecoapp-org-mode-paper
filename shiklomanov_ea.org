@@ -36,14 +36,13 @@
 #+ATTR_LATEX: :font \footnotesize
 | Section               | Word count |   |         |   |
 |-----------------------+------------+---+---------+---|
-| Abstract              |        322 |   | Figures | 4 |
+| Abstract              |        330 |   | Figures | 4 |
 | Introduction          |       1035 |   | Tables  | 1 |
 | Materials and methods |       2019 |   |         |   |
 | Results               |       1300 |   |         |   |
-| Discussion            |       1464 |   |         |   |
+| Discussion            |       1646 |   |         |   |
 |-----------------------+------------+---+---------+---|
-| Total                 |       6140 |   |         |   |
-#+TBLFM: @4$2=2019
+| Total                 |       6330 |   |         |   |
 #+TBLFM: @7$2=vsum(@I..II)
 
 #+BEGIN_EXPORT latex
