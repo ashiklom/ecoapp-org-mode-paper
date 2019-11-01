@@ -1,0 +1,10 @@
+Dear members of the Ecological Applications editorial board,
+
+We are pleased to submit a revision of our research article entitled "Does the leaf economic spectrum hold within plant functional types? A Bayesian multivariate trait meta-analysis" to Ecological Applications. This manuscript addresses two key research questions: First, to what extent does the leaf economic spectrum hold within vs. across plant functional types? Second, to what extent can the leaf economic spectrum and other patterns of trait covariance be leveraged to constrain trait estimates, particularly under data limitation? Previous research has demonstrated the generality of leaf economic relationships at the global scale and their inconsistency at the site scale. Our work is novel in its assessment of the intermediate plant functional type scale, which is the scale most relevant to ecological modeling efforts. Evaluating the scale-dependence of the leaf economic spectrum has been a key focus of recent trait ecology research. Furthermore, this study also has direct implications for the trait-based parameterization of ecosystem models, and is particularly novel in its application of the leaf economic spectrum to improving model parameter estimates.
+
+Compared to the previous submission, the revision has additional discussion of the limitations of PFTs as defined in our analysis and suggestions for alternative approaches.
+
+All authors contributed sufficiently to the project to be included as authors. No conflict of interest, financial or other, exists.
+
+Sincerely,
+Alexey Shiklomanov
