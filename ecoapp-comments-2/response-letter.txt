@@ -1,6 +1,6 @@
 Dear Dr. David Schimel,
 
-Thank you very much for your positive review of this manuscript and for the suggested minor revisions, which we found extremely useful. Please see our new discussion paragraph (lines TODO) that provides some historical context for the PFTs as defined in our study, as well as a number of more recent approaches to representing biodiversity.
+Thank you very much for your positive review of this manuscript and for the suggested minor revisions, which we found extremely useful. Please see our new discussion paragraph (lines 417-430) that provides some historical context for the PFTs as defined in our study, as well as a number of more recent approaches to representing biodiversity.
 
 Sincerely,
 Alexey Shiklomanov
