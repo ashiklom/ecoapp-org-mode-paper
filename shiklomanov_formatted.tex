@@ -1,0 +1,578 @@
+\documentclass{article}
+\title{Does the leaf economic spectrum hold within plant functional types? A Bayesian multivariate trait meta-analysis}
+
+\usepackage[left=1in,right=1in,top=1in,bottom=1in]{geometry}
+\usepackage{lineno}
+
+\usepackage{setspace}
+\usepackage{fontspec}
+\usepackage{graphicx}
+
+\usepackage{booktabs}
+
+\usepackage{caption}
+\captionsetup{font={stretch=2}}
+
+\usepackage{natbib}
+\bibliographystyle{humannat}
+
+\input{authors.tex}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{footnotesize}
+\noindent
+\textbf{Submission type:} Articles
+
+\noindent
+\textbf{Running head:} Trait covariance within vs.\ across PFTs (39 characters)
+
+\noindent
+\textbf{Keywords:} Functional trade-off; hierarchical modeling; trait variation; ecological modeling; leaf morphology; leaf biochemistry
+
+\end{footnotesize}
+
+\begin{center}
+\footnotesize
+\begin{tabular}{lrllr}
+Section & Word count &  &  & \\
+\midrule
+Abstract & 322 &  & Figures & 4\\
+Introduction & 1035 &  & Tables & 1\\
+Materials and methods & 2019 &  &  & \\
+Results & 1300 &  &  & \\
+Discussion & 1464 &  &  & \\
+\midrule
+Total & 6140 &  &  & \\
+\end{tabular}
+\end{center}
+
+\linenumbers
+\doublespacing
+\pagebreak
+
+\section{Abstract}
+The leaf economic spectrum is a widely-studied axis of plant trait variability that defines a trade-off between leaf longevity and productivity.
+While this has been investigated at the global scale, where it is robust, and at local scales, where deviations from it are common, it has received less attention at the intermediate scale of PFTs.
+We investigated whether global leaf economic relationships are also present within the scale of plant functional types (PFTs) commonly used by Earth System models, and the extent to which this global-PFT hierarchy can be used to constrain trait estimates.
+We developed a hierarchical multivariate Bayesian model that assumes separate means and covariance structures within and across PFTs and fit this model to seven leaf traits from the TRY database related to leaf longevity, morphology, biochemistry, and photosynthetic metabolism.
+Although patterns of trait covariation were generally consistent with the leaf economic spectrum, we found three approximate tiers to this consistency.
+Relationships among morphological and biochemical traits (SLA, N, P) were the most robust within and across PFTs, suggesting that covariation in these traits is driven by universal leaf construction trade-offs and stoichiometry.
+Relationships among metabolic traits ($R_d$, $V_{c,\max}$, $J_{\max}$) were slightly less consistent, reflecting in part their much sparser sampling (especially for high-latitude PFTs), but also pointing to more flexible plasticity in plant metabolistm.
+Finally, relationships involving leaf lifespan were the least consistent, indicating that leaf economic relationships related to leaf lifespan are dominated by across-PFT differences and that within-PFT variation in leaf lifespan is more complex and idiosyncratic.
+Across all traits, these covariance were an important source of information, as evidenced by the improved imputation accuracy and reduced predictive uncertainty in multivariate models compared to univariate models.
+Ultimately, our study reaffirms the value of studying not just individual traits but the multivariate trait space and the utility of hierarchical modeling for studying the scale dependence of trait relationships.
+
+\section{Introduction}
+
+Plant functional traits link directly measurable features of individuals to their fitness within an ecosystem, and are often related to various aspects of whole-ecosystem function \citep{violle_2007_let,cardinale_2012_biodiversity}.
+Although global trait databases are larger and more open now than ever before, large gaps and sampling biases in these databases continue to pose a challenge to trait ecology \citep{cornwell_2019_what}.
+If all traits and plant species were completely independent from each other, the only way forward would be to collect more trait data, which is expensive and time-consuming \citep{cornwell_2019_what}.
+Fortunately, recent trait syntheses have revealed that variability in plant functional traits is constrained by biophysical limitations and trade-offs between ecological strategies \citep{kattge_2011_try,wright_2004_worldwide,kleyer_2015_why,diaz_2015_global}.
+
+One such constraint is the "leaf economic spectrum", which defines a negative relationship between SLA and leaf lifespan, and a positive relationship of SLA with $N_{mass}$, $P_{mass}$, and photosynthesis and respiration rates \citep{wright_2004_worldwide,shipley_2006_fundamental,reich_2014_world,diaz_2015_global}.
+Leaf economic traits are correlated with
+plant productivity \citep{shipley_2005_functional,niinemets_2016_within,wu_2016_convergence},
+litter decomposition rates \citep{bakker_2010_leaf,hobbie_2015_plant},
+community composition \citep{burns_2004_patterns,cavender-bares_2004_multiple},
+and ecosystem function \citep{diaz_2004_plant,musavi_2015_imprint}.
+The position of species along the leaf economic spectrum is related to climate and soil conditions
+\citep{wright_2004_worldwide,wright_2005_modulation,cornwell_2009_community,ordonez_2009_global,wigley_2016_leaf}.
+As a result, relationships between leaf economic traits and climate have been used in ecosystem models to more finely resolve variation in plant function \citep{sakschewski_2015_leaf,verheijen_2015_inclusion,scheiter_2013_next}.
+
+The global, interspecific trait space in which the classic leaf economic spectrum was defined is the end result of a multitude of different processes operating at different spatial, temporal, and phylogenetic scales.
+The subset of these processes operating on time-scales of centuries to millennia, such as evolution or turnover in soil carbon and nutrients,
+may not be relevant for predicting how individual plants and ecosystems will respond to changes on policy-relevant timescales of months to decades \citep{shaw_2012_rapid}.
+The extent to which processes operating on shorter timescales result in the same trait trade-offs is an open question in trait ecology.
+Observational studies of trait correlations at smaller spatial scales, such as sites, species, and individuals, produce inconsistent results,
+with some studies finding consistent correlations across scales \citep{wright_2004_worldwide,albert_2010_multi,asner_2014_amazonian}
+and others that correlation strength and direction are scale-dependent  \citep{albert_2010_intraspecific_functional_variability,messier_2010_how,wright_2012_does,feng_2013_scale,grubb_2015_relationships,wigley_2016_leaf,messier_2017_interspecific,kichenin_2013_contrasting}.
+
+Many mechanisms have been suggested for scale-dependence of trait relationships.
+Trade-offs may only apply when multiple competing strategies co-occur, and alternative processes can drive community assembly where strong environmental filters severely limit the range of feasible strategies \citep{rosado_2017_relative,grime_2012_evolutionary}.
+Different selective pressures dominate at different scales, particularly within versus across species \citep{albert_2010_intraspecific_functional_variability,messier_2010_how,kichenin_2013_contrasting},
+and different traits have different sensitivities to such pressures \citep{messier_2016_trait}.
+Experimental evidence shows that species can alter different aspects of their leaf economy independently \citep{wright_2012_does}.
+Global analyses show that allocation patterns (and therefore investment strategies and trait relationships) vary across plant functional types \citep{ghimire_2017_global}.
+Moreover, plants maintain their fitness through multiple strategies, not just leaf economics, which can lead to multiple mutually orthogonal axes of trait variability.
+As a result, changes in leaf economic traits often fail to predict changes in other aspects of plant function, such as
+hydraulics \citep{li_2015_leaf},
+dispersal \citep{westoby_2002_plant_ecological_strategies},
+and overall plant carbon budget \citep{edwards_2014_leaf}.
+
+For these reasons, observed global trait relationships may have limited predictive power at finer scales.
+On the other hand, trying to understand ecosystem through bottom-up approaches starting with individual species is also challenging.
+For one, the required species-specific trait observations do not exist for a very large number of species \citep{cornwell_2019_what}.
+Even where sufficient trait data are available, scaling functional traits to ecosystem-scale processes also requires data on species relative abundance \citep{grime_1998_benefits},
+which can be even more uncertain than the trait data \citep{clark_2016_why}.
+Finally, plant interactions can result in community-level responses to environmental change that are distinct from the sum of species-specific changes \citep{poorter_2003_plant}.
+
+An intermediate strategy is to aggregate species with similar structural and functional characteristics into plant functional types (PFTs).
+Although PFTs are most widely used as the unit of plant functional differentiation in dynamic vegetation and earth system models
+\citep{lavorel_1997_plant_functional_classifications,wullschleger_2014_plant,prentice_1992_special_paper},
+the underlying concept of plant assemblages has been an important part of ecological discourse for over a century \citep{cowles_1899_ecological,clements_1936_nature,naeem_2003_disentangling}.
+Patterns of trait variation within and across PFTs are relevant for several reasons.
+First, trait covariance can be leveraged to impute missing trait values \citep{swenson_2013_phylogenetic};
+the extent to which leveraging trait covariance reduces the size (i.e. variability and/or uncertainty) of the trait space has important implications for
+quantifying the parametric uncertainty in vegetation model projections \citep{dietze_2013_improving,lebauer_2013_facilitating,dietze_2014_quantitative}.
+Second, the large uncertainty in model projections of future global carbon budgets \citep{friedlingstein_2006_climate,friedlingstein_2014_uncertainties}
+has been at least partially attributed to the models' failure to account for plant adaptation to changing environments \citep{sitch_2008_evaluation},
+which has led to an increased interest in adding within-PFT trait plasticity to models \citep{van_2011_going,verheijen_2015_inclusion}.
+
+While the leaf economic spectrum has been investigated at the global scale, where it is robust, and at local scales, where deviations from it are common, it has received less attention at the intermediate scale of PFTs.
+Thus, this paper seeks to answer the following questions:
+First, does the leaf economic spectrum hold within vs. across PFTs?
+Second, can the leaf economic spectrum and similar covariance patterns be leveraged to reduce uncertainties in trait estimates, particularly under data limitation?
+The answers to these question have implications for both functional ecology and ecosystem modeling.
+To address these questions, we developed a hierarchical multivariate Bayesian model that explicitly accounts for across- and within-PFT variability in trait correlations.
+We then fit this model to a global trait database to estimate mean trait values and variance-covariance matrices for PFTs as defined in a major earth system model (Community Land Model, CLM, \citealt{clm45_note}).
+We evaluate the ability of this model to reduce uncertainties in trait estimates and reproduce observed patterns of global trait variation compared to univariate models.
+Finally, we assess the scale dependence and generality of estimated trait covariances.
+
+
+\section{Materials and methods}
+
+\subsection{Trait data}
+
+We focused on seven leaf traits obtained from the TRY global database \citep{kattge_2011_try} (see Appendix S1):
+longevity (months),
+specific leaf area (SLA, m$^2$ kg$^{-1}$),
+nitrogen content ($N_{mass}$, mg N g$^{-1}$ or $N_{area}$, g m$^{-2}$),
+phosphorus content ($P_{mass}$, mg P g$^{-1}$ or $P_{area}$, g m$^{-2}$),
+dark respiration at 25°C ($R_{d,mass}$, µmol g$^{-1}$ s$^{-1}$, or $R_{d,area}$, µmol m$^{-2}$ s$^{-1}$),
+maximum RuBisCO carboxylation rate at 25°C ($V_{c,\max,mass}$, µmol g$^{-1}$ s$^{-1}$, or $V_{c,\max,area}$, µmol m$^{-2}$ s$^{-1}$),
+and maximum electron transport rate at 25°C ($J_{\max,mass}$, µmol g$^{-1}$ s$^{-1}$, or $J_{\max,area}$, µmol m$^{-2}$ s$^{-1}$).
+For $V_{c,\max}$, we only used values reported at 25°C.
+For $R_{d}$ and $J_{\max}$, we normalized the values to 25°C using reported leaf temperature values following \citet{atkin_2015_global} and \citet{kattge_2007_temperature} (equation 1 therein), respectively.
+To avoid issues with trait normalization, we performed analyses separately for both mass- and area-normalized traits \citep{osnas_2013_global,lloyd_2013_photosynthetically}.
+We restricted our analysis to quality-controlled values from species with sufficient information for functional type classification \cite[see][]{kattge_2011_try}.
+Following past studies \cite[e.g.][]{wright_2004_worldwide,onoda_2011_global,diaz_2015_global}, we log-transformed all trait values to correct for their strong right-skewness.
+
+\subsection{Plant functional types}
+
+We assigned each species a PFT following the scheme in the Community Land Model (CLM4.5, \citealt{clm45_note}) (Tab. 1, Fig. 1).
+We obtained categorical data on growth form, leaf type, phenology, and photosynthetic pathway from TRY.
+Where species attributes disagreed between datasets, we assigned the most frequently observed attribute (e.g., if five datasets say "shrub" but only one says "tree", we would use "shrub").
+Where species attributes were missing, we assigned attributes based on higher order phylogeny if possible (e.g., /Poaceae/ family are grasses, /Larix/ genus are deciduous needleleaved trees) or omitted the species if not.
+For biome specification, we matched geographic coordinates for each species to annual mean temperature ($AMT$, averaged 1970-2000) data from WorldClim-2 \citep{fick_2017_worldclim},
+calculated the mean $AMT$ for all sites where each species was observed,
+and then binned these species based on the following cutoffs: boreal/arctic ($AMT \leq 5^\circ C$), temperate ($AMT \leq 20^\circ C$), and tropical ($AMT > 20^\circ C$).
+
+\subsection{Multivariate analysis}
+
+\subsubsection{Basic model description}
+
+We compared three models with different levels of complexity.
+The simplest was the "univariate" model, in which each trait is independent.
+For an observation $x_{i,t}$ of trait $t$ and sample $i$:
+
+\begin{equation}
+x_{i,t} \sim N(\mu_t, \sigma_t)
+\end{equation}
+
+where $N$ is the univariate Gaussian distribution with mean $\mu_t$ and standard deviation $\sigma_t$ for trait $t$.
+
+The second-simplest model was the "multivariate" model, in which traits are drawn from a single multivariate distribution.
+For observed trait vector ${\mathbf{x_i}}$ for sample $i$:
+
+\begin{equation}
+\mathbf{x_i} \sim mvN(\mathbf{\mu}, \mathbf{\Sigma})
+\end{equation}
+
+where $mvN$ is the multivariate Gaussian distribution with mean vector $\mathbf{\mu}$ and covariance matrix $\mathbf{\Sigma}$.
+We fit both of these models independently for each PFT and once for the entire dataset (i.e. one global PFT).
+
+The most complex model was the ``hierarchical multivariate'' model (henceforth, just ``hierarchical model''),
+where traits are drawn from a PFT-specific multivariate distribution describing within-PFT variation,
+and whose mean vector is itself sampled from a global multivariate distribution describing variation across PFTs.
+For observed trait vector $\mathbf{x}_{i,p}$ for sample $i$ belonging to PFT $p$:
+
+\begin{equation}
+\mathbf{x}_{i,p} \sim mvN(\mathbf{\mu}_p, \mathbf{\Sigma}_p)
+\end{equation}
+
+\begin{equation}
+\mathbf{\mu}_p \sim mvN(\mathbf{\mu}_g, \mathbf{\Sigma}_g)
+\end{equation}
+
+where $\mathbf{\mu}_p$ and $\mathbf{\Sigma}_p$ are the mean vector and covariance matrix describing variation within PFT $p$, and $\mathbf{\mu}_g$ and $\mathbf{\Sigma}_g$ are the mean vector and covariance matrix describing across-PFT (global) variation.
+
+\subsection{Model implementation}
+
+We fit the above models using Gibbs sampling, which leverages conjugate prior relationships for efficient exploration of the sampling space.
+The main advantages of Gibbs sampling over distribution-agnostic Bayesian algorithms such as Metropolis Hastings \citep{haario_2001_adaptive}, Differential Evolution \citep{terbraak_2008_differential}, and Hamiltonian Monte-Carlo \citep{neal_2011_hmc} is that Gibbs sampling has a 100\% proposal acceptance rate (compared to 10--65\% for these algorithms), meaning that it requires roughly 2--10 times fewer MCMC iterations.
+
+For priors on all multivariate mean vectors ($\mathbf{\mu}$), we used multivariate normal distributions.
+For priors on all multivariate variance-covariance matrices, we used the Wishart distribution ($W$), which leads to the following posterior distribution:
+
+\begin{equation}
+P(\mathbf{\Sigma} \mid
+\mathbf{x}, \mathbf{\mu},
+\nu_0, \mathbf{\Sigma}_0)
+\sim
+(W(\nu^*, S^*))^{-1}
+\end{equation}
+
+\begin{equation}
+\nu^* = 1 + \nu_0 + n + m
+\end{equation}
+
+\begin{equation}
+\mathbf{S^*} = (\mathbf{S}_0 + (\bar{\mathbf{x}} - \mu)^T (\bar{\mathbf{x}} - \mu))^{-1}
+\end{equation}
+
+where $n$ is the number of observations, $m$ is the number of traits in data matrix $\mathbf{x}$, and $\bar{\mathbf{x}}$ is the column means of $\mathbf{x}$.
+For further details on the derivation of the conjugate relationship, see \citet[Section 3.6, "Multivariate normal with unknown mean and variance", pg. 72]{gelman_2003_bayesian}.
+
+We used weakly-informative priors for trait means and variances (diagonals of the multivariate normal covariance matrix), the values of which are shown in Appendix S2: Table S1.
+All of the covariance (off-diagonal) terms in the prior variance matrix were set to zero.
+We used uninformative priors for the Wishart distribution ($\nu_0 = 0$, $\mathbf{S}_0 = \mathrm{diag}(1, m)$).
+
+The above equations defining the conjugacy relationship do not work if the data matrix $x$ has any missing values.
+Therefore, we modeled the partially missing observations as latent variables conditioned on the present observations and estimated mean vector and covariance matrix.
+This approach is conceptually similar to multiple imputation \citep{white_2010_multiple,graham_2009_missing_data_analysis},
+and is quite distinct from single imputation, where data are imputed once in a separate step prior to parameter estimation \citep{white_2010_multiple,graham_2009_missing_data_analysis}.
+For a block of data $\mathbf{x\prime}$ containing missing observations in columns $\mathbf{m}$ and present observations in columns $\mathbf{p}$,
+missing values $\mathbf{x\prime}[m]$ are drawn randomly from a conditional multivariate normal distribution at each iteration of the sampling algorithm:
+
+\begin{equation}
+\mathbf{x^\prime}[m|p] \sim mvN(\mathbf{\mu}^\prime, \mathbf{\Sigma}^\prime)
+\end{equation}
+
+\begin{equation}
+\mathbf{\mu\prime} =
+(\mathbf{x\prime}[p] - \mathbf{\mu^\prime}[p])
+(\mathbf{\Sigma}[p,p]^{-1} \mathbf{\Sigma}[p,m])
+\end{equation}
+
+\begin{equation}
+\mathbf{\Sigma\prime} = \mathbf{\Sigma}[m,m] -
+\mathbf{\Sigma}[m,p]
+(\mathbf{\Sigma}[p,p]^{-1} \mathbf{\Sigma}[p,m])
+\end{equation}
+
+Sampling proceeds according to the following algorithm:
+Let $\mu_i$ and $\mathbf{\Sigma}_i$ be the estimates of the mean vector and covariance matrix, respectively, at MCMC iteration $i$.
+Similarly, let $x_i$ be the realization of the data $\mathbf{x}\prime$ with missing (latent) values imputed at MCMC iteration $i$.
+
+1. Initialize $\mu_1$ and $\mathbf{\Sigma}_1$ as a random draw from their respective priors.
+2. Generate $x_1$ as a function of $\mu_1$ and $\mathbf{\Sigma}_1$.
+3. Draw $\mu_2$ and $\mathbf{Sigma}_2$ as a function of $x_1$, according to the corresponding Gibbs sampling step.
+4. Generate $x_2$ as function of $\mu_2$ and $\mathbf{\Sigma}_2$.
+5. Draw $\mu_3$ and $\mathbf{Sigma}_3$ as a function of $x_2$.
+6. Continue alternating these steps until a stable distribution of $\mu$ and $\mathbf{Sigma}$ is reached.
+
+A detailed demonstration of this approach is shown in Appendix S2: Section S1.
+By performing imputation at every MCMC iteration, we integrate over the uncertainty in the missing data.
+Combined with uninformative priors on the covariance centered on zero (as described above),
+this means our approach provides an inherently conservative estimate of both trait covariances and imputed missing values.
+Where data are limited, our approach will tend towards covariance estimates of zero with wide credible intervals,
+and the resulting weak and uninformative covariance estimates will lead to larger uncertainties in the imputed values.
+
+For each model fit, we ran independent five chains, continuing sampling until the final result achieved convergence as determined by a univariate Gelman-Rubin potential scale reduction statistic less than 1.1 for all parameters \citep{gelman_1992_inference}.
+We implemented this sampling algorithm in a publicly available R \citep{team_2018_r} package (<http://github.com/ashiklom/mvtraits>).
+
+\subsection{Analysis of results}
+
+To assess the consistency of within- and across-PFT trait trade-offs,
+we calculated the mean and 95\% credible interval of the pairwise reduced major axis slope ($M$) for each trait pair ($i$, $j$)
+from posterior samples of their variance-covariance matrices ($\mathbf{\Sigma}$) using the following equation:
+
+\begin{equation}
+M_{i,j} = \frac{\mathbf{\Sigma}_{j,j}}{\mathbf{\Sigma}_{i,i}} \textrm{sign}(\mathbf{\Sigma}_{i,j})
+\end{equation}
+
+Although this is a Bayesian analysis and therefore has no formal tests of statistical significance,
+we approximated the statistical significance of slope estimates as those whose 95\% credible interval did not overlap zero.
+We calculated reduced major axis slopes both within and across PFTs.
+
+To explore patterns of trait variation across PFTs,
+and to provide updated parameter values for earth system models,
+we calculated the mean and 95\% credible intervals of PFT-level trait estimates from our hierarchical model.
+We also compare these values to to the default parameter values of CLM 4.5 (Table 8.1 in \citealt{clm45_note}) for SLA, $N_{mass}$, $N_{area}$, $V_{c,\max,mass}$ and $V_{c,\max,area}$.
+To convert CLM's reported C:N ratio to $N_{mass}$, we assumed a uniform leaf C fraction of 0.46.
+We then divided this calculated $N_{mass}$ by the reported SLA to obtain $N_{area}$.
+We calculated $V_{c,\max,mass}$ by multiplying the reported $V_{c,\max,area}$ by the reported SLA.
+
+To compare the ability of the different models to predict missing trait observations,
+we performed a cross-validation where we randomly removed 1000 observations from the data
+and evaluated the ability of the fitted models to impute these missing observations.
+We report the results of the normalized mean root mean square error (RMSE) of these predicted observations.
+
+To test whether multivariate and hierarchical models offer relatively more utility at smaller sample sizes,
+we calculated the relative uncertainty ($\alpha$) as a function of the mean ($\mu$) and upper ($q_{0.975}$) and lower ($q_{0.025}$) confidence limits of trait estimates.
+
+\begin{equation}
+\alpha = \frac{q_{0.975} - q_{0.025}}{\mu}
+\end{equation}
+
+We then fit a log-linear least-squares regression relating relative uncertainty to sample size ($n$) for each model (univariate, multivariate, and hierarchical; Fig. 5).
+
+\begin{equation}
+\log{\alpha} = b_0 + b_1 \log{n}
+\end{equation}
+
+If all three models performed equally well at all sample sizes, their respective slope and intercept coefficients would be statistically indistinguishable.
+Meanwhile, models that perform better should have
+a lower intercept ($b_0$), indicating lower overall uncertainty,
+and
+a lower slope ($b_1$), indicating reduced sensitivity of uncertainty ($\alpha$) to sample size ($n$).
+
+\subsection{Data and code availability}
+
+All R analyses were run using R version 3.6.1 \citep{r_361}.
+The R code and data for running these analyses is publicly available online via the Open Science Framework at https://osf.io/w8y73/.
+To comply with TRY intellectual property guidelines, the trait data used in this study have been "anonymized" such that they can only be identified to the PFT level (not the species level) as required to reproduce this analysis.
+The complete TRY data request used for this analysis has been archived at http://try-db.org, and can be retrieved by providing the TRY data request ID (1584).
+
+\section{Results}
+
+\subsection{Trait covariance patterns within- and across-PFTs}
+
+The direction and magnitude of pairwise trait relationships was quite variable within- and across-PFTs (Fig. 1).
+Broadly, this variability can be captured by breaking up the seven leaf traits considered in this analysis into three groups:
+morphology and biochemistry (SLA, N, P),
+metabolism ($R_d$, $V_{c,\max}$, $J_{\max}$),
+and leaf lifespan.
+
+Morphological and biochemical traits (SLA, N, P) showed the most robust and consistent mutual covariance of these three groups.
+SLA was positively related to $N_{mass}$ and $P_{mass},$ and negatively related to $N_{area}$ and $P_{area}$, both across PFTs and within all PFTs.
+The magnitude of the slopes between N and P (regardless of normalization), and of SLA with $N_{area}$ and $P_{area}$, were relatively constant within all PFTs,
+but the magnitude of the slopes of SLA with $N_{mass}$ and $P_{mass}$ were more variable.
+In particular, temperate tree species (BlETe, BlDTe, NlETe) showed steeper SLA-$N_{mass}$ slopes (more variation in SLA relative to $N_{mass}$) than most other PFTs.
+
+Covariance among metabolic traits ($R_d$, $V_{c,\max}$, $J_{\max}$) was slightly less robust.
+Pairwise relationships among metabolic traits were weaker across-PFTs than within-PFTs.
+Across-PFT relationships among metabolic traits were also weaker than across-PFT relationships among SLA, N, and P.
+Within PFTs, the relationship between $V_{c,\max}$ and $J_{\max}$ (regardless of normalization) was largely consistent in magnitude and direction,
+while the relationship of $R_d$ with both of these traits was more variable.
+Within-PFT relationships of metabolic traits with N and P were usually positive,
+and relationships with SLA were usually positive under mass normalization and negative under area normalization.
+Two PFTs had notable deviations from these patterns under area normalization:
+Broadleaved deciduous temperate (BlDTe) trees had opposite slopes for the SLA-$R_{d,area}$, SLA-$J_{\max,area}$, and $N_{area}$-$R_{d,area}$,
+while needleleaved evergreen temperate trees (NlETe) had opposite slopes for $R_{d,area}$-$V_{c,\max,area}$ and SLA-$V_{c,\max,area}$.
+Finally, an important feature of metabolic traits is the much larger number of near-zero pairwise slope estimates,
+which is driven by the relative paucity of observations (especially pairwise observations) of these traits for many PFTs.
+
+Slopes of all of the above traits with leaf lifespan showed the most variability.
+Across-PFT relationships of leaf lifespan with other traits were, on average, stronger than across-PFT relationships among the other traits, especially for mass-normalized traits.
+Within-PFT relationships of leaf lifespan with mass normalized traits were most often positive, but varied systematically with leaf habit and biome.
+Namely, among deciduous PFTs, leaf lifespan-SLA and leaf lifespan-$N_{mass}$ slopes were less positive or more negative in colder biomes than warmer ones
+(BlETr > BlETe, BlDTr > BlDTe > BlDBo, ShDTe > ShDBo, C3GTe > C3GAr).
+Meanwhile, slopes of leaf lifespan with area-normalized traits were generally weaker and idiosyncratic.
+
+An important caveat to these results is that many slopes, including all of the across-PFT slopes, had 95\% credible intervals that intersected zero---i.e. we are less than 95\% confident in the direction of these slopes.
+This is primarily due to variations in the effective number of pairwise observations used to estimate the covariance matrix ---
+the more pairwise observations are available, the smaller the minimum covariance that can be estimated with the same level of statistical power and confidence.
+For example, a power analysis of correlation coefficients (`pwr::pwr.r.test` in R; \citealt{r_pwr_package}) showed that with 14 plant functional types ($n = 14$),
+the smallest across-PFT correlation we would be able to estimate with 95\% power ($\alpha = 0.95$) and confidence ($p = 0.05$) is 0.74,
+so we can confidently say that all PFT correlation coefficients (different from, but closely related to slope) were smaller than that value.
+That being said, because all across-PFT slopes have the same sample size,
+we can reasonably expect differences in the mean strength of pairwise across-PFT trait relationships to be ecologically meaningful.
+The situation is more complex for PFT-level estimates, where sample size varies by multiple orders of magnitude by PFT and trait pair (Tab. 1, Appendix S2: Tab. S4).
+In particular, high-latitude PFTs (BlDBo, NlEBo, NlD, ShDBo, and C3GAr) and metabolic traits ($R_d$, $V_{c,\max}$, $J_{\max}$) stand out as having particularly low sample sizes.
+
+\subsection{Estimates of PFT-level means}
+
+Across-PFT patterns in SLA, $N_{mass}$, $P_{mass}$, and $R_{d,mass}$ were similar,
+with the highest values in temperate broadleaved deciduous PFTs and the lowest values in evergreen PFTs (Fig. 2).
+However, none of these patterns was universal to all four traits.
+For example, tropical evergreen trees had relatively high $N_{mass}$ and average SLA and $R_{d,mass}$, but among the lowest $P_{mass}$.
+Similarly, compared to grass PFTs, temperate and boreal shrubs had similar SLA but higher $N_{mass}$ and $P_{mass}$.
+Patterns were different when these traits were normalized by area instead of mass.
+For example, needleleaf evergreen trees had relatively low $N_{mass}$ and $P_{mass}$ but relatively high $N_{area}$ and $P_{area}$, while the opposite was true of deciduous temperate trees and shrubs.
+
+A key application of this study was to provide data-driven parameter estimates for Earth System models.
+To this end, we compared our mean parameter estimates with corresponding default parameters in CLM 4.5 \citep{clm45_note} (Fig. 2).
+Our SLA estimates were lower (non-overlapping 95\% credible interval) than CLM parameters for all PFTs except tropical broadleaved evergreen trees.
+Our $N_{mass}$ estimates showed more across-PFT variability than CLM parameters, and only agreed with CLM for evergreen temperate trees, needleleaved trees, and C3 arctic grasses.
+Similarly to \citet{kattge_2009_quantifying}, we found that CLM overestimates $V_{c,\max}$, both by mass and area.
+
+\subsection{Comparing different models}
+
+Both our multivariate and hierarchical models consistently outperformed the univariate approach in terms of their ability to impute missing trait values (Fig. 3).
+The relative amount of improvement from the univariate to the multivariate or hierarchical model was roughly proportional to the sample size of the underlying trait.
+For instance, for SLA---the best-sampled trait in our analysis---the hierarchical model's RMSE improved on the univariate model by only 4--6\%,
+while the improvement for the much more sparsely observed $V_{c,\max}$ and $J_{\max}$ was 30--40\%.
+The differences between the grouped multivariate model and the hierarchical model were negligible,
+indicating that the additional information content of the across-PFT covariance is limited.
+
+In general, leaf trait estimates from the univariate, multivariate, and hierarchical models were similar (Appendix S2: Fig. S1).
+Where estimates differed between models, the largest differences were between the univariate and multivariate models, and additional constraint from the hierarchical model relative to PFT-specific multivariate models had a minimal effect on trait estimates.
+Significant differences in trait estimates between univariate and multivariate models occurred even for well-sampled traits, such as leaf nitrogen content.
+We also observed differences in posterior predictive uncertainties of mean estimates with respect to sample size.
+High-latitude PFTs had large uncertainties relative to other PFTs, and the traits with the largest uncertainties were dark respiration, $V_{c,\max}$, and $J_{\max}$.
+For many of these trait-PFT combinations, the additional constraint from trait covariance provided by the multivariate and hierarchical models reduced error bars, making it possible to compare estimates against those of other PFTs.
+Our analysis of the relationship between sample size and trait uncertainty found that, compared to the univariate model, the multivariate model both reduced uncertainty overall (lower intercept) and reduced the sensitivity of uncertainty to sample size (lower slope) (Fig. 4).
+The hierarchical model further reduced both sensitivity to sample size and overall uncertainty, but this benefit was primarily detectable only at very small sample sizes.
+
+
+\section{Discussion}
+
+\subsection{Scale dependence of the leaf economic spectrum}
+
+Our first objective was to investigate the extent to which the global relationships defined by the leaf economic spectrum---namely, positive relationships among SLA, $N_{mass}$, $P_{mass}$, and $R_{d,mass}$ and negative relationships of all these traits with leaf lifespan \citep{wright_2004_worldwide,shipley_2006_fundamental,reich_2014_world,diaz_2015_global} ---hold within and across PFTs.
+Our results suggest that, among the seven traits we investigated, there are three levels of ``robustness'' for leaf economic relationships.
+The top tier of leaf economic relationships involves morphological and biochemical traits---SLA, N, and P---which had covariance patterns consistent with the leaf economic spectrum both across PFTs and within all PFTs.
+The second tier involves metabolic traits---$R_d$, $V_{c,\max}$, and $J_{\max}$---which were generally consistent with the leaf economic spectrum, but with a weaker relationship across PFTs and with notable deviations within specific PFTs.
+The third tier involves leaf lifespan, which had a relatively strong leaf economic spectrum signal across PFTs and within a majority of PFTs,
+but which showed systematic deviations from the leaf economic spectrum within many PFTs.
+
+The consistent direction of relationships among SLA, N, and P (by mass and area) across and within all PFTs suggests that they are driven by processes that are more-or-less universal (Fig. 1).
+The consistent positive relationship between N and P (by mass or area) reflects the tight stoichiometric link between these two nutrients, and suggests that the variations in nutrient supply that would drive changes in the N:P ratio are larger within-PFTs than across \citep{elser_2010_biological}.
+Meanwhile, the consistent positive relationships of SLA with mass-normalized N and P reflects the fact that increases in leaf mass per area (i.e.\ decreases in SLA) are driven primarily by increases in structural carbohydrates, which inevitably leads to a decline in nutrient mass fractions \citep{poorter_2009_causes}.
+At the same time, the consistent negative relationships of SLA with area-normalized N and P reflect the role of these nutrients in structural proteins \citep{onoda_2017_physiological}.
+It should be noted that although the direction of SLA-$N_{mass}$ and SLA-$P_{mass}$ relationships was consistent, the magnitude of their slopes showed non-trivial variation, particularly on a mass basis.
+
+The less robust leaf economic spectrum signal in metabolic traits (Fig. 1) is likely a combination of two factors:
+more plasticity in plant metabolism relative to morphological and biochemical traits,
+and much smaller sample sizes for confidently estimating relationships.
+Plasticity in plant metabolic traits independent of the leaf economic spectrum is well documented.
+For example, \citealt{kattge_2009_quantifying} showed that across-PFT variation in $V_{c,\max,area}$ was driven by differences in photosynthetic N use efficiency while variation within PFTs was driven by differences in N content, and that $N_{area}$-$V_{c,\max,area}$ relationships within PFTs were variable.
+More generally, there is substantial variability across PFTs in how leaf N is allocated to photosynthesis \citep{ghimire_2017_global} and across leaf biochemical consituents more generally \citep{onoda_2011_global}.
+The scale dependence we observed in $V_{c,\max}$-$J_{\max}$ relationship---namely, that its slope was consistent within PFTs, but very weak across PFTs---may be a reflection of strong variation in growth irradiance and temperature across biomes, which have been shown to alter the $J_{\max}$/$V_{c,\max}$ ratio \citep{hikosaka_2005_nitrogen,hikosaka_2005_temperature,xiang_2013_contrasting}.
+An important limitation to these results is the relative scarcity of metabolic trait measurements, especially for high-latitude PFTs (Table 1, Appendix 2: Tab. S4).
+More simultaenous observations of metabolic traits and other leaf economic traits on the same leaf samples are needed to better understand how much these are actual ecological patterns versus just artifacts of sampling bias.
+
+The fact that trait relationships involving leaf lifespan showed the most scale dependence and within-PFT variability (Fig. 1) is not particularly surprising considering that leaf habit (deciduous vs.\ evergreen)---the largest driver of global variability in leaf lifespan---is a part of the PFT definition.
+As noted by \citealt{wright_2004_worldwide} in their original presentation of the leaf economic spectrum, specific leaf area and leaf lifespan were decoupled in deciduous species, largely because of these specues' relatively small variation in leaf lifespan.
+The very inconsistent direction of relationships of area-normalized traits with leaf lifespan is also consistent with the results of \citealt{wright_2004_worldwide}.
+The systematic differences in the leaf lifespan-SLA relationship with biome we observed among deciduous PFTs can be interpreted in terms of within-PFT climate variability.
+Specifically, for deciduous species, leaf lifespan is primarily driven by the length of the local growing season, which generally decreases with annual mean temperature, whereas the larger variability in leaf lifespan of evergreen species is less sensitive (or even inversely related) to changes in climate (Appendix S2: Fig. S2).
+Ultimately, this suggests that leaf economic relationships related to leaf lifespan are dominated by across-PFT differences, particularly those between deciduous and evergreen PFTs, while factors driving variability in leaf lifespan within PFTs are more complex and idiosyncratic \citep{reich_2014_biogeographic,wu_2016_leaf}.
+
+\subsection{Covariance as constraint}
+
+The second objective of this paper was to investigate the information content of trait covariance;
+i.e.\ how much more can we learn about specific traits based on their relationships with other traits?
+We show that accounting for covariance both improved the accuracy of trait imputation (Fig. 3) and reduced posterior predictive uncertainty around PFT-level trait means, particularly for undersampled trait-PFT combinations (Fig. 4, Appendix S2: Fig. S1).
+Moreover, accounting for covariance occasionally resulted in small but statistically significant differences in the \textit{position} of trait mean estimates even for well-sampled PFT-trait combinations (e.g. $N_{mass}$ for temperate broadleaved deciduous trees, Appendix S2: Fig. S1).
+This result echoes \citet{diaz_2015_global} in demonstrating the importance of studying the multivariate trait space rather than individual traits.
+Significant differences between univariate and multivariate estimates of trait means suggest that sampling of these traits in TRY is not representative (Tab. 1; Appendix S2: Section S2; see also \citealt{kattge_2011_try}).
+These differences also indicate that parameter estimates based on univariate trait data~\cite[e.g.,][]{lebauer_2013_facilitating,dietze_2014_quantitative,butler_2017_mapping} may not only overestimate uncertainty, but may also be systematically biased.
+Although some traits in our analysis ($R_{d}$, $V_{c,\max}$, and $J_{\max}$) had too few observations to estimate covariance patterns for some PFTs with much statistical power,
+we show that leveraging covariance increases the effective sample size of all traits.
+This means that field and remote sensing studies that estimate only certain traits (like SLA and $N_{mass}$) may be able to use trait correlations to provide constraint on traits they do not directly observe (such as $P_{mass}$ and $R_{d,mass}$) \citep{singh_2015_imaging,musavi_2015_imprint,lepine_2016_examining,serbin_2014_spectroscopic}.
+As such, future observational campaigns should consider trait covariance when deciding which traits to measure.
+
+The additional benefit of hierarchical multivariate modeling in our study was limited, due to a combination of the low number of points used to estimate across-PFT covariance, the weak slopes of those relationships, and the usually consistent direction of pairwise slopes within and across PFTs.
+Therefore, for parameterizing the current generation of ecosystem models using well-sampled traits, simple multivariate models fit independently to each PFT may be sufficient and the additional conceptual challenges and computational overhead of hierarchical modeling are not required.
+However, for modeling larger numbers of PFTs, the benefits of hierarchical modeling may accumulate \citep{dietze_2008_capturing,cressie_2009_accounting,webb_2010_structured,clark_2004_why}, particularly in situations where within- and across-group covariance patterns differ.
+Future work should use similar methods --- potentially in combination with additional information from phylogenetic or taxonomic similarity \citep{symonds_2014_primer} --- to explore the extent to which leaf economic relationships hold within vs.\ across other groups, such as taxonomic levels (species, genus, family, clade), successional stages, or spatial domains.
+
+This raises the question: What is the “best” way to represent plant functional diversity in the next generation of terrestrial ecosystem models?
+The current PFTs are products of an era in which computational power was more limited and data on functional diversity were relatively scarce \citep{box_1995_factors,woodward_1996_pftintro,prentice_1992_special_paper}; this study, among others, points to their limitations.
+This PFT structure is, however, not immutable.
+One alternative would be to explicitly account for systematic differences in trait values between regions with similar climates \citep{butler_2017_mapping}.
+A second alternative is to further disaggregate PFTs based on successional stage, shade tolerance, or similar ecological characteristic \citep{longo_2019_ed1,hickler_2011_projecting}.
+A third is to allow PFTs to emerge from the data by applying classification and clustering techniques to functional trait observations \citep{boulangeat_2012_improving}.
+Finally, one could eschew PFTs in favor of modeling individual species \citep{post_1996_linkages,weng_2015_scaling}, or even abandon discrete categories altogether and model the continuous trait space \citep{scheiter_2013_next}.
+Our methods for quantifying trait covariance would benefit any or all of these approaches.
+
+More generally, we foresee tremendous potential for multivariate and hierarchical modeling to elucidate the relationship between traits and organismal and ecosystem function.
+A natural next step would be to apply the same approach to traits whose relationship to the leaf economic spectrum is less clear.
+One example is hydraulic traits:
+While stem and leaf hydraulic traits are correlated \citep{bartlett_2016_correlations}, the scaling between hydraulic and leaf economic traits is poorly understood \citep{reich_2014_world,li_2015_leaf}.
+Similarly, reexamining the relationships defining wood \citep{chave_2009_towards,fortunel_2012_leaf,baraloto_2010_decoupled} and root \citep{kramer-walter_2016_root,valverde-barrantes_2016_root} economic spectra, as well as their relationship to the foliar traits, would provide useful information on scale-dependence of plant growth and allocation strategies.
+The difficulty of measuring hydraulic and other non-foliar traits~\cite[e.g.][]{jansen_2015_current} further increases the value of any technique that can fully leverage the information they provide.
+Ultimately, multivariate and hierarchical modeling may reveal functional trade-offs that are mutually confounding at different scales, thereby enhancing our understanding of processes driving functional diversity.
+
+\section{Acknowledgments}
+
+This project was supported by NASA grant NNX14AH65G and NSF grants 1261582, 1458021, and 1655095, as well as the TRY initiative on plant traits (http://www.try-db.org).
+The TRY initiative and database is hosted, developed, and maintained by J. Kattge and G. Boenisch (Max Planck Institute for Biogeochemistry, Jena, Germany).
+TRY is currently supported by DIVERSITAS/Future Earth and the German Centre for Integrative Biodiversity Research (iDiv) Halle-Jena-Leipzig.
+The authors would also like to thank Ben Bond-Lamberty, Christine Rollinson, Istem Fer, and Colin Averill for their valuable feedback on early drafts of this manuscript.
+
+\bibliography{library}
+
+\section{Tables}
+
+\pagebreak
+
+\begin{table}[!h]
+
+\caption{\label{tab:}\label{tab:pfts}Names, labels, species counts, and number of non-missing observations of each trait for plant functional types (PFTs) used in this analysis.}
+\centering
+\resizebox{\linewidth}{!}{
+\begin{tabular}{ccccccccccccccc}
+\toprule
+\multicolumn{5}{c}{ } & \multicolumn{5}{c}{Mass} & \multicolumn{5}{c}{Area} \\
+\cmidrule(l{3pt}r{3pt}){6-10} \cmidrule(l{3pt}r{3pt}){11-15}
+Label & PFT & Species & Leaf lifespan & SLA & N & P & Rd & Vcmax & Jmax & N & P & Rd & Vcmax & Jmax\\
+\midrule
+BlETr & Broadleaf Evergreen Tropical Tree & 1229 & 153 & 11710 & 7547 & 2912 & 237 & 205 & 58 & 4023 & 1684 & 326 & 225 & 152\\
+BlETe & Broadleaf Evergreen Temperate Tree & 363 & 135 & 2210 & 1811 & 1194 & 121 & 36 & 16 & 928 & 339 & 196 & 106 & 87\\
+BlDTr & Broadleaf Deciduous Tropical Tree & 286 & 82 & 2166 & 1545 & 812 & 98 & 54 & 30 & 813 & 500 & 113 & 56 & 53\\
+BlDTe & Broadleaf Deciduous Temperate Tree & 345 & 181 & 9536 & 5982 & 2163 & 942 & 245 & 576 & 2163 & 398 & 866 & 697 & 849\\
+BlDBo & Broadleaf Deciduous Boreal Tree & 62 & 58 & 908 & 898 & 340 & 142 & 0 & 0 & 141 & 60 & 11 & 5 & 5\\
+\addlinespace
+NlETe & Needleleaf Evergreen Temperate Tree & 130 & 66 & 2958 & 4940 & 3729 & 262 & 92 & 91 & 1227 & 462 & 84 & 274 & 106\\
+NlEBo & Needleleaf Evergreen Boreal Tree & 30 & 24 & 530 & 1457 & 393 & 493 & 0 & 0 & 101 & 14 & 16 & 3 & 3\\
+NlD & Needleleaf Deciduous Tree & 19 & 16 & 195 & 328 & 179 & 34 & 1 & 0 & 48 & 10 & 3 & 4 & 0\\
+ShE & Shrub Evergreen & 1120 & 298 & 5018 & 3555 & 2404 & 207 & 22 & 13 & 1376 & 747 & 205 & 41 & 32\\
+ShDTe & Shrub Deciduous Temperate & 330 & 100 & 3026 & 1525 & 1227 & 10 & 9 & 1 & 576 & 281 & 13 & 33 & 19\\
+\addlinespace
+ShDBo & Shrub Deciduous Boreal & 94 & 80 & 482 & 552 & 313 & 0 & 1 & 1 & 133 & 51 & 0 & 1 & 1\\
+C3GAr & C3 Grass Arctic & 157 & 65 & 989 & 996 & 573 & 11 & 1 & 2 & 219 & 85 & 7 & 1 & 2\\
+C3GTe & C3 Grass Temperate & 624 & 76 & 6322 & 3802 & 1541 & 103 & 21 & 27 & 1257 & 382 & 93 & 52 & 47\\
+C4G & C4 Grass & 255 & 31 & 1312 & 1461 & 335 & 44 & 0 & 0 & 410 & 56 & 28 & 0 & 0\\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+\section{Figures}
+
+\pagebreak
+
+\noindent Figure 1:
+Mean pairwise reduced major axis (RMA) slope estimates calculated from within- and across-PFT covariance matrix estimates from the hierarchical model.
+The slope numerator ($y$) is the outer trait and the denominator ($x$) is the inner trait (so in the top row, the slope is $\Delta(\textrm{leaf lifespan}) / \Delta(\textrm{SLA})$).
+Blue colors indicate positive slopes and red colors indicate negative slopes, with darker shades indicating steeper slopes.
+Asterisks (``*'') indicate slopes whose 95\% credible intervals do not overlap zero.
+
+\vspace{\baselineskip}
+
+\noindent Figure 2:
+Mean and 95\% credible interval on best estimates of traits for each plant functional type from the hierarchical model.
+For leaf lifespan and SLA, results were similar whether the other traits were normalized by mass- or area-, so only results from the mass-based fit are shown.
+Values and uncertainties for estimates from the hierarchical model are reported in Appendix S2, tables S1 and S2.
+
+\vspace{\baselineskip}
+
+\noindent Figure 3:
+Normalized mean root mean square error (RMSE) estimates from 20-fold cross-validation, by model and trait.
+Normalization is such that the highest RMSE for a given trait-model combination is 1.
+Model abbreviations are as follows:
+`uni' is the univariate model fit separately to each PFT;\@
+`multi' is the multivariate model fit separately to each PFT;\@
+and `hier' is the hierarchical model.
+
+\vspace{\baselineskip}
+
+\noindent Figure 4:
+Relative uncertainty in PFT-level trait estimates as a function of sample size for each model type.
+Lines represent linear models ($\log(y) = b_0 + b_1 \log(x)$) fit independently for each model type.
+In general, differences in estimate uncertainty between the univariate and multivariate models were minimal at large sample sizes but increasingly important at low sample sizes.
+However, differences in estimate uncertainty between the multivariate and hierarchical models were consistently negligible.
+
+\pagebreak
+
+\noindent
+\textbf{Author contributions:}
+ANS wrote the manuscript and implemented the analysis.
+ANS and EMC designed the analysis and figures.
+MCD conceived the original idea for the manuscript, guided its development, and provided financial support.
+MB, SJ, KK, ÜN, and NAS provided extensive feedback on multiple drafts of the manuscript, and contributed data.
+CB and YO contributed data.
+
+\noindent
+\textbf{Data accessibility:}
+The R code and ancillary data for running these analyses is publicly available online via the Open Science Framework at https://osf.io/w8y73/.
+The TRY data request used for this analysis has been archived at http://try-db.org,
+and can be retrieved by providing the TRY data request ID (\#1584).
+Alternatively, the exact pre-formatted data used in this analysis are available on request to Alexey Shiklomanov (alexey.shiklomanov@pnnl.gov).
+
+\end{document}

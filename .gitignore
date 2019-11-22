@@ -1,8 +1,6 @@
 *.bbl
 *.pdf
 *.tex
-!AppendixS1.tex
-!authors.tex
 
 auto/
 try_references.csv
@@ -19,3 +17,8 @@ try_references.csv
 *.run.xml
 *.fls
 *.xdv
+
+# Do include these tex files
+!shiklomanov_formatted.tex
+!authors.tex
+!AppendixS1.tex
