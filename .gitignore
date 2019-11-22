@@ -18,3 +18,4 @@ try_references.csv
 *.fdb_latexmk
 *.run.xml
 *.fls
+*.xdv
