@@ -1,0 +1,12 @@
+- [X] Please provide the main manuscript in Word or PDF+LaTeX format. Word is preferred. Figures and appendices may remain in PDF format.
+
+- See Items 1, 8, 9, and 10 in the Checklist for Authors below:
+
+- [X] Item 1: LaTeX
+- [X] Item 8: Word tables
+- [X] Item 9: Figure resolution
+- [X] Item 10: Supporting information
+
+- [X] Move the Key Words to follow the Abstract.
+
+- [X] Some information from Section 2.5 "Data and code availability" must be provided in an additional format to create the journal's required "Data Availability" statement. You can retain Section 2.5 in the main text. Please provide a shortened version directly following the Literature Citations that reads...
